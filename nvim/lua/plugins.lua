@@ -16,7 +16,6 @@ require('packer').startup(function(use)
   use {
     'hrsh7th/nvim-cmp',
     module = 'cmp',
-    branch = 'dev',
     event = 'InsertEnter',
     requires = {
       { 'hrsh7th/cmp-nvim-lsp' },

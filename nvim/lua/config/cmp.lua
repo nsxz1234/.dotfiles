@@ -1,5 +1,9 @@
 return function()
   local cmp = require 'cmp'
+
+  local api = vim.api
+  local t = as.replace_termcodes
+
   cmp.setup {
     snippet = {
       expand = function(args)
@@ -9,11 +13,7 @@ return function()
 
     mapping = {
       ['<c-h>'] = cmp.mapping(function()
-        vim.api.nvim_feedkeys(
-          vim.fn['copilot#Accept'](vim.api.nvim_replace_termcodes('<Tab>', true, true, true)),
-          'n',
-          true
-        )
+        api.nvim_feedkeys(vim.fn['copilot#Accept'](t '<Tab>'), 'n', true)
       end),
       ['<C-p>'] = cmp.mapping.select_prev_item(),
       ['<C-n>'] = cmp.mapping.select_next_item(),
@@ -34,6 +34,9 @@ return function()
     }),
   }
   local search_sources = {
+    view = {
+      entries = { name = 'custom', direction = 'bottom_up' },
+    },
     sources = cmp.config.sources({
       { name = 'nvim_lsp_document_symbol' },
     }, {
