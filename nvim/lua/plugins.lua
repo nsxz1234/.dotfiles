@@ -407,11 +407,11 @@ local lazygit = Terminal:new {
     border = 'curved',
   },
 }
-function Toggle()
+function Lazygit_Toggle()
   lazygit:toggle()
 end
 
-vim.keymap.set('n', '<leader>v', ':lua Toggle()<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>v', ':lua Lazygit_Toggle()<CR>', { noremap = true, silent = true })
 
 -- nvim-colorizer.lua
 require('colorizer').setup()
