@@ -1,0 +1,10 @@
+--- a/lua/plugins.lua
++++ b/lua/plugins.lua
+@@ -63,6 +63,7 @@ require("packer").startup(function()
+   use {'mfussenegger/nvim-dap', requires = 'rcarriga/nvim-dap-ui'}
+   use 'simrat39/symbols-outline.nvim'
+   use 'goolord/alpha-nvim'
++  use 'Shatur/neovim-session-manager'
+ end)
+ 
+ vim.opt.inccommand = 'nosplit'

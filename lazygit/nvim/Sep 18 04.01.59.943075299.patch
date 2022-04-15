@@ -1,0 +1,10 @@
+--- a/lua/plugins.lua
++++ b/lua/plugins.lua
+@@ -67,7 +67,6 @@ require("packer").startup(function()
+   use 'p00f/nvim-ts-rainbow'
+   use 'romgrk/nvim-treesitter-context'
+   use 'phaazon/hop.nvim'
+-  -- use 'mfussenegger/nvim-dap'
+ end)
+ 
+ vim.opt.inccommand = 'nosplit'

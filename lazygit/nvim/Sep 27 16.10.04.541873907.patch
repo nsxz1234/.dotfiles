@@ -1,0 +1,7 @@
+--- a/lua/plugins.lua
++++ b/lua/plugins.lua
+@@ -381,3 +381,4 @@ vim.g.translator_default_engines = { 'bing', 'haici' }
+ 
+ -- alpha-nvim
+ require'alpha'.setup(require'alpha.themes.startify'.opts)
++-- neovim-session-manager

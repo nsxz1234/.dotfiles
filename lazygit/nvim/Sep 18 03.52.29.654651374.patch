@@ -1,0 +1,11 @@
+--- a/lua/plugins.lua
++++ b/lua/plugins.lua
+@@ -38,7 +38,8 @@ require("packer").startup(function()
+   -- use 'junegunn/fzf.vim'
+   use {'akinsho/nvim-bufferline.lua', config = conf 'config/bufferline'}
+   use 'windwp/nvim-autopairs'
+   -- use 'lukas-reineke/indent-blankline.nvim'
++  use 'lukas-reineke/indent-blankline.nvim'
+   use 'kyazdani42/nvim-web-devicons'
+   use 'ryanoasis/vim-devicons'
+   use 'kyazdani42/nvim-tree.lua'

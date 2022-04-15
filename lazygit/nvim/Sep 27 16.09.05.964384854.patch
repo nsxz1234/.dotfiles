@@ -1,0 +1,10 @@
+--- a/lua/keymaps.lua
++++ b/lua/keymaps.lua
+@@ -81,6 +81,7 @@ keymap('n', 'gi', ':Telescope lsp_implementations<cr>', nor)
+ keymap('n', 'fp', ':lua require("telescope").extensions.neoclip.default()<cr>', opts)
+ 
+ -- neovim-session-manager
++keymap('n', 'fs', ':lua require("telescope").extensions.sessions.sessions()<cr>', opts)
+ -- lsp-fastaction
+ keymap('n', '<leader>a', '<cmd>lua require("lsp-fastaction").code_action()<CR>', opts)
+ keymap('v', '<leader>a', '<esc><cmd>lua require("lsp-fastaction").range_code_action()<CR>', opts)
