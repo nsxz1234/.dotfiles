@@ -95,7 +95,7 @@ keymap(
 keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 keymap('n', '_', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 keymap('n', '+', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-keymap('n', 'F', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+keymap('n', 'F', '<cmd>lua vim.lsp.buf.formatting_sync()<CR>', opts)
 
 -- trouble.nvim
 keymap('n', 'gr', '<cmd>TroubleToggle lsp_references<cr>', opts)

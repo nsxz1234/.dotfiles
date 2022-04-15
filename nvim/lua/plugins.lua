@@ -12,7 +12,7 @@ require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'sainnhe/everforest'
   use { 'neovim/nvim-lspconfig', config = conf 'lspconfig' }
-  use 'lukas-reineke/lsp-format.nvim'
+  -- use 'lukas-reineke/lsp-format.nvim'
   use {
     'hrsh7th/nvim-cmp',
     module = 'cmp',
@@ -551,11 +551,21 @@ require('hop').setup()
 -- null-ls
 require('null-ls').setup {
   sources = {
-    require('null-ls').builtins.code_actions.gitsigns,
+    require('null-ls').builtins.code_actions.gitsigns, -- dart formatting
     require('null-ls').builtins.diagnostics.zsh,
     require('null-ls').builtins.formatting.stylua, -- install stylua
     require('null-ls').builtins.formatting.prettier.with {
       filetypes = { 'html', 'json', 'yaml', 'graphql', 'markdown' },
     }, -- install prettier
   },
+  on_attach = function(client)
+    if client.resolved_capabilities.document_formatting then
+      vim.cmd [[
+            augroup LspFormatting
+                autocmd! * <buffer>
+                autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+            augroup END
+            ]]
+    end
+  end,
 }

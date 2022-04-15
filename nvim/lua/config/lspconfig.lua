@@ -1,8 +1,9 @@
 return function()
-  require("lsp-format").setup {}
-
   local on_attach = function(client, bufnr)
-    require "lsp-format".on_attach(client)
+    if client.name ~= 'dartls' then
+      client.resolved_capabilities.document_formatting = false
+      client.resolved_capabilities.document_range_formatting = false
+    end
 
     -- Highlight symbol under cursor
     if client.resolved_capabilities.document_highlight then
