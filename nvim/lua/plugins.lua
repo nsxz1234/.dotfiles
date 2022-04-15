@@ -158,7 +158,7 @@ vim.opt.updatetime = 250
 vim.opt.timeoutlen = 500
 vim.opt.splitright = true
 vim.opt.splitbelow = true
-vim.o.switchbuf = 'useopen,uselast'
+vim.opt.switchbuf = 'useopen,uselast'
 vim.opt.swapfile = false
 vim.opt.undofile = true
 vim.opt.undodir = vim.fn.stdpath 'cache' .. '/undo'
@@ -407,16 +407,11 @@ local lazygit = Terminal:new {
     border = 'curved',
   },
 }
-function _lazygit_toggle()
+function Toggle()
   lazygit:toggle()
 end
 
-vim.api.nvim_set_keymap(
-  'n',
-  '<leader>v',
-  ':lua _lazygit_toggle()<CR>',
-  { noremap = true, silent = true }
-)
+vim.keymap.set('n', '<leader>v', ':lua Toggle()<CR>', { noremap = true, silent = true })
 
 -- nvim-colorizer.lua
 require('colorizer').setup()

@@ -1,4 +1,4 @@
-local keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 local nor = { noremap = true }
 local opts = { noremap = true, silent = true }
 
@@ -103,10 +103,18 @@ keymap('n', 'gi', '<cmd>TroubleToggle lsp_implementations<cr>', nor)
 keymap('n', 'gq', '<cmd>TroubleToggle workspace_diagnostics<cr>', opts)
 
 -- vsnip
-keymap('i', '<Tab>', "vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'", { expr = true })
-keymap('s', '<Tab>', "vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'", { expr = true })
-keymap('i', '<S-Tab>', "vsnip#jumpable(1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'", { expr = true })
-keymap('s', '<S-Tab>', "vsnip#jumpable(1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'", { expr = true })
+keymap(
+  { 'i', 's' },
+  '<Tab>',
+  "vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'",
+  { expr = true }
+)
+keymap(
+  { 'i', 's' },
+  '<S-Tab>',
+  "vsnip#jumpable(1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'",
+  { expr = true }
+)
 
 -- nvim-tree
 keymap('n', 'tt', '<cmd>lua require("nvim-tree").toggle()<CR>', opts)
@@ -118,8 +126,7 @@ keymap('n', 'ts', ':SymbolsOutline<cr>', opts)
 keymap('n', 'tu', ':UndotreeToggle<cr>', opts)
 
 -- vim-translator
-keymap('n', 'tr', ':TranslateW<cr>', opts)
-keymap('v', 'tr', ':TranslateW<cr>', opts)
+keymap({ 'n', 'v' }, 'tr', ':TranslateW<cr>', opts)
 
 -- flutter
 keymap('n', '<leader>fr', ':FlutterRestart<cr>', nor)
