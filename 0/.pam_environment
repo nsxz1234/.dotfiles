@@ -1,0 +1,22 @@
+GTK_IM_MODULE DEFAULT=fcitx
+QT_IM_MODULE  DEFAULT=fcitx
+XMODIFIERS    DEFAULT=\@im=fcitx
+INPUT_METHOD  DEFAULT=fcitx
+SDL_IM_MODULE DEFAULT=fcitx
+
+# flameshot截图位置错误
+#QT_AUTO_SCREEN_SCALE_FACTOR=0
+
+#打不开虚拟机
+#QT_QPA_PLATFORM=wayland
+
+#设置默认编辑器neovim
+VISUAL=/usr/bin/nvim
+EDITOR=/usr/bin/nvim
+
+#wayland环境firefox需要配置
+MOZ_ENABLE_WAYLAND=1
+
+#wayland环境java程序需要配置
+_JAVA_AWT_WM_NONREPARENTING=1
+
