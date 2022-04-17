@@ -23,6 +23,8 @@ alias v='nvim'
 alias lg='lazygit'
 alias ra='ranger'
 
+bindkey -s '^[f' '^ucd "$(dirname "$(fzf)")"\n'
+
 # flutter
 export CHROME_EXECUTABLE=/usr/bin/brave
 export PUB_HOSTED_URL=https://pub.flutter-io.cn
@@ -31,7 +33,7 @@ export PATH=~/flutter/bin:$PATH
 export PATH=~/Android/Sdk/platform-tools:$PATH
 
 # cargo
-PATH=$PATH:~/.cargo/bin
+export PATH=$PATH:~/.cargo/bin
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
