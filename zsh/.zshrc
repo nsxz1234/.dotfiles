@@ -22,6 +22,7 @@ alias l="ls -la"
 alias v='nvim'
 alias lg='lazygit'
 alias ra='ranger'
+alias n="n -de"
 
 bindkey -s '^[f' '^ucd "$(dirname "$(fzf)")"\n'
 
