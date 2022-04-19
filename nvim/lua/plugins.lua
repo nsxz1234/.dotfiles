@@ -12,7 +12,6 @@ require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'sainnhe/everforest'
   use { 'neovim/nvim-lspconfig', config = conf 'lspconfig' }
-  -- use 'lukas-reineke/lsp-format.nvim'
   use {
     'hrsh7th/nvim-cmp',
     module = 'cmp',
