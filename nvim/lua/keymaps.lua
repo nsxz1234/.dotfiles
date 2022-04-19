@@ -75,28 +75,6 @@ keymap('n', 'fs', ':SessionManager load_session<cr>', opts)
 keymap('n', '<leader>ss', ':SessionManager save_current_session<cr>', nor)
 keymap('n', '<leader>sd', ':SessionManager delete_session<cr>', nor)
 
--- LSP settings
-keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-keymap('n', 'gk', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-keymap('n', 'ge', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-keymap('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-keymap('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-keymap('n', '<leader>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-keymap('v', '<leader>a', '<esc><cmd>lua vim.lsp.buf.range_code_action()<CR>', opts)
-keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-keymap(
-  'n',
-  '<space>wl',
-  '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>',
-  opts
-)
-keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-keymap('n', '_', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-keymap('n', '+', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-keymap('n', 'F', '<cmd>lua vim.lsp.buf.formatting_sync()<CR>', opts)
-
 -- trouble.nvim
 keymap('n', 'gr', '<cmd>TroubleToggle lsp_references<cr>', opts)
 keymap('n', 'gi', '<cmd>TroubleToggle lsp_implementations<cr>', nor)

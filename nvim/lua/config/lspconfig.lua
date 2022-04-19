@@ -1,5 +1,29 @@
 return function()
+  local keymap = vim.keymap.set
+  keymap('n', 'ge', '<cmd>lua vim.diagnostic.open_float()<CR>')
+  keymap('n', '_', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
+  keymap('n', '+', '<cmd>lua vim.diagnostic.goto_next()<CR>')
+
   local on_attach = function(client, bufnr)
+    local opts = { buffer = bufnr }
+    keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+    keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+    keymap('n', 'gk', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+    keymap('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+    keymap({ 'n', 'i' }, '<c-g>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+    keymap('n', '<leader>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+    keymap('v', '<leader>a', '<esc><cmd>lua vim.lsp.buf.range_code_action()<CR>', opts)
+    keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+    keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+    keymap(
+      'n',
+      '<space>wl',
+      '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>',
+      opts
+    )
+    keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+    keymap('n', 'F', '<cmd>lua vim.lsp.buf.formatting_sync()<CR>', opts)
+
     if client.name ~= 'dartls' then
       client.resolved_capabilities.document_formatting = false
       client.resolved_capabilities.document_range_formatting = false
