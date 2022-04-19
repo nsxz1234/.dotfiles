@@ -568,3 +568,6 @@ require('null-ls').setup {
     end
   end,
 }
+
+as.nnoremap('<leader>ps', '<Cmd>PackerSync<CR>')
+as.nnoremap('<leader>pc', '<Cmd>PackerClean<CR>')
