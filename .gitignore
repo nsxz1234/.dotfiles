@@ -6,3 +6,5 @@ credentials.*
 .nvimlog
 
 lazygit/state.yml
+
+__pycache__
