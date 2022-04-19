@@ -83,6 +83,19 @@ require('packer').startup(function(use)
   use { 'rcarriga/nvim-notify', config = conf 'notify' }
   use 'folke/lua-dev.nvim'
   use {
+    'is0n/fm-nvim',
+    config = function()
+      require('fm-nvim').setup {
+        ui = {
+          float = {
+            border = 'rounded',
+          },
+        },
+      }
+      as.nnoremap('<leader>e', '<cmd>Nnn<CR>')
+    end,
+  }
+  use {
     'mg979/vim-visual-multi',
     config = function()
       vim.g.VM_highlight_matches = 'underline'
