@@ -6,6 +6,9 @@ return function()
         enabled = true,
       },
     },
+    triggers_blacklist = {
+      i = { ',', ';' },
+    },
   }
 
   wk.register {
