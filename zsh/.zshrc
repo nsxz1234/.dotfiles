@@ -27,7 +27,7 @@ alias l="ls -la"
 alias v='nvim'
 alias lg='lazygit'
 alias ra='ranger'
-alias n="n -de"
+alias n="n -e"
 
 # flutter
 export CHROME_EXECUTABLE=/usr/bin/brave
