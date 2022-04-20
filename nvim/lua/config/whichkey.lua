@@ -8,6 +8,7 @@ return function()
     },
     triggers_blacklist = {
       i = { ',', ';' },
+      n = { 'v' },
     },
   }
 
