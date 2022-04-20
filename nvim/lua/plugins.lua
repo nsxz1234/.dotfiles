@@ -95,13 +95,18 @@ require('packer').startup(function(use)
     'github/copilot.vim',
     config = function()
       vim.g.copilot_no_tab_map = true
-      vim.cmd [[imap <expr> <Plug>(vimrc:copilot-dummy-map) copilot#Accept("\<Tab>")]]
+      as.imap('<Plug>(as-copilot-accept)', "copilot#Accept('<Tab>')", { expr = true })
+      as.inoremap('<M-]>', '<Plug>(copilot-next)')
+      as.inoremap('<M-[>', '<Plug>(copilot-previous)')
+      as.inoremap('<C-\\>', '<Cmd>vertical Copilot panel<CR>')
+
       vim.g.copilot_filetypes = {
-        ['*'] = false,
+        ['*'] = true,
         gitcommit = false,
         NeogitCommitMessage = false,
-        dart = true,
-        lua = true,
+        DressingInput = false,
+        ['neo-tree-popup'] = false,
+        -- dart = false,
       }
     end,
   }
