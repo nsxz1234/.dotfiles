@@ -11,39 +11,13 @@ end
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'sainnhe/everforest'
+  use 'nvim-lua/plenary.nvim'
   use { 'neovim/nvim-lspconfig', config = conf 'lspconfig' }
-  use {
-    'hrsh7th/nvim-cmp',
-    module = 'cmp',
-    event = 'InsertEnter',
-    requires = {
-      { 'hrsh7th/cmp-nvim-lsp' },
-      { 'hrsh7th/cmp-nvim-lsp-document-symbol', after = 'nvim-cmp' },
-      { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' },
-      { 'f3fora/cmp-spell', after = 'nvim-cmp' },
-      { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
-      { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
-      { 'petertriho/cmp-git', after = 'nvim-cmp' },
-      { 'hrsh7th/cmp-vsnip', after = 'nvim-cmp' },
-    },
-    config = conf 'cmp',
-  }
   use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/vim-vsnip-integ'
   use 'rafamadriz/friendly-snippets'
-  use {
-    'akinsho/flutter-tools.nvim',
-    requires = 'nvim-lua/plenary.nvim',
-  }
+  use 'akinsho/flutter-tools.nvim'
   use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' }
-  use {
-    'nvim-telescope/telescope-fzf-native.nvim',
-    run = 'make',
-    config = function()
-      require('telescope').load_extension 'fzf'
-    end,
-  }
-  -- use 'junegunn/fzf.vim'
   use { 'akinsho/nvim-bufferline.lua', config = conf 'bufferline' }
   use 'windwp/nvim-autopairs'
   use 'lukas-reineke/indent-blankline.nvim'
@@ -54,20 +28,11 @@ require('packer').startup(function(use)
   use 'tpope/vim-surround'
   use 'mbbill/undotree'
   use 'nvim-lualine/lualine.nvim'
-  use { 'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim' }
-  use { 'instant-markdown/vim-instant-markdown' }
+  use 'lewis6991/gitsigns.nvim'
+  use 'instant-markdown/vim-instant-markdown'
   use 'akinsho/nvim-toggleterm.lua'
   use 'voldikss/vim-translator'
   use 'norcalli/nvim-colorizer.lua'
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
-    requires = {
-      { 'p00f/nvim-ts-rainbow', after = 'nvim-treesitter' },
-      { 'nvim-treesitter/nvim-treesitter-textobjects', after = 'nvim-treesitter' },
-      { 'nvim-treesitter/nvim-treesitter-refactor', after = 'nvim-treesitter' },
-    },
-  }
   use 'ahmedkhalf/project.nvim'
   use 'AndrewRadev/splitjoin.vim'
   use 'AckslD/nvim-neoclip.lua'
@@ -152,6 +117,38 @@ require('packer').startup(function(use)
     config = function()
       require('pubspec-assist').setup()
     end,
+  }
+  use {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    run = 'make',
+    config = function()
+      require('telescope').load_extension 'fzf'
+    end,
+  }
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+    requires = {
+      { 'p00f/nvim-ts-rainbow', after = 'nvim-treesitter' },
+      { 'nvim-treesitter/nvim-treesitter-textobjects', after = 'nvim-treesitter' },
+      { 'nvim-treesitter/nvim-treesitter-refactor', after = 'nvim-treesitter' },
+    },
+  }
+  use {
+    'hrsh7th/nvim-cmp',
+    module = 'cmp',
+    event = 'InsertEnter',
+    requires = {
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'hrsh7th/cmp-nvim-lsp-document-symbol', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' },
+      { 'f3fora/cmp-spell', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
+      { 'petertriho/cmp-git', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-vsnip', after = 'nvim-cmp' },
+    },
+    config = conf 'cmp',
   }
 end)
 
