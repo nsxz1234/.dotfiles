@@ -13,18 +13,21 @@ plugins=(
   git
 )
 
+# zsh
 source $ZSH/oh-my-zsh.sh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# fzf (after zsh)
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
 
 alias l="ls -la"
 alias v='nvim'
 alias lg='lazygit'
 alias ra='ranger'
 alias n="n -de"
-
-bindkey -s '^[f' '^ucd "$(dirname "$(fzf)")"\n'
 
 # flutter
 export CHROME_EXECUTABLE=/usr/bin/brave

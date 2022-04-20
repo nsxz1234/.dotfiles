@@ -8,3 +8,7 @@ if [ -f /usr/share/nnn/quitcd/quitcd.bash_zsh ]; then
     source /usr/share/nnn/quitcd/quitcd.bash_zsh
 fi
 
+# fzf
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
+export FZF_DEFAULT_OPTS="--history=$HOME/.fzf_history"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
