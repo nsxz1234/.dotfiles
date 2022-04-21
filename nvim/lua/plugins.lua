@@ -24,7 +24,6 @@ require('packer').startup(function(use)
   use 'kyazdani42/nvim-web-devicons'
   use 'ryanoasis/vim-devicons'
   use 'kyazdani42/nvim-tree.lua'
-  use 'gcmt/wildfire.vim'
   use 'tpope/vim-surround'
   use 'mbbill/undotree'
   use 'nvim-lualine/lualine.nvim'
@@ -47,6 +46,7 @@ require('packer').startup(function(use)
   use 'folke/trouble.nvim'
   use { 'rcarriga/nvim-notify', config = conf 'notify' }
   use 'folke/lua-dev.nvim'
+  use 'wellle/targets.vim'
   use {
     'is0n/fm-nvim',
     config = function()
@@ -168,8 +168,9 @@ vim.opt.scrolloff = 5
 vim.opt.hidden = true
 vim.opt.mouse = 'a'
 vim.opt.shortmess:append 'c'
-vim.opt.updatetime = 250
+vim.opt.updatetime = 300
 vim.opt.timeoutlen = 500
+vim.opt.ttimeoutlen = 10
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.switchbuf = 'useopen,uselast'
