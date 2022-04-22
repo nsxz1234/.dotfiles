@@ -167,7 +167,6 @@ vim.opt.relativenumber = true
 vim.opt.scrolloff = 5
 vim.opt.hidden = true
 vim.opt.mouse = 'a'
-vim.opt.shortmess:append 'c'
 vim.opt.updatetime = 300
 vim.opt.timeoutlen = 500
 vim.opt.ttimeoutlen = 10
@@ -189,6 +188,18 @@ vim.opt.signcolumn = 'number'
 vim.opt.ruler = false
 vim.opt.autowriteall = true
 vim.opt.guifont = 'FantasqueSansMono Nerd Font:h16'
+vim.opt.shortmess = {
+  t = true, -- truncate file messages at start
+  A = true, -- ignore annoying swap file messages
+  o = true, -- file-read message overwrites previous
+  O = true, -- file-read message overwrites previous
+  T = true, -- truncate non-file messages in middle
+  f = true, -- (file x of x) instead of just (x of x
+  F = true, -- Don't give file info when editing a file, NOTE: this breaks autocommand messages
+  s = true,
+  c = true,
+  W = true, -- Don't show [w] or written when writing
+}
 
 -- dap
 if vim.env.DEVELOPING then
@@ -212,15 +223,7 @@ vim.api.nvim_exec(
 )
 
 -- Gitsigns
-require('gitsigns').setup {
-  signs = {
-    add = { hl = 'GitGutterAdd', text = '│' },
-    change = { hl = 'GitGutterChange', text = '│' },
-    delete = { hl = 'GitGutterDelete', text = '_' },
-    topdelete = { hl = 'GitGutterDelete', text = '‾' },
-    changedelete = { hl = 'GitGutterChange', text = '~' },
-  },
-}
+require('gitsigns').setup {}
 
 -- comment
 require('Comment').setup {}
@@ -301,7 +304,6 @@ require('indent_blankline').setup {
 local actions = require 'telescope.actions'
 require('telescope').setup {
   defaults = {
-    prompt_prefix = '  ',
     sorting_strategy = 'ascending',
     layout_strategy = 'vertical',
     layout_config = {
