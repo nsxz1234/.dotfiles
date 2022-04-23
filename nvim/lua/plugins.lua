@@ -187,6 +187,27 @@ require('packer').startup(function(use)
     config = conf 'luasnip',
   }
   use 'rafamadriz/friendly-snippets'
+  --
+  -- Git
+  --
+  use {
+    'ruifm/gitlinker.nvim',
+    requires = 'plenary.nvim',
+    keys = { '<leader>gu', '<leader>go' },
+    setup = function()
+      require('which-key').register(
+        { gu = 'gitlinker: get line url', go = 'gitlinker: open repo url' },
+        { prefix = '<leader>' }
+      )
+    end,
+    config = function()
+      local linker = require 'gitlinker'
+      linker.setup { mappings = '<leader>gu' }
+      as.nnoremap('<leader>go', function()
+        linker.get_repo_url { action_callback = require('gitlinker.actions').open_in_browser }
+      end)
+    end,
+  }
 end)
 
 vim.opt.inccommand = 'nosplit'
