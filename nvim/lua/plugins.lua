@@ -45,6 +45,13 @@ require('packer').startup(function(use)
   use 'folke/lua-dev.nvim'
   use 'wellle/targets.vim'
   use {
+    'ilAYAli/scMRU.nvim',
+    cmd = { 'Mfu', 'Mru' },
+    setup = function()
+      as.nnoremap('fu', '<Cmd>Mfu<CR>', 'most frequently used')
+    end,
+  }
+  use {
     'is0n/fm-nvim',
     config = function()
       require('fm-nvim').setup {
