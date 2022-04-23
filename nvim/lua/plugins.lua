@@ -11,8 +11,6 @@ end
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use { 'neovim/nvim-lspconfig', config = conf 'lspconfig' }
-  use 'hrsh7th/vim-vsnip'
-  use 'hrsh7th/vim-vsnip-integ'
   use 'nvim-lua/plenary.nvim'
   use 'akinsho/flutter-tools.nvim'
   use 'sainnhe/everforest'
@@ -150,9 +148,16 @@ require('packer').startup(function(use)
       { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
       { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
       { 'petertriho/cmp-git', after = 'nvim-cmp' },
-      { 'hrsh7th/cmp-vsnip', after = 'nvim-cmp' },
+      { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' },
     },
     config = conf 'cmp',
+  }
+  use {
+    'L3MON4D3/LuaSnip',
+    event = 'InsertEnter',
+    module = 'luasnip',
+    requires = 'rafamadriz/friendly-snippets',
+    config = conf 'luasnip',
   }
   use 'rafamadriz/friendly-snippets'
 end)
@@ -403,9 +408,6 @@ require('nvim-tree').setup {
 vim.g.instant_markdown_slow = 1
 vim.g.instant_markdown_autostart = 0
 vim.g.instant_markdown_autoscroll = 1
-
--- vsnip
-vim.g.vsnip_snippet_dir = '$HOME/.config/nvim/snippets'
 
 -- toggleterm
 require('toggleterm').setup {

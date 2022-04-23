@@ -79,20 +79,6 @@ keymap('n', 'gr', '<cmd>TroubleToggle lsp_references<cr>', opts)
 keymap('n', 'gi', '<cmd>TroubleToggle lsp_implementations<cr>', nor)
 keymap('n', 'gq', '<cmd>TroubleToggle workspace_diagnostics<cr>', opts)
 
--- vsnip
-keymap(
-  { 'i', 's' },
-  '<Tab>',
-  "vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'",
-  { expr = true }
-)
-keymap(
-  { 'i', 's' },
-  '<S-Tab>',
-  "vsnip#jumpable(1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'",
-  { expr = true }
-)
-
 -- nvim-tree
 keymap('n', 'tt', '<cmd>lua require("nvim-tree").toggle()<CR>', opts)
 

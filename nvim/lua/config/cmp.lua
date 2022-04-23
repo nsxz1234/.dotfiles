@@ -4,11 +4,33 @@ return function()
   local api = vim.api
   local t = as.replace_termcodes
 
+  local function tab(fallback)
+    local ok, luasnip = as.safe_require('luasnip', { silent = true })
+    if cmp.visible() then
+      cmp.select_next_item()
+    elseif ok and luasnip.expand_or_locally_jumpable() then
+      luasnip.expand_or_jump()
+    else
+      fallback()
+    end
+  end
+
+  local function shift_tab(fallback)
+    local ok, luasnip = as.safe_require('luasnip', { silent = true })
+    if cmp.visible() then
+      cmp.select_prev_item()
+    elseif ok and luasnip.jumpable(-1) then
+      luasnip.jump(-1)
+    else
+      fallback()
+    end
+  end
+
   cmp.setup {
     preselect = cmp.PreselectMode.None,
     snippet = {
       expand = function(args)
-        vim.fn['vsnip#anonymous'](args.body)
+        require('luasnip').lsp_expand(args.body)
       end,
     },
 
@@ -18,6 +40,8 @@ return function()
       end),
       ['<C-p>'] = cmp.mapping.select_prev_item(),
       ['<C-n>'] = cmp.mapping.select_next_item(),
+      ['<Tab>'] = cmp.mapping(tab, { 'i', 'c' }),
+      ['<S-Tab>'] = cmp.mapping(shift_tab, { 'i', 'c' }),
       ['<C-d>'] = cmp.mapping.scroll_docs(-4),
       ['<C-f>'] = cmp.mapping.scroll_docs(4),
       ['<C-Space>'] = cmp.mapping.complete(),
@@ -27,13 +51,14 @@ return function()
     },
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
-      { name = 'vsnip' },
+      { name = 'luasnip' },
       { name = 'path' },
       { name = 'spell' },
     }, {
       { name = 'buffer' },
     }),
   }
+
   local search_sources = {
     view = {
       entries = { name = 'custom', direction = 'bottom_up' },
