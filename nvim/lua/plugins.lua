@@ -10,13 +10,12 @@ end
 -- local use = require('packer').use
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
-  use 'sainnhe/everforest'
-  use 'nvim-lua/plenary.nvim'
   use { 'neovim/nvim-lspconfig', config = conf 'lspconfig' }
   use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/vim-vsnip-integ'
-  use 'rafamadriz/friendly-snippets'
+  use 'nvim-lua/plenary.nvim'
   use 'akinsho/flutter-tools.nvim'
+  use 'sainnhe/everforest'
   use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' }
   use { 'akinsho/nvim-bufferline.lua', config = conf 'bufferline' }
   use 'windwp/nvim-autopairs'
@@ -155,6 +154,7 @@ require('packer').startup(function(use)
     },
     config = conf 'cmp',
   }
+  use 'rafamadriz/friendly-snippets'
 end)
 
 vim.opt.inccommand = 'nosplit'
