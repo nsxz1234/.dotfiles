@@ -49,6 +49,14 @@ return function()
       ['<CR>'] = cmp.mapping.confirm { select = false },
       ['jj'] = cmp.mapping.confirm { select = true },
     },
+    formatting = {
+      format = function(entry, vim_item)
+        vim_item.dup = ({
+          luasnip = 0,
+        })[entry.source.name] or 0
+        return vim_item
+      end,
+    },
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
       { name = 'luasnip' },
