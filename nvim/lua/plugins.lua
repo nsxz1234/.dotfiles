@@ -130,6 +130,7 @@ require('packer').startup(function(use)
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
+    config = conf 'treesitter',
     requires = {
       { 'p00f/nvim-ts-rainbow', after = 'nvim-treesitter' },
       { 'nvim-treesitter/nvim-treesitter-textobjects', after = 'nvim-treesitter' },
@@ -434,81 +435,6 @@ vim.keymap.set('n', '<leader>v', ':lua Lazygit_Toggle()<CR>', { noremap = true, 
 
 -- nvim-colorizer.lua
 require('colorizer').setup()
-
--- treesitter
-require('nvim-treesitter.configs').setup {
-  ensure_installed = 'all',
-  highlight = {
-    enable = true, -- false will disable the whole extension
-  },
-  indent = {
-    enable = true,
-  },
-  textobjects = {
-    lookahead = true,
-    select = {
-      enable = true,
-      keymaps = {
-        ['af'] = '@function.outer',
-        ['if'] = '@function.inner',
-        ['ac'] = '@class.outer',
-        ['ic'] = '@class.inner',
-        ['aC'] = '@conditional.outer',
-        ['iC'] = '@conditional.inner',
-      },
-    },
-    swap = {
-      enable = true,
-      swap_next = {
-        ['[w'] = '@parameter.inner',
-      },
-      swap_previous = {
-        [']w'] = '@parameter.inner',
-      },
-    },
-    move = {
-      enable = true,
-      set_jumps = true, -- whether to set jumps in the jumplist
-      goto_next_start = {
-        [']m'] = '@function.outer',
-        [']]'] = '@class.outer',
-      },
-      goto_previous_start = {
-        ['[m'] = '@function.outer',
-        ['[['] = '@class.outer',
-      },
-    },
-    lsp_interop = {
-      enable = true,
-      border = 'rounded',
-      peek_definition_code = {
-        ['df'] = '@function.outer',
-        ['dF'] = '@class.outer',
-      },
-    },
-  },
-  rainbow = {
-    enable = true,
-    disable = { 'lua', 'json', 'html' },
-    colors = {
-      'royalblue3',
-      'darkorange3',
-      'seagreen3',
-      'firebrick',
-      'darkorchid3',
-    },
-    autopairs = { enable = true },
-  },
-  refactor = {
-    navigation = {
-      enable = true,
-      keymaps = {
-        goto_next_usage = '<C-n>',
-        goto_previous_usage = '<C-p>',
-      },
-    },
-  },
-}
 
 -- project.nvim
 require('project_nvim').setup {
