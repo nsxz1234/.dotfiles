@@ -190,6 +190,17 @@ require('packer').startup(function(use)
     end,
   }
   use {
+    'pwntester/octo.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim',
+      'kyazdani42/nvim-web-devicons',
+    },
+    cmd = 'Octo',
+    keys = { '<leader>gi', '<leader>gp' },
+    config = conf 'octo',
+  }
+  use {
     'sindrets/diffview.nvim',
     cmd = { 'DiffviewOpen', 'DiffviewFileHistory' },
     module = 'diffview',
