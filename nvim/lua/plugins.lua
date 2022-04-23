@@ -197,7 +197,7 @@ require('packer').startup(function(use)
       'kyazdani42/nvim-web-devicons',
     },
     cmd = 'Octo',
-    keys = { '<leader>gi', '<leader>gp' },
+    keys = { '<leader>oi', '<leader>op' },
     config = conf 'octo',
   }
   use {

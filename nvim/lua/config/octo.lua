@@ -1,8 +1,8 @@
 return function()
   require('octo').setup()
   require('which-key').register({
-    gi = { '<Cmd>Octo issue list<CR>', 'issues' },
-    gp = { '<Cmd>Octo pr list<CR>', 'pull requests' },
+    oi = { '<Cmd>Octo issue list<CR>', 'issues' },
+    op = { '<Cmd>Octo pr list<CR>', 'pull requests' },
   }, { prefix = '<leader>' })
 
   as.augroup('OctoFT', {
