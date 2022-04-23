@@ -24,7 +24,6 @@ require('packer').startup(function(use)
   use 'tpope/vim-surround'
   use 'mbbill/undotree'
   use 'nvim-lualine/lualine.nvim'
-  use 'lewis6991/gitsigns.nvim'
   use 'instant-markdown/vim-instant-markdown'
   use 'akinsho/nvim-toggleterm.lua'
   use 'voldikss/vim-translator'
@@ -44,25 +43,6 @@ require('packer').startup(function(use)
   use { 'rcarriga/nvim-notify', config = conf 'notify' }
   use 'folke/lua-dev.nvim'
   use 'wellle/targets.vim'
-  use {
-    'sindrets/diffview.nvim',
-    cmd = { 'DiffviewOpen', 'DiffviewFileHistory' },
-    module = 'diffview',
-    keys = '<leader>dv',
-    setup = function()
-      require('which-key').register { ['<localleader>gd'] = 'diffview: diff HEAD' }
-    end,
-    config = function()
-      as.nnoremap('<leader>dv', '<Cmd>DiffviewOpen<CR>')
-      require('diffview').setup {
-        enhanced_diff_hl = true,
-        key_bindings = {
-          file_panel = { q = '<Cmd>DiffviewClose<CR>' },
-          view = { q = '<Cmd>DiffviewClose<CR>' },
-        },
-      }
-    end,
-  }
   use {
     'ilAYAli/scMRU.nvim',
     cmd = { 'Mfu', 'Mru' },
@@ -190,6 +170,7 @@ require('packer').startup(function(use)
   --
   -- Git
   --
+  use 'lewis6991/gitsigns.nvim'
   use {
     'ruifm/gitlinker.nvim',
     requires = 'plenary.nvim',
@@ -206,6 +187,25 @@ require('packer').startup(function(use)
       as.nnoremap('<leader>go', function()
         linker.get_repo_url { action_callback = require('gitlinker.actions').open_in_browser }
       end)
+    end,
+  }
+  use {
+    'sindrets/diffview.nvim',
+    cmd = { 'DiffviewOpen', 'DiffviewFileHistory' },
+    module = 'diffview',
+    keys = '<leader>dv',
+    setup = function()
+      require('which-key').register { ['<localleader>gd'] = 'diffview: diff HEAD' }
+    end,
+    config = function()
+      as.nnoremap('<leader>dv', '<Cmd>DiffviewOpen<CR>')
+      require('diffview').setup {
+        enhanced_diff_hl = true,
+        key_bindings = {
+          file_panel = { q = '<Cmd>DiffviewClose<CR>' },
+          view = { q = '<Cmd>DiffviewClose<CR>' },
+        },
+      }
     end,
   }
 end)
