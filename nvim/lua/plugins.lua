@@ -201,6 +201,14 @@ require('packer').startup(function(use)
     config = conf 'octo',
   }
   use {
+    'TimUntersberger/neogit',
+    cmd = 'Neogit',
+    keys = { '<leader>gs', '<leader>gc', '<leader>gp', '<leader>gP' },
+    requires = 'plenary.nvim',
+    setup = conf('neogit').setup,
+    config = conf('neogit').config,
+  }
+  use {
     'sindrets/diffview.nvim',
     cmd = { 'DiffviewOpen', 'DiffviewFileHistory' },
     module = 'diffview',
