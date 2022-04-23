@@ -5,6 +5,7 @@ return function()
   local t = as.replace_termcodes
 
   cmp.setup {
+    preselect = cmp.PreselectMode.None,
     snippet = {
       expand = function(args)
         vim.fn['vsnip#anonymous'](args.body)
@@ -43,11 +44,12 @@ return function()
       { name = 'buffer' },
     }),
   }
+
   cmp.setup.cmdline('/', search_sources)
   cmp.setup.cmdline('?', search_sources)
   cmp.setup.cmdline(':', {
     sources = cmp.config.sources {
-      { name = 'cmdline' },
+      { name = 'cmdline', keyword_pattern = [=[[^[:blank:]\!]*]=] },
     },
   })
 end
