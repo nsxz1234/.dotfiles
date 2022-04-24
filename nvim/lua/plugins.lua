@@ -29,7 +29,6 @@ require('packer').startup(function(use)
   use 'voldikss/vim-translator'
   use 'norcalli/nvim-colorizer.lua'
   use 'AndrewRadev/splitjoin.vim'
-  use 'AckslD/nvim-neoclip.lua'
   use 'phaazon/hop.nvim'
   use 'simrat39/symbols-outline.nvim'
   use 'Shatur/neovim-session-manager'
@@ -42,6 +41,20 @@ require('packer').startup(function(use)
   use { 'rcarriga/nvim-notify', config = conf 'notify' }
   use 'folke/lua-dev.nvim'
   use 'wellle/targets.vim'
+  use {
+    'AckslD/nvim-neoclip.lua',
+    config = function()
+      require('neoclip').setup {
+        enable_persistent_history = true,
+        keys = {
+          telescope = {
+            i = { select = '<cr>', paste = '<m-p>', paste_behind = '<m-P>' },
+            n = { select = '<cr>', paste = 'p', paste_behind = 'P' },
+          },
+        },
+      }
+    end,
+  }
   use {
     'ahmedkhalf/project.nvim',
     config = function()
@@ -533,25 +546,6 @@ vim.keymap.set('n', '<leader>v', ':lua Lazygit_Toggle()<CR>', { noremap = true, 
 
 -- nvim-colorizer.lua
 require('colorizer').setup()
-
-
--- nvim-neoclip
-require('neoclip').setup {
-  keys = {
-    telescope = {
-      i = {
-        select = '<cr>',
-        paste = '<m-p>',
-        paste_behind = '<m-P>',
-      },
-      n = {
-        select = '<cr>',
-        paste = 'p',
-        paste_behind = 'P',
-      },
-    },
-  },
-}
 
 -- vim-translator
 vim.g.translator_default_engines = { 'haici' }
