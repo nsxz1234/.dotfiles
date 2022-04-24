@@ -28,7 +28,6 @@ require('packer').startup(function(use)
   use 'akinsho/nvim-toggleterm.lua'
   use 'voldikss/vim-translator'
   use 'norcalli/nvim-colorizer.lua'
-  use 'ahmedkhalf/project.nvim'
   use 'AndrewRadev/splitjoin.vim'
   use 'AckslD/nvim-neoclip.lua'
   use 'phaazon/hop.nvim'
@@ -43,6 +42,23 @@ require('packer').startup(function(use)
   use { 'rcarriga/nvim-notify', config = conf 'notify' }
   use 'folke/lua-dev.nvim'
   use 'wellle/targets.vim'
+  use {
+    'ahmedkhalf/project.nvim',
+    config = function()
+      require('project_nvim').setup {
+        patterns = {
+          '.git',
+          '_darcs',
+          '.hg',
+          '.bzr',
+          '.svn',
+          'Makefile',
+          'package.json',
+          'pubspec.yaml',
+        },
+      }
+    end,
+  }
   use {
     'ilAYAli/scMRU.nvim',
     cmd = { 'Mfu', 'Mru' },
@@ -444,6 +460,7 @@ vim.g.nvim_tree_width_allow_resize = 1
 vim.g.nvim_tree_root_folder_modifier = ':t'
 vim.g.nvim_tree_highlight_opened_files = 1
 vim.g.nvim_tree_show_icons = { git = 1, folders = 1, files = 1 }
+vim.g.nvim_tree_respect_buf_cwd = 1
 
 require('nvim-tree').setup {
   view = {
@@ -517,22 +534,6 @@ vim.keymap.set('n', '<leader>v', ':lua Lazygit_Toggle()<CR>', { noremap = true, 
 -- nvim-colorizer.lua
 require('colorizer').setup()
 
--- project.nvim
-require('project_nvim').setup {
-  patterns = {
-    '.git',
-    '_darcs',
-    '.hg',
-    '.bzr',
-    '.svn',
-    'Makefile',
-    'package.json',
-    'pubspec.yaml',
-  },
-}
--- Telescope Integration
-vim.g.nvim_tree_respect_buf_cwd = 1
-require('telescope').load_extension 'projects'
 
 -- nvim-neoclip
 require('neoclip').setup {
