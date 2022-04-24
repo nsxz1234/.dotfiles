@@ -45,7 +45,7 @@ require('packer').startup(function(use)
     'AckslD/nvim-neoclip.lua',
     config = function()
       require('neoclip').setup {
-        enable_persistent_history = true,
+        -- enable_persistent_history = true,
         keys = {
           telescope = {
             i = { select = '<cr>', paste = '<m-p>', paste_behind = '<m-P>' },
