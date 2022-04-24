@@ -10,6 +10,7 @@ function R(name)
 end
 
 R 'globals'
+R 'styles'
 R 'keymaps'
 R 'plugins'
 
