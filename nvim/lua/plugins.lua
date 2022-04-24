@@ -248,17 +248,19 @@ require('packer').startup(function(use)
     'sindrets/diffview.nvim',
     cmd = { 'DiffviewOpen', 'DiffviewFileHistory' },
     module = 'diffview',
-    keys = '<leader>gd',
+    keys = { '<leader>gd', '<leader>gh' },
     setup = function()
       require('which-key').register { ['<leader>gd'] = 'diffview: diff HEAD' }
     end,
     config = function()
       as.nnoremap('<leader>gd', '<Cmd>DiffviewOpen<CR>')
+      as.nnoremap('<leader>gh', '<Cmd>DiffviewFileHistory<CR>')
       require('diffview').setup {
         enhanced_diff_hl = true,
         key_bindings = {
-          file_panel = { q = '<Cmd>DiffviewClose<CR>' },
           view = { q = '<Cmd>DiffviewClose<CR>' },
+          file_panel = { q = '<Cmd>DiffviewClose<CR>' },
+          file_history_panel = { q = '<Cmd>DiffviewClose<CR>' },
         },
       }
     end,
