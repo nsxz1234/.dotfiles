@@ -6,9 +6,7 @@ return function()
 
   local function tab(fallback)
     local ok, luasnip = as.safe_require('luasnip', { silent = true })
-    if cmp.visible() then
-      cmp.select_next_item()
-    elseif ok and luasnip.expand_or_locally_jumpable() then
+    if ok and luasnip.expand_or_locally_jumpable() then
       luasnip.expand_or_jump()
     else
       fallback()
@@ -17,9 +15,7 @@ return function()
 
   local function shift_tab(fallback)
     local ok, luasnip = as.safe_require('luasnip', { silent = true })
-    if cmp.visible() then
-      cmp.select_prev_item()
-    elseif ok and luasnip.jumpable(-1) then
+    if ok and luasnip.jumpable(-1) then
       luasnip.jump(-1)
     else
       fallback()
