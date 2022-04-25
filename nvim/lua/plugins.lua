@@ -1,3 +1,8 @@
+if as.plugin_installed 'everforest' then
+  vim.g.everforest_enable_italic = 1
+  vim.cmd 'colorscheme everforest'
+end
+
 local utils = require 'utils.plugins'
 local conf = utils.conf
 
@@ -331,11 +336,6 @@ vim.opt.shortmess = {
 if vim.env.DEVELOPING then
   vim.lsp.set_log_level(vim.lsp.log_levels.DEBUG)
 end
-
--- colorscheme
-vim.g.everforest_enable_italic = 1
-vim.g.everforest_disable_italic_comment = 1
-vim.cmd 'colorscheme everforest'
 
 -- Highlight on yank
 vim.api.nvim_exec(
