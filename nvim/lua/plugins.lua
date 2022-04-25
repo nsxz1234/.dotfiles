@@ -33,7 +33,6 @@ require('packer').startup(function(use)
   use 'akinsho/nvim-toggleterm.lua'
   use 'voldikss/vim-translator'
   use 'norcalli/nvim-colorizer.lua'
-  use 'AndrewRadev/splitjoin.vim'
   use 'phaazon/hop.nvim'
   use 'simrat39/symbols-outline.nvim'
   use 'Shatur/neovim-session-manager'
@@ -46,6 +45,16 @@ require('packer').startup(function(use)
   use { 'rcarriga/nvim-notify', config = conf 'notify' }
   use 'folke/lua-dev.nvim'
   use 'wellle/targets.vim'
+  use {
+    'AckslD/nvim-trevJ.lua',
+    config = 'require("trevj").setup()',
+    module = 'trevj',
+    setup = function()
+      as.nnoremap('S', function()
+        require('trevj').format_at_cursor()
+      end, { label = 'splitjoin: split' })
+    end,
+  }
   use {
     'nvim-pack/nvim-spectre',
     config = function()
