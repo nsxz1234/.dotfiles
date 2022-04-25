@@ -30,21 +30,23 @@ keymap('i', '<c-k>', '<Right>', nor)
 keymap('i', ';;', '<Right>;<Left><Left>', nor)
 keymap('i', ',,', '<Right>,<Left><Left>', nor)
 keymap('s', '<c-l>', '<esc>A', nor)
--- noremap <C-j> :call search('["\]'')}]','W')<CR>
 
 -- buffer management
 keymap('n', 'fd', ':bdelete %<cr>', nor)
 keymap('n', 'fD', ':BufferLinePickClose<cr>', nor)
-keymap('n', 'gb', ':BufferLinePick<cr>', nor)
 keymap('n', 'H', ':BufferLineCyclePrev<cr>', opts)
 keymap('n', 'L', ':BufferLineCycleNext<cr>', opts)
 keymap('n', '<m-H>', ':BufferLineMovePrev<CR>', opts)
 keymap('n', '<m-L>', ':BufferLineMoveNext<CR>', opts)
 
--- tab management
-keymap('n', 'ta', ':tabe<cr>', nor)
-keymap('n', '<m-h>', ':-tabnext<cr>', nor)
-keymap('n', '<m-l>', ':+tabnext<cr>', nor)
+-- tabedit
+keymap('n', 'te', ':tabe<cr>', opts)
+
+-- window navigation
+keymap('n', '<m-h>', '<C-w>h', opts)
+keymap('n', '<m-j>', '<C-w>j', opts)
+keymap('n', '<m-k>', '<C-w>k', opts)
+keymap('n', '<m-l>', '<C-w>l', opts)
 
 -- resize
 keymap('n', '<up>', ':res +5<cr>', nor)
