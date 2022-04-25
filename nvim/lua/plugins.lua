@@ -42,6 +42,14 @@ require('packer').startup(function(use)
   use 'folke/lua-dev.nvim'
   use 'wellle/targets.vim'
   use {
+    'nvim-pack/nvim-spectre',
+    config = function()
+      as.nnoremap('<leader>so', '<cmd>lua require("spectre").open()<CR>')
+      as.nnoremap('<leader>sw', '<cmd>lua require("spectre").open_visual({select_word=true})<CR>')
+      as.nnoremap('<leader>sp', 'viw:lua require("spectre").open_file_search()<cr>')
+    end,
+  }
+  use {
     'AckslD/nvim-neoclip.lua',
     config = function()
       require('neoclip').setup {
