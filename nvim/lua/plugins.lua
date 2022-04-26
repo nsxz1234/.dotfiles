@@ -336,6 +336,16 @@ vim.opt.signcolumn = 'number'
 vim.opt.ruler = false
 vim.opt.autowriteall = true
 vim.opt.guifont = 'FantasqueSansMono Nerd Font:h16'
+-----------------------------------------------------------------------------//
+-- Spelling {{{1
+-----------------------------------------------------------------------------//
+vim.opt.spell = true
+vim.opt.spellsuggest:prepend { 12 }
+vim.opt.spelloptions = 'camel'
+vim.opt.spellcapcheck = '' -- don't check for capital letters at start of sentence
+vim.opt.fileformats = { 'unix', 'mac', 'dos' }
+vim.opt.spelllang:append 'programming'
+
 vim.opt.shortmess = {
   t = true, -- truncate file messages at start
   A = true, -- ignore annoying swap file messages
