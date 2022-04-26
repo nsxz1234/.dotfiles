@@ -55,6 +55,19 @@ require('packer').startup(function(use)
     end,
   }
   use {
+    'j-hui/fidget.nvim',
+    config = function()
+      require('fidget').setup {
+        text = {
+          spinner = 'moon',
+        },
+        window = {
+          blend = 0,
+        },
+      }
+    end,
+  }
+  use {
     'AckslD/nvim-trevJ.lua',
     config = 'require("trevj").setup()',
     module = 'trevj',
