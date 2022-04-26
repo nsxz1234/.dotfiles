@@ -45,6 +45,7 @@ require('packer').startup(function(use)
   use { 'rcarriga/nvim-notify', config = conf 'notify' }
   use 'folke/lua-dev.nvim'
   use 'wellle/targets.vim'
+  use { 'psliwka/vim-dirtytalk', run = ':DirtytalkUpdate' }
   use {
     'lewis6991/spellsitter.nvim',
     config = function()
