@@ -272,6 +272,8 @@ as.tmap = make_mapper('t', map_opts)
 as.smap = make_mapper('s', map_opts)
 -- A recursive normal mapping
 as.cmap = make_mapper('c', { remap = true, silent = false })
+-- A non recursive nvo mapping
+as.noremap = make_mapper('', noremap_opts)
 -- A non recursive normal mapping
 as.nnoremap = make_mapper('n', noremap_opts)
 -- A non recursive visual mapping

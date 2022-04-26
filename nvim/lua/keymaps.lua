@@ -1,119 +1,178 @@
-local keymap = vim.keymap.set
-local nor = { noremap = true }
-local opts = { noremap = true, silent = true }
+local noisy = { silent = false }
 
--- basic map
-keymap('n', ';', ':', nor)
-keymap('', '<c-q>', ':q<cr>', nor)
-keymap('', '<c-s>', ':w!<cr>', nor)
-keymap('', '<leader>nh', ':noh<cr>', nor)
-keymap('i', 'jk', '<esc>', nor)
-keymap('t', ',,', '<C-\\><C-n>', nor)
-keymap('n', 'dw', 'diw', nor)
-keymap('n', 'cw', 'ciw', nor)
-keymap('n', 'yw', 'yiw', nor)
-keymap('n', 'vw', 'viw', nor)
-keymap('n', 'vv', 'V', nor)
-keymap('n', 'V', 'v$', nor)
-keymap('n', 'Y', 'y$', nor)
-keymap('v', 'Y', '"+y', nor)
-keymap('v', 'X', '"+x', nor)
+local api = vim.api
+local imap = as.imap
+local noremap = as.noremap
+local nnoremap = as.nnoremap
+local xnoremap = as.xnoremap
+local vnoremap = as.vnoremap
+local inoremap = as.inoremap
+local snoremap = as.snoremap
+local cnoremap = as.cnoremap
+local tnoremap = as.tnoremap
 
 -- motions
-keymap('', '<c-j>', '5j', nor)
-keymap('', '<c-k>', '5k', nor)
-keymap('', '<c-h>', '^', nor)
-keymap('', '<c-l>', '$', nor)
-keymap('i', '<c-l>', '<esc>A', nor)
-keymap('i', '<c-j>', '<Left>', nor)
-keymap('i', '<c-k>', '<Right>', nor)
-keymap('i', ';;', '<Right>;<Left><Left>', nor)
-keymap('i', ',,', '<Right>,<Left><Left>', nor)
-keymap('s', '<c-l>', '<esc>A', nor)
+vnoremap('$', 'g_')
+noremap('<c-j>', '5j')
+noremap('<c-k>', '5k')
+noremap('<c-h>', '^')
+noremap('<c-l>', 'g_')
+inoremap('<c-l>', '<esc>A')
+snoremap('<c-l>', '<esc>A')
+inoremap('<c-j>', '<Left>')
+inoremap('<c-k>', '<Right>')
 
--- buffer management
-keymap('n', 'fd', ':bdelete %<cr>', nor)
-keymap('n', 'fD', ':BufferLinePickClose<cr>', nor)
-keymap('n', 'H', ':BufferLineCyclePrev<cr>', opts)
-keymap('n', 'L', ':BufferLineCycleNext<cr>', opts)
-keymap('n', '<m-H>', ':BufferLineMovePrev<CR>', opts)
-keymap('n', '<m-L>', ':BufferLineMoveNext<CR>', opts)
+-- basic
+imap('jk', [[col('.') == 1 ? '<esc>' : '<esc>l']], { expr = true })
+nnoremap(';', ':', noisy)
+nnoremap('<c-q>', ':q<cr>')
+nnoremap('<c-s>', ':w!<cr>')
+tnoremap(',,', '<C-\\><C-n>')
+nnoremap('dw', 'diw')
+nnoremap('cw', 'ciw')
+nnoremap('yw', 'yiw')
+nnoremap('vw', 'viw')
+nnoremap('vv', 'V')
+nnoremap('V', 'v$')
+vnoremap('Y', '"+y')
+vnoremap('X', '"+x')
+inoremap(';;', '<Right>;<Left><Left>')
+inoremap(',,', '<Right>,<Left><Left>')
+nnoremap([[<leader>"]], [[ciw"<c-r>""<esc>]])
+nnoremap('<leader>`', [[ciw`<c-r>"`<esc>]])
+nnoremap("<leader>'", [[ciw'<c-r>"'<esc>]])
+nnoremap('<leader>)', [[ciw(<c-r>")<esc>]])
+nnoremap('<leader>]', [[ciw[<c-r>"]<esc>]])
+nnoremap('<leader>}', [[ciw{<c-r>"}<esc>]])
+-- Capitalize
+nnoremap('U', 'gUiw`]')
+-- Paste in visual mode multiple times
+xnoremap('p', 'pgvy')
+-- Evaluates whether there is a fold on the current line if so unfold it else return a normal space
+nnoremap('<space><space>', [[@=(foldlevel('.')?'za':"\<Space>")<CR>]])
+
+-- search visual selection
+vnoremap('//', [[y/<C-R>"<CR>]])
+-- find visually selected text
+vnoremap('*', [[y/<C-R>"<CR>]])
+-- make . work with visually selected lines
+vnoremap('.', ':norm.<CR>')
+
+-- Smart mappings on the command line
+cnoremap('w!!', [[w !sudo tee % >/dev/null]])
+-- insert path of current file into a command
+cnoremap('%%', "<C-r>=fnameescape(expand('%'))<cr>")
+cnoremap('::', "<C-r>=fnameescape(expand('%:p:h'))<cr>/")
+
+-- "&" Repeat last substitute with flags
+nnoremap('<leader>/', [[:%s/\<<C-r>=expand("<cword>")<CR>\>/]], noisy)
+vnoremap('<leader>/', [["zy:%s/<C-r><C-o>"/]], noisy)
+
+nnoremap('<leader>l', [[<cmd>nohlsearch<cr><cmd>diffupdate<cr><cmd>syntax sync fromstart<cr><c-l>]])
+
+-- Conditionally modify character at end of line
+local function modify_line_end_delimiter(character)
+  local delimiters = { ',', ';' }
+  return function()
+    local line = api.nvim_get_current_line()
+    local last_char = line:sub(-1)
+    if last_char == character then
+      api.nvim_set_current_line(line:sub(1, #line - 1))
+    elseif vim.tbl_contains(delimiters, last_char) then
+      api.nvim_set_current_line(line:sub(1, #line - 1) .. character)
+    else
+      api.nvim_set_current_line(line .. character)
+    end
+  end
+end
+nnoremap('<leader>,', modify_line_end_delimiter ',')
+nnoremap('<leader>;', modify_line_end_delimiter ';')
+
+-- buffer
+nnoremap('fd', ':bd<cr>')
+nnoremap('fD', ':BufferLinePickClose<cr>')
+nnoremap('H', ':BufferLineCyclePrev<cr>')
+nnoremap('L', ':BufferLineCycleNext<cr>')
+nnoremap('<m-H>', ':BufferLineMovePrev<CR>')
+nnoremap('<m-L>', ':BufferLineMoveNext<CR>')
+-- Switch between the last two files
+nnoremap(',,', [[<c-^>]])
 
 -- tabedit
-keymap('n', 'te', ':tabe<cr>', opts)
+nnoremap('te', ':tabe<cr>')
+nnoremap('<leader><tab>', 'gt')
 
--- window navigation
-keymap('n', '<m-h>', '<C-w>h', opts)
-keymap('n', '<m-j>', '<C-w>j', opts)
-keymap('n', '<m-k>', '<C-w>k', opts)
-keymap('n', '<m-l>', '<C-w>l', opts)
-
--- resize
-keymap('n', '<up>', ':res +5<cr>', nor)
-keymap('n', '<down>', ':res -5<cr>', nor)
-keymap('n', '<left>', ':vertical res -5<cr>', nor)
-keymap('n', '<right>', ':vertical res +5<cr>', nor)
+-- window
+nnoremap('<m-h>', '<C-w>h')
+nnoremap('<m-j>', '<C-w>j')
+nnoremap('<m-k>', '<C-w>k')
+nnoremap('<m-l>', '<C-w>l')
+nnoremap('<up>', ':res +1<cr>')
+nnoremap('<down>', ':res -1<cr>')
+nnoremap('<left>', ':vertical res -1<cr>')
+nnoremap('<right>', ':vertical res +1<cr>')
 
 -- Telescope
-keymap('n', 'ff', ':Telescope find_files<cr>', opts)
-keymap('n', 'fo', ':Telescope oldfiles<cr>', opts)
-keymap('n', 'fg', ':Telescope live_grep<cr>', opts)
-keymap('n', 'fw', ':Telescope grep_string<cr>', opts)
-keymap('n', 'f;', ':Telescope commands<cr>', opts)
-keymap('n', 'fc', ':Telescope command_history<cr>', opts)
-keymap('n', 'fb', ':Telescope buffers<cr>', opts)
-keymap('n', 'f/', ':Telescope current_buffer_fuzzy_find<cr>', opts)
-keymap('n', 'fh', ':Telescope help_tags<cr>', opts)
-keymap('n', 'fm', ':Telescope marks<cr>', opts)
-keymap('n', 'ft', ':Telescope lsp_dynamic_workspace_symbols<cr>', opts)
+nnoremap('ff', ':Telescope find_files<cr>')
+nnoremap('fo', ':Telescope oldfiles<cr>')
+nnoremap('fg', ':Telescope live_grep<cr>')
+nnoremap('fw', ':Telescope grep_string<cr>')
+nnoremap('f;', ':Telescope commands<cr>')
+nnoremap('fc', ':Telescope command_history<cr>')
+nnoremap('fb', ':Telescope buffers<cr>')
+nnoremap('f/', ':Telescope current_buffer_fuzzy_find<cr>')
+nnoremap('fh', ':Telescope help_tags<cr>')
+nnoremap('fm', ':Telescope marks<cr>')
+nnoremap('ft', ':Telescope lsp_dynamic_workspace_symbols<cr>')
 
 -- neoclip
-keymap('n', 'fp', '<cmd>lua require("telescope").extensions.neoclip.default()<cr>', opts)
+nnoremap('fp', '<cmd>lua require("telescope").extensions.neoclip.default()<cr>')
 
 -- neovim-session-manager
-keymap('n', 'fs', ':SessionManager load_session<cr>', opts)
-keymap('n', '<leader>ss', ':SessionManager save_current_session<cr>', nor)
-keymap('n', '<leader>sd', ':SessionManager delete_session<cr>', nor)
+nnoremap('fs', ':SessionManager load_session<cr>')
+nnoremap('<leader>ss', ':SessionManager save_current_session<cr>', noisy)
+nnoremap('<leader>sd', ':SessionManager delete_session<cr>')
 
 -- trouble.nvim
-keymap('n', 'gr', '<cmd>TroubleToggle lsp_references<cr>', opts)
-keymap('n', 'gi', '<cmd>TroubleToggle lsp_implementations<cr>', nor)
-keymap('n', 'gq', '<cmd>TroubleToggle workspace_diagnostics<cr>', opts)
+nnoremap('gr', '<cmd>TroubleToggle lsp_references<cr>')
+nnoremap('gi', '<cmd>TroubleToggle lsp_implementations<cr>', noisy)
+nnoremap('gq', '<cmd>TroubleToggle workspace_diagnostics<cr>')
 
 -- nvim-tree
-keymap('n', 'tt', '<cmd>lua require("nvim-tree").toggle()<CR>', opts)
+nnoremap('tt', '<cmd>lua require("nvim-tree").toggle()<CR>')
 
 -- symbols-outline
-keymap('n', 'ts', ':SymbolsOutline<cr>', opts)
+nnoremap('ts', ':SymbolsOutline<cr>')
 
 -- Undotree
-keymap('n', 'tu', ':UndotreeToggle<cr>', opts)
+nnoremap('tu', ':UndotreeToggle<cr>')
 
 -- vim-translator
-keymap({ 'n', 'v' }, 'tr', ':TranslateW<cr>', opts)
+nnoremap('tr', ':TranslateW<cr>')
+vnoremap('tr', ':TranslateW<cr>')
 
 -- flutter
-keymap('n', '<leader>fr', ':FlutterRestart<cr>', nor)
-keymap('n', '<leader>fq', ':FlutterQuit<cr>', nor)
-keymap('n', '<leader>fg', ':FlutterPubGet<cr>', nor)
-keymap('n', '<leader>fu', ':FlutterPubUpgrade<cr>', nor)
-keymap('n', '<leader>fo', ':FlutterOutlineToggle<cr>', nor)
-keymap('n', '<leader>fc', ':FlutterLogClear<cr>', nor)
-keymap('n', '<leader>fd', ':FlutterDevices<cr>', nor)
-keymap('n', '<leader>ft', ':FlutterDevTools<cr>', nor)
-keymap('n', '<leader>fp', ':FlutterVisualDebug<cr>', nor)
+nnoremap('<leader>fr', ':FlutterRestart<cr>', noisy)
+nnoremap('<leader>fq', ':FlutterQuit<cr>', noisy)
+nnoremap('<leader>fg', ':FlutterPubGet<cr>', noisy)
+nnoremap('<leader>fu', ':FlutterPubUpgrade<cr>', noisy)
+nnoremap('<leader>fo', ':FlutterOutlineToggle<cr>', noisy)
+nnoremap('<leader>fc', ':FlutterLogClear<cr>', noisy)
+nnoremap('<leader>fd', ':FlutterDevices<cr>', noisy)
+nnoremap('<leader>ft', ':FlutterDevTools<cr>', noisy)
+nnoremap('<leader>fp', ':FlutterVisualDebug<cr>', noisy)
 
 -- hop.nvim
-keymap('n', 's', '<cmd>lua require("hop").hint_words()<cr>', opts)
+nnoremap('s', '<cmd>lua require("hop").hint_words()<cr>')
 
 -- dap
-keymap('n', '<leader>dd', '<cmd>lua require("dap").toggle_breakpoint()<cr>', opts)
-keymap('n', '<leader>dc', '<cmd>lua require("dap").continue()<cr>', opts)
-keymap('n', '<leader>di', '<cmd>lua require("dap").step_into()<cr>', opts)
-keymap('n', '<leader>du', '<cmd>lua require("dap").step_out()<cr>', opts)
-keymap('n', '<leader>do', '<cmd>lua require("dap").step_over()<cr>', opts)
-keymap('n', '<leader>dl', '<cmd>lua require("dap").run_last()<cr>', opts)
-keymap('n', '<leader>dr', '<cmd>lua require("dap").repl.toggle()<cr>', opts)
+nnoremap('<leader>dd', '<cmd>lua require("dap").toggle_breakpoint()<cr>')
+nnoremap('<leader>dc', '<cmd>lua require("dap").continue()<cr>')
+nnoremap('<leader>di', '<cmd>lua require("dap").step_into()<cr>')
+nnoremap('<leader>du', '<cmd>lua require("dap").step_out()<cr>')
+nnoremap('<leader>do', '<cmd>lua require("dap").step_over()<cr>')
+nnoremap('<leader>dl', '<cmd>lua require("dap").run_last()<cr>')
+nnoremap('<leader>dr', '<cmd>lua require("dap").repl.toggle()<cr>')
 
 -- dap-ui
-keymap('n', '<leader>dt', '<cmd>lua require("dapui").toggle()<cr>', opts)
+nnoremap('<leader>dt', '<cmd>lua require("dapui").toggle()<cr>')
