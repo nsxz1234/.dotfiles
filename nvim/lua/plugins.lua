@@ -561,7 +561,7 @@ function Lazygit_Toggle()
   lazygit:toggle()
 end
 
-vim.keymap.set('n', '<leader>v', ':lua Lazygit_Toggle()<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-g>', ':lua Lazygit_Toggle()<CR>', { noremap = true, silent = true })
 
 -- nvim-colorizer.lua
 require('colorizer').setup()
