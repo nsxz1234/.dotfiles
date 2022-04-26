@@ -29,6 +29,9 @@ alias lg='lazygit'
 alias ra='ranger'
 alias n="n -e"
 
+# ^g to open lazygit
+bindkey -s '^g' 'lazygit\n'
+
 # flutter
 export CHROME_EXECUTABLE=/usr/bin/brave
 export PUB_HOSTED_URL=https://pub.flutter-io.cn
