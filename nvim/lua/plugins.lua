@@ -46,6 +46,14 @@ require('packer').startup(function(use)
   use 'folke/lua-dev.nvim'
   use 'wellle/targets.vim'
   use {
+    'lewis6991/spellsitter.nvim',
+    config = function()
+      require('spellsitter').setup {
+        enable = true,
+      }
+    end,
+  }
+  use {
     'AckslD/nvim-trevJ.lua',
     config = 'require("trevj").setup()',
     module = 'trevj',
