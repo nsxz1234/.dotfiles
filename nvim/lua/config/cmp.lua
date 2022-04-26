@@ -8,6 +8,8 @@ return function()
     local ok, luasnip = as.safe_require('luasnip', { silent = true })
     if ok and luasnip.expand_or_locally_jumpable() then
       luasnip.expand_or_jump()
+    elseif cmp.visible() then
+      cmp.select_next_item()
     else
       fallback()
     end
@@ -17,6 +19,8 @@ return function()
     local ok, luasnip = as.safe_require('luasnip', { silent = true })
     if ok and luasnip.jumpable(-1) then
       luasnip.jump(-1)
+    elseif cmp.visible() then
+      cmp.select_prev_item()
     else
       fallback()
     end
@@ -34,10 +38,10 @@ return function()
       ['<c-h>'] = cmp.mapping(function()
         api.nvim_feedkeys(vim.fn['copilot#Accept'](t '<Tab>'), 'n', true)
       end),
-      ['<C-p>'] = cmp.mapping.select_prev_item(),
-      ['<C-n>'] = cmp.mapping.select_next_item(),
-      ['<Tab>'] = cmp.mapping(tab, { 'i', 'c' }),
-      ['<S-Tab>'] = cmp.mapping(shift_tab, { 'i', 'c' }),
+      ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
+      ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
+      ['<Tab>'] = cmp.mapping(tab, { 'i', 's', 'c' }),
+      ['<S-Tab>'] = cmp.mapping(shift_tab, { 'i', 's', 'c' }),
       ['<C-d>'] = cmp.mapping.scroll_docs(-4),
       ['<C-f>'] = cmp.mapping.scroll_docs(4),
       ['<C-Space>'] = cmp.mapping.complete(),
