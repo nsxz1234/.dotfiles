@@ -64,10 +64,6 @@ cnoremap('w!!', [[w !sudo tee % >/dev/null]])
 cnoremap('%%', "<C-r>=fnameescape(expand('%'))<cr>")
 cnoremap('::', "<C-r>=fnameescape(expand('%:p:h'))<cr>/")
 
--- "&" Repeat last substitute with flags
-nnoremap('<leader>/', [[:%s/\<<C-r>=expand("<cword>")<CR>\>/]], noisy)
-vnoremap('<leader>/', [["zy:%s/<C-r><C-o>"/]], noisy)
-
 nnoremap('<leader>l', [[<cmd>nohlsearch<cr><cmd>diffupdate<cr><cmd>syntax sync fromstart<cr><c-l>]])
 
 -- Conditionally modify character at end of line
