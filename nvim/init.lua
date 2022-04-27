@@ -11,6 +11,7 @@ end
 
 R 'globals'
 R 'styles'
+R 'settings'
 R 'keymaps'
 R 'plugins'
 
