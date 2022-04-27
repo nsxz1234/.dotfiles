@@ -26,7 +26,6 @@ require('packer').startup(function(use)
   use 'kyazdani42/nvim-web-devicons'
   use 'ryanoasis/vim-devicons'
   use 'kyazdani42/nvim-tree.lua'
-  use 'tpope/vim-surround'
   use 'mbbill/undotree'
   use 'nvim-lualine/lualine.nvim'
   use 'instant-markdown/vim-instant-markdown'
@@ -275,6 +274,13 @@ require('packer').startup(function(use)
     end,
   }
   use { 'tpope/vim-projectionist', config = conf 'vim-projectionist' }
+  use {
+    'tpope/vim-surround',
+    config = function()
+      as.xmap('s', '<Plug>VSurround')
+    end,
+  }
+  --
   -- Git
   --
   use { 'lewis6991/gitsigns.nvim', config = conf 'gitsigns' }
