@@ -246,6 +246,12 @@ require('packer').startup(function(use)
     config = conf 'luasnip',
   }
   use 'rafamadriz/friendly-snippets'
+  use {
+    'lukas-reineke/headlines.nvim',
+    config = function()
+      require('headlines').setup()
+    end,
+  }
   --
   -- Git
   --
