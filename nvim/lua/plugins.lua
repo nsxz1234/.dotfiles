@@ -260,6 +260,21 @@ require('packer').startup(function(use)
     end,
   }
   --
+  -- TPOPE
+  --
+  use 'tpope/vim-eunuch'
+  use 'tpope/vim-sleuth'
+  use 'tpope/vim-repeat'
+  use {
+    'tpope/vim-abolish',
+    -- "&" Repeat last substitute with flags
+    config = function()
+      local opts = { silent = false }
+      as.nnoremap('<leader>/', ':%S/<C-r><C-w>//c<left><left>', opts)
+      as.xnoremap('<leader>/', [["zy:%S/<C-r><C-o>"//c<left><left>]], opts)
+    end,
+  }
+  use { 'tpope/vim-projectionist', config = conf 'vim-projectionist' }
   -- Git
   --
   use { 'lewis6991/gitsigns.nvim', config = conf 'gitsigns' }
