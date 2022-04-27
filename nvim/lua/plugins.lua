@@ -12,7 +12,6 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
 end
 
--- local use = require('packer').use
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use { 'neovim/nvim-lspconfig', config = conf 'lspconfig' }
