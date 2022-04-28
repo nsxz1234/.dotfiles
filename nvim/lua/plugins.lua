@@ -44,6 +44,16 @@ require('packer').startup(function(use)
   use 'wellle/targets.vim'
   use { 'psliwka/vim-dirtytalk', run = ':DirtytalkUpdate' }
   use {
+    'nvim-neo-tree/neo-tree.nvim',
+    branch = 'v2.x',
+    config = conf 'neo-tree',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'MunifTanjim/nui.nvim',
+      'kyazdani42/nvim-web-devicons',
+    },
+  }
+  use {
     'lewis6991/spellsitter.nvim',
     config = function()
       require('spellsitter').setup {
