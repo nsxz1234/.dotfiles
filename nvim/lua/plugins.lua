@@ -398,10 +398,6 @@ require('lualine').setup {
   extensions = { 'nvim-tree' },
 }
 
--- fzf
--- vim.g.fzf_preview_window = 'up'
--- vim.g.fzf_layout = {window = {width = 0.9, height = 0.8}}
-
 -- telescope
 local actions = require 'telescope.actions'
 require('telescope').setup {
