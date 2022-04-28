@@ -44,6 +44,15 @@ require('packer').startup(function(use)
   use 'wellle/targets.vim'
   use { 'psliwka/vim-dirtytalk', run = ':DirtytalkUpdate' }
   use {
+    'narutoxy/dim.lua',
+    requires = { 'nvim-treesitter/nvim-treesitter', 'neovim/nvim-lspconfig' },
+    config = function()
+      require('dim').setup {
+        disable_lsp_decorations = true,
+      }
+    end,
+  }
+  use {
     'nvim-neo-tree/neo-tree.nvim',
     branch = 'v2.x',
     config = conf 'neo-tree',
