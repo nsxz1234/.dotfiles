@@ -133,7 +133,6 @@ vim.opt.listchars = {
 vim.opt.shiftround = true
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
-vim.opt.softtabstop = 2
 
 vim.opt.gdefault = true
 vim.opt.pumheight = 15
