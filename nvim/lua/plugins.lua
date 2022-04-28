@@ -25,7 +25,6 @@ require('packer').startup(function(use)
   use 'kyazdani42/nvim-web-devicons'
   use 'ryanoasis/vim-devicons'
   use 'mbbill/undotree'
-  use 'nvim-lualine/lualine.nvim'
   use 'instant-markdown/vim-instant-markdown'
   use 'akinsho/nvim-toggleterm.lua'
   use 'voldikss/vim-translator'
@@ -43,6 +42,7 @@ require('packer').startup(function(use)
   use 'folke/lua-dev.nvim'
   use 'wellle/targets.vim'
   use { 'psliwka/vim-dirtytalk', run = ':DirtytalkUpdate' }
+  use { 'nvim-lualine/lualine.nvim', config = conf 'lualine' }
   use {
     'narutoxy/dim.lua',
     requires = { 'nvim-treesitter/nvim-treesitter', 'neovim/nvim-lspconfig' },
@@ -388,24 +388,6 @@ vim.api.nvim_exec(
 -- comment
 require('Comment').setup {}
 vim.api.nvim_command 'set commentstring=//%s'
-
--- lualine
-require('lualine').setup {
-  options = {
-    theme = 'everforest',
-    component_separators = '',
-    section_separators = '',
-  },
-  sections = {
-    lualine_a = { 'mode' },
-    lualine_b = { 'branch' },
-    lualine_c = { 'filename' },
-    lualine_x = { 'filetype' },
-    lualine_y = { 'progress' },
-    lualine_z = { 'location' },
-  },
-  extensions = { 'nvim-tree' },
-}
 
 -- telescope
 local actions = require 'telescope.actions'
