@@ -37,6 +37,9 @@ return function()
       },
     },
     default_component_configs = {
+      indent = {
+        padding = 0,
+      },
       git_status = {
         symbols = {
           added = icons.git.add,
