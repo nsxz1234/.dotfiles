@@ -24,7 +24,6 @@ require('packer').startup(function(use)
   use { 'lukas-reineke/indent-blankline.nvim', config = conf 'indentline' }
   use 'kyazdani42/nvim-web-devicons'
   use 'ryanoasis/vim-devicons'
-  use 'kyazdani42/nvim-tree.lua'
   use 'mbbill/undotree'
   use 'nvim-lualine/lualine.nvim'
   use 'instant-markdown/vim-instant-markdown'
@@ -430,68 +429,6 @@ require('telescope').setup {
 
 -- nvim-autopairs
 require('nvim-autopairs').setup()
-
--- nvim-tree
-vim.g.nvim_tree_icons = {
-  default = '',
-  git = {
-    unstaged = '',
-    staged = '',
-    unmerged = '',
-    renamed = '',
-    untracked = '',
-    deleted = '',
-  },
-}
-vim.g.nvim_tree_special_files = {}
-vim.g.nvim_tree_group_empty = 1
-vim.g.nvim_tree_git_hl = 1
-vim.g.nvim_tree_width_allow_resize = 1
-vim.g.nvim_tree_root_folder_modifier = ':t'
-vim.g.nvim_tree_highlight_opened_files = 1
-vim.g.nvim_tree_show_icons = { git = 1, folders = 1, files = 1 }
-vim.g.nvim_tree_respect_buf_cwd = 1
-
-require('nvim-tree').setup {
-  view = {
-    width = 30,
-    auto_resize = true,
-  },
-  diagnostics = {
-    enable = true,
-  },
-  hijack_unnamed_buffer_when_opening = true,
-  sort_by = 'modification_time',
-  hijack_directories = {
-    enable = true,
-    auto_open = true,
-  },
-  system_open = {
-    cmd = 'open',
-  },
-  disable_netrw = false,
-  hijack_netrw = true,
-  open_on_setup = false,
-  hijack_cursor = true,
-  update_cwd = true,
-  renderer = {
-    indent_markers = {
-      enable = true,
-    },
-  },
-  update_focused_file = {
-    enable = true,
-    update_cwd = true,
-  },
-  filters = {
-    custom = { '.DS_Store', 'fugitive:', '.git' },
-  },
-  actions = {
-    open_file = {
-      quit_on_open = true,
-    },
-  },
-}
 
 -- markdown
 vim.g.instant_markdown_slow = 1

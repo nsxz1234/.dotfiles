@@ -134,9 +134,6 @@ nnoremap('gr', '<cmd>TroubleToggle lsp_references<cr>')
 nnoremap('gi', '<cmd>TroubleToggle lsp_implementations<cr>', noisy)
 nnoremap('gq', '<cmd>TroubleToggle workspace_diagnostics<cr>')
 
--- nvim-tree
-nnoremap('tt', '<cmd>lua require("nvim-tree").toggle()<CR>')
-
 -- symbols-outline
 nnoremap('ts', ':SymbolsOutline<cr>')
 
