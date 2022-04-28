@@ -12,13 +12,11 @@ return function()
       [types.choiceNode] = {
         active = {
           hl_mode = 'combine',
-          virt_text = { { '●', 'Operator' } },
         },
       },
       [types.insertNode] = {
         active = {
           hl_mode = 'combine',
-          virt_text = { { '●', 'Type' } },
         },
       },
     },
