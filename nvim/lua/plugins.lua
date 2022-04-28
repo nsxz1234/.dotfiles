@@ -21,7 +21,7 @@ require('packer').startup(function(use)
   use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' }
   use { 'akinsho/nvim-bufferline.lua', config = conf 'bufferline' }
   use 'windwp/nvim-autopairs'
-  use 'lukas-reineke/indent-blankline.nvim'
+  use { 'lukas-reineke/indent-blankline.nvim', config = conf 'indentline' }
   use 'kyazdani42/nvim-web-devicons'
   use 'ryanoasis/vim-devicons'
   use 'kyazdani42/nvim-tree.lua'
@@ -387,55 +387,6 @@ require('lualine').setup {
     lualine_z = { 'location' },
   },
   extensions = { 'nvim-tree' },
-}
-
--- indent-blankline
-require('indent_blankline').setup {
-  char = '┊', -- │ ┆ ┊ 
-  show_foldtext = false,
-  context_char = '│',
-  show_current_context = true,
-  show_current_context_start = false,
-  show_current_context_start_on_current_line = false,
-  show_first_indent_level = true,
-  filetype_exclude = {
-    'dap-repl',
-    'startify',
-    'dashboard',
-    'log',
-    'fugitive',
-    'gitcommit',
-    'packer',
-    'vimwiki',
-    'markdown',
-    'json',
-    'txt',
-    'vista',
-    'help',
-    'NvimTree',
-    'git',
-    'TelescopePrompt',
-    'undotree',
-    'flutterToolsOutline',
-    'norg',
-    'org',
-    'orgagenda',
-    '', -- for all buffers without a file type
-  },
-  buftype_exclude = { 'terminal', 'nofile' },
-  context_patterns = {
-    'class',
-    'function',
-    'method',
-    'block',
-    'list_literal',
-    'selector',
-    '^if',
-    '^table',
-    'if_statement',
-    'while',
-    'for',
-  },
 }
 
 -- fzf
