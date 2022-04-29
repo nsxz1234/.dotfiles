@@ -140,7 +140,6 @@ vim.opt.confirm = true
 vim.opt.completeopt = { 'menuone', 'noselect' }
 vim.opt.hlsearch = true
 vim.opt.autowriteall = true
-vim.opt.clipboard = { 'unnamedplus' }
 vim.opt.laststatus = 3
 vim.opt.termguicolors = true
 vim.opt.guifont = 'FantasqueSansMono Nerd Font:h16'
