@@ -44,6 +44,14 @@ require('packer').startup(function(use)
   use { 'psliwka/vim-dirtytalk', run = ':DirtytalkUpdate' }
   use { 'nvim-lualine/lualine.nvim', config = conf 'lualine' }
   use {
+    'bobrown101/minimal-nnn.nvim',
+    config = function()
+      as.nnoremap('<leader>t', function()
+        require('minimal-nnn').start()
+      end, { label = 'nnn' })
+    end,
+  }
+  use {
     'narutoxy/dim.lua',
     requires = { 'nvim-treesitter/nvim-treesitter', 'neovim/nvim-lspconfig' },
     config = function()
