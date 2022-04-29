@@ -140,7 +140,6 @@ lib32-vulkan-intel
 lib32-vulkan-radeon
 libadwaita
 libkeybinder3
-libreoffice-fresh-zh-cn
 libva-mesa-driver
 libva-vdpau-driver
 licenses
@@ -306,3 +305,4 @@ xz
 yay
 zathura
 zig
+zsh-fast-syntax-highlighting
