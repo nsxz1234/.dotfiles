@@ -297,7 +297,6 @@ require('packer').startup(function(use)
       as.xnoremap('<leader>/', [["zy:%S/<C-r><C-o>"//c<left><left>]], opts)
     end,
   }
-  use { 'tpope/vim-projectionist', config = conf 'vim-projectionist' }
   use {
     'tpope/vim-surround',
     config = function()
