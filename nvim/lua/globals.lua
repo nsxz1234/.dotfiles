@@ -142,6 +142,8 @@ end
 ----------------------------------------------------------------------------------------------------
 -- Thin wrappers over API functions to make their usage easier/terser
 
+P = vim.pretty_print
+
 ---@class Autocommand
 ---@field description string
 ---@field event  string[] list of autocommand events
@@ -182,7 +184,7 @@ end
 ---Create an nvim command
 ---@param name any
 ---@param rhs string|fun(args: CommandArgs)
----@param opts table
+---@param opts table?
 function as.command(name, rhs, opts)
   opts = opts or {}
   api.nvim_create_user_command(name, rhs, opts)
@@ -208,7 +210,7 @@ end
 
 ---A terser proxy for `nvim_replace_termcodes`
 ---@param str string
----@return any
+---@return string
 function as.replace_termcodes(str)
   return api.nvim_replace_termcodes(str, true, true, true)
 end
