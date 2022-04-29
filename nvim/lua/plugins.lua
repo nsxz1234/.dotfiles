@@ -32,7 +32,6 @@ require('packer').startup(function(use)
   use 'phaazon/hop.nvim'
   use 'simrat39/symbols-outline.nvim'
   use 'Shatur/neovim-session-manager'
-  use 'goolord/alpha-nvim'
   use 'stevearc/dressing.nvim'
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'numToStr/Comment.nvim'
@@ -43,6 +42,12 @@ require('packer').startup(function(use)
   use 'wellle/targets.vim'
   use { 'psliwka/vim-dirtytalk', run = ':DirtytalkUpdate' }
   use { 'nvim-lualine/lualine.nvim', config = conf 'lualine' }
+  use {
+    'goolord/alpha-nvim',
+    config = function()
+      require('alpha').setup(require('alpha.themes.startify').config)
+    end,
+  }
   use {
     'bobrown101/minimal-nnn.nvim',
     config = function()
@@ -479,9 +484,6 @@ vim.g.undotree_SplitWidth = 24
 require('session_manager').setup {
   autoload_mode = require('session_manager.config').AutoloadMode.Disabled,
 }
-
--- alpha-nvim
-require('alpha').setup(require('alpha.themes.startify').opts)
 
 -- hop.nvim
 require('hop').setup()
