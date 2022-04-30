@@ -167,7 +167,7 @@ vim.opt.mousefocus = true
 -----------------------------------------------------------------------------//
 -- Spelling {{{1
 -----------------------------------------------------------------------------//
-vim.opt.spell = true
+vim.opt.spell = false
 vim.opt.spellsuggest:prepend { 12 }
 vim.opt.spelloptions = 'camel'
 vim.opt.spellcapcheck = '' -- don't check for capital letters at start of sentence
