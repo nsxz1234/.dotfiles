@@ -44,6 +44,7 @@ require('packer').startup(function(use)
   use 'wellle/targets.vim'
   use { 'psliwka/vim-dirtytalk', run = ':DirtytalkUpdate' }
   use { 'nvim-lualine/lualine.nvim', config = conf 'lualine' }
+  use 'mtdl9/vim-log-highlighting'
   use {
     'ray-x/lsp_signature.nvim',
     config = function()
