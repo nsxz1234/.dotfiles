@@ -3,6 +3,12 @@ return function()
     'branch',
     icon = { '' },
   }
+  local filetype = {
+    'filetype',
+    colored = true,
+    icon_only = true,
+    padding = { left = 1 },
+  }
   local file_name = {
     'filename',
     path = 1, -- 0: Just the filename  1: Relative path  2: Absolute path
@@ -12,27 +18,25 @@ return function()
     colored = true,
     symbols = { added = ' ', modified = ' ', removed = ' ' },
   }
-  local function get_short_cwd()
-    return vim.fn.fnamemodify(vim.fn.getcwd(), ':~')
-  end
-  local neo_tree = {
-    sections = { lualine_a = { get_short_cwd } },
-    filetypes = { 'neo-tree' },
+  local progress = {
+    'progress',
+    padding = { right = 1 },
   }
   require('lualine').setup {
     options = {
-      theme = 'everforest',
+      theme = 'auto',
       component_separators = '',
       section_separators = '',
+      disabled_filetypes = { 'toggleterm' },
+      globalstatus = true,
     },
     sections = {
       lualine_a = { 'mode' },
       lualine_b = { branch },
-      lualine_c = { file_name },
+      lualine_c = { filetype, file_name },
       lualine_x = { diff },
-      lualine_y = { 'progress' },
+      lualine_y = { progress },
       lualine_z = { 'location' },
     },
-    extensions = { neo_tree, 'symbols-outline', 'toggleterm' },
   }
 end
