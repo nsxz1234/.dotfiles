@@ -59,10 +59,10 @@ vim.opt.formatoptions = {
 --
 -- Fold
 --
--- vim.opt.foldopen = vim.opt.foldopen + 'search'
--- vim.opt.foldlevelstart = 3
--- vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
--- vim.opt.foldmethod = 'expr'
+vim.opt.foldopen = vim.opt.foldopen + 'search'
+vim.opt.foldlevelstart = 3
+vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.opt.foldmethod = 'expr'
 --
 -- Grep
 --
