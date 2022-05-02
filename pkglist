@@ -224,6 +224,7 @@ pulseaudio-zeroconf
 python-genpac
 qbittorrent
 qgnomeplatform
+rar
 reiserfsprogs
 rsync
 s-nail
@@ -305,4 +306,5 @@ xz
 yay
 zathura
 zig
+zls-bin
 zsh-fast-syntax-highlighting
