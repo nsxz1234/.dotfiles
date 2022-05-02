@@ -63,7 +63,7 @@ return function()
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
-  local servers = { 'rust_analyzer', 'tsserver' }
+  local servers = { 'zls', 'rust_analyzer' }
   for _, lsp in ipairs(servers) do
     require('lspconfig')[lsp].setup {
       on_attach = on_attach,
