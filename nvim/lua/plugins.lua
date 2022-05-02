@@ -108,22 +108,6 @@ require('packer').startup(function(use)
     end,
   }
   use {
-    'folke/todo-comments.nvim',
-    requires = 'nvim-lua/plenary.nvim',
-    config = function()
-      -- this plugin is not safe to reload
-      if vim.g.packer_compiled_loaded then
-        return
-      end
-      require('todo-comments').setup {
-        highlight = {
-          exclude = { 'org', 'orgagenda', 'vimwiki', 'markdown' },
-        },
-      }
-      as.nnoremap('gt', '<Cmd>TodoTrouble<CR>', 'trouble: todos')
-    end,
-  }
-  use {
     'goolord/alpha-nvim',
     config = function()
       require('alpha').setup(require('alpha.themes.startify').config)
