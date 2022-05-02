@@ -25,7 +25,7 @@ noremap <leader>r :call CompileRunGcc()<CR>
 func! CompileRunGcc()
   exec "w"
   if &filetype == 'markdown'
-    exec "InstantMarkdownPreview"
+    exec "MarkdownPreview"
   elseif &filetype == 'html'
     silent! exec "!".g:mkdp_browser." % &"
   endif

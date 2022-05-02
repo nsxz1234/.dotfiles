@@ -27,7 +27,6 @@ require('packer').startup(function(use)
   use 'kyazdani42/nvim-web-devicons'
   use 'ryanoasis/vim-devicons'
   use 'mbbill/undotree'
-  use 'instant-markdown/vim-instant-markdown'
   use 'akinsho/nvim-toggleterm.lua'
   use 'voldikss/vim-translator'
   use 'norcalli/nvim-colorizer.lua'
@@ -45,6 +44,15 @@ require('packer').startup(function(use)
   use { 'psliwka/vim-dirtytalk', run = ':DirtytalkUpdate' }
   use { 'nvim-lualine/lualine.nvim', config = conf 'lualine' }
   use 'mtdl9/vim-log-highlighting'
+  use {
+    'iamcco/markdown-preview.nvim',
+    run = 'cd app && yarn install',
+    ft = { 'markdown' },
+    config = function()
+      vim.g.mkdp_auto_start = 0
+      vim.g.mkdp_auto_close = 1
+    end,
+  }
   use {
     'ray-x/lsp_signature.nvim',
     config = function()
@@ -467,11 +475,6 @@ require('telescope').setup {
 
 -- nvim-autopairs
 require('nvim-autopairs').setup()
-
--- markdown
-vim.g.instant_markdown_slow = 1
-vim.g.instant_markdown_autostart = 0
-vim.g.instant_markdown_autoscroll = 1
 
 -- toggleterm
 require('toggleterm').setup {
