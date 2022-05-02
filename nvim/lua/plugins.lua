@@ -21,6 +21,7 @@ require('packer').startup(function(use)
   use { 'neovim/nvim-lspconfig', config = conf 'lspconfig' }
   use 'nvim-lua/plenary.nvim'
   use 'akinsho/flutter-tools.nvim'
+  use 'dart-lang/dart-vim-plugin'
   use 'sainnhe/everforest'
   use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' }
   use { 'akinsho/nvim-bufferline.lua', config = conf 'bufferline' }
@@ -44,10 +45,21 @@ require('packer').startup(function(use)
   use { 'nvim-lualine/lualine.nvim', config = conf 'lualine' }
   use 'mtdl9/vim-log-highlighting'
   use 'lewis6991/impatient.nvim'
+  use 'antoinemadec/FixCursorHold.nvim'
+  use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
   use {
     'jose-elias-alvarez/null-ls.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
     config = conf 'null-ls',
+  }
+  use {
+    'danymat/neogen',
+    keys = { '<leader>c' },
+    requires = 'nvim-treesitter/nvim-treesitter',
+    config = function()
+      require('neogen').setup { snippet_engine = 'luasnip' }
+      as.nnoremap('<leader>c', require('neogen').generate, 'comment: generate')
+    end,
   }
   use {
     'mbbill/undotree',
