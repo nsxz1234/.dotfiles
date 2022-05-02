@@ -19,17 +19,11 @@ return function()
           vim.cmd 'highlight! Cursor blend=0'
         end,
       },
-      {
-        event = 'file_opened',
-        handler = function()
-          --auto close
-          require('neo-tree').close_all()
-        end,
-      },
     },
     filesystem = {
       hijack_netrw_behavior = 'open_current',
       use_libuv_file_watcher = true,
+      group_empty_dirs = true,
       filtered_items = {
         visible = true,
         hide_dotfiles = false,
@@ -56,10 +50,6 @@ return function()
     },
     window = {
       width = 30,
-      mapping_options = {
-        noremap = true,
-        nowait = true,
-      },
       mappings = {
         o = 'toggle_node',
       },
