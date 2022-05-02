@@ -59,6 +59,12 @@ require('packer').startup(function(use)
     end,
   }
   use {
+    'moll/vim-bbye',
+    config = function()
+      as.nnoremap('fd', '<Cmd>Bdelete<CR>')
+    end,
+  }
+  use {
     'iamcco/markdown-preview.nvim',
     run = 'cd app && yarn install',
     ft = { 'markdown' },

@@ -85,7 +85,7 @@ nnoremap('<leader>,', modify_line_end_delimiter ',')
 nnoremap('<leader>;', modify_line_end_delimiter ';')
 
 -- buffer
-nnoremap('fd', ':bd<cr>')
+-- nnoremap('fd', ':bd<cr>')
 nnoremap('fD', ':BufferLinePickClose<cr>')
 nnoremap('H', ':BufferLineCyclePrev<cr>')
 nnoremap('L', ':BufferLineCycleNext<cr>')
