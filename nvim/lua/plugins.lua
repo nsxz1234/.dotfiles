@@ -34,7 +34,6 @@ require('packer').startup(function(use)
   use 'simrat39/symbols-outline.nvim'
   use 'Shatur/neovim-session-manager'
   use 'stevearc/dressing.nvim'
-  use 'jose-elias-alvarez/null-ls.nvim'
   use 'numToStr/Comment.nvim'
   use { 'folke/which-key.nvim', config = conf 'whichkey' }
   use 'folke/trouble.nvim'
@@ -44,6 +43,11 @@ require('packer').startup(function(use)
   use { 'psliwka/vim-dirtytalk', run = ':DirtytalkUpdate' }
   use { 'nvim-lualine/lualine.nvim', config = conf 'lualine' }
   use 'mtdl9/vim-log-highlighting'
+  use {
+    'jose-elias-alvarez/null-ls.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
+    config = conf 'null-ls',
+  }
   use {
     'iamcco/markdown-preview.nvim',
     run = 'cd app && yarn install',
@@ -520,25 +524,3 @@ require('session_manager').setup {
 
 -- hop.nvim
 require('hop').setup()
-
--- null-ls
-require('null-ls').setup {
-  sources = {
-    require('null-ls').builtins.code_actions.gitsigns, -- dart formatting
-    require('null-ls').builtins.diagnostics.zsh,
-    require('null-ls').builtins.formatting.stylua, -- install stylua
-    require('null-ls').builtins.formatting.prettier.with {
-      filetypes = { 'html', 'json', 'yaml', 'graphql', 'markdown' },
-    }, -- install prettier
-  },
-  on_attach = function(client)
-    if client.resolved_capabilities.document_formatting then
-      vim.cmd [[
-            augroup LspFormatting
-                autocmd! * <buffer>
-                autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
-            augroup END
-            ]]
-    end
-  end,
-}
