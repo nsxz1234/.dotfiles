@@ -28,7 +28,6 @@ require('packer').startup(function(use)
   use 'ryanoasis/vim-devicons'
   use 'akinsho/nvim-toggleterm.lua'
   use 'voldikss/vim-translator'
-  use 'norcalli/nvim-colorizer.lua'
   use 'phaazon/hop.nvim'
   use 'simrat39/symbols-outline.nvim'
   use 'Shatur/neovim-session-manager'
@@ -56,6 +55,15 @@ require('packer').startup(function(use)
       vim.g.undotree_DiffpanelHeight = 8
       vim.g.undotree_SplitWidth = 24
       as.nnoremap('tu', '<cmd>UndotreeToggle<CR>')
+    end,
+  }
+  use {
+    'norcalli/nvim-colorizer.lua',
+    config = function()
+      require('colorizer').setup({ '*' }, {
+        RGB = false,
+        mode = 'background',
+      })
     end,
   }
   use {
@@ -518,9 +526,6 @@ function Lazygit_Toggle()
 end
 
 vim.keymap.set('n', '<C-g>', ':lua Lazygit_Toggle()<CR>', { noremap = true, silent = true })
-
--- nvim-colorizer.lua
-require('colorizer').setup()
 
 -- vim-translator
 vim.g.translator_default_engines = { 'haici' }
