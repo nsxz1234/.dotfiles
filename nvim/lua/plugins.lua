@@ -1,3 +1,5 @@
+as.safe_require 'impatient'
+
 if as.plugin_installed 'everforest' then
   vim.g.everforest_better_performance = 1
   vim.g.everforest_ui_contrast = 'high'
@@ -41,6 +43,7 @@ require('packer').startup(function(use)
   use { 'psliwka/vim-dirtytalk', run = ':DirtytalkUpdate' }
   use { 'nvim-lualine/lualine.nvim', config = conf 'lualine' }
   use 'mtdl9/vim-log-highlighting'
+  use 'lewis6991/impatient.nvim'
   use {
     'jose-elias-alvarez/null-ls.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
