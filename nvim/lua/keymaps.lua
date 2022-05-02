@@ -137,9 +137,6 @@ nnoremap('gq', '<cmd>TroubleToggle workspace_diagnostics<cr>')
 -- symbols-outline
 nnoremap('ts', ':SymbolsOutline<cr>')
 
--- Undotree
-nnoremap('tu', ':UndotreeToggle<cr>')
-
 -- vim-translator
 nnoremap('tr', ':TranslateW<cr>')
 vnoremap('tr', ':TranslateW<cr>')

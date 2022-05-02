@@ -26,7 +26,6 @@ require('packer').startup(function(use)
   use { 'lukas-reineke/indent-blankline.nvim', config = conf 'indentline' }
   use 'kyazdani42/nvim-web-devicons'
   use 'ryanoasis/vim-devicons'
-  use 'mbbill/undotree'
   use 'akinsho/nvim-toggleterm.lua'
   use 'voldikss/vim-translator'
   use 'norcalli/nvim-colorizer.lua'
@@ -47,6 +46,17 @@ require('packer').startup(function(use)
     'jose-elias-alvarez/null-ls.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
     config = conf 'null-ls',
+  }
+  use {
+    'mbbill/undotree',
+    config = function()
+      vim.g.undotree_TreeNodeShape = '◦' -- Alternative: '◉'
+      vim.g.undotree_SetFocusWhenToggle = 1
+      vim.g.undotree_WindowLayout = 2
+      vim.g.undotree_DiffpanelHeight = 8
+      vim.g.undotree_SplitWidth = 24
+      as.nnoremap('tu', '<cmd>UndotreeToggle<CR>')
+    end,
   }
   use {
     'iamcco/markdown-preview.nvim',
@@ -508,14 +518,6 @@ require('colorizer').setup()
 
 -- vim-translator
 vim.g.translator_default_engines = { 'haici' }
-
--- Undotree
-vim.g.undotree_DiffAutoOpen = 1
-vim.g.undotree_SetFocusWhenToggle = 1
-vim.g.undotree_ShortIndicators = 1
-vim.g.undotree_WindowLayout = 2
-vim.g.undotree_DiffpanelHeight = 8
-vim.g.undotree_SplitWidth = 24
 
 -- neovim-session-manager
 require('session_manager').setup {
