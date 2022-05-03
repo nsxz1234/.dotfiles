@@ -1,6 +1,6 @@
 return function()
-  local wk = require 'which-key'
-  wk.setup {
+  local wk = require('which-key')
+  wk.setup({
     plugins = {
       spelling = {
         enabled = true,
@@ -10,11 +10,11 @@ return function()
       i = { ',', ';' },
       n = { 'v' },
     },
-  }
+  })
 
-  wk.register {
+  wk.register({
     -- ['<leader>'] = {
     --   n = { '<cmd>noh<cr>', 'noh' },
     -- },
-  }
+  })
 end

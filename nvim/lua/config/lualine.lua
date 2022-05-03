@@ -22,7 +22,7 @@ return function()
     'progress',
     padding = { right = 1 },
   }
-  require('lualine').setup {
+  require('lualine').setup({
     options = {
       theme = 'auto',
       component_separators = '',
@@ -38,5 +38,5 @@ return function()
       lualine_y = { progress },
       lualine_z = { 'location' },
     },
-  }
+  })
 end

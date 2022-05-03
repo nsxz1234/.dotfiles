@@ -68,17 +68,17 @@ vim.opt.foldmethod = 'expr'
 -- Grep
 --
 -- Use faster grep alternatives if possible
-if as.executable 'rg' then
+if as.executable('rg') then
   vim.o.grepprg = [[rg --glob "!.git" --no-heading --vimgrep --follow $*]]
   vim.opt.grepformat = vim.opt.grepformat ^ { '%f:%l:%c:%m' }
-elseif as.executable 'ag' then
+elseif as.executable('ag') then
   vim.o.grepprg = [[ag --nogroup --nocolor --vimgrep]]
   vim.opt.grepformat = vim.opt.grepformat ^ { '%f:%l:%c:%m' }
 end
 --
 -- Wild and file globbing stuff in command mode
 --
-vim.opt.wildcharm = fn.char2nr(as.replace_termcodes [[<Tab>]])
+vim.opt.wildcharm = fn.char2nr(as.replace_termcodes([[<Tab>]]))
 vim.opt.wildmode = 'longest:full,full' -- Shows a menu bar as opposed to an enormous list
 vim.opt.wildignorecase = true -- Ignore case when completing file names and directories
 -- Binary
@@ -151,7 +151,7 @@ vim.opt.cursorlineopt = 'screenline,number'
 --
 vim.opt.undofile = true
 vim.opt.swapfile = false
-vim.opt.undodir = vim.fn.stdpath 'cache' .. '/undo'
+vim.opt.undodir = vim.fn.stdpath('cache') .. '/undo'
 --
 -- Match and search
 --
@@ -169,8 +169,8 @@ vim.opt.mousefocus = true
 -- Spelling {{{1
 -----------------------------------------------------------------------------//
 vim.opt.spell = false
-vim.opt.spellsuggest:prepend { 12 }
+vim.opt.spellsuggest:prepend({ 12 })
 vim.opt.spelloptions = 'camel'
 vim.opt.spellcapcheck = '' -- don't check for capital letters at start of sentence
 vim.opt.fileformats = { 'unix', 'mac', 'dos' }
-vim.opt.spelllang:append 'programming'
+vim.opt.spelllang:append('programming')

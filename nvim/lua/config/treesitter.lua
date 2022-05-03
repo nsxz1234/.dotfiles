@@ -1,8 +1,8 @@
 return function()
-  local parsers = require 'nvim-treesitter.parsers'
+  local parsers = require('nvim-treesitter.parsers')
   local rainbow_enabled = { 'dart' }
 
-  require('nvim-treesitter.configs').setup {
+  require('nvim-treesitter.configs').setup({
     ensure_installed = 'all',
     highlight = {
       enable = true, -- false will disable the whole extension
@@ -99,5 +99,5 @@ return function()
         },
       },
     },
-  }
+  })
 end

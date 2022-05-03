@@ -21,7 +21,7 @@ return function()
       return true
     end
     local tab_num = vim.fn.tabpagenr()
-    local last_tab = vim.fn.tabpagenr '$'
+    local last_tab = vim.fn.tabpagenr('$')
     local is_log = vim.bo[buf].filetype == 'log'
     if last_tab == 1 then
       return true
@@ -30,9 +30,9 @@ return function()
     return (tab_num == last_tab and is_log) or (tab_num ~= last_tab and not is_log)
   end
 
-  local groups = require 'bufferline.groups'
+  local groups = require('bufferline.groups')
 
-  require('bufferline').setup {
+  require('bufferline').setup({
     options = {
       debug = {
         logging = true,
@@ -93,7 +93,7 @@ return function()
           {
             name = 'Terraform',
             matcher = function(buf)
-              return buf.name:match '%.tf' ~= nil
+              return buf.name:match('%.tf') ~= nil
             end,
           },
           {
@@ -101,7 +101,7 @@ return function()
             name = 'tests',
             icon = '',
             matcher = function(buf)
-              return buf.filename:match '_spec' or buf.filename:match '_test'
+              return buf.filename:match('_spec') or buf.filename:match('_test')
             end,
           },
           {
@@ -109,7 +109,7 @@ return function()
             name = 'docs',
             icon = '',
             matcher = function(buf)
-              for _, ext in ipairs { 'md', 'txt', 'org', 'norg', 'wiki' } do
+              for _, ext in ipairs({ 'md', 'txt', 'org', 'norg', 'wiki' }) do
                 if ext == fn.fnamemodify(buf.path, ':e') then
                   return true
                 end
@@ -119,5 +119,5 @@ return function()
         },
       },
     },
-  }
+  })
 end

@@ -65,10 +65,10 @@ return function()
 
   local servers = { 'zls' }
   for _, lsp in ipairs(servers) do
-    require('lspconfig')[lsp].setup {
+    require('lspconfig')[lsp].setup({
       on_attach = on_attach,
       capabilities = capabilities,
-    }
+    })
   end
 
   -- Make runtime files discoverable to the server
@@ -77,7 +77,7 @@ return function()
   table.insert(runtime_path, 'lua/?/init.lua')
 
   -- luadev
-  local luadev = require('lua-dev').setup {
+  local luadev = require('lua-dev').setup({
     library = {
       plugins = { 'plenary.nvim' },
     },
@@ -101,10 +101,10 @@ return function()
         },
       },
     },
-  }
+  })
   require('lspconfig').sumneko_lua.setup(luadev)
 
-  require('flutter-tools').setup {
+  require('flutter-tools').setup({
     ui = { border = 'rounded' },
     debugger = {
       enabled = true,
@@ -132,5 +132,5 @@ return function()
       },
       on_attach = on_attach,
     },
-  }
+  })
 end

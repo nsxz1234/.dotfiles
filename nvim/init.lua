@@ -9,10 +9,10 @@ function R(name)
   return require(name)
 end
 
-R 'globals'
-R 'styles'
-R 'settings'
-R 'keymaps'
-R 'plugins'
+R('globals')
+R('styles')
+R('settings')
+R('keymaps')
+R('plugins')
 
-vim.cmd 'source $HOME/.config/nvim/config.vim'
+vim.cmd('source $HOME/.config/nvim/config.vim')

@@ -81,8 +81,8 @@ local function modify_line_end_delimiter(character)
     end
   end
 end
-nnoremap('<leader>,', modify_line_end_delimiter ',')
-nnoremap('<leader>;', modify_line_end_delimiter ';')
+nnoremap('<leader>,', modify_line_end_delimiter(','))
+nnoremap('<leader>;', modify_line_end_delimiter(';'))
 
 -- buffer
 -- nnoremap('fd', ':bd<cr>')
