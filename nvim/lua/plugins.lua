@@ -137,6 +137,8 @@ require('packer').startup(function(use)
     'nvim-neo-tree/neo-tree.nvim',
     branch = 'v2.x',
     config = conf 'neo-tree',
+    keys = { '<tab>' },
+    cmd = { 'NeoTree' },
     requires = {
       'nvim-lua/plenary.nvim',
       'MunifTanjim/nui.nvim',
