@@ -441,6 +441,21 @@ require('packer').startup(function(use)
       })
     end,
   })
+  use({
+    'akinsho/git-conflict.nvim',
+    config = function()
+      require('git-conflict').setup({
+        default_mappings = true,
+        disable_diagnostics = true,
+      })
+      as.nnoremap('co', '<Plug>(git-conflict-ours)')
+      as.nnoremap('cb', '<Plug>(git-conflict-both)')
+      as.nnoremap('cn', '<Plug>(git-conflict-none)')
+      as.nnoremap('ct', '<Plug>(git-conflict-theirs)')
+      as.nnoremap(']c', '<Plug>(git-conflict-next-conflict)')
+      as.nnoremap('[c', '<Plug>(git-conflict-prev-conflict)')
+    end,
+  })
   -- use {
   --   'rlch/github-notifications.nvim',
   --   -- don't load this plugin if the gh cli is not installed
