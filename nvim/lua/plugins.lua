@@ -536,6 +536,7 @@ vim.g.translator_default_engines = { 'haici' }
 -- neovim-session-manager
 require('session_manager').setup {
   autoload_mode = require('session_manager.config').AutoloadMode.Disabled,
+  autosave_ignore_not_normal = false,
 }
 
 -- hop.nvim
