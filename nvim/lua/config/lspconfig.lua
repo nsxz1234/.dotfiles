@@ -10,7 +10,7 @@ return function()
     keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
     keymap('n', 'gk', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
     keymap('n', 'gT', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-    keymap({ 'n', 'i' }, '<c-a>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+    keymap({ 'n', 'i' }, '<C-c>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
     keymap('n', '<leader>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     keymap('v', '<leader>a', '<esc><cmd>lua vim.lsp.buf.range_code_action()<CR>', opts)
     keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
@@ -63,7 +63,7 @@ return function()
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
-  local servers = { 'zls', 'rust_analyzer' }
+  local servers = { 'zls' }
   for _, lsp in ipairs(servers) do
     require('lspconfig')[lsp].setup {
       on_attach = on_attach,
