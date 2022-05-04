@@ -9,7 +9,7 @@ M.is_home = not M.is_work
 ---@param name string
 ---@return any
 function M.conf(name)
-  return require(fmt('config.%s', name))
+  return require(fmt('plugins.%s', name))
 end
 
 return M

@@ -1,12 +1,5 @@
 as.safe_require('impatient')
 
-if as.plugin_installed('everforest') then
-  vim.g.everforest_better_performance = 1
-  vim.g.everforest_ui_contrast = 'high'
-  vim.g.everforest_disable_terminal_colors = 1
-  vim.cmd('colorscheme everforest')
-end
-
 local utils = require('utils.plugins')
 local conf = utils.conf
 
@@ -23,19 +16,12 @@ require('packer').startup(function(use)
   use('akinsho/flutter-tools.nvim')
   use('dart-lang/dart-vim-plugin')
   use('sainnhe/everforest')
-  use({ 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' })
   use({ 'akinsho/nvim-bufferline.lua', config = conf('bufferline') })
-  use('windwp/nvim-autopairs')
   use({ 'lukas-reineke/indent-blankline.nvim', config = conf('indentline') })
   use('kyazdani42/nvim-web-devicons')
   use('ryanoasis/vim-devicons')
-  use('akinsho/nvim-toggleterm.lua')
-  use('voldikss/vim-translator')
-  use('phaazon/hop.nvim')
   use('simrat39/symbols-outline.nvim')
-  use('Shatur/neovim-session-manager')
   use('stevearc/dressing.nvim')
-  use('numToStr/Comment.nvim')
   use({ 'folke/which-key.nvim', config = conf('whichkey') })
   use('folke/trouble.nvim')
   use({ 'rcarriga/nvim-notify', config = conf('notify') })
@@ -47,6 +33,70 @@ require('packer').startup(function(use)
   use('lewis6991/impatient.nvim')
   use('antoinemadec/FixCursorHold.nvim')
   use({ 'kevinhwang91/nvim-bqf', ft = 'qf' })
+  use({
+    'akinsho/nvim-toggleterm.lua',
+    config = conf('toggleterm'),
+  })
+  use({
+    'nvim-telescope/telescope.nvim',
+    cmd = 'Telescope',
+    config = conf('telescope'),
+    requires = {
+      {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        run = 'make',
+        after = 'telescope.nvim',
+        config = function()
+          require('telescope').load_extension('fzf')
+        end,
+      },
+      {
+        'nvim-telescope/telescope-frecency.nvim',
+        after = 'telescope.nvim',
+        requires = 'tami5/sqlite.lua',
+      },
+    },
+  })
+  use({
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+      vim.api.nvim_command('set commentstring=//%s')
+    end,
+  })
+  use({
+    'windwp/nvim-autopairs',
+    config = function()
+      require('nvim-autopairs').setup()
+    end,
+  })
+  use({
+    'voldikss/vim-translator',
+    config = function()
+      vim.g.translator_default_engines = { 'haici' }
+      as.nnoremap('tr', ':TranslateW<cr>')
+      as.vnoremap('tr', ':TranslateW<cr>')
+    end,
+  })
+  use({
+    'Shatur/neovim-session-manager',
+    config = function()
+      require('session_manager').setup({
+        autoload_mode = require('session_manager.config').AutoloadMode.Disabled,
+        autosave_ignore_not_normal = false,
+      })
+      as.nnoremap('fs', ':SessionManager load_session<cr>')
+      as.nnoremap('<leader>ss', ':SessionManager save_current_session<cr>', { silent = false })
+      as.nnoremap('<leader>sd', ':SessionManager delete_session<cr>')
+    end,
+  })
+  use({
+    'phaazon/hop.nvim',
+    config = function()
+      require('hop').setup()
+      as.nnoremap('s', require('hop').hint_words)
+    end,
+  })
   use({
     'jose-elias-alvarez/null-ls.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
@@ -299,13 +349,6 @@ require('packer').startup(function(use)
     end,
   })
   use({
-    'nvim-telescope/telescope-fzf-native.nvim',
-    run = 'make',
-    config = function()
-      require('telescope').load_extension('fzf')
-    end,
-  })
-  use({
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     config = conf('treesitter'),
@@ -465,96 +508,3 @@ require('packer').startup(function(use)
   --   requires = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope.nvim' },
   -- }
 end)
-
--- dap
-if vim.env.DEVELOPING then
-  vim.lsp.set_log_level(vim.lsp.log_levels.DEBUG)
-end
-
--- Highlight on yank
-vim.api.nvim_exec(
-  [[
-  augroup YankHighlight
-  autocmd!
-  autocmd TextYankPost * silent! lua vim.highlight.on_yank()
-  augroup end
-  ]],
-  false
-)
-
--- comment
-require('Comment').setup({})
-vim.api.nvim_command('set commentstring=//%s')
-
--- telescope
-local actions = require('telescope.actions')
-require('telescope').setup({
-  defaults = {
-    sorting_strategy = 'ascending',
-    layout_strategy = 'vertical',
-    layout_config = {
-      width = 0.90,
-      height = 0.80,
-      vertical = {
-        mirror = true,
-        prompt_position = 'top',
-      },
-      horizontal = {
-        mirror = false,
-        prompt_position = 'top',
-      },
-    },
-    mappings = {
-      i = {
-        ['<c-c>'] = function()
-          vim.cmd('stopinsert!')
-        end,
-        ['<esc>'] = actions.close,
-      },
-    },
-  },
-  extensions = {
-    fzf = {
-      override_generic_sorter = true, -- override the generic sorter
-      override_file_sorter = true, -- override the file sorter
-    },
-  },
-})
-
--- nvim-autopairs
-require('nvim-autopairs').setup()
-
--- toggleterm
-require('toggleterm').setup({
-  open_mapping = [[<c-t>]],
-  direction = 'horizontal',
-})
-
-local Terminal = require('toggleterm.terminal').Terminal
-
-local lazygit = Terminal:new({
-  cmd = 'lazygit',
-  dir = 'git_dir',
-  hidden = true,
-  direction = 'float',
-  float_opts = {
-    border = 'curved',
-  },
-})
-function Lazygit_Toggle()
-  lazygit:toggle()
-end
-
-vim.keymap.set('n', '<C-g>', ':lua Lazygit_Toggle()<CR>', { noremap = true, silent = true })
-
--- vim-translator
-vim.g.translator_default_engines = { 'haici' }
-
--- neovim-session-manager
-require('session_manager').setup({
-  autoload_mode = require('session_manager.config').AutoloadMode.Disabled,
-  autosave_ignore_not_normal = false,
-})
-
--- hop.nvim
-require('hop').setup()
