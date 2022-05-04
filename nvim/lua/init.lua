@@ -451,17 +451,6 @@ require('packer').startup(function(use)
     end,
   })
   use({
-    'pwntester/octo.nvim',
-    requires = {
-      'nvim-lua/plenary.nvim',
-      'nvim-telescope/telescope.nvim',
-      'kyazdani42/nvim-web-devicons',
-    },
-    cmd = 'Octo',
-    keys = { '<leader>oi', '<leader>op' },
-    config = conf('octo'),
-  })
-  use({
     'TimUntersberger/neogit',
     cmd = 'Neogit',
     keys = { '<leader>gs', '<leader>gc', '<leader>gp', '<leader>gP' },
