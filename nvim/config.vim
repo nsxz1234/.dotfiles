@@ -1,7 +1,5 @@
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-nnoremap <silent> J :call search('["\]'')}]','W')<CR>
-
 "autocmd Filetype markdown map <leader>w yiWi[<esc>Ea](<esc>pa)
 autocmd Filetype markdown inoremap <buffer> ,f <Esc>/<++><CR>:nohlsearch<CR>"_c4l
 autocmd Filetype markdown inoremap <buffer> ,w <Esc>/ <++><CR>:nohlsearch<CR>"_c5l<CR>
