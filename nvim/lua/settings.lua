@@ -165,12 +165,22 @@ vim.opt.scrolloff = 9
 --
 vim.opt.mouse = 'a'
 vim.opt.mousefocus = true
------------------------------------------------------------------------------//
--- Spelling {{{1
------------------------------------------------------------------------------//
+--
+-- Spelling
+--
 vim.opt.spell = false
 vim.opt.spellsuggest:prepend({ 12 })
 vim.opt.spelloptions = 'camel'
 vim.opt.spellcapcheck = '' -- don't check for capital letters at start of sentence
 vim.opt.fileformats = { 'unix', 'mac', 'dos' }
 vim.opt.spelllang:append('programming')
+--
+-- Color Scheme
+--
+if as.plugin_installed('everforest') then
+  vim.opt.background = 'dark'
+  vim.g.everforest_better_performance = 1
+  vim.g.everforest_ui_contrast = 'high'
+  vim.g.everforest_disable_terminal_colors = 1
+  vim.cmd('colorscheme everforest')
+end
