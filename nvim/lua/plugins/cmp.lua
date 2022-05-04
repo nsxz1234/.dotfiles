@@ -45,9 +45,12 @@ return function()
       ['<C-d>'] = cmp.mapping.scroll_docs(-4),
       ['<C-f>'] = cmp.mapping.scroll_docs(4),
       ['<C-Space>'] = cmp.mapping.complete(),
-      ['<C-e>'] = cmp.mapping.close(),
       ['<CR>'] = cmp.mapping.confirm({ select = false }),
       ['jj'] = cmp.mapping.confirm({ select = true }),
+      ['<C-q>'] = cmp.mapping({
+        i = cmp.mapping.abort(),
+        c = cmp.mapping.close(),
+      }),
     },
     formatting = {
       deprecated = true,
@@ -95,6 +98,7 @@ return function()
   cmp.setup.cmdline(':', {
     sources = cmp.config.sources({
       { name = 'cmdline', keyword_pattern = [=[[^[:blank:]\!]*]=] },
+      { name = 'path' },
     }),
   })
 end
