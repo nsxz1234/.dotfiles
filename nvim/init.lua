@@ -12,7 +12,6 @@ end
 R('globals')
 R('styles')
 R('settings')
-R('keymaps')
 R('init')
 
 vim.cmd('source $HOME/.config/nvim/config.vim')
