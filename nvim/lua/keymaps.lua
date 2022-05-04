@@ -113,33 +113,20 @@ nnoremap('ff', ':Telescope find_files<cr>')
 nnoremap('fo', ':Telescope oldfiles<cr>')
 nnoremap('fg', ':Telescope live_grep<cr>')
 nnoremap('fw', ':Telescope grep_string<cr>')
+nnoremap('fh', ':Telescope search_history<cr>')
 nnoremap('f;', ':Telescope commands<cr>')
 nnoremap('fc', ':Telescope command_history<cr>')
 nnoremap('fb', ':Telescope buffers<cr>')
 nnoremap('f/', ':Telescope current_buffer_fuzzy_find<cr>')
-nnoremap('fh', ':Telescope help_tags<cr>')
+nnoremap('f?', ':Telescope help_tags<cr>')
 nnoremap('fm', ':Telescope marks<cr>')
 nnoremap('ft', ':Telescope lsp_dynamic_workspace_symbols<cr>')
-
--- neoclip
-nnoremap('fp', '<cmd>lua require("telescope").extensions.neoclip.default()<cr>')
-
--- neovim-session-manager
-nnoremap('fs', ':SessionManager load_session<cr>')
-nnoremap('<leader>ss', ':SessionManager save_current_session<cr>', noisy)
-nnoremap('<leader>sd', ':SessionManager delete_session<cr>')
+nnoremap('fn', ':Telescope notify<cr>')
 
 -- trouble.nvim
 nnoremap('gr', '<cmd>TroubleToggle lsp_references<cr>')
 nnoremap('gi', '<cmd>TroubleToggle lsp_implementations<cr>', noisy)
 nnoremap('gq', '<cmd>TroubleToggle workspace_diagnostics<cr>')
-
--- symbols-outline
-nnoremap('ts', ':SymbolsOutline<cr>')
-
--- vim-translator
-nnoremap('tr', ':TranslateW<cr>')
-vnoremap('tr', ':TranslateW<cr>')
 
 -- flutter
 nnoremap('<leader>fr', ':FlutterRestart<cr>', noisy)
@@ -151,9 +138,6 @@ nnoremap('<leader>fc', ':FlutterLogClear<cr>', noisy)
 nnoremap('<leader>fd', ':FlutterDevices<cr>', noisy)
 nnoremap('<leader>ft', ':FlutterDevTools<cr>', noisy)
 nnoremap('<leader>fp', ':FlutterVisualDebug<cr>', noisy)
-
--- hop.nvim
-nnoremap('s', '<cmd>lua require("hop").hint_words()<cr>')
 
 -- dap
 nnoremap('<leader>dd', '<cmd>lua require("dap").toggle_breakpoint()<cr>')

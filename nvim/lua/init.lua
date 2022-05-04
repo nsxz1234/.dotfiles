@@ -20,7 +20,6 @@ require('packer').startup(function(use)
   use({ 'lukas-reineke/indent-blankline.nvim', config = conf('indentline') })
   use('kyazdani42/nvim-web-devicons')
   use('ryanoasis/vim-devicons')
-  use('simrat39/symbols-outline.nvim')
   use('stevearc/dressing.nvim')
   use({ 'folke/which-key.nvim', config = conf('whichkey') })
   use('folke/trouble.nvim')
@@ -33,6 +32,12 @@ require('packer').startup(function(use)
   use('lewis6991/impatient.nvim')
   use('antoinemadec/FixCursorHold.nvim')
   use({ 'kevinhwang91/nvim-bqf', ft = 'qf' })
+  use({
+    'simrat39/symbols-outline.nvim',
+    config = function()
+      as.nnoremap('ts', '<cmd>SymbolsOutline<cr>')
+    end,
+  })
   use({
     'akinsho/nvim-toggleterm.lua',
     config = conf('toggleterm'),
@@ -245,6 +250,7 @@ require('packer').startup(function(use)
           },
         },
       })
+      as.nnoremap('fp', require('telescope').extensions.neoclip.default)
     end,
   })
   use({
