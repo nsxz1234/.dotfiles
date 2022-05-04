@@ -2,6 +2,7 @@ return function()
   vim.g.neo_tree_remove_legacy_commands = 1
   local icons = as.style.icons
   as.nnoremap('<tab>', '<Cmd>Neotree toggle reveal<CR>')
+  as.nnoremap('<C-e>', '<Cmd>Neotree toggle reveal<CR>')
   require('neo-tree').setup({
     enable_git_status = true,
     git_status_async = true,

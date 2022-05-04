@@ -187,7 +187,7 @@ require('packer').startup(function(use)
     'nvim-neo-tree/neo-tree.nvim',
     branch = 'v2.x',
     config = conf('neo-tree'),
-    keys = { '<tab>' },
+    keys = { '<tab>', '<C-e>' },
     cmd = { 'NeoTree' },
     requires = {
       'nvim-lua/plenary.nvim',
@@ -291,8 +291,8 @@ require('packer').startup(function(use)
       vim.g.VM_highlight_matches = 'underline'
       vim.g.VM_theme = 'codedark'
       vim.g.VM_maps = {
-        ['Find Under'] = '<C-e>',
-        ['Find Subword Under'] = '<C-e>',
+        ['Find Under'] = '<m-n>',
+        ['Find Subword Under'] = '<m-n>',
         ['Select Cursor Down'] = '\\j',
         ['Select Cursor Up'] = '\\k',
       }
