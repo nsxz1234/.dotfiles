@@ -1,6 +1,7 @@
 return function()
   local telescope = require('telescope')
   local actions = require('telescope.actions')
+
   telescope.setup({
     defaults = {
       dynamic_preview_title = true,
@@ -27,9 +28,6 @@ return function()
           mirror = false,
           prompt_position = 'top',
         },
-      },
-      history = {
-        path = vim.fn.stdpath('data') .. '/telescope_history.sqlite3',
       },
     },
     extensions = {

@@ -55,11 +55,6 @@ require('packer').startup(function(use)
           require('telescope').load_extension('fzf')
         end,
       },
-      {
-        'nvim-telescope/telescope-frecency.nvim',
-        after = 'telescope.nvim',
-        requires = 'tami5/sqlite.lua',
-      },
     },
   })
   use({
