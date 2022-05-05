@@ -184,7 +184,7 @@ require('packer').startup(function(use)
     config = function()
       as.nnoremap('<leader>t', function()
         require('minimal-nnn').start()
-      end, { desc = 'nnn' })
+      end)
     end,
   })
   use({
