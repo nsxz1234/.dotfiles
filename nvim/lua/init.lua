@@ -85,7 +85,7 @@ require('packer').startup(function(use)
         autoload_mode = require('session_manager.config').AutoloadMode.Disabled,
         autosave_ignore_not_normal = false,
       })
-      as.nnoremap('fs', ':SessionManager load_session<cr>')
+      as.nnoremap('<leader>fs', ':SessionManager load_session<cr>')
       as.nnoremap('<leader>ss', ':SessionManager save_current_session<cr>', { silent = false })
       as.nnoremap('<leader>sd', ':SessionManager delete_session<cr>')
     end,
