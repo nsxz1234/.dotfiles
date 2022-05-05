@@ -1,3 +1,5 @@
+vim.g.did_load_filetypes = 0 -- deactivate vim based filetype detection
+
 vim.g.mapleader = ' ' -- Remap leader key
 
 local ok, reload = pcall(require, 'plenary.reload')
