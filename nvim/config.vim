@@ -19,12 +19,9 @@ autocmd Filetype markdown inoremap <buffer> ,4 ####<Space><Enter><++><Esc>kA
 autocmd Filetype markdown inoremap <buffer> ,l --------<Enter>
 
 " Compile function
-noremap <leader>r :call CompileRunGcc()<CR>
+noremap <leader><cr> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
-  exec "w"
   if &filetype == 'markdown'
     exec "MarkdownPreview"
-  elseif &filetype == 'html'
-    silent! exec "!".g:mkdp_browser." % &"
   endif
 endfunc
