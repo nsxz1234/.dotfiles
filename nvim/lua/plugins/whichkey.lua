@@ -17,6 +17,14 @@ return function()
       f = {
         p = 'neoclip: open yank history',
       },
+      a = 'lsp: code action',
+      rn = 'lsp: rename',
+      cl = 'lsp: run code lens',
+    },
+    g = {
+      d = 'lsp: definition',
+      k = 'lsp: hover',
+      t = 'lsp: go to type definition',
     },
   })
 end
