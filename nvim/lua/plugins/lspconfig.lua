@@ -1,35 +1,16 @@
 return function()
-  local keymap = vim.keymap.set
-  keymap('n', 'ge', '<cmd>lua vim.diagnostic.open_float()<CR>')
-  keymap('n', '_', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
-  keymap('n', '+', '<cmd>lua vim.diagnostic.goto_next()<CR>')
-
   local on_attach = function(client, bufnr)
-    local opts = { buffer = bufnr }
-    keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-    keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-    keymap('n', 'gk', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-    keymap('n', 'gT', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-    keymap({ 'n', 'i' }, '<C-c>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-    keymap('n', '<leader>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-    keymap('v', '<leader>a', '<esc><cmd>lua vim.lsp.buf.range_code_action()<CR>', opts)
-    keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-    keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-    keymap(
-      'n',
-      '<space>wl',
-      '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>',
-      opts
-    )
-    keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-    keymap('n', 'F', '<cmd>lua vim.lsp.buf.formatting_sync()<CR>', opts)
-
-    if client.name ~= 'dartls' then
-      client.resolved_capabilities.document_formatting = false
-      client.resolved_capabilities.document_range_formatting = false
+    if client and client.resolved_capabilities.code_lens then
+      as.augroup('LspCodeLens', {
+        {
+          event = { 'BufEnter', 'CursorHold', 'InsertLeave' },
+          buffer = bufnr,
+          command = function()
+            vim.lsp.codelens.refresh()
+          end,
+        },
+      })
     end
-
-    -- Highlight symbol under cursor
     if client.resolved_capabilities.document_highlight then
       as.augroup('LspCursorCommands', {
         {
@@ -56,6 +37,30 @@ return function()
           end,
         },
       })
+    end
+
+    as.nnoremap('F', vim.lsp.buf.formatting_sync)
+    as.nnoremap('gd', vim.lsp.buf.definition)
+    as.nnoremap('gk', vim.lsp.buf.hover)
+    as.nnoremap('<C-c>', vim.lsp.buf.signature_help)
+    as.inoremap('<C-c>', vim.lsp.buf.signature_help)
+    as.nnoremap('[e', vim.diagnostic.goto_prev)
+    as.nnoremap(']e', vim.diagnostic.goto_next)
+    as.nnoremap('<leader>a', vim.lsp.buf.code_action)
+    as.xnoremap('<leader>a', '<esc><Cmd>lua vim.lsp.buf.range_code_action()<CR>')
+    if client.resolved_capabilities.type_definition then
+      as.nnoremap('gt', vim.lsp.buf.type_definition)
+    end
+    if client.resolved_capabilities.code_lens then
+      as.nnoremap('<leader>cl', vim.lsp.codelens.run)
+    end
+    if client.supports_method('textDocument/rename') then
+      as.nnoremap('<leader>rn', vim.lsp.buf.rename)
+    end
+
+    if client.name ~= 'dartls' then
+      client.resolved_capabilities.document_formatting = false
+      client.resolved_capabilities.document_range_formatting = false
     end
   end
 

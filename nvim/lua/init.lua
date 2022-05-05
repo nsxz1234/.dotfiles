@@ -41,7 +41,7 @@ require('packer').startup(function(use)
   })
   use({
     'simrat39/symbols-outline.nvim',
-    config = function()
+    setup = function()
       as.nnoremap('ts', '<cmd>SymbolsOutline<cr>')
     end,
   })
@@ -113,20 +113,26 @@ require('packer').startup(function(use)
     'danymat/neogen',
     keys = { '<leader>c' },
     requires = 'nvim-treesitter/nvim-treesitter',
+    module = 'neogen',
+    setup = function()
+      as.nnoremap('<leader>c', require('neogen').generate, 'comment: generate')
+    end,
     config = function()
       require('neogen').setup({ snippet_engine = 'luasnip' })
-      as.nnoremap('<leader>c', require('neogen').generate, 'comment: generate')
     end,
   })
   use({
     'mbbill/undotree',
+    cmd = 'UndotreeToggle',
+    setup = function()
+      as.nnoremap('tu', '<cmd>UndotreeToggle<CR>')
+    end,
     config = function()
       vim.g.undotree_TreeNodeShape = '◦' -- Alternative: '◉'
       vim.g.undotree_SetFocusWhenToggle = 1
       vim.g.undotree_WindowLayout = 2
       vim.g.undotree_DiffpanelHeight = 8
       vim.g.undotree_SplitWidth = 24
-      as.nnoremap('tu', '<cmd>UndotreeToggle<CR>')
     end,
   })
   use({
@@ -141,7 +147,7 @@ require('packer').startup(function(use)
   use({
     'famiu/bufdelete.nvim',
     config = function()
-      as.nnoremap(',,', '<Cmd>Bdelete<CR>')
+      as.nnoremap('<leader>q', '<Cmd>Bdelete<CR>')
     end,
   })
   use({
@@ -178,7 +184,7 @@ require('packer').startup(function(use)
     config = function()
       as.nnoremap('<leader>t', function()
         require('minimal-nnn').start()
-      end, { label = 'nnn' })
+      end, { desc = 'nnn' })
     end,
   })
   use({
@@ -214,12 +220,8 @@ require('packer').startup(function(use)
     'j-hui/fidget.nvim',
     config = function()
       require('fidget').setup({
-        text = {
-          spinner = 'moon',
-        },
-        window = {
-          blend = 0,
-        },
+        text = { spinner = 'moon' },
+        window = { blend = 0 },
       })
     end,
   })
@@ -464,10 +466,11 @@ require('packer').startup(function(use)
     'sindrets/diffview.nvim',
     cmd = { 'DiffviewOpen', 'DiffviewFileHistory' },
     module = 'diffview',
-    keys = { '<leader>gd', '<leader>gh' },
+    setup = function()
+      as.nnoremap('<leader>gd', '<Cmd>DiffviewOpen<CR>', 'diffview: diff HEAD')
+      as.nnoremap('<leader>gh', '<Cmd>DiffviewFileHistory<CR>', 'diffview: file history')
+    end,
     config = function()
-      as.nnoremap('<leader>gd', '<Cmd>DiffviewOpen<CR>')
-      as.nnoremap('<leader>gh', '<Cmd>DiffviewFileHistory<CR>')
       require('diffview').setup({
         enhanced_diff_hl = true,
         key_bindings = {
