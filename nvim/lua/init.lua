@@ -245,7 +245,7 @@ require('packer').startup(function(use)
           },
         },
       })
-      as.nnoremap('fp', require('telescope').extensions.neoclip.default)
+      as.nnoremap('<leader>fp', require('telescope').extensions.neoclip.default)
     end,
   })
   use({
@@ -269,7 +269,7 @@ require('packer').startup(function(use)
     'ilAYAli/scMRU.nvim',
     cmd = { 'Mfu', 'Mru' },
     setup = function()
-      as.nnoremap('fu', '<Cmd>Mfu<CR>', 'most frequently used')
+      as.nnoremap('<leader>fu', '<Cmd>Mfu<CR>', 'most frequently used')
     end,
   })
   use({
