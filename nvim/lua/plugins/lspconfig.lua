@@ -39,23 +39,24 @@ return function()
       })
     end
 
-    as.nnoremap('F', vim.lsp.buf.formatting_sync)
-    as.nnoremap('gd', vim.lsp.buf.definition)
-    as.nnoremap('gk', vim.lsp.buf.hover)
-    as.nnoremap('<C-c>', vim.lsp.buf.signature_help)
-    as.inoremap('<C-c>', vim.lsp.buf.signature_help)
-    as.nnoremap('[e', vim.diagnostic.goto_prev)
-    as.nnoremap(']e', vim.diagnostic.goto_next)
-    as.nnoremap('<leader>a', vim.lsp.buf.code_action)
-    as.xnoremap('<leader>a', '<esc><Cmd>lua vim.lsp.buf.range_code_action()<CR>')
+    local opts = { buffer = bufnr }
+    as.nnoremap('F', vim.lsp.buf.formatting_sync, opts)
+    as.nnoremap('gd', vim.lsp.buf.definition, opts)
+    as.nnoremap('gk', vim.lsp.buf.hover, opts)
+    as.nnoremap('<C-c>', vim.lsp.buf.signature_help, opts)
+    as.inoremap('<C-c>', vim.lsp.buf.signature_help, opts)
+    as.nnoremap('[e', vim.diagnostic.goto_prev, opts)
+    as.nnoremap(']e', vim.diagnostic.goto_next, opts)
+    as.nnoremap('<leader>a', vim.lsp.buf.code_action, opts)
+    as.xnoremap('<leader>a', '<esc><Cmd>lua vim.lsp.buf.range_code_action()<CR>', opts)
     if client.resolved_capabilities.type_definition then
-      as.nnoremap('gt', vim.lsp.buf.type_definition)
+      as.nnoremap('gt', vim.lsp.buf.type_definition, opts)
     end
     if client.resolved_capabilities.code_lens then
-      as.nnoremap('<leader>cl', vim.lsp.codelens.run)
+      as.nnoremap('<leader>cl', vim.lsp.codelens.run, opts)
     end
     if client.supports_method('textDocument/rename') then
-      as.nnoremap('<leader>rn', vim.lsp.buf.rename)
+      as.nnoremap('<leader>rn', vim.lsp.buf.rename, opts)
     end
 
     if client.name ~= 'dartls' then
