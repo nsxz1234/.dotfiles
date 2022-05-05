@@ -129,17 +129,6 @@ nnoremap('gr', '<cmd>TroubleToggle lsp_references<cr>')
 nnoremap('gi', '<cmd>TroubleToggle lsp_implementations<cr>', noisy)
 nnoremap('gq', '<cmd>TroubleToggle workspace_diagnostics<cr>')
 
--- flutter
-nnoremap('<leader>fr', ':FlutterRestart<cr>', noisy)
-nnoremap('<leader>fq', ':FlutterQuit<cr>', noisy)
-nnoremap('<leader>fg', ':FlutterPubGet<cr>', noisy)
-nnoremap('<leader>fu', ':FlutterPubUpgrade<cr>', noisy)
-nnoremap('<leader>fo', ':FlutterOutlineToggle<cr>', noisy)
-nnoremap('<leader>fc', ':FlutterLogClear<cr>', noisy)
-nnoremap('<leader>fd', ':FlutterDevices<cr>', noisy)
-nnoremap('<leader>ft', ':FlutterDevTools<cr>', noisy)
-nnoremap('<leader>fp', ':FlutterVisualDebug<cr>', noisy)
-
 -- dap
 nnoremap('<leader>dd', '<cmd>lua require("dap").toggle_breakpoint()<cr>')
 nnoremap('<leader>dc', '<cmd>lua require("dap").continue()<cr>')
