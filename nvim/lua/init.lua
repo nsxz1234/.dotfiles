@@ -500,9 +500,9 @@ require('packer').startup(function(use)
   -- use {
   --   'rlch/github-notifications.nvim',
   --   -- don't load this plugin if the gh cli is not installed
+  --   requires = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope.nvim' },
   --   cond = function()
   --     return as.executable 'gh'
   --   end,
-  --   requires = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope.nvim' },
   -- }
 end)
