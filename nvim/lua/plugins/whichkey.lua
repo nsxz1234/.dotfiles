@@ -13,8 +13,10 @@ return function()
   })
 
   wk.register({
-    -- ['<leader>'] = {
-    --   n = { '<cmd>noh<cr>', 'noh' },
-    -- },
+    ['<leader>'] = {
+      f = {
+        p = 'neoclip: open yank history',
+      },
+    },
   })
 end
