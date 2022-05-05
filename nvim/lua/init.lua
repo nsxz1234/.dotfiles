@@ -22,7 +22,6 @@ require('packer').startup(function(use)
   use('ryanoasis/vim-devicons')
   use('stevearc/dressing.nvim')
   use({ 'folke/which-key.nvim', config = conf('whichkey') })
-  use('folke/trouble.nvim')
   use({ 'rcarriga/nvim-notify', config = conf('notify') })
   use('folke/lua-dev.nvim')
   use('wellle/targets.vim')
@@ -32,6 +31,14 @@ require('packer').startup(function(use)
   use('lewis6991/impatient.nvim')
   use('antoinemadec/FixCursorHold.nvim')
   use({ 'kevinhwang91/nvim-bqf', ft = 'qf' })
+  use({
+    'folke/trouble.nvim',
+    setup = function()
+      as.nnoremap('gr', '<cmd>TroubleToggle lsp_references<cr>')
+      as.nnoremap('gi', '<cmd>TroubleToggle lsp_implementations<cr>', { silent = false })
+      as.nnoremap('gq', '<cmd>TroubleToggle workspace_diagnostics<cr>')
+    end,
+  })
   use({
     'simrat39/symbols-outline.nvim',
     config = function()

@@ -122,11 +122,6 @@ nnoremap('<leader>fm', ':Telescope marks<cr>')
 nnoremap('<leader>ft', ':Telescope lsp_dynamic_workspace_symbols<cr>')
 nnoremap('<leader>fn', ':Telescope notify<cr>')
 
--- trouble.nvim
-nnoremap('gr', '<cmd>TroubleToggle lsp_references<cr>')
-nnoremap('gi', '<cmd>TroubleToggle lsp_implementations<cr>', noisy)
-nnoremap('gq', '<cmd>TroubleToggle workspace_diagnostics<cr>')
-
 -- dap
 nnoremap('<leader>dd', '<cmd>lua require("dap").toggle_breakpoint()<cr>')
 nnoremap('<leader>dc', '<cmd>lua require("dap").continue()<cr>')
