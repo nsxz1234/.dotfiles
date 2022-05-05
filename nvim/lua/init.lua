@@ -372,6 +372,7 @@ require('packer').startup(function(use)
     'hrsh7th/nvim-cmp',
     module = 'cmp',
     event = 'InsertEnter',
+    config = conf('cmp'),
     requires = {
       { 'hrsh7th/cmp-nvim-lsp' },
       { 'hrsh7th/cmp-nvim-lsp-document-symbol', after = 'nvim-cmp' },
@@ -379,6 +380,8 @@ require('packer').startup(function(use)
       { 'f3fora/cmp-spell', after = 'nvim-cmp' },
       { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
       { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
+      { 'lukas-reineke/cmp-rg', after = 'nvim-cmp' },
+      { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' },
       {
         'petertriho/cmp-git',
         after = 'nvim-cmp',
@@ -386,9 +389,7 @@ require('packer').startup(function(use)
           require('cmp_git').setup({ filetypes = { 'gitcommit', 'NeogitCommitMessage' } })
         end,
       },
-      { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' },
     },
-    config = conf('cmp'),
   })
   use({
     'L3MON4D3/LuaSnip',
