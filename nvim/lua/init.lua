@@ -223,7 +223,7 @@ require('packer').startup(function(use)
     setup = function()
       as.nnoremap('S', function()
         require('trevj').format_at_cursor()
-      end, { label = 'splitjoin: split' })
+      end, { desc = 'splitjoin: split' })
     end,
   })
   use({
