@@ -32,9 +32,9 @@ return function()
     },
     sections = {
       lualine_a = { 'mode' },
-      lualine_b = { branch },
+      lualine_b = {},
       lualine_c = { filetype, file_name },
-      lualine_x = { diff },
+      lualine_x = { diff, branch },
       lualine_y = { progress },
       lualine_z = { 'location' },
     },
