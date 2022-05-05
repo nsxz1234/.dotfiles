@@ -26,5 +26,11 @@ return function()
       k = 'lsp: hover',
       t = 'lsp: go to type definition',
     },
+    ['['] = {
+      e = 'lsp: go to prev diagnostic',
+    },
+    [']'] = {
+      e = 'lsp: go to next diagnostic',
+    },
   })
 end
