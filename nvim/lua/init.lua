@@ -92,7 +92,7 @@ require('packer').startup(function(use)
         autoload_mode = require('session_manager.config').AutoloadMode.Disabled,
         autosave_ignore_not_normal = false,
       })
-      as.nnoremap('<leader>fs', ':SessionManager load_session<cr>')
+      as.nnoremap('fs', ':SessionManager load_session<cr>')
       as.nnoremap('<leader>ss', ':SessionManager save_current_session<cr>', { silent = false })
       as.nnoremap('<leader>sd', ':SessionManager delete_session<cr>')
     end,
@@ -254,7 +254,7 @@ require('packer').startup(function(use)
           },
         },
       })
-      as.nnoremap('<leader>fp', require('telescope').extensions.neoclip.default)
+      as.nnoremap('fp', require('telescope').extensions.neoclip.default)
     end,
   })
   use({
@@ -278,7 +278,7 @@ require('packer').startup(function(use)
     'ilAYAli/scMRU.nvim',
     cmd = { 'Mfu', 'Mru' },
     setup = function()
-      as.nnoremap('<leader>fu', '<Cmd>Mfu<CR>', 'most frequently used')
+      as.nnoremap('fu', '<Cmd>Mfu<CR>', 'most frequently used')
     end,
   })
   use({
