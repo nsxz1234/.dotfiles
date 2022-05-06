@@ -51,7 +51,7 @@ require('packer').startup(function(use)
   })
   use({
     'nvim-telescope/telescope.nvim',
-    cmd = 'Telescope',
+    -- cmd = 'Telescope',
     config = conf('telescope'),
     requires = {
       {
