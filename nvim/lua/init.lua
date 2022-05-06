@@ -19,7 +19,6 @@ require('packer').startup(function(use)
   use({ 'akinsho/nvim-bufferline.lua', config = conf('bufferline') })
   use({ 'lukas-reineke/indent-blankline.nvim', config = conf('indentline') })
   use('kyazdani42/nvim-web-devicons')
-  use('ryanoasis/vim-devicons')
   use('stevearc/dressing.nvim')
   use({ 'folke/which-key.nvim', config = conf('whichkey') })
   use({ 'rcarriga/nvim-notify', config = conf('notify') })
@@ -185,15 +184,6 @@ require('packer').startup(function(use)
       as.nnoremap('<leader>t', function()
         require('minimal-nnn').start()
       end)
-    end,
-  })
-  use({
-    'narutoxy/dim.lua',
-    requires = { 'nvim-treesitter/nvim-treesitter', 'neovim/nvim-lspconfig' },
-    config = function()
-      require('dim').setup({
-        disable_lsp_decorations = true,
-      })
     end,
   })
   use({
