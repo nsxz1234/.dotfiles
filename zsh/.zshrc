@@ -26,6 +26,7 @@ alias v='nvim'
 alias lg='lazygit'
 alias ra='ranger'
 alias n="n -e"
+alias yd="ydcv"
 
 # ^g to open lazygit
 bindkey -s '^g' 'lazygit\n'
