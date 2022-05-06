@@ -14,12 +14,12 @@ return function()
 
   wk.register({
     ['<leader>'] = {
-      f = {
-        p = 'neoclip: open yank history',
-      },
       a = 'lsp: code action',
       rn = 'lsp: rename',
       cl = 'lsp: run code lens',
+    },
+    f = {
+      p = 'neoclip: open yank history',
     },
     g = {
       d = 'lsp: definition',

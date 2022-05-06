@@ -147,7 +147,7 @@ require('packer').startup(function(use)
   use({
     'famiu/bufdelete.nvim',
     config = function()
-      as.nnoremap('<leader>q', '<Cmd>Bdelete<CR>')
+      as.nnoremap('fd', '<Cmd>Bdelete<CR>')
     end,
   })
   use({
