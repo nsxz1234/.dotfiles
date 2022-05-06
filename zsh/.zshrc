@@ -5,32 +5,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export ZSH="$HOME/.oh-my-zsh"
+ZSH=/usr/share/oh-my-zsh/
 
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-
-plugins=(
-  git
-)
-
-# zsh
-source $ZSH/oh-my-zsh.sh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-
-# fzf (after zsh)
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
-
-alias l="ls -la"
-alias v='nvim'
-alias lg='lazygit'
-alias ra='ranger'
-alias n="n -e"
-
-# ^g to open lazygit
-bindkey -s '^g' 'lazygit\n'
+plugins=(git)
 
 # flutter
 export CHROME_EXECUTABLE=/usr/bin/brave
@@ -41,6 +18,32 @@ export PATH=~/Android/Sdk/platform-tools:$PATH
 
 # cargo
 export PATH=$PATH:~/.cargo/bin
+
+export EDITOR='nvim'
+
+alias l="ls -la"
+alias v='nvim'
+alias lg='lazygit'
+alias ra='ranger'
+alias n="n -e"
+
+# ^g to open lazygit
+bindkey -s '^g' 'lazygit\n'
+
+ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
+if [[ ! -d $ZSH_CACHE_DIR ]]; then
+  mkdir $ZSH_CACHE_DIR
+fi
+
+source $ZSH/oh-my-zsh.sh
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+
+# fzf (after zsh)
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
