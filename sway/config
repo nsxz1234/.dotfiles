@@ -84,7 +84,7 @@ output $screen_lg {
     bindsym $mod+f exec firefox-nightly
 
     # Start a chromium
-    bindsym $mod+c exec chromium --enable-features=UseOzonePlatform --ozone-platform=wayland	
+    bindsym $mod+c exec brave --enable-features=UseOzonePlatform --ozone-platform=wayland	
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
