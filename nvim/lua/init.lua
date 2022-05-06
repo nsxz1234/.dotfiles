@@ -281,7 +281,7 @@ require('packer').startup(function(use)
           },
         },
       })
-      as.nnoremap('<leader>e', '<cmd>Nnn<CR>')
+      as.nnoremap('<leader>e', '<cmd>Ranger<CR>')
     end,
   })
   use({
