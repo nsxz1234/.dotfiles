@@ -179,14 +179,6 @@ require('packer').startup(function(use)
     end,
   })
   use({
-    'bobrown101/minimal-nnn.nvim',
-    config = function()
-      as.nnoremap('<leader>t', function()
-        require('minimal-nnn').start()
-      end)
-    end,
-  })
-  use({
     'nvim-neo-tree/neo-tree.nvim',
     branch = 'v2.x',
     config = conf('neo-tree'),
