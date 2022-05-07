@@ -322,6 +322,7 @@ require('packer').startup(function(use)
         gitcommit = false,
         NeogitCommitMessage = false,
         DressingInput = false,
+        TelescopePrompt = false,
         ['neo-tree-popup'] = false,
         -- dart = false,
       }
