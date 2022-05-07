@@ -75,6 +75,15 @@ return function()
       client.server_capabilities.documentRangeFormattingProvider = false
     end
   end
+  if client.server_capabilities.documentFormattingProvider then
+    vim.cmd([[
+      augroup LspFormatting
+      autocmd! * <buffer>
+      autocmd BufWritePre <buffer> lua vim.lsp.buf.format()
+      augroup END
+      ]])
+  end
+end
 
   -- nvim-cmp supports additional completion capabilities
   local capabilities = vim.lsp.protocol.make_client_capabilities()
