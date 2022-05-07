@@ -144,7 +144,7 @@ require('packer').startup(function(use)
     end,
   })
   use({
-    'famiu/bufdelete.nvim',
+    'moll/vim-bbye',
     config = function()
       as.nnoremap('fd', '<Cmd>Bdelete<CR>')
     end,
