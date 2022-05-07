@@ -24,20 +24,29 @@ vim.opt.ttimeoutlen = 10
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.switchbuf = 'useopen,uselast'
+vim.opt.fillchars = {
+  fold = ' ',
+  eob = ' ', -- suppress ~ at EndOfBuffer
+  diff = '╱', -- alternatives = ⣿ ░ ─
+  msgsep = ' ', -- alternatives: ‾ ─
+  foldopen = '▾',
+  foldsep = '│',
+  foldclose = '▸',
+}
 --
 -- Diff
 --
 -- Use in vertical diff mode, blank lines to keep sides aligned, Ignore whitespace changes
 vim.opt.diffopt = vim.opt.diffopt
-  + {
-    'vertical',
-    'iwhite',
-    'hiddenoff',
-    'foldcolumn:0',
-    'context:4',
-    'algorithm:histogram',
-    'indent-heuristic',
-  }
+    + {
+      'vertical',
+      'iwhite',
+      'hiddenoff',
+      'foldcolumn:0',
+      'context:4',
+      'algorithm:histogram',
+      'indent-heuristic',
+    }
 --
 -- Format
 --
