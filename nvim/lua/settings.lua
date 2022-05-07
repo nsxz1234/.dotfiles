@@ -188,8 +188,6 @@ vim.opt.spelllang:append('programming')
 --
 if as.plugin_installed('everforest') then
   vim.opt.background = 'dark'
-  vim.g.everforest_better_performance = 1
-  vim.g.everforest_ui_contrast = 'high'
   vim.g.everforest_disable_terminal_colors = 1
   vim.cmd('colorscheme everforest')
 end
