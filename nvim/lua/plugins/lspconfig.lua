@@ -20,23 +20,14 @@ return function()
             vim.diagnostic.open_float({ scope = 'line' }, { focus = false })
           end,
         },
-        {
-          event = { 'CursorHold', 'CursorHoldI' },
-          buffer = bufnr,
-          description = 'LSP: Document Highlight',
-          command = function()
-            pcall(vim.lsp.buf.document_highlight)
-          end,
-        },
-        {
-          event = 'CursorMoved',
-          description = 'LSP: Document Highlight (Clear)',
-          buffer = bufnr,
-          command = function()
-            vim.lsp.buf.clear_references()
-          end,
-        },
       })
+      vim.cmd([[
+      augroup lsp_document_highlight
+      autocmd! * <buffer>
+      autocmd! CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+      autocmd! CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+      augroup END
+      ]])
     end
 
     local opts = { buffer = bufnr }
