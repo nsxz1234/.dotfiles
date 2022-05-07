@@ -40,21 +40,39 @@ return function()
     end
 
     local opts = { buffer = bufnr }
-    as.nnoremap('F', vim.lsp.buf.formatting_sync, opts)
-    as.nnoremap('gd', vim.lsp.buf.definition, opts)
-    as.nnoremap('gk', vim.lsp.buf.hover, opts)
-    as.nnoremap('<C-c>', vim.lsp.buf.signature_help, opts)
-    as.inoremap('<C-c>', vim.lsp.buf.signature_help, opts)
     as.nnoremap('[e', vim.diagnostic.goto_prev, opts)
     as.nnoremap(']e', vim.diagnostic.goto_next, opts)
-    as.nnoremap('<leader>a', vim.lsp.buf.code_action, opts)
-    as.xnoremap('<leader>a', '<esc><Cmd>lua vim.lsp.buf.range_code_action()<CR>', opts)
+
+    if client.resolved_capabilities.document_formatting then
+      as.nnoremap('F', vim.lsp.buf.formatting_sync, opts)
+    end
+
+    if client.resolved_capabilities.code_action then
+      as.nnoremap('<leader>a', vim.lsp.buf.code_action, opts)
+      as.xnoremap('<leader>a', '<esc><Cmd>lua vim.lsp.buf.range_code_action()<CR>', opts)
+    end
+
+    if client.resolved_capabilities.goto_definition then
+      as.nnoremap('gd', vim.lsp.buf.definition, opts)
+    end
+
+    if client.resolved_capabilities.hover then
+      as.nnoremap('gk', vim.lsp.buf.hover, opts)
+    end
+
+    if client.resolved_capabilities.signature_help then
+      as.nnoremap('<C-c>', vim.lsp.buf.signature_help, opts)
+      as.inoremap('<C-c>', vim.lsp.buf.signature_help, opts)
+    end
+
     if client.resolved_capabilities.type_definition then
       as.nnoremap('gt', vim.lsp.buf.type_definition, opts)
     end
+
     if client.resolved_capabilities.code_lens then
       as.nnoremap('<leader>cl', vim.lsp.codelens.run, opts)
     end
+
     if client.supports_method('textDocument/rename') then
       as.nnoremap('<leader>rn', vim.lsp.buf.rename, opts)
     end
