@@ -1,6 +1,6 @@
 return function()
   local on_attach = function(client, bufnr)
-    if client and client.resolved_capabilities.code_lens then
+    if client and client.server_capabilities.codeLensProvider then
       as.augroup('LspCodeLens', {
         {
           event = { 'BufEnter', 'CursorHold', 'InsertLeave' },
@@ -11,7 +11,7 @@ return function()
         },
       })
     end
-    if client.resolved_capabilities.document_highlight then
+    if client.server_capabilities.documentHighlightProvider then
       as.augroup('LspCursorCommands', {
         {
           event = { 'CursorHold' },
@@ -34,43 +34,45 @@ return function()
     as.nnoremap('[e', vim.diagnostic.goto_prev, opts)
     as.nnoremap(']e', vim.diagnostic.goto_next, opts)
 
-    if client.resolved_capabilities.document_formatting then
-      as.nnoremap('F', vim.lsp.buf.formatting_sync, opts)
+    if client.server_capabilities.documentFormattingProvider then
+      as.nnoremap('F', function()
+        vim.lsp.buf.formatting_sync(nil, 1000)
+      end, opts)
     end
 
-    if client.resolved_capabilities.code_action then
+    if client.server_capabilities.codeActionProvider then
       as.nnoremap('<leader>a', vim.lsp.buf.code_action, opts)
       as.xnoremap('<leader>a', '<esc><Cmd>lua vim.lsp.buf.range_code_action()<CR>', opts)
     end
 
-    if client.resolved_capabilities.goto_definition then
+    if client.server_capabilities.definitionProvider then
       as.nnoremap('gd', vim.lsp.buf.definition, opts)
     end
 
-    if client.resolved_capabilities.hover then
+    if client.server_capabilities.hoverProvider then
       as.nnoremap('gk', vim.lsp.buf.hover, opts)
     end
 
-    if client.resolved_capabilities.signature_help then
+    if client.server_capabilities.signatureHelpProvider then
       as.nnoremap('<C-c>', vim.lsp.buf.signature_help, opts)
       as.inoremap('<C-c>', vim.lsp.buf.signature_help, opts)
     end
 
-    if client.resolved_capabilities.type_definition then
+    if client.server_capabilities.typeDefinitionProvider then
       as.nnoremap('gt', vim.lsp.buf.type_definition, opts)
     end
 
-    if client.resolved_capabilities.code_lens then
+    if client.server_capabilities.codeLensProvider then
       as.nnoremap('<leader>cl', vim.lsp.codelens.run, opts)
     end
 
-    if client.supports_method('textDocument/rename') then
+    if client.server_capabilities.renameProvider then
       as.nnoremap('<leader>rn', vim.lsp.buf.rename, opts)
     end
 
     if client.name ~= 'dartls' then
-      client.resolved_capabilities.document_formatting = false
-      client.resolved_capabilities.document_range_formatting = false
+      client.server_capabilities.documentFormattingProvider = false
+      client.server_capabilities.documentRangeFormattingProvider = false
     end
   end
 
