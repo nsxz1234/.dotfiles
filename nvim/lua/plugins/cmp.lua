@@ -66,7 +66,6 @@ return function()
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
       { name = 'luasnip' },
-      { name = 'rg' },
       { name = 'path' },
       { name = 'spell' },
     }, {
