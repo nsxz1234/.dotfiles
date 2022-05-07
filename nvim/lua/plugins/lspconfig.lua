@@ -107,6 +107,7 @@ return function()
     },
     lspconfig = {
       on_attach = as.lsp.on_attach,
+      capabilities = capabilities,
       settings = {
         Lua = {
           diagnostics = {
