@@ -31,12 +31,15 @@ local function setup_autocommands(client, bufnr)
       ]])
   end
   if client.server_capabilities.documentFormattingProvider then
-    vim.cmd([[
-      augroup LspFormatting
-      autocmd! * <buffer>
-      autocmd BufWritePre <buffer> lua vim.lsp.buf.format()
-      augroup END
-      ]])
+    as.augroup('LspFormatting', {
+      {
+        event = { 'BufWritePre' },
+        buffer = bufnr,
+        command = function()
+          vim.lsp.buf.format({ bufnr = bufnr })
+        end,
+      },
+    })
   end
 end
 
@@ -47,7 +50,7 @@ local function setup_mappings(client, bufnr)
 
   if client.server_capabilities.documentFormattingProvider then
     as.nnoremap('F', function()
-      vim.lsp.buf.format()
+      vim.lsp.buf.format({ bufnr = bufnr })
     end, opts)
   end
 
