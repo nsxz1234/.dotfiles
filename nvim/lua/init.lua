@@ -146,7 +146,7 @@ require('packer').startup(function(use)
   use({
     'moll/vim-bbye',
     config = function()
-      as.nnoremap('fd', '<Cmd>Bdelete<CR>')
+      as.nnoremap('d<space>', '<Cmd>Bdelete<CR>')
     end,
   })
   use({
