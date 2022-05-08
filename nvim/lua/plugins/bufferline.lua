@@ -49,21 +49,6 @@ return function()
       custom_filter = custom_filter,
       offsets = {
         {
-          filetype = 'undotree',
-          text = 'Undotree',
-          highlight = 'PanelHeading',
-        },
-        {
-          filetype = 'NvimTree',
-          text = 'Explorer',
-          highlight = 'PanelHeading',
-        },
-        {
-          filetype = 'neo-tree',
-          text = 'Explorer',
-          highlight = 'PanelHeading',
-        },
-        {
           filetype = 'DiffviewFiles',
           text = 'Diff View',
           highlight = 'PanelHeading',
