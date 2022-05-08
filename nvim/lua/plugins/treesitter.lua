@@ -20,12 +20,12 @@ return function()
         enable = true,
         lookahead = true,
         keymaps = {
-          ['af'] = '@function.outer',
+          ['iB'] = '@block.inner',
+          ['aB'] = '@block.outer',
+          ['ic'] = '@call.inner',
+          ['ac'] = '@call.outer',
           ['if'] = '@function.inner',
-          ['ac'] = '@class.outer',
-          ['ic'] = '@class.inner',
-          ['aC'] = '@conditional.outer',
-          ['iC'] = '@conditional.inner',
+          ['af'] = '@function.outer',
         },
       },
       swap = {
