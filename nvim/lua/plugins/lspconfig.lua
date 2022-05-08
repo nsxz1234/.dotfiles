@@ -12,24 +12,29 @@ local function setup_autocommands(client, bufnr)
       },
     })
   end
+  -- nvim-lspconfig
   if client.server_capabilities.documentHighlightProvider then
-    as.augroup('LspCursorCommands', {
-      {
-        event = { 'CursorHold' },
-        buffer = bufnr,
-        command = function()
-          vim.diagnostic.open_float({ scope = 'line' }, { focus = false })
-        end,
-      },
+    vim.api.nvim_create_autocmd("CursorHold", {
+      buffer = bufnr,
+      callback = function()
+        local opts = {
+          focusable = false,
+          close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+          scope = 'line',
+        }
+        vim.diagnostic.open_float(nil, opts)
+      end
     })
     vim.cmd([[
-      augroup lsp_document_highlight
-      autocmd! * <buffer>
-      autocmd! CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-      autocmd! CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-      augroup END
-      ]])
+          augroup lsp_document_highlight
+          autocmd! * <buffer>
+          autocmd! CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+          autocmd! CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
+          autocmd! CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+          augroup END
+          ]])
   end
+  -- null-ls
   if client.server_capabilities.documentFormattingProvider then
     as.augroup('LspFormatting', {
       {
