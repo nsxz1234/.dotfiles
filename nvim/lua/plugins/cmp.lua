@@ -77,15 +77,15 @@ return function()
     sources = cmp.config.sources({
       { name = 'git' },
       { name = 'luasnip' },
+      { name = 'spell' },
+      { name = 'dictionary' },
     }, {
       { name = 'buffer' },
     }),
   })
 
   local search_sources = {
-    view = {
-      entries = { name = 'custom', direction = 'bottom_up' },
-    },
+    view = { entries = { name = 'custom', direction = 'bottom_up' } },
     sources = cmp.config.sources({
       { name = 'nvim_lsp_document_symbol' },
     }, {
