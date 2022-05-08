@@ -32,6 +32,7 @@ nnoremap('dw', 'diw')
 nnoremap('cw', 'ciw')
 nnoremap('yw', 'yiw')
 nnoremap('vw', 'viw')
+nnoremap('yp', [[:let @+=expand("%:p")<CR>]], 'yank file path')
 nnoremap('vv', 'V')
 nnoremap('V', 'v$')
 vnoremap('Y', '"+y')
@@ -81,6 +82,7 @@ local function modify_line_end_delimiter(character)
     end
   end
 end
+
 nnoremap('<leader>,', modify_line_end_delimiter(','))
 nnoremap('<leader>;', modify_line_end_delimiter(';'))
 
