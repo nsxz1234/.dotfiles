@@ -81,7 +81,7 @@ require('packer').startup(function(use)
     config = function()
       vim.g.translator_default_engines = { 'haici' }
       as.nnoremap('tr', ':TranslateW<cr>')
-      as.vnoremap('tr', ':TranslateW<cr>')
+      as.xnoremap('tr', ':TranslateW<cr>')
     end,
   })
   use({
