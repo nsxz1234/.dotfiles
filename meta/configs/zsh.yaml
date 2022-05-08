@@ -1,4 +1,4 @@
 - link:
-    $HOME/.zshrc: zsh/.zshrc
-    $HOME/.zshenv: zsh/.zshenv
-    $HOME/.p10k.zsh: zsh/custom/.p10k.zsh
+    $HOME/.zshrc: zsh/zshrc
+    $HOME/.zshenv: zsh/zshenv
+    $HOME/.p10k.zsh: zsh/custom/p10k.zsh
