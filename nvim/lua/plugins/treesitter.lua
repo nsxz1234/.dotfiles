@@ -1,16 +1,12 @@
 return function()
-  local parsers = require('nvim-treesitter.parsers')
-  local rainbow_enabled = { 'dart' }
-
   require('nvim-treesitter.configs').setup({
     ensure_installed = 'all',
     highlight = {
-      enable = true, -- false will disable the whole extension
+      enable = true,
     },
     incremental_selection = {
       enable = true,
       keymaps = {
-        -- mappings for incremental selection (visual mappings)
         init_selection = '<CR>', -- maps in normal mode to init the node/scope selection
         node_incremental = '<CR>', -- increment to the upper named parent
         node_decremental = '<BS>', -- decrement to the previous node
@@ -20,9 +16,9 @@ return function()
       enable = true,
     },
     textobjects = {
-      lookahead = true,
       select = {
         enable = true,
+        lookahead = true,
         keymaps = {
           ['af'] = '@function.outer',
           ['if'] = '@function.inner',
@@ -35,21 +31,21 @@ return function()
       swap = {
         enable = true,
         swap_next = {
-          ['[w'] = '@parameter.inner',
+          [']a'] = '@parameter.inner',
         },
         swap_previous = {
-          [']w'] = '@parameter.inner',
+          ['[a'] = '@parameter.inner',
         },
       },
       move = {
         enable = true,
         set_jumps = true, -- whether to set jumps in the jumplist
         goto_next_start = {
-          [']m'] = '@function.outer',
+          [']f'] = '@function.outer',
           [']]'] = '@class.outer',
         },
         goto_previous_start = {
-          ['[m'] = '@function.outer',
+          ['[f'] = '@function.outer',
           ['[['] = '@class.outer',
         },
       },
@@ -67,15 +63,6 @@ return function()
     },
     rainbow = {
       enable = true,
-      disable = vim.tbl_filter(function(p)
-        local disable = true
-        for _, lang in pairs(rainbow_enabled) do
-          if p == lang then
-            disable = false
-          end
-        end
-        return disable
-      end, parsers.available_parsers()),
       colors = {
         'royalblue3',
         'darkorange3',
