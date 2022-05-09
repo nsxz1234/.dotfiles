@@ -5,7 +5,10 @@ return function()
       enabled = true,
       run_via_dap = true,
     },
-    outline = { auto_open = false },
+    outline = {
+      open_cmd = "30vnew",
+      auto_open = false,
+    },
     decorations = {
       statusline = { device = true, app_version = true },
     },
