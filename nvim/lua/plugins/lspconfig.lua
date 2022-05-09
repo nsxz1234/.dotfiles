@@ -109,9 +109,6 @@ return function()
 
   -- luadev
   local luadev = require('lua-dev').setup({
-    library = {
-      plugins = { 'plenary.nvim' },
-    },
     lspconfig = {
       on_attach = as.lsp.on_attach,
       capabilities = capabilities,
