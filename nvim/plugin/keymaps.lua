@@ -47,8 +47,6 @@ nnoremap('<leader>]', [[ciw[<c-r>"]<esc>]])
 nnoremap('<leader>}', [[ciw{<c-r>"}<esc>]])
 -- Capitalize
 nnoremap('U', 'gUiw`]')
--- Paste in visual mode multiple times
-xnoremap('p', 'pgvy')
 -- Evaluates whether there is a fold on the current line if so unfold it else return a normal space
 nnoremap('<space><space>', [[@=(foldlevel('.')?'za':"\<Space>")<CR>]])
 
