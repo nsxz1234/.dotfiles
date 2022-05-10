@@ -176,3 +176,8 @@ if as.plugin_installed('everforest') then
   vim.g.everforest_disable_terminal_colors = 1
   vim.cmd('colorscheme everforest')
 end
+
+-- last edit position
+vim.cmd(
+[[au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]]
+)
