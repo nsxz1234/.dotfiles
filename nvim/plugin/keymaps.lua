@@ -4,7 +4,6 @@ local api = vim.api
 local imap = as.imap
 local noremap = as.noremap
 local nnoremap = as.nnoremap
-local xnoremap = as.xnoremap
 local vnoremap = as.vnoremap
 local inoremap = as.inoremap
 local snoremap = as.snoremap
@@ -17,7 +16,7 @@ noremap('<c-j>', '5j')
 noremap('<c-k>', '5k')
 noremap('<c-h>', '^')
 noremap('<c-l>', 'g_')
-inoremap('<c-l>', '<esc>A')
+inoremap('<c-l>', '<End>')
 snoremap('<c-l>', '<esc>A')
 inoremap('<c-j>', '<Left>')
 inoremap('<c-k>', '<Right>')
@@ -27,7 +26,7 @@ imap('jk', [[col('.') == 1 ? '<esc>' : '<esc>l']], { expr = true })
 nnoremap(';', ':', noisy)
 nnoremap('<c-q>', ':q<cr>')
 nnoremap('<c-s>', ':w!<cr>')
-tnoremap(',,', '<C-\\><C-n>')
+tnoremap('jk', '<C-\\><C-n>')
 nnoremap('dw', 'diw')
 nnoremap('cw', 'ciw')
 nnoremap('yw', 'yiw')
