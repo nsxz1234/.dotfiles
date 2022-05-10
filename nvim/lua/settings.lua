@@ -12,15 +12,13 @@ vim.opt.shortmess = {
   c = true,
   W = true, -- Don't show [w] or written when writing
 }
---
+
 -- Timings
---
 vim.opt.updatetime = 300
 vim.opt.timeoutlen = 500
 vim.opt.ttimeoutlen = 10
---
+
 -- Window
---
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.switchbuf = 'useopen,uselast'
@@ -33,9 +31,8 @@ vim.opt.fillchars = {
   foldsep = '│',
   foldclose = '▸',
 }
---
+
 -- Diff
---
 -- Use in vertical diff mode, blank lines to keep sides aligned, Ignore whitespace changes
 vim.opt.diffopt = vim.opt.diffopt
     + {
@@ -47,9 +44,8 @@ vim.opt.diffopt = vim.opt.diffopt
       'algorithm:histogram',
       'indent-heuristic',
     }
---
+
 -- Format
---
 vim.opt.formatoptions = {
   ['1'] = true,
   ['2'] = true, -- Use indent from 2nd line of a paragraph
@@ -65,17 +61,15 @@ vim.opt.formatoptions = {
   l = true,
   v = true,
 }
---
+
 -- Fold
---
 vim.opt.foldenable = false
 vim.opt.foldopen = vim.opt.foldopen + 'search'
 vim.opt.foldlevelstart = 3
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.opt.foldmethod = 'expr'
---
+
 -- Grep
---
 -- Use faster grep alternatives if possible
 if as.executable('rg') then
   vim.o.grepprg = [[rg --glob "!.git" --no-heading --vimgrep --follow $*]]
@@ -84,9 +78,8 @@ elseif as.executable('ag') then
   vim.o.grepprg = [[ag --nogroup --nocolor --vimgrep]]
   vim.opt.grepformat = vim.opt.grepformat ^ { '%f:%l:%c:%m' }
 end
---
+
 -- Wild and file globbing stuff in command mode
---
 vim.opt.wildcharm = fn.char2nr(as.replace_termcodes([[<Tab>]]))
 vim.opt.wildmode = 'longest:full,full' -- Shows a menu bar as opposed to an enormous list
 vim.opt.wildignorecase = true -- Ignore case when completing file names and directories
@@ -118,17 +111,15 @@ vim.opt.wildignore = {
   'tags.lock',
 }
 vim.opt.wildoptions = 'pum'
---
+
 -- Display
---
 vim.opt.breakindentopt = 'sbr'
 vim.opt.linebreak = true
 vim.opt.signcolumn = 'number'
 vim.opt.ruler = false
 vim.opt.showbreak = [[↪ ]]
---
+
 -- List
---
 vim.opt.list = true -- invisible chars
 vim.opt.listchars = {
   eol = nil,
@@ -137,9 +128,8 @@ vim.opt.listchars = {
   precedes = '‹', -- Alternatives: … «
   trail = '•', -- BULLET (U+2022, UTF-8: E2 80 A2)
 }
---
+
 -- Indentation
---
 vim.opt.shiftround = true
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
@@ -155,37 +145,32 @@ vim.opt.termguicolors = true
 vim.opt.guifont = 'FantasqueSansMono Nerd Font:h16'
 vim.opt.emoji = false
 vim.opt.cursorlineopt = 'screenline,number'
---
+
 -- Backup and swap
---
 vim.opt.undofile = true
 vim.opt.swapfile = false
 vim.opt.undodir = vim.fn.stdpath('cache') .. '/undo'
---
+
 -- Match and search
---
 vim.opt.ic = true
 vim.opt.smartcase = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.scrolloff = 9
---
+
 -- Mouse
---
 vim.opt.mouse = 'a'
 vim.opt.mousefocus = true
---
+
 -- Spelling
---
 vim.opt.spell = false
 vim.opt.spellsuggest:prepend({ 12 })
 vim.opt.spelloptions = 'camel'
 vim.opt.spellcapcheck = '' -- don't check for capital letters at start of sentence
 vim.opt.fileformats = { 'unix', 'mac', 'dos' }
 vim.opt.spelllang:append('programming')
---
+
 -- Color Scheme
---
 if as.plugin_installed('everforest') then
   vim.opt.background = 'dark'
   vim.g.everforest_disable_terminal_colors = 1
