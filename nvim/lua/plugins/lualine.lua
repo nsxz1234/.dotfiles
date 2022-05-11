@@ -1,7 +1,7 @@
 return function()
   local branch = {
     'branch',
-    icon = { '' },
+    icons_enabled = false,
   }
   local filetype = {
     'filetype',
