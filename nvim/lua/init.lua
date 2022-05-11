@@ -30,6 +30,7 @@ require('packer').startup(function(use)
   use('lewis6991/impatient.nvim')
   use('antoinemadec/FixCursorHold.nvim')
   use({ 'kevinhwang91/nvim-bqf', ft = 'qf' })
+  use('ziglang/zig.vim')
   use({
     'lewis6991/satellite.nvim',
     module = 'satellite',
