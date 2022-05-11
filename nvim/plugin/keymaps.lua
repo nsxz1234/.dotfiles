@@ -62,7 +62,7 @@ cnoremap('w!!', [[w !sudo tee % >/dev/null]])
 cnoremap('%%', "<C-r>=fnameescape(expand('%'))<cr>")
 cnoremap('::', "<C-r>=fnameescape(expand('%:p:h'))<cr>/")
 
-nnoremap('<leader>l', [[<cmd>nohlsearch<cr><cmd>diffupdate<cr><cmd>syntax sync fromstart<cr><c-l>]])
+nnoremap('<leader>l', ':nohl<cr>')
 
 -- Conditionally modify character at end of line
 local function modify_line_end_delimiter(character)
