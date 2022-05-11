@@ -32,6 +32,7 @@ require('packer').startup(function(use)
   use({ 'kevinhwang91/nvim-bqf', ft = 'qf' })
   use({
     'lewis6991/satellite.nvim',
+    module = 'satellite',
     config = function()
       require('satellite').setup()
     end,
