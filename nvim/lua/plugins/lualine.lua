@@ -16,7 +16,7 @@ return function()
   local diff = {
     'diff',
     colored = true,
-    symbols = { added = ' ', modified = ' ', removed = ' ' },
+    symbols = { added = ' ', modified = ' ', removed = ' ' },
   }
   require('lualine').setup({
     options = {
