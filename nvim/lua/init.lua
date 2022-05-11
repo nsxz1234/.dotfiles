@@ -31,6 +31,12 @@ require('packer').startup(function(use)
   use('antoinemadec/FixCursorHold.nvim')
   use({ 'kevinhwang91/nvim-bqf', ft = 'qf' })
   use({
+    'lewis6991/satellite.nvim',
+    config = function()
+      require('satellite').setup()
+    end,
+  })
+  use({
     'folke/trouble.nvim',
     setup = function()
       as.nnoremap('gr', '<cmd>TroubleToggle lsp_references<cr>')
