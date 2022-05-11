@@ -40,7 +40,7 @@ local function setup_autocommands(client, bufnr)
         event = { 'BufWritePre' },
         buffer = bufnr,
         command = function()
-          vim.lsp.buf.format({ bufnr = bufnr })
+          vim.lsp.buf.format()
         end,
       },
     })
@@ -115,7 +115,6 @@ return function()
       capabilities = capabilities,
       settings = {
         Lua = {
-          -- format = { enable = false },
           diagnostics = {
             globals = {
               'vim',
