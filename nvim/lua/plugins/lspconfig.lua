@@ -14,16 +14,16 @@ local function setup_autocommands(client, bufnr)
   end
   -- nvim-lspconfig
   if client.server_capabilities.documentHighlightProvider then
-    vim.api.nvim_create_autocmd("CursorHold", {
+    vim.api.nvim_create_autocmd('CursorHold', {
       buffer = bufnr,
       callback = function()
         local opts = {
           focusable = false,
-          close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+          close_events = { 'BufLeave', 'CursorMoved', 'InsertEnter', 'FocusLost' },
           scope = 'line',
         }
         vim.diagnostic.open_float(nil, opts)
-      end
+      end,
     })
     vim.cmd([[
           augroup lsp_document_highlight
@@ -109,11 +109,13 @@ return function()
 
   -- luadev
   local luadev = require('lua-dev').setup({
+    library = { plugins = { 'plenary.nvim' } },
     lspconfig = {
       on_attach = as.lsp.on_attach,
       capabilities = capabilities,
       settings = {
         Lua = {
+          -- format = { enable = false },
           diagnostics = {
             globals = {
               'vim',
