@@ -33,7 +33,6 @@ require('packer').startup(function(use)
   use('ziglang/zig.vim')
   use({
     'lewis6991/satellite.nvim',
-    module = 'satellite',
     config = function()
       require('satellite').setup()
     end,
