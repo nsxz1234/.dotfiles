@@ -24,7 +24,6 @@ return function()
       component_separators = '',
       section_separators = '',
       disabled_filetypes = { 'toggleterm' },
-      globalstatus = true,
     },
     sections = {
       lualine_a = { 'mode' },
