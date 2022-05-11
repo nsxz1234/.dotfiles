@@ -11,11 +11,11 @@ end
 
 require('packer').startup(function(use)
   use('wbthomason/packer.nvim')
+  use('sainnhe/everforest')
   use({ 'neovim/nvim-lspconfig', config = conf('lspconfig') })
   use('nvim-lua/plenary.nvim')
   use({ 'akinsho/flutter-tools.nvim', config = conf('flutter-tools') })
   use('dart-lang/dart-vim-plugin')
-  use('sainnhe/everforest')
   use({ 'akinsho/nvim-bufferline.lua', config = conf('bufferline') })
   use({ 'lukas-reineke/indent-blankline.nvim', config = conf('indentline') })
   use('kyazdani42/nvim-web-devicons')
@@ -57,6 +57,7 @@ require('packer').startup(function(use)
   use({
     'nvim-telescope/telescope.nvim',
     -- cmd = 'Telescope',
+    module_pattern = 'telescope.*',
     config = conf('telescope'),
     requires = {
       {
