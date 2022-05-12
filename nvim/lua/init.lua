@@ -3,6 +3,16 @@ as.safe_require('impatient')
 local utils = require('utils.plugins')
 local conf = utils.conf
 
+---Some plugins are not safe to be reloaded because their setup functions
+---and are not idempotent. This wraps the setup calls of such plugins
+---@param func fun()
+function as.block_reload(func)
+  if vim.g.packer_compiled_loaded then
+    return
+  end
+  func()
+end
+
 local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
@@ -34,7 +44,11 @@ require('packer').startup(function(use)
   use({
     'lewis6991/satellite.nvim',
     config = function()
-      require('satellite').setup()
+      -- FIXME: this should be reported upstream at some point This plugin
+      -- is not safe to reload due to repeated attempts to map already mapped keys
+      as.block_reload(function()
+        require('satellite').setup()
+      end)
     end,
   })
   use({
