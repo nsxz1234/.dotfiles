@@ -132,11 +132,11 @@ require('packer').startup(function(use)
   })
   use({
     'danymat/neogen',
-    keys = { '<leader>c' },
+    keys = { '<leader>cc' },
     requires = 'nvim-treesitter/nvim-treesitter',
     module = 'neogen',
     setup = function()
-      as.nnoremap('<leader>c', require('neogen').generate, 'comment: generate')
+      as.nnoremap('<leader>cc', require('neogen').generate, 'comment: generate')
     end,
     config = function()
       require('neogen').setup({ snippet_engine = 'luasnip' })
