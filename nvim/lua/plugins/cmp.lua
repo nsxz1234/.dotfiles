@@ -98,6 +98,7 @@ return function()
   cmp.setup.cmdline(':', {
     sources = cmp.config.sources({
       { name = 'cmdline', keyword_pattern = [=[[^[:blank:]\!]*]=] },
+      { name = 'cmdline_history' },
       { name = 'path' },
     }),
   })
