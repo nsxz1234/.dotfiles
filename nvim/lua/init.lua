@@ -265,6 +265,7 @@ require('packer').startup(function(use)
     'ahmedkhalf/project.nvim',
     config = function()
       require('project_nvim').setup({
+        ignore_lsp = { 'null-ls' },
         patterns = {
           '.git',
           '_darcs',
