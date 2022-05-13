@@ -34,7 +34,9 @@ require('packer').startup(function(use)
   use({
     'lewis6991/satellite.nvim',
     config = function()
-      require('satellite').setup()
+      require('satellite').setup({
+        excluded_filetypes = { 'packer', 'neo-tree', 'neo-tree-popup' },
+      })
     end,
   })
   use({
