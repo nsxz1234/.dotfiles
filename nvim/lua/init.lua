@@ -161,7 +161,9 @@ require('packer').startup(function(use)
   })
   use({
     'iamcco/markdown-preview.nvim',
-    run = 'cd app && yarn install',
+    run = function()
+      vim.fn['mkdp#util#install']()
+    end,
     ft = { 'markdown' },
     config = function()
       vim.g.mkdp_auto_start = 0
