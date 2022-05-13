@@ -38,7 +38,7 @@ return function()
     },
     pickers = {
       live_grep = {
-        file_ignore_patterns = { '.git/' },
+        file_ignore_patterns = { '.git/', '%.html' },
         on_input_filter_cb = function(prompt)
           -- AND operator for live_grep like how fzf handles spaces with wildcards in rg
           return { prompt = prompt:gsub('%s', '.*') }
