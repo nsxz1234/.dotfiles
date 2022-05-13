@@ -1,5 +1,31 @@
 return function()
   require('gitsigns').setup({
+    signs = {
+      add = {
+        hl = 'GitSignsAdd',
+        text = '│',
+        numhl = 'GitSignsAddNr',
+        linehl = 'GitSignsAddLn',
+      },
+      change = {
+        hl = 'GitSignsChange',
+        text = '│',
+        numhl = 'GitSignsChangeNr',
+        linehl = 'GitSignsChangeLn',
+      },
+      delete = {
+        hl = 'GitSignsDelete',
+        text = '_',
+        numhl = 'GitSignsDeleteNr',
+        linehl = 'GitSignsDeleteLn',
+      },
+      changedelete = {
+        hl = 'GitSignsChange',
+        text = '~',
+        numhl = 'GitSignsChangeNr',
+        linehl = 'GitSignsChangeLn',
+      },
+    },
     _threaded_diff = true, -- NOTE: experimental but I'm curious
     word_diff = false,
     numhl = false,
@@ -9,6 +35,7 @@ return function()
       local function qf_list_modified()
         gs.setqflist('all')
       end
+
       require('which-key').register({
         ['<leader>h'] = {
           name = '+gitsigns hunk',
