@@ -35,15 +35,15 @@ vim.opt.fillchars = {
 -- Diff
 -- Use in vertical diff mode, blank lines to keep sides aligned, Ignore whitespace changes
 vim.opt.diffopt = vim.opt.diffopt
-  + {
-    'vertical',
-    'iwhite',
-    'hiddenoff',
-    'foldcolumn:0',
-    'context:4',
-    'algorithm:histogram',
-    'indent-heuristic',
-  }
+    + {
+      'vertical',
+      'iwhite',
+      'hiddenoff',
+      'foldcolumn:0',
+      'context:4',
+      'algorithm:histogram',
+      'indent-heuristic',
+    }
 
 -- Format
 vim.opt.formatoptions = {
@@ -156,7 +156,7 @@ vim.opt.ic = true
 vim.opt.smartcase = true
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.scrolloff = 7
+vim.opt.scrolloff = 8
 
 -- Mouse
 vim.opt.mouse = 'a'
@@ -180,5 +180,5 @@ end
 
 -- last edit position
 vim.cmd(
-  [[au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]]
+[[au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]]
 )
