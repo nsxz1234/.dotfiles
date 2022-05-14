@@ -36,12 +36,12 @@
   },
   "ilc": {
     "prefix": "ilc",
-    "body": "\\`$1\\`$0",
+    "body": "`$1`$0",
     "description": "Inline Code"
   },
   "cbl": {
     "prefix": "cbl",
-    "body": "\\`\\`\\`\n$1\n\\`\\`\\`\n$0",
+    "body": "```\n$1\n```\n$0",
     "description": "Codeblock"
   },
   "refl": {
