@@ -8,6 +8,9 @@ vim.g.loaded_zipPlugin = 1
 vim.g.loaded_tarPlugin = 1
 vim.g.loaded_gzip = 1
 
+-- Ensure all autocommands are cleared
+vim.api.nvim_create_augroup('vimrc', {})
+
 vim.g.mapleader = ' ' -- Remap leader key
 vim.g.maplocalleader = ',' -- Remap local leader key
 
