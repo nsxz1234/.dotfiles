@@ -1,5 +1,13 @@
 vim.g.did_load_filetypes = 0 -- deactivate vim based filetype detection
 
+-- Stop loading built in plugins
+vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_tutor_mode_plugin = 1
+vim.g.loaded_2html_plugin = 1
+vim.g.loaded_zipPlugin = 1
+vim.g.loaded_tarPlugin = 1
+vim.g.loaded_gzip = 1
+
 vim.g.mapleader = ' ' -- Remap leader key
 vim.g.maplocalleader = ',' -- Remap local leader key
 
