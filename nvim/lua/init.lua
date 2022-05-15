@@ -12,6 +12,7 @@ end
 require('packer').startup(function(use)
   use('wbthomason/packer.nvim')
   use('sainnhe/everforest')
+  use('sainnhe/gruvbox-material')
   use({ 'neovim/nvim-lspconfig', config = conf('lspconfig') })
   use('nvim-lua/plenary.nvim')
   use({ 'akinsho/flutter-tools.nvim', config = conf('flutter-tools') })
