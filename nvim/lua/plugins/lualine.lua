@@ -1,8 +1,4 @@
 return function()
-  local branch = {
-    'branch',
-    icons_enabled = false,
-  }
   local file_name = {
     'filename',
     path = 1, -- 0: Just the filename  1: Relative path  2: Absolute path
@@ -24,7 +20,7 @@ return function()
       lualine_b = {},
       lualine_c = { file_name },
       lualine_x = { diff },
-      lualine_y = { branch },
+      lualine_y = {},
       lualine_z = { 'location' },
     },
   })
