@@ -29,7 +29,7 @@ export PATH=$PATH:~/.cargo/bin
 
 export EDITOR='nvim'
 
-alias l="ls -la"
+alias l="exa -la"
 alias v='nvim'
 alias lg='lazygit'
 alias ra='ranger'
