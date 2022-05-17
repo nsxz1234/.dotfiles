@@ -440,7 +440,7 @@ require('packer').startup(function(use)
   --
   -- Git
   --
-  use({ 'lewis6991/gitsigns.nvim', config = conf('gitsigns') })
+  use({ 'lewis6991/gitsigns.nvim', event = 'CursorHold', config = conf('gitsigns') })
   use({
     'ruifm/gitlinker.nvim',
     requires = 'plenary.nvim',
