@@ -20,7 +20,7 @@ local function setup_autocommands(client, bufnr)
         local opts = {
           focusable = false,
           close_events = { 'BufLeave', 'CursorMoved', 'InsertEnter', 'FocusLost' },
-          scope = 'line',
+          scope = 'cursor',
         }
         vim.diagnostic.open_float(nil, opts)
       end,
