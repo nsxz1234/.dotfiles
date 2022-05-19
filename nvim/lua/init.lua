@@ -36,6 +36,14 @@ require('packer').startup(function(use)
     'lewis6991/satellite.nvim',
     config = function()
       require('satellite').setup({
+        handlers = {
+          gitsigns = {
+            enable = false,
+          },
+          marks = {
+            enable = false,
+          },
+        },
         excluded_filetypes = {
           'packer',
           'neo-tree',
