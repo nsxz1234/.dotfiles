@@ -39,6 +39,7 @@ require('packer').startup(function(use)
         excluded_filetypes = {
           'packer',
           'neo-tree',
+          'norg',
           'neo-tree-popup',
           'dapui_scopes',
           'dapui_stacks',
