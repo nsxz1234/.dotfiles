@@ -471,7 +471,7 @@ require('packer').startup(function(use)
   use({
     'TimUntersberger/neogit',
     cmd = 'Neogit',
-    keys = { '<leader>gs', '<leader>gc', '<leader>gp', '<leader>gP' },
+    keys = { '<leader>gs' },
     requires = 'plenary.nvim',
     setup = conf('neogit').setup,
     config = conf('neogit').config,

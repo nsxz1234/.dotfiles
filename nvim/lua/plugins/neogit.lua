@@ -4,9 +4,6 @@ function M.setup()
   require('which-key').register({
     ['<leader>g'] = {
       s = 'neogit: open status buffer',
-      c = 'neogit: open commit buffer',
-      p = 'neogit: open pull popup',
-      P = 'neogit: open push popup',
     },
   })
 end
@@ -31,11 +28,6 @@ function M.config()
   as.nnoremap('<leader>gs', function()
     neogit.open()
   end)
-  as.nnoremap('<leader>gc', function()
-    neogit.open({ 'commit' })
-  end)
-  as.nnoremap('<leader>gp', neogit.popups.pull.create)
-  as.nnoremap('<leader>gP', neogit.popups.push.create)
 end
 
 return M
