@@ -273,12 +273,6 @@ require('packer').startup(function(use)
         ignore_lsp = { 'null-ls' },
         patterns = {
           '.git',
-          '_darcs',
-          '.hg',
-          '.bzr',
-          '.svn',
-          'Makefile',
-          'package.json',
           'pubspec.yaml',
         },
       })
