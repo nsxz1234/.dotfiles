@@ -136,7 +136,6 @@ require('packer').startup(function(use)
   })
   use({
     'danymat/neogen',
-    keys = { '<leader>cc' },
     requires = 'nvim-treesitter/nvim-treesitter',
     module = 'neogen',
     setup = function()
