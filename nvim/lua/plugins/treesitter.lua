@@ -70,12 +70,12 @@ return function()
         'firebrick',
         'darkorchid3',
       },
-      autopairs = { enable = true },
-      query_linter = {
-        enable = true,
-        use_virtual_text = true,
-        lint_events = { 'BufWrite', 'CursorHold' },
-      },
+    },
+    autopairs = { enable = true },
+    query_linter = {
+      enable = true,
+      use_virtual_text = true,
+      lint_events = { 'BufWrite', 'CursorHold' },
     },
     refactor = {
       navigation = {
