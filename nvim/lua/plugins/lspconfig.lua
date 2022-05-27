@@ -67,6 +67,14 @@ local function setup_mappings(client, bufnr)
     as.nnoremap('gd', vim.lsp.buf.definition, opts)
   end
 
+  if client.server_capabilities.referencesProvider then
+    as.nnoremap('gr', vim.lsp.buf.references, opts)
+  end
+
+  if client.server_capabilities.implementationProvider then
+    as.nnoremap('gi', vim.lsp.buf.implementation, opts)
+  end
+
   if client.server_capabilities.hoverProvider then
     as.nnoremap('gk', vim.lsp.buf.hover, opts)
   end

@@ -58,8 +58,6 @@ require('packer').startup(function(use)
   use({
     'folke/trouble.nvim',
     setup = function()
-      as.nnoremap('gr', '<cmd>TroubleToggle lsp_references<cr>')
-      as.nnoremap('gi', '<cmd>TroubleToggle lsp_implementations<cr>', { silent = false })
       as.nnoremap('gq', '<cmd>TroubleToggle workspace_diagnostics<cr>')
     end,
   })
