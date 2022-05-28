@@ -17,6 +17,7 @@ return function()
     },
     textobjects = {
       select = {
+        disable = { 'dart' },
         enable = true,
         lookahead = true,
         keymaps = {
@@ -29,6 +30,7 @@ return function()
         },
       },
       swap = {
+        disable = { 'dart' },
         enable = true,
         swap_next = {
           [']a'] = '@parameter.inner',
@@ -38,6 +40,7 @@ return function()
         },
       },
       move = {
+        disable = { 'dart' },
         enable = true,
         set_jumps = true, -- whether to set jumps in the jumplist
         goto_next_start = {
@@ -50,6 +53,7 @@ return function()
         },
       },
       lsp_interop = {
+        disable = { 'dart' },
         enable = true,
         border = 'rounded',
         peek_definition_code = {
