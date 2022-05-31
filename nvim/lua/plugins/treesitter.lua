@@ -14,6 +14,7 @@ return function()
     },
     indent = {
       enable = true,
+      disable = { 'dart' },
     },
     textobjects = {
       select = {

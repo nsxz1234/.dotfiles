@@ -31,6 +31,7 @@ require('packer').startup(function(use)
   use('antoinemadec/FixCursorHold.nvim')
   use({ 'kevinhwang91/nvim-bqf', ft = 'qf' })
   use('ziglang/zig.vim')
+  use('dart-lang/dart-vim-plugin')
   use({
     'lewis6991/satellite.nvim',
     config = function()
