@@ -11,9 +11,21 @@ _G.as = {
   -- this table is place to store lua functions to be called in those mappings
   mappings = {},
 }
-----------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 -- Utils
-----------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+---@generic T : table
+---@param callback fun(item: T, key: string | number, list: T[]): T
+---@param list T[]
+---@return T[]
+function as.map(callback, list)
+  return as.fold(function(accum, v, k)
+    accum[#accum + 1] = callback(v, k, accum)
+    return accum
+  end, list, {})
+end
+
 ---Find an item in a list
 ---@generic T
 ---@param haystack T[]
