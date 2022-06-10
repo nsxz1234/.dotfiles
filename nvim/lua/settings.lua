@@ -149,7 +149,6 @@ vim.opt.cursorlineopt = 'screenline,number'
 -- Backup and swap
 vim.opt.undofile = true
 vim.opt.swapfile = false
-vim.opt.undodir = vim.fn.stdpath('cache') .. '/undo'
 
 -- Match and search
 vim.opt.ic = true
