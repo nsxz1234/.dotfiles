@@ -6,7 +6,7 @@ return function()
       run_via_dap = true,
     },
     outline = {
-      open_cmd = "30vnew",
+      open_cmd = '30vnew',
       auto_open = false,
     },
     decorations = {
