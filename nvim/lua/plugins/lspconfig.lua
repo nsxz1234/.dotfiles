@@ -91,10 +91,6 @@ local function setup_mappings(client, bufnr)
   if client.server_capabilities.codeLensProvider then
     as.nnoremap('<leader>cl', vim.lsp.codelens.run, opts)
   end
-
-  if client.server_capabilities.renameProvider then
-    as.nnoremap('<leader>rn', vim.lsp.buf.rename, opts)
-  end
 end
 
 function as.lsp.on_attach(client, bufnr)

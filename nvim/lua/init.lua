@@ -33,6 +33,15 @@ require('packer').startup(function(use)
   use('ziglang/zig.vim')
   use('dart-lang/dart-vim-plugin')
   use({
+    'smjonas/inc-rename.nvim',
+    config = function()
+      require('inc_rename').setup()
+      as.nnoremap('<leader>rn', function()
+        return ':IncRename ' .. vim.fn.expand('<cword>')
+      end, { expr = true, silent = false, desc = 'lsp: incremental rename' })
+    end,
+  })
+  use({
     'nvim-treesitter/nvim-treesitter-context',
     config = function()
       require('treesitter-context').setup({
