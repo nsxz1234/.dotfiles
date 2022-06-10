@@ -25,6 +25,7 @@ return function()
             vim.cmd('stopinsert!')
           end,
           ['<esc>'] = actions.close,
+          ['<Tab>'] = actions.toggle_selection,
         },
       },
       layout_config = {
