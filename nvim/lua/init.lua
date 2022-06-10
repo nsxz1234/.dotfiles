@@ -444,12 +444,12 @@ require('packer').startup(function(use)
   use('tpope/vim-sleuth')
   use('tpope/vim-repeat')
   use({
-    'tpope/vim-abolish',
+    'johmsalas/text-case.nvim',
     -- "&" Repeat last substitute with flags
     config = function()
-      local opts = { silent = false }
-      as.nnoremap('<leader>/', ':%S/<C-r><C-w>//c<left><left>', opts)
-      as.xnoremap('<leader>/', [["zy:%S/<C-r><C-o>"//c<left><left>]], opts)
+      require('textcase').setup()
+      as.nnoremap('<leader>/', ':%Subs/<C-r><C-w>//c<left><left>', { silent = false })
+      as.xnoremap('<leader>/', [["zy:%Subs/<C-r><C-o>"//c<left><left>]], { silent = false })
     end,
   })
   use({
