@@ -59,6 +59,7 @@ local function setup_mappings(_)
 
   as.nnoremap('[e', vim.diagnostic.goto_prev, with_desc('lsp: go to prev diagnostic'))
   as.nnoremap(']e', vim.diagnostic.goto_next, with_desc('lsp: go to next diagnostic'))
+  as.nnoremap('gq', vim.diagnostic.setqflist, with_desc('lsp: diagnostic list'))
 
   as.nnoremap('F', vim.lsp.buf.format, with_desc('lsp: format buffer'))
   as.nnoremap('<leader>a', vim.lsp.buf.code_action, with_desc('lsp: code action'))

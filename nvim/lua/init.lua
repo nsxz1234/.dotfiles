@@ -74,12 +74,6 @@ require('packer').startup(function(use)
     end,
   })
   use({
-    'folke/trouble.nvim',
-    setup = function()
-      as.nnoremap('gq', '<cmd>TroubleToggle workspace_diagnostics<cr>')
-    end,
-  })
-  use({
     'simrat39/symbols-outline.nvim',
     setup = function()
       as.nnoremap('ts', '<cmd>SymbolsOutline<cr>')
