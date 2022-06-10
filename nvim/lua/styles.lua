@@ -45,6 +45,7 @@ as.style = {
       diff = '',
       repo = '',
       logo = '',
+      branch = '',
     },
     documents = {
       file = '',
