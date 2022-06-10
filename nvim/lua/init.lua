@@ -310,6 +310,17 @@ require('packer').startup(function(use)
     end,
   })
   use({
+    'rcarriga/neotest',
+    config = conf('neotest'),
+    requires = {
+      'rcarriga/neotest-plenary',
+      'rcarriga/neotest-vim-test',
+      'nvim-lua/plenary.nvim',
+      'nvim-treesitter/nvim-treesitter',
+      'antoinemadec/FixCursorHold.nvim',
+    },
+  })
+  use({
     'mfussenegger/nvim-dap',
     requires = {
       {
