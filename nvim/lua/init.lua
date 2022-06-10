@@ -330,6 +330,7 @@ require('packer').startup(function(use)
   })
   use({
     'github/copilot.vim',
+    commit = '042543ffc2e77a819da0415da1af6b1842a0f9c2',
     config = function()
       vim.g.copilot_no_tab_map = true
       as.imap('<Plug>(as-copilot-accept)', "copilot#Accept('<Tab>')", { expr = true })
