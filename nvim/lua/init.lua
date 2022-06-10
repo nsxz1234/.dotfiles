@@ -33,6 +33,15 @@ require('packer').startup(function(use)
   use('ziglang/zig.vim')
   use('dart-lang/dart-vim-plugin')
   use({
+    'nvim-treesitter/nvim-treesitter-context',
+    config = function()
+      require('treesitter-context').setup({
+        multiline_threshold = 4,
+        separator = { '─', 'ContextBorder' }, --[[alernatives: ▁ ─ ▄ ]]
+      })
+    end,
+  })
+  use({
     'lewis6991/satellite.nvim',
     config = function()
       require('satellite').setup({
