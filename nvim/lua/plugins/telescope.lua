@@ -5,7 +5,17 @@ return function()
   telescope.setup({
     defaults = {
       dynamic_preview_title = true,
-      file_ignore_patterns = { '%.jpg', '%.jpeg', '%.png', '%.otf', '%.ttf', '%.DS_Store' },
+      file_ignore_patterns = {
+        '%.jpg',
+        '%.jpeg',
+        '%.png',
+        '%.otf',
+        '%.ttf',
+        '%.DS_Store',
+        '^.git/',
+        '^node_modules/',
+        '^site-packages/',
+      },
       path_display = { 'smart', 'absolute', 'truncate' },
       sorting_strategy = 'ascending',
       layout_strategy = 'vertical',
