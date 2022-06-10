@@ -28,7 +28,6 @@ return function()
         showTodos = true,
         renameFilesWithClasses = 'prompt',
       },
-      on_attach = as.lsp.on_attach,
     },
   })
 end
