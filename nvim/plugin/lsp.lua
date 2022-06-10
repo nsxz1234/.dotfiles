@@ -61,55 +61,36 @@ local function setup_autocommands(client, bufnr)
   end
 end
 
-local function setup_mappings(client, bufnr)
-  local opts = { buffer = bufnr }
-  as.nnoremap('[e', vim.diagnostic.goto_prev, opts)
-  as.nnoremap(']e', vim.diagnostic.goto_next, opts)
-
-  if client.server_capabilities.documentFormattingProvider then
-    as.nnoremap('F', function()
-      vim.lsp.buf.format({ bufnr = bufnr })
-    end, opts)
+local function setup_mappings(_)
+  local function with_desc(desc)
+    return { buffer = 0, desc = desc }
   end
 
-  if client.server_capabilities.codeActionProvider then
-    as.nnoremap('<leader>a', vim.lsp.buf.code_action, opts)
-    as.xnoremap('<leader>a', '<esc><Cmd>lua vim.lsp.buf.range_code_action()<CR>', opts)
-  end
+  as.nnoremap('[e', vim.diagnostic.goto_prev, with_desc('lsp: go to prev diagnostic'))
+  as.nnoremap(']e', vim.diagnostic.goto_next, with_desc('lsp: go to next diagnostic'))
 
-  if client.server_capabilities.definitionProvider then
-    as.nnoremap('gd', vim.lsp.buf.definition, opts)
-  end
-
-  if client.server_capabilities.referencesProvider then
-    as.nnoremap('gr', vim.lsp.buf.references, opts)
-  end
-
-  if client.server_capabilities.implementationProvider then
-    as.nnoremap('gi', vim.lsp.buf.implementation, opts)
-  end
-
-  if client.server_capabilities.hoverProvider then
-    as.nnoremap('gk', vim.lsp.buf.hover, opts)
-  end
-
-  if client.server_capabilities.signatureHelpProvider then
-    as.nnoremap('<C-c>', vim.lsp.buf.signature_help, opts)
-    as.inoremap('<C-c>', vim.lsp.buf.signature_help, opts)
-  end
-
-  if client.server_capabilities.typeDefinitionProvider then
-    as.nnoremap('gt', vim.lsp.buf.type_definition, opts)
-  end
-
-  if client.server_capabilities.codeLensProvider then
-    as.nnoremap('<leader>cl', vim.lsp.codelens.run, opts)
-  end
+  as.nnoremap('F', function()
+    vim.lsp.buf.format({ bufnr = 0 })
+  end, with_desc('lsp: format buffer'))
+  as.nnoremap('<leader>a', vim.lsp.buf.code_action, with_desc('lsp: code action'))
+  as.xnoremap(
+    '<leader>a',
+    '<esc><Cmd>lua vim.lsp.buf.range_code_action()<CR>',
+    with_desc('lsp: code action')
+  )
+  as.nnoremap('gd', vim.lsp.buf.definition, with_desc('lsp: definition'))
+  as.nnoremap('gr', vim.lsp.buf.references, with_desc('lsp: references'))
+  as.nnoremap('gi', vim.lsp.buf.implementation, with_desc('lsp: implementation'))
+  as.nnoremap('gk', vim.lsp.buf.hover, with_desc('lsp: hover'))
+  as.nnoremap('<C-c>', vim.lsp.buf.signature_help, with_desc('lsp: signature_help'))
+  as.inoremap('<C-c>', vim.lsp.buf.signature_help, with_desc('lsp: signature_help'))
+  as.nnoremap('gt', vim.lsp.buf.type_definition, with_desc('lsp: go to type definition'))
+  as.nnoremap('<leader>cl', vim.lsp.codelens.run, with_desc('lsp: run code lens'))
 end
 
 function as.lsp.on_attach(client, bufnr)
   setup_autocommands(client, bufnr)
-  setup_mappings(client, bufnr)
+  setup_mappings(client)
 end
 
 as.augroup('LspSetupCommands', {
