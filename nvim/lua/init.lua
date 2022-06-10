@@ -287,10 +287,7 @@ require('packer').startup(function(use)
     config = function()
       require('project_nvim').setup({
         ignore_lsp = { 'null-ls' },
-        patterns = {
-          '.git',
-          'pubspec.yaml',
-        },
+        patterns = { '.git', 'pubspec.yaml' },
       })
     end,
   })
