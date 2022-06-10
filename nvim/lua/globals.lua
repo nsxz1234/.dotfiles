@@ -31,6 +31,15 @@ function as.fold(callback, list, accum)
 end
 
 ---@generic T : table
+---@param callback fun(T, T, key: string | number): T
+---@param list T[]
+function as.foreach(callback, list)
+  for k, v in pairs(list) do
+    callback(v, k)
+  end
+end
+
+---@generic T : table
 ---@param callback fun(item: T, key: string | number, list: T[]): T
 ---@param list T[]
 ---@return T[]
