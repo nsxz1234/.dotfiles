@@ -145,6 +145,10 @@ vim.opt.termguicolors = true
 vim.opt.guifont = 'FantasqueSansMono Nerd Font:h16'
 vim.opt.emoji = false
 vim.opt.cursorlineopt = 'screenline,number'
+-----------------------------------------------------------------------------//
+-- Jumplist
+-----------------------------------------------------------------------------//
+vim.opt.jumpoptions = { 'stack' } -- make the jumplist behave like a browser stack
 
 -- Backup and swap
 vim.opt.undofile = true
