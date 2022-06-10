@@ -1,8 +1,4 @@
 return function()
-  -- this plugin is not safe to reload
-  if vim.g.packer_compiled_loaded then
-    return
-  end
   local notify = require('notify')
   notify.setup({
     timeout = 3000,
