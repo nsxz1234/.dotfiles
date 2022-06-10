@@ -73,17 +73,6 @@ return function()
     }),
   })
 
-  cmp.setup.filetype('NeogitCommitMessage', {
-    sources = cmp.config.sources({
-      { name = 'git' },
-      { name = 'luasnip' },
-      { name = 'dictionary' },
-      { name = 'spell' },
-    }, {
-      { name = 'buffer' },
-    }),
-  })
-
   local search_sources = {
     view = { entries = { name = 'custom', direction = 'bottom_up' } },
     sources = cmp.config.sources({
