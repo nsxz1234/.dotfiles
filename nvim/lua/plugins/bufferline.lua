@@ -65,7 +65,6 @@ return function()
             end,
           },
           {
-            highlight = { guisp = '#51AFEF', gui = 'underline' },
             name = 'tests',
             icon = '',
             matcher = function(buf)
