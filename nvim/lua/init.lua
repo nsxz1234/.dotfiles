@@ -320,7 +320,7 @@ require('packer').startup(function(use)
     end,
   })
   use({
-    'rcarriga/neotest',
+    'nvim-neotest/neotest',
     config = conf('neotest'),
     requires = {
       'rcarriga/neotest-plenary',
