@@ -213,6 +213,7 @@ require('packer').startup(function(use)
         handler_opts = {
           border = 'none',
         },
+        toggle_key = '<C-c>',
       })
     end,
   })

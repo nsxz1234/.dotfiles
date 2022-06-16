@@ -72,8 +72,6 @@ local function setup_mappings(_)
   as.nnoremap('gr', vim.lsp.buf.references, with_desc('lsp: references'))
   as.nnoremap('gi', vim.lsp.buf.implementation, with_desc('lsp: implementation'))
   as.nnoremap('gk', vim.lsp.buf.hover, with_desc('lsp: hover'))
-  as.nnoremap('<C-c>', vim.lsp.buf.signature_help, with_desc('lsp: signature_help'))
-  as.inoremap('<C-c>', vim.lsp.buf.signature_help, with_desc('lsp: signature_help'))
   as.nnoremap('gt', vim.lsp.buf.type_definition, with_desc('lsp: go to type definition'))
   as.nnoremap('<leader>cl', vim.lsp.codelens.run, with_desc('lsp: run code lens'))
 end
