@@ -289,6 +289,7 @@ require('packer').startup(function(use)
     'ilAYAli/scMRU.nvim',
     cmd = { 'Mfu', 'Mru' },
     setup = function()
+      as.nnoremap('fr', '<Cmd>Mru<CR>', 'most recently used')
       as.nnoremap('fu', '<Cmd>Mfu<CR>', 'most frequently used')
     end,
   })
