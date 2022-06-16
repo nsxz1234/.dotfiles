@@ -97,6 +97,13 @@ require('packer').startup(function(use)
           require('telescope').load_extension('fzf')
         end,
       },
+      {
+        'ilAYAli/scMRU.nvim',
+        setup = function()
+          as.nnoremap('fr', '<Cmd>Mru<CR>', 'most recently used')
+          as.nnoremap('fu', '<Cmd>Mfu<CR>', 'most frequently used')
+        end,
+      },
     },
   })
   use({
@@ -283,14 +290,6 @@ require('packer').startup(function(use)
         ignore_lsp = { 'null-ls' },
         patterns = { '.git', 'pubspec.yaml' },
       })
-    end,
-  })
-  use({
-    'ilAYAli/scMRU.nvim',
-    cmd = { 'Mfu', 'Mru' },
-    setup = function()
-      as.nnoremap('fr', '<Cmd>Mru<CR>', 'most recently used')
-      as.nnoremap('fu', '<Cmd>Mfu<CR>', 'most frequently used')
     end,
   })
   use({
