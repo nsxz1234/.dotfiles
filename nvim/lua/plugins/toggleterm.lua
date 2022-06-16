@@ -16,8 +16,8 @@ return function()
     },
   })
 
-  local htop = Terminal:new({
-    cmd = 'htop',
+  local btop = Terminal:new({
+    cmd = 'btop',
     hidden = true,
     direction = 'float',
     float_opts = {
@@ -25,8 +25,8 @@ return function()
     },
   })
 
-  as.command('Htop', function()
-    htop:toggle()
+  as.command('Btop', function()
+    btop:toggle()
   end)
 
   as.nnoremap('<C-g>', function()
