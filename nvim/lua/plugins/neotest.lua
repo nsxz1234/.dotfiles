@@ -1,6 +1,9 @@
 return function()
   local neotest = require('neotest')
   neotest.setup({
+    diagnostic = {
+      enabled = false,
+    },
     icons = {
       running = as.style.icons.misc.clock,
     },
