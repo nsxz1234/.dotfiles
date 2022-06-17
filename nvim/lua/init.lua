@@ -94,6 +94,7 @@ require('packer').startup(function(use)
     -- cmd = 'Telescope',
     module_pattern = 'telescope.*',
     config = conf('telescope'),
+    event = 'CursorHold',
     requires = {
       {
         'nvim-telescope/telescope-fzf-native.nvim',
