@@ -33,6 +33,12 @@ require('packer').startup(function(use)
   use('ziglang/zig.vim')
   use('dart-lang/dart-vim-plugin')
   use({
+    'zbirenbaum/neodim',
+    config = function()
+      require('neodim').setup()
+    end,
+  })
+  use({
     'smjonas/inc-rename.nvim',
     config = function()
       require('inc_rename').setup()
