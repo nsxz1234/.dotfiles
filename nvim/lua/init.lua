@@ -35,7 +35,11 @@ require('packer').startup(function(use)
   use({
     'zbirenbaum/neodim',
     config = function()
-      require('neodim').setup()
+      require('neodim').setup({
+        hide = {
+          signs = false,
+        },
+      })
     end,
   })
   use({
