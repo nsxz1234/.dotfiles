@@ -533,12 +533,4 @@ require('packer').startup(function(use)
       as.nnoremap('[c', '<Plug>(git-conflict-prev-conflict)')
     end,
   })
-  -- use {
-  --   'rlch/github-notifications.nvim',
-  --   -- don't load this plugin if the gh cli is not installed
-  --   requires = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope.nvim' },
-  --   cond = function()
-  --     return as.executable 'gh'
-  --   end,
-  -- }
 end)
