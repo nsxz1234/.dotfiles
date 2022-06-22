@@ -342,6 +342,7 @@ require('packer').startup(function(use)
   })
   use({
     'mfussenegger/nvim-dap',
+    module = 'dap',
     requires = {
       {
         'rcarriga/nvim-dap-ui',
