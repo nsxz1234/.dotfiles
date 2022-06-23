@@ -35,9 +35,6 @@ return function()
     },
 
     mapping = {
-      ['<c-h>'] = cmp.mapping(function()
-        api.nvim_feedkeys(vim.fn['copilot#Accept'](t('<Tab>')), 'n', true)
-      end),
       ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
       ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
       ['<Tab>'] = cmp.mapping(tab, { 'i', 's', 'c' }),

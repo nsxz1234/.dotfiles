@@ -361,27 +361,6 @@ require('packer').startup(function(use)
     },
   })
   use({
-    'github/copilot.vim',
-    commit = '042543ffc2e77a819da0415da1af6b1842a0f9c2',
-    config = function()
-      vim.g.copilot_no_tab_map = true
-      as.imap('<Plug>(as-copilot-accept)', "copilot#Accept('<Tab>')", { expr = true })
-      as.inoremap('<M-]>', '<Plug>(copilot-next)')
-      as.inoremap('<M-[>', '<Plug>(copilot-previous)')
-      as.inoremap('<C-\\>', '<Cmd>vertical Copilot panel<CR>')
-
-      vim.g.copilot_filetypes = {
-        ['*'] = true,
-        gitcommit = false,
-        NeogitCommitMessage = false,
-        DressingInput = false,
-        TelescopePrompt = false,
-        ['neo-tree-popup'] = false,
-        -- dart = false,
-      }
-    end,
-  })
-  use({
     'akinsho/pubspec-assist.nvim',
     requires = 'plenary.nvim',
     rocks = {
