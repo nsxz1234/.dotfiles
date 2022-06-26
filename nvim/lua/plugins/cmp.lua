@@ -37,8 +37,8 @@ return function()
     mapping = {
       ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
       ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
-      ['<Tab>'] = cmp.mapping(tab, { 'i', 's', 'c' }),
-      ['<S-Tab>'] = cmp.mapping(shift_tab, { 'i', 's', 'c' }),
+      ['<C-j>'] = cmp.mapping(tab, { 'i', 's', 'c' }),
+      ['<C-k>'] = cmp.mapping(shift_tab, { 'i', 's', 'c' }),
       ['<C-d>'] = cmp.mapping.scroll_docs(-4),
       ['<C-f>'] = cmp.mapping.scroll_docs(4),
       ['<C-Space>'] = cmp.mapping.complete(),
