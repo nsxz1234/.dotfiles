@@ -1,4 +1,5 @@
 local api = vim.api
+local AUGROUP = 'LspCommands'
 
 if vim.env.DEVELOPING then
   vim.lsp.set_log_level(vim.lsp.log_levels.DEBUG)
@@ -8,15 +9,24 @@ end
 ---@param client table<string, any>
 ---@param bufnr number
 local function setup_autocommands(client, bufnr)
-  if client and client.server_capabilities.codeLensProvider then
-    as.augroup('LspCodeLens', {
-      {
-        event = { 'BufEnter', 'CursorHold', 'InsertLeave' },
-        buffer = bufnr,
-        command = function()
-          vim.lsp.codelens.refresh()
-        end,
-      },
+  local cmds = {}
+  -- null-ls
+  if client.server_capabilities.documentFormattingProvider then
+    table.insert(cmds, {
+      event = { 'BufWritePre' },
+      buffer = bufnr,
+      command = function()
+        vim.lsp.buf.format()
+      end,
+    })
+  end
+  if client.server_capabilities.codeLensProvider then
+    table.insert(cmds, {
+      event = { 'BufEnter', 'CursorHold', 'InsertLeave' },
+      buffer = bufnr,
+      command = function()
+        vim.lsp.codelens.refresh()
+      end,
     })
   end
   -- nvim-lspconfig
@@ -40,18 +50,7 @@ local function setup_autocommands(client, bufnr)
           augroup END
           ]])
   end
-  -- null-ls
-  if client.server_capabilities.documentFormattingProvider then
-    as.augroup('LspFormatting', {
-      {
-        event = { 'BufWritePre' },
-        buffer = bufnr,
-        command = function()
-          vim.lsp.buf.format()
-        end,
-      },
-    })
-  end
+  as.augroup(AUGROUP, cmds)
 end
 
 local function setup_mappings(_)
@@ -90,7 +89,7 @@ as.augroup('LspSetupCommands', {
     command = function(args)
       local bufnr = args.buf
       -- if the buffer is invalid we should not try and attach to it
-      if not api.nvim_buf_is_valid(args.buf) then
+      if not api.nvim_buf_is_valid(args.buf) or not args.data then
         return
       end
       local client = vim.lsp.get_client_by_id(args.data.client_id)
