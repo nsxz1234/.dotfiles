@@ -39,7 +39,6 @@ return function()
       'dart',
       'comment',
       'markdown',
-      'markdown_inline',
     },
     highlight = {
       enable = true,
