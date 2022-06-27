@@ -25,6 +25,11 @@ return function()
             vim.cmd('stopinsert!')
           end,
           ['<esc>'] = actions.close,
+          ['<c-j>'] = actions.move_selection_next,
+          ['<c-k>'] = actions.move_selection_previous,
+          ['<c-n>'] = actions.cycle_history_next,
+          ['<c-p>'] = actions.cycle_history_prev,
+          ['<c-/>'] = actions.which_key,
           ['<Tab>'] = actions.toggle_selection,
         },
       },
