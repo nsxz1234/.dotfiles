@@ -34,7 +34,13 @@ return function()
   })
 
   require('nvim-treesitter.configs').setup({
-    ensure_installed = { 'lua', 'dart', 'comment' },
+    ensure_installed = {
+      'lua',
+      'dart',
+      'comment',
+      'markdown',
+      'markdown_inline',
+    },
     highlight = {
       enable = true,
     },
