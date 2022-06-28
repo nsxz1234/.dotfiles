@@ -19,7 +19,7 @@ noremap('<c-l>', 'g_')
 inoremap('<c-l>', '<End>')
 snoremap('<c-l>', '<esc>A')
 inoremap('<c-h>', '<Left>')
--- inoremap('<c-k>', '<Right>')
+inoremap('<Tab>', '<Right>')
 
 -- basic
 imap('jk', [[col('.') == 1 ? '<esc>' : '<esc>l']], { expr = true })

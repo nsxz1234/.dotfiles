@@ -33,17 +33,6 @@ require('packer').startup(function(use)
   use('ziglang/zig.vim')
   use('dart-lang/dart-vim-plugin')
   use({
-    'abecodes/tabout.nvim',
-    wants = { 'nvim-treesitter' },
-    after = { 'nvim-cmp' },
-    config = function()
-      require('tabout').setup({
-        completion = false,
-        ignore_beginning = false,
-      })
-    end,
-  })
-  use({
     'zbirenbaum/neodim',
     config = function()
       require('neodim').setup({
