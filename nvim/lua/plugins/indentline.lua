@@ -18,7 +18,6 @@ return function()
       'packer',
       'vimwiki',
       'markdown',
-      'json',
       'txt',
       'vista',
       'help',
