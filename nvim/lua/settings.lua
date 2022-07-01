@@ -64,7 +64,7 @@ vim.opt.formatoptions = {
 
 -- Fold
 vim.opt.foldenable = false
-vim.opt.foldlevelstart = 3
+vim.opt.foldlevelstart = 2
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.opt.foldmethod = 'expr'
 
