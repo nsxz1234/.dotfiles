@@ -4,6 +4,20 @@ return function()
 
   telescope.setup({
     defaults = {
+      mappings = {
+        i = {
+          ['<c-c>'] = function()
+            vim.cmd('stopinsert!')
+          end,
+          ['<esc>'] = actions.close,
+          ['<c-j>'] = actions.move_selection_next,
+          ['<c-k>'] = actions.move_selection_previous,
+          ['<c-n>'] = actions.cycle_history_next,
+          ['<c-p>'] = actions.cycle_history_prev,
+          ['<c-/>'] = actions.which_key,
+          ['<Tab>'] = actions.toggle_selection,
+        },
+      },
       dynamic_preview_title = true,
       file_ignore_patterns = {
         '%.jpg',
@@ -19,23 +33,10 @@ return function()
       path_display = { 'smart', 'absolute', 'truncate' },
       sorting_strategy = 'ascending',
       layout_strategy = 'vertical',
-      mappings = {
-        i = {
-          ['<c-c>'] = function()
-            vim.cmd('stopinsert!')
-          end,
-          ['<esc>'] = actions.close,
-          ['<c-j>'] = actions.move_selection_next,
-          ['<c-k>'] = actions.move_selection_previous,
-          ['<c-n>'] = actions.cycle_history_next,
-          ['<c-p>'] = actions.cycle_history_prev,
-          ['<c-/>'] = actions.which_key,
-          ['<Tab>'] = actions.toggle_selection,
-        },
-      },
       layout_config = {
         width = 0.90,
-        height = 0.80,
+        height = 0.90,
+        preview_cutoff = 1, -- Preview should always show
         vertical = {
           mirror = true,
           prompt_position = 'top',
