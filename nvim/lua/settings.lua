@@ -64,7 +64,6 @@ vim.opt.formatoptions = {
 
 -- Fold
 vim.opt.foldenable = false
-vim.opt.foldopen:append('search')
 vim.opt.foldlevelstart = 3
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.opt.foldmethod = 'expr'
