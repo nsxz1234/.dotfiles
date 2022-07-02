@@ -190,7 +190,7 @@ require('packer').startup(function(use)
   use({
     'norcalli/nvim-colorizer.lua',
     config = function()
-      require('colorizer').setup({ '*' }, {
+      require('colorizer').setup({ 'lua', 'vim', 'kitty', 'conf' }, {
         RGB = false,
         mode = 'background',
       })
