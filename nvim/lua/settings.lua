@@ -183,8 +183,3 @@ end
 --   vim.g.gruvbox_material_background = 'soft'
 --   vim.cmd('colorscheme gruvbox-material')
 -- end
-
--- last edit position
-vim.cmd(
-  [[au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]]
-)
