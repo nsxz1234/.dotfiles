@@ -27,6 +27,7 @@ return function()
   end
 
   cmp.setup({
+    experimental = { ghost_text = true },
     preselect = cmp.PreselectMode.None,
     snippet = {
       expand = function(args)
