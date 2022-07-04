@@ -452,24 +452,6 @@ require('packer').startup(function(use)
   --
   use({ 'lewis6991/gitsigns.nvim', event = 'CursorHold', config = conf('gitsigns') })
   use({
-    'ruifm/gitlinker.nvim',
-    requires = 'plenary.nvim',
-    keys = { '<leader>gu', '<leader>go' },
-    setup = function()
-      require('which-key').register(
-        { gu = 'gitlinker: get line url', go = 'gitlinker: open repo url' },
-        { prefix = '<leader>' }
-      )
-    end,
-    config = function()
-      local linker = require('gitlinker')
-      linker.setup({ mappings = '<leader>gu' })
-      as.nnoremap('<leader>go', function()
-        linker.get_repo_url({ action_callback = require('gitlinker.actions').open_in_browser })
-      end)
-    end,
-  })
-  use({
     'TimUntersberger/neogit',
     cmd = 'Neogit',
     keys = { '<leader>gs' },
