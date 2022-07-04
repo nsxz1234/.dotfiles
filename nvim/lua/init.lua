@@ -95,7 +95,6 @@ require('packer').startup(function(use)
   })
   use({
     'nvim-telescope/telescope.nvim',
-    -- cmd = 'Telescope',
     module_pattern = 'telescope.*',
     config = conf('telescope'),
     event = 'CursorHold',
