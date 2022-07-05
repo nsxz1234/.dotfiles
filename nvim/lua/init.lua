@@ -459,6 +459,7 @@ require('packer').startup(function(use)
     setup = function()
       as.nnoremap('<leader>gd', '<Cmd>DiffviewOpen<CR>', 'diffview: diff HEAD')
       as.nnoremap('<leader>gh', '<Cmd>DiffviewFileHistory<CR>', 'diffview: file history')
+      as.vnoremap('<leader>gh', [[:'<'>DiffviewFileHistory<CR>]], 'diffview: file history')
     end,
     config = function()
       require('diffview').setup({
