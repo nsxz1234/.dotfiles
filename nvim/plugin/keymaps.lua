@@ -59,9 +59,6 @@ vnoremap('.', ':norm.<CR>')
 
 -- Smart mappings on the command line
 cnoremap('w!!', [[w !sudo tee % >/dev/null]])
--- insert path of current file into a command
-cnoremap('%%', "<C-r>=fnameescape(expand('%'))<cr>")
-cnoremap('::', "<C-r>=fnameescape(expand('%:p:h'))<cr>/")
 
 nnoremap('<leader>l', ':nohl<cr>')
 
