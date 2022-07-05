@@ -413,12 +413,6 @@ require('packer').startup(function(use)
   })
   use('rafamadriz/friendly-snippets')
   use({
-    'lukas-reineke/headlines.nvim',
-    config = function()
-      require('headlines').setup()
-    end,
-  })
-  use({
     'dstein64/vim-startuptime',
     cmd = 'StartupTime',
     config = function()
