@@ -126,7 +126,9 @@ require('packer').startup(function(use)
   use({
     'windwp/nvim-autopairs',
     config = function()
-      require('nvim-autopairs').setup()
+      require('nvim-autopairs').setup({
+        fast_wrap = { map = '<c-e>' },
+      })
     end,
   })
   use({
