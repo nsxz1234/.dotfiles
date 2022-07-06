@@ -284,7 +284,6 @@ require('packer').startup(function(use)
         keys = {
           telescope = {
             i = { select = '<cr>', paste = '<m-p>', paste_behind = '<m-P>' },
-            n = { select = '<cr>', paste = 'p', paste_behind = 'P' },
           },
         },
       })
