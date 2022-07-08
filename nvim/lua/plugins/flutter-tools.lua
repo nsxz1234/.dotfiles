@@ -1,10 +1,10 @@
 return function()
   require('flutter-tools').setup({
     ui = { border = 'rounded' },
-    debugger = {
-      enabled = true,
-      run_via_dap = true,
-    },
+    -- debugger = {
+    --   enabled = true,
+    --   run_via_dap = true,
+    -- },
     outline = {
       open_cmd = '30vnew',
       auto_open = false,
