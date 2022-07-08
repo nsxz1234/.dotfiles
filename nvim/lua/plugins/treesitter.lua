@@ -65,9 +65,6 @@ return function()
         },
       },
     },
-    endwise = {
-      enable = true,
-    },
     rainbow = {
       enable = true,
       colors = {
@@ -81,17 +78,8 @@ return function()
     autopairs = { enable = true },
     query_linter = {
       enable = true,
-      use_virtual_text = true,
+      use_virtual_text = false,
       lint_events = { 'BufWrite', 'CursorHold' },
-    },
-    refactor = {
-      navigation = {
-        enable = true,
-        keymaps = {
-          goto_next_usage = '<C-n>',
-          goto_previous_usage = '<C-p>',
-        },
-      },
     },
   })
 end

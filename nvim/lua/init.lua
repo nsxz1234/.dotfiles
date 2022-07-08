@@ -54,15 +54,6 @@ require('packer').startup(function(use)
     end,
   })
   use({
-    'nvim-treesitter/nvim-treesitter-context',
-    config = function()
-      require('treesitter-context').setup({
-        multiline_threshold = 4,
-        mode = 'topline',
-      })
-    end,
-  })
-  use({
     'lewis6991/satellite.nvim',
     config = function()
       require('satellite').setup({
@@ -335,11 +326,6 @@ require('packer').startup(function(use)
         after = 'nvim-dap',
         config = function() require('dapui').setup() end,
       },
-      {
-        'theHamsta/nvim-dap-virtual-text',
-        after = 'nvim-dap',
-        config = function() require('nvim-dap-virtual-text').setup({ all_frames = true }) end,
-      },
     },
   })
   use({
@@ -357,11 +343,17 @@ require('packer').startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     config = conf('treesitter'),
-    requires = {
-      { 'p00f/nvim-ts-rainbow', after = 'nvim-treesitter' },
-      { 'nvim-treesitter/nvim-treesitter-textobjects', after = 'nvim-treesitter' },
-      { 'nvim-treesitter/nvim-treesitter-refactor', after = 'nvim-treesitter' },
-    },
+  })
+  use({ 'p00f/nvim-ts-rainbow' })
+  use({ 'nvim-treesitter/nvim-treesitter-textobjects' })
+  use({
+    'nvim-treesitter/nvim-treesitter-context',
+    config = function()
+      require('treesitter-context').setup({
+        multiline_threshold = 4,
+        mode = 'topline',
+      })
+    end,
   })
   use({
     'hrsh7th/nvim-cmp',
