@@ -10,16 +10,6 @@ end
 ---@param bufnr number
 local function setup_autocommands(client, bufnr)
   local cmds = {}
-  -- null-ls
-  if client.server_capabilities.documentFormattingProvider then
-    table.insert(cmds, {
-      event = { 'BufWritePre' },
-      buffer = bufnr,
-      command = function()
-        vim.lsp.buf.format()
-      end,
-    })
-  end
   if client.server_capabilities.codeLensProvider then
     table.insert(cmds, {
       event = { 'BufEnter', 'CursorHold', 'InsertLeave' },
