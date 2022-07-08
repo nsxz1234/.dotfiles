@@ -163,6 +163,7 @@ vim.opt.scrolloff = 9
 -- Mouse
 vim.opt.mouse = 'a'
 vim.opt.mousefocus = true
+vim.opt.mousescroll = { 'ver:1', 'hor:6' }
 
 -- Spelling
 vim.opt.spell = false
