@@ -46,9 +46,11 @@ require('packer').startup(function(use)
     'smjonas/inc-rename.nvim',
     config = function()
       require('inc_rename').setup()
-      as.nnoremap('<leader>rn', function()
-        return ':IncRename ' .. vim.fn.expand('<cword>')
-      end, { expr = true, silent = false, desc = 'lsp: incremental rename' })
+      as.nnoremap(
+        '<leader>rn',
+        function() return ':IncRename ' .. vim.fn.expand('<cword>') end,
+        { expr = true, silent = false, desc = 'lsp: incremental rename' }
+      )
     end,
   })
   use({
@@ -85,9 +87,7 @@ require('packer').startup(function(use)
   })
   use({
     'simrat39/symbols-outline.nvim',
-    setup = function()
-      as.nnoremap('ts', '<cmd>SymbolsOutline<cr>')
-    end,
+    setup = function() as.nnoremap('ts', '<cmd>SymbolsOutline<cr>') end,
   })
   use({
     'akinsho/nvim-toggleterm.lua',
@@ -103,9 +103,7 @@ require('packer').startup(function(use)
         'nvim-telescope/telescope-fzf-native.nvim',
         run = 'make',
         after = 'telescope.nvim',
-        config = function()
-          require('telescope').load_extension('fzf')
-        end,
+        config = function() require('telescope').load_extension('fzf') end,
       },
       {
         'ilAYAli/scMRU.nvim',
@@ -167,19 +165,13 @@ require('packer').startup(function(use)
     'danymat/neogen',
     requires = 'nvim-treesitter/nvim-treesitter',
     module = 'neogen',
-    setup = function()
-      as.nnoremap('<leader>cc', require('neogen').generate, 'comment: generate')
-    end,
-    config = function()
-      require('neogen').setup({ snippet_engine = 'luasnip' })
-    end,
+    setup = function() as.nnoremap('<leader>cc', require('neogen').generate, 'comment: generate') end,
+    config = function() require('neogen').setup({ snippet_engine = 'luasnip' }) end,
   })
   use({
     'mbbill/undotree',
     cmd = 'UndotreeToggle',
-    setup = function()
-      as.nnoremap('tu', '<cmd>UndotreeToggle<CR>')
-    end,
+    setup = function() as.nnoremap('tu', '<cmd>UndotreeToggle<CR>') end,
     config = function()
       vim.g.undotree_TreeNodeShape = '◦' -- Alternative: '◉'
       vim.g.undotree_SetFocusWhenToggle = 1
@@ -199,15 +191,11 @@ require('packer').startup(function(use)
   })
   use({
     'moll/vim-bbye',
-    config = function()
-      as.nnoremap('d<space>', '<Cmd>Bdelete<CR>', 'bbye: quit')
-    end,
+    config = function() as.nnoremap('d<space>', '<Cmd>Bdelete<CR>', 'bbye: quit') end,
   })
   use({
     'iamcco/markdown-preview.nvim',
-    run = function()
-      vim.fn['mkdp#util#install']()
-    end,
+    run = function() vim.fn['mkdp#util#install']() end,
     ft = { 'markdown' },
     config = function()
       vim.g.mkdp_auto_start = 0
@@ -229,9 +217,7 @@ require('packer').startup(function(use)
   })
   use({
     'goolord/alpha-nvim',
-    config = function()
-      require('alpha').setup(require('alpha.themes.startify').config)
-    end,
+    config = function() require('alpha').setup(require('alpha.themes.startify').config) end,
   })
   use({
     'nvim-neo-tree/neo-tree.nvim',
@@ -266,9 +252,11 @@ require('packer').startup(function(use)
     config = 'require("trevj").setup()',
     module = 'trevj',
     setup = function()
-      as.nnoremap('S', function()
-        require('trevj').format_at_cursor()
-      end, { desc = 'splitjoin: split' })
+      as.nnoremap(
+        'S',
+        function() require('trevj').format_at_cursor() end,
+        { desc = 'splitjoin: split' }
+      )
     end,
   })
   use({
@@ -345,16 +333,12 @@ require('packer').startup(function(use)
       {
         'rcarriga/nvim-dap-ui',
         after = 'nvim-dap',
-        config = function()
-          require('dapui').setup()
-        end,
+        config = function() require('dapui').setup() end,
       },
       {
         'theHamsta/nvim-dap-virtual-text',
         after = 'nvim-dap',
-        config = function()
-          require('nvim-dap-virtual-text').setup({ all_frames = true })
-        end,
+        config = function() require('nvim-dap-virtual-text').setup({ all_frames = true }) end,
       },
     },
   })
@@ -367,9 +351,7 @@ require('packer').startup(function(use)
         server = 'http://rocks.moonscript.org',
       },
     },
-    config = function()
-      require('pubspec-assist').setup()
-    end,
+    config = function() require('pubspec-assist').setup() end,
   })
   use({
     'nvim-treesitter/nvim-treesitter',
@@ -416,9 +398,7 @@ require('packer').startup(function(use)
   use({
     'dstein64/vim-startuptime',
     cmd = 'StartupTime',
-    config = function()
-      vim.g.startuptime_tries = 15
-    end,
+    config = function() vim.g.startuptime_tries = 15 end,
   })
   --
   -- TPOPE
@@ -437,9 +417,7 @@ require('packer').startup(function(use)
   })
   use({
     'tpope/vim-surround',
-    config = function()
-      as.xmap('s', '<Plug>VSurround')
-    end,
+    config = function() as.xmap('s', '<Plug>VSurround') end,
   })
   --
   -- Git
