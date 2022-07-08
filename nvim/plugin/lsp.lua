@@ -1,9 +1,7 @@
 local api = vim.api
 local AUGROUP = 'LspCommands'
 
-if vim.env.DEVELOPING then
-  vim.lsp.set_log_level(vim.lsp.log_levels.DEBUG)
-end
+if vim.env.DEVELOPING then vim.lsp.set_log_level(vim.lsp.log_levels.DEBUG) end
 
 --- Add lsp autocommands
 ---@param client table<string, any>
@@ -14,9 +12,7 @@ local function setup_autocommands(client, bufnr)
     table.insert(cmds, {
       event = { 'BufEnter', 'CursorHold', 'InsertLeave' },
       buffer = bufnr,
-      command = function()
-        vim.lsp.codelens.refresh()
-      end,
+      command = function() vim.lsp.codelens.refresh() end,
     })
   end
   -- nvim-lspconfig
@@ -44,9 +40,7 @@ local function setup_autocommands(client, bufnr)
 end
 
 local function setup_mappings(_)
-  local function with_desc(desc)
-    return { buffer = 0, desc = desc }
-  end
+  local function with_desc(desc) return { buffer = 0, desc = desc } end
 
   as.nnoremap('[e', vim.diagnostic.goto_prev, with_desc('lsp: go to prev diagnostic'))
   as.nnoremap(']e', vim.diagnostic.goto_next, with_desc('lsp: go to next diagnostic'))
@@ -79,9 +73,7 @@ as.augroup('LspSetupCommands', {
     command = function(args)
       local bufnr = args.buf
       -- if the buffer is invalid we should not try and attach to it
-      if not api.nvim_buf_is_valid(args.buf) or not args.data then
-        return
-      end
+      if not api.nvim_buf_is_valid(args.buf) or not args.data then return end
       local client = vim.lsp.get_client_by_id(args.data.client_id)
       on_attach(client, bufnr)
     end,
