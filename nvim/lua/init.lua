@@ -33,6 +33,14 @@ require('packer').startup(function(use)
   use('ziglang/zig.vim')
   use('dart-lang/dart-vim-plugin')
   use({
+    'kylechui/nvim-surround',
+    config = function()
+      require('nvim-surround').setup({
+        keymaps = { visual = 's' },
+      })
+    end,
+  })
+  use({
     'zbirenbaum/neodim',
     config = function()
       require('neodim').setup({
@@ -406,10 +414,6 @@ require('packer').startup(function(use)
       as.nnoremap('<leader>/', ':%Subs/<C-r><C-w>//c<left><left>', { silent = false })
       as.xnoremap('<leader>/', [["zy:%Subs/<C-r><C-o>"//c<left><left>]], { silent = false })
     end,
-  })
-  use({
-    'tpope/vim-surround',
-    config = function() as.xmap('s', '<Plug>VSurround') end,
   })
   --
   -- Git
