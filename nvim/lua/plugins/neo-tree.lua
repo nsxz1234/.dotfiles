@@ -16,15 +16,13 @@ return function()
       },
       {
         event = 'neo_tree_buffer_leave',
-        handler = function()
-          vim.cmd('highlight! Cursor blend=0')
-        end,
+        handler = function() vim.cmd('highlight! Cursor blend=0') end,
       },
     },
     filesystem = {
       hijack_netrw_behavior = 'open_current',
       use_libuv_file_watcher = true,
-      -- group_empty_dirs = true,
+      group_empty_dirs = true,
       filtered_items = {
         visible = true,
         hide_dotfiles = false,
