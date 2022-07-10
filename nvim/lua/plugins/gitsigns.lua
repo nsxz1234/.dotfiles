@@ -69,10 +69,10 @@ return function()
         return '<Ignore>'
       end, { expr = true, desc = 'go to next git hunk' })
 
-      as.vnoremap('<leader>h<space>', function()
+      as.xnoremap('<leader>h<space>', function()
         gs.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') })
       end)
-      as.vnoremap('<leader>hr', function()
+      as.xnoremap('<leader>hr', function()
         gs.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
       end)
 
