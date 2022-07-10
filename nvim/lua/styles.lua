@@ -166,5 +166,5 @@ as.style = {
 
 -- The current styles for various UI elements
 as.style.current = {
-  border = as.style.border.line,
+  border = as.style.border.rectangle,
 }
