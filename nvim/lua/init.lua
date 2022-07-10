@@ -13,6 +13,17 @@ require('packer').startup(function(use)
   use('wbthomason/packer.nvim')
   use('sainnhe/everforest')
   use('sainnhe/gruvbox-material')
+  use({
+    'williamboman/mason.nvim',
+    event = 'BufRead',
+    branch = 'alpha',
+    config = function()
+      require('mason').setup()
+      require('mason-lspconfig').setup({
+        automatic_installation = true,
+      })
+    end,
+  })
   use({ 'neovim/nvim-lspconfig', config = conf('lspconfig') })
   use('nvim-lua/plenary.nvim')
   use({ 'akinsho/flutter-tools.nvim', config = conf('flutter-tools') })
