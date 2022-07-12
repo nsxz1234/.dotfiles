@@ -421,8 +421,8 @@ require('packer').startup(function(use)
     -- "&" Repeat last substitute with flags
     config = function()
       require('textcase').setup()
-      as.nnoremap('<leader>/', ':%Subs/<C-r><C-w>//c<left><left>', { silent = false })
-      as.xnoremap('<leader>/', [["zy:%Subs/<C-r><C-o>"//c<left><left>]], { silent = false })
+      as.nnoremap('<leader>/', ':%s/<C-r><C-w>//c<left><left>', { silent = false })
+      as.xnoremap('<leader>/', [["zy:%s/<C-r><C-o>"//c<left><left>]], { silent = false })
     end,
   })
   --
