@@ -1,6 +1,6 @@
-local fn = vim.fn
+local opt, fn = vim.opt, vim.fn
 
-vim.opt.shortmess = {
+opt.shortmess = {
   t = true, -- truncate file messages at start
   A = true, -- ignore annoying swap file messages
   o = true, -- file-read message overwrites previous
@@ -14,15 +14,15 @@ vim.opt.shortmess = {
 }
 
 -- Timings
-vim.opt.updatetime = 300
-vim.opt.timeoutlen = 500
-vim.opt.ttimeoutlen = 10
+opt.updatetime = 300
+opt.timeoutlen = 500
+opt.ttimeoutlen = 10
 
 -- Window
-vim.opt.splitbelow = true
-vim.opt.splitright = true
-vim.opt.switchbuf = 'useopen,uselast'
-vim.opt.fillchars = {
+opt.splitbelow = true
+opt.splitright = true
+opt.switchbuf = 'useopen,uselast'
+opt.fillchars = {
   fold = ' ',
   eob = ' ', -- suppress ~ at EndOfBuffer
   diff = '╱', -- alternatives = ⣿ ░ ─
@@ -34,7 +34,7 @@ vim.opt.fillchars = {
 
 -- Diff
 -- Use in vertical diff mode, blank lines to keep sides aligned, Ignore whitespace changes
-vim.opt.diffopt = vim.opt.diffopt
+opt.diffopt = opt.diffopt
     + {
       'vertical',
       'iwhite',
@@ -46,7 +46,7 @@ vim.opt.diffopt = vim.opt.diffopt
     }
 
 -- Format
-vim.opt.formatoptions = {
+opt.formatoptions = {
   ['1'] = true,
   ['2'] = true, -- Use indent from 2nd line of a paragraph
   q = true, -- continue comments with gq"
@@ -63,27 +63,27 @@ vim.opt.formatoptions = {
 }
 
 -- Fold
-vim.opt.foldenable = false
-vim.opt.foldlevelstart = 2
-vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
-vim.opt.foldmethod = 'expr'
+opt.foldenable = false
+opt.foldlevelstart = 2
+opt.foldexpr = 'nvim_treesitter#foldexpr()'
+opt.foldmethod = 'expr'
 
 -- Grep
 -- Use faster grep alternatives if possible
 if as.executable('rg') then
   vim.o.grepprg = [[rg --glob "!.git" --no-heading --vimgrep --follow $*]]
-  vim.opt.grepformat = vim.opt.grepformat ^ { '%f:%l:%c:%m' }
+  opt.grepformat = opt.grepformat ^ { '%f:%l:%c:%m' }
 elseif as.executable('ag') then
   vim.o.grepprg = [[ag --nogroup --nocolor --vimgrep]]
-  vim.opt.grepformat = vim.opt.grepformat ^ { '%f:%l:%c:%m' }
+  opt.grepformat = opt.grepformat ^ { '%f:%l:%c:%m' }
 end
 
 -- Wild and file globbing stuff in command mode
-vim.opt.wildcharm = fn.char2nr(as.replace_termcodes([[<Tab>]]))
-vim.opt.wildmode = 'longest:full,full' -- Shows a menu bar as opposed to an enormous list
-vim.opt.wildignorecase = true -- Ignore case when completing file names and directories
+opt.wildcharm = fn.char2nr(as.replace_termcodes([[<Tab>]]))
+opt.wildmode = 'longest:full,full' -- Shows a menu bar as opposed to an enormous list
+opt.wildignorecase = true -- Ignore case when completing file names and directories
 -- Binary
-vim.opt.wildignore = {
+opt.wildignore = {
   '*.aux',
   '*.out',
   '*.toc',
@@ -109,18 +109,18 @@ vim.opt.wildignore = {
   '.DS_Store',
   'tags.lock',
 }
-vim.opt.wildoptions = 'pum'
+opt.wildoptions = 'pum'
 
 -- Display
-vim.opt.breakindentopt = 'sbr'
-vim.opt.linebreak = true
-vim.opt.signcolumn = 'number'
-vim.opt.ruler = false
-vim.opt.showbreak = [[↪ ]]
+opt.breakindentopt = 'sbr'
+opt.linebreak = true
+opt.signcolumn = 'number'
+opt.ruler = false
+opt.showbreak = [[↪ ]]
 
 -- List
-vim.opt.list = true -- invisible chars
-vim.opt.listchars = {
+opt.list = true -- invisible chars
+opt.listchars = {
   eol = nil,
   tab = '  ', -- Alternatives: '▷▷',
   extends = '›', -- Alternatives: … »
@@ -129,49 +129,49 @@ vim.opt.listchars = {
 }
 
 -- Indentation
-vim.opt.shiftround = true
-vim.opt.expandtab = true
-vim.opt.shiftwidth = 2
+opt.shiftround = true
+opt.expandtab = true
+opt.shiftwidth = 2
 
-vim.opt.gdefault = true
-vim.opt.pumheight = 15
-vim.opt.confirm = true
-vim.opt.completeopt = { 'menuone', 'noselect' }
-vim.opt.hlsearch = true
-vim.opt.autowriteall = true
-vim.opt.laststatus = 3 -- 全局状态栏
-vim.opt.termguicolors = true
-vim.opt.guifont = 'FantasqueSansMono Nerd Font:h16'
-vim.opt.emoji = false
-vim.opt.cursorlineopt = 'screenline,number'
+opt.gdefault = true
+opt.pumheight = 15
+opt.confirm = true
+opt.completeopt = { 'menuone', 'noselect' }
+opt.hlsearch = true
+opt.autowriteall = true
+opt.laststatus = 3 -- 全局状态栏
+opt.termguicolors = true
+opt.guifont = 'FantasqueSansMono Nerd Font:h16'
+opt.emoji = false
+opt.cursorlineopt = 'screenline,number'
 -----------------------------------------------------------------------------//
 -- Jumplist
 -----------------------------------------------------------------------------//
-vim.opt.jumpoptions = { 'stack' } -- make the jumplist behave like a browser stack
+opt.jumpoptions = { 'stack', 'view' } -- make the jumplist behave like a browser stack
 
 -- Backup and swap
-vim.opt.undofile = true
-vim.opt.swapfile = false
+opt.undofile = true
+opt.swapfile = false
 
 -- Match and search
-vim.opt.ic = true
-vim.opt.smartcase = true
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.scrolloff = 9
+opt.ic = true
+opt.smartcase = true
+opt.number = true
+opt.relativenumber = true
+opt.scrolloff = 9
 
 -- Mouse
-vim.opt.mouse = 'a'
-vim.opt.mousefocus = true
-vim.opt.mousescroll = { 'ver:1', 'hor:6' }
+opt.mouse = 'nvi'
+opt.mousefocus = true
+opt.mousescroll = { 'ver:1', 'hor:6' }
 
 -- Spelling
-vim.opt.spell = false
-vim.opt.spellsuggest:prepend({ 12 })
-vim.opt.spelloptions = 'camel'
-vim.opt.spellcapcheck = '' -- don't check for capital letters at start of sentence
-vim.opt.fileformats = { 'unix', 'mac', 'dos' }
-vim.opt.spelllang:append('programming')
+opt.spell = false
+opt.spellsuggest:prepend({ 12 })
+opt.spelloptions = 'camel'
+opt.spellcapcheck = '' -- don't check for capital letters at start of sentence
+opt.fileformats = { 'unix', 'mac', 'dos' }
+opt.spelllang:append('programming')
 
 -- Color Scheme
 if as.plugin_installed('everforest') then
