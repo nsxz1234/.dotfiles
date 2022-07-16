@@ -110,10 +110,9 @@ require('packer').startup(function(use)
     event = 'CursorHold',
     requires = {
       {
-        'nvim-telescope/telescope-fzf-native.nvim',
-        run = 'make',
+        'natecraddock/telescope-zf-native.nvim',
         after = 'telescope.nvim',
-        config = function() require('telescope').load_extension('fzf') end,
+        config = function() require('telescope').load_extension('zf-native') end,
       },
       {
         'ilAYAli/scMRU.nvim',
