@@ -72,29 +72,6 @@ require('packer').startup(function(use)
     end,
   })
   use({
-    'lewis6991/satellite.nvim',
-    config = function()
-      require('satellite').setup({
-        handlers = {
-          gitsigns = {
-            enable = false,
-          },
-          marks = {
-            enable = false,
-          },
-        },
-        excluded_filetypes = {
-          'packer',
-          'neo-tree',
-          'norg',
-          'neo-tree-popup',
-          'dapui_scopes',
-          'dapui_stacks',
-        },
-      })
-    end,
-  })
-  use({
     'simrat39/symbols-outline.nvim',
     setup = function() as.nnoremap('ts', '<cmd>SymbolsOutline<cr>') end,
   })
