@@ -9,6 +9,10 @@ return function()
     colored = true,
     symbols = { added = ' ', modified = ' ', removed = ' ' },
   }
+  local progress = {
+    'progress',
+    padding = { right = 1 },
+  }
   require('lualine').setup({
     options = {
       theme = 'auto',
@@ -21,7 +25,7 @@ return function()
       lualine_b = {},
       lualine_c = { file_name },
       lualine_x = { diff },
-      lualine_y = {},
+      lualine_y = { progress },
       lualine_z = { 'location' },
     },
   })
