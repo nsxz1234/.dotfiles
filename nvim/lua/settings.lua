@@ -162,7 +162,7 @@ opt.scrolloff = 9
 
 -- Mouse
 opt.mousefocus = true
-opt.mousescroll = { 'ver:1', 'hor:6' }
+opt.mousescroll = { 'ver:2', 'hor:6' }
 
 -- Spelling
 opt.spell = false
