@@ -74,6 +74,12 @@ local function setup_mappings(_, bufnr)
 end
 
 local function on_attach(client, bufnr)
+  -- Otherwise, if there is already an attached client then
+  -- mappings and other settings should not be re-applied
+  local active = vim.lsp.get_active_clients({ bufnr = bufnr })
+  local attached = vim.tbl_filter(function(c) return c.attached_buffers[bufnr] end, active)
+  if #attached > 0 then return end
+
   setup_autocommands(client, bufnr)
   setup_mappings(client, bufnr)
 end
