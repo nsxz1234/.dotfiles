@@ -8,6 +8,17 @@ if vim.env.DEVELOPING then vim.lsp.set_log_level(vim.lsp.log_levels.DEBUG) end
 ---@param bufnr number
 local function setup_autocommands(client, bufnr)
   local cmds = {}
+  vim.api.nvim_create_autocmd('CursorHold', {
+    buffer = bufnr,
+    callback = function()
+      local opts = {
+        focusable = false,
+        close_events = { 'BufLeave', 'CursorMoved', 'InsertEnter', 'FocusLost' },
+        scope = 'cursor',
+      }
+      vim.diagnostic.open_float(nil, opts)
+    end,
+  })
   if client.server_capabilities.codeLensProvider then
     table.insert(cmds, {
       event = { 'BufEnter', 'CursorHold', 'InsertLeave' },
@@ -19,17 +30,6 @@ local function setup_autocommands(client, bufnr)
   end
   -- nvim-lspconfig
   if client.server_capabilities.documentHighlightProvider then
-    vim.api.nvim_create_autocmd('CursorHold', {
-      buffer = bufnr,
-      callback = function()
-        local opts = {
-          focusable = false,
-          close_events = { 'BufLeave', 'CursorMoved', 'InsertEnter', 'FocusLost' },
-          scope = 'cursor',
-        }
-        vim.diagnostic.open_float(nil, opts)
-      end,
-    })
     vim.cmd([[
           augroup lsp_document_highlight
           autocmd! * <buffer>
