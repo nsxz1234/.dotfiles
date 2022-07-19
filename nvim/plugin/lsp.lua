@@ -1,12 +1,21 @@
 local api = vim.api
-local AUGROUP = 'LspCommands'
+local fmt = string.format
 
 if vim.env.DEVELOPING then vim.lsp.set_log_level(vim.lsp.log_levels.DEBUG) end
+
+local get_augroup = function(bufnr)
+  assert(bufnr, 'A bufnr is required to create an lsp augroup')
+  return fmt('LspCommands_%d', bufnr)
+end
 
 --- Add lsp autocommands
 ---@param client table<string, any>
 ---@param bufnr number
 local function setup_autocommands(client, bufnr)
+  local group = get_augroup(bufnr)
+  -- Clear pre-existing buffer autocommands
+  pcall(api.nvim_clear_autocmds, { group = group })
+
   local cmds = {}
   vim.api.nvim_create_autocmd('CursorHold', {
     buffer = bufnr,
@@ -38,7 +47,7 @@ local function setup_autocommands(client, bufnr)
           augroup END
           ]])
   end
-  as.augroup(AUGROUP, cmds)
+  as.augroup(group, cmds)
 end
 
 ---@param bufnr number
@@ -80,6 +89,11 @@ as.augroup('LspSetupCommands', {
       local client = vim.lsp.get_client_by_id(args.data.client_id)
       on_attach(client, bufnr)
     end,
+  },
+  {
+    event = 'LspDetach',
+    desc = 'Clean up after detached LSP',
+    command = function(args) api.nvim_clear_autocmds({ group = get_augroup(args.buf), buffer = args.buf }) end,
   },
 })
 
