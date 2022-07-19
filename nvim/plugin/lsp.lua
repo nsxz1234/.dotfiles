@@ -41,8 +41,9 @@ local function setup_autocommands(client, bufnr)
   as.augroup(AUGROUP, cmds)
 end
 
-local function setup_mappings(_)
-  local function with_desc(desc) return { buffer = 0, desc = desc } end
+---@param bufnr number
+local function setup_mappings(_, bufnr)
+  local function with_desc(desc) return { buffer = bufnr, desc = desc } end
 
   as.nnoremap('[e', vim.diagnostic.goto_prev, with_desc('lsp: go to prev diagnostic'))
   as.nnoremap(']e', vim.diagnostic.goto_next, with_desc('lsp: go to next diagnostic'))
@@ -65,7 +66,7 @@ end
 
 local function on_attach(client, bufnr)
   setup_autocommands(client, bufnr)
-  setup_mappings(client)
+  setup_mappings(client, bufnr)
 end
 
 as.augroup('LspSetupCommands', {
