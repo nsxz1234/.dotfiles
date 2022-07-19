@@ -161,7 +161,6 @@ opt.relativenumber = true
 opt.scrolloff = 9
 
 -- Mouse
-opt.mouse = 'nvi'
 opt.mousefocus = true
 opt.mousescroll = { 'ver:1', 'hor:6' }
 
