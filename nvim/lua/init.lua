@@ -19,9 +19,7 @@ require('packer').startup(function(use)
     branch = 'alpha',
     config = function()
       require('mason').setup()
-      require('mason-lspconfig').setup({
-        automatic_installation = true,
-      })
+      require('mason-lspconfig').setup({ automatic_installation = true })
     end,
   })
   use({ 'neovim/nvim-lspconfig', config = conf('lspconfig') })
@@ -97,7 +95,7 @@ require('packer').startup(function(use)
   })
   use({
     'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
+    branch = 'master', -- '0.1.x',
     module_pattern = 'telescope.*',
     config = conf('telescope'),
     event = 'CursorHold',
