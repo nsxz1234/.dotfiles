@@ -28,7 +28,7 @@ return function()
         '^node_modules/',
         '^site-packages/',
       },
-      path_display = { 'smart', 'absolute', 'truncate' },
+      path_display = { 'truncate' },
       sorting_strategy = 'ascending',
       layout_strategy = 'vertical',
       layout_config = {
