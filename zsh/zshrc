@@ -23,11 +23,11 @@ export PUB_HOSTED_URL=https://pub.flutter-io.cn
 export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 export PATH=~/flutter/bin:$PATH
 export PATH=~/Android/Sdk/platform-tools:$PATH
-
 # cargo
 export PATH=$PATH:~/.cargo/bin
-
 export EDITOR='nvim'
+
+eval "$(zoxide init zsh)"
 
 alias l="exa -la"
 alias v='nvim'
