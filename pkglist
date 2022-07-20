@@ -20,9 +20,9 @@ bash
 bat
 bmenu
 brave-browser
+btop
 btrfs-progs
 bzip2
-chrome-gnome-shell
 code
 coreutils
 cpupower
@@ -43,6 +43,7 @@ dnsmasq
 dosfstools
 downgrade
 dpkg
+duf
 e2fsprogs
 ecryptfs-utils
 edrawmax-cn
@@ -51,6 +52,7 @@ electron-netease-cloud-music
 epiphany
 ethminer-bin
 evince
+exa
 exfat-utils
 f2fs-tools
 fcitx5-chinese-addons
@@ -76,6 +78,7 @@ gimp
 github-cli
 glibc
 gnome-backgrounds
+gnome-browser-connector
 gnome-calculator
 gnome-control-center
 gnome-desktop
@@ -127,6 +130,7 @@ inkscape
 inxi
 iproute2
 iputils
+jdk-openjdk
 jfsutils
 kanshi
 kooha
@@ -136,7 +140,6 @@ lf
 lib32-libva-vdpau-driver
 lib32-mesa-demos
 lib32-mesa-vdpau
-lib32-vulkan-intel
 lib32-vulkan-radeon
 libadwaita
 libkeybinder3
@@ -144,7 +147,7 @@ libva-mesa-driver
 libva-vdpau-driver
 licenses
 lighter-gnome
-linux517
+linux518
 logrotate
 lua-language-server
 luajit
@@ -185,7 +188,7 @@ nautilus
 nautilus-admin
 nautilus-empty-file
 neofetch
-neovim
+neovim-nightly-bin
 nerd-fonts-fantasque-sans-mono
 netctl
 networkmanager
@@ -214,6 +217,7 @@ papirus-maia-icon-theme
 pciutils
 perl
 pfetch
+pipewire-media-session
 polkit-gnome
 powertop
 prettier
@@ -223,8 +227,9 @@ pulseaudio-bluetooth
 pulseaudio-ctl
 pulseaudio-zeroconf
 python-genpac
+python-pynvim
 qbittorrent
-qgnomeplatform
+qgnomeplatform-qt5
 rar
 reiserfsprogs
 rsync
@@ -266,11 +271,13 @@ ttf-roboto
 usb_modeswitch
 usbutils
 util-linux
-v2raya-git
+v2raya
 vi
+vlc
 vulkan-intel
 vulkan-radeon
 w3m
+wemeet-bin
 wf-recorder
 wget
 which
@@ -279,6 +286,7 @@ wl-color-picker
 wlogout
 wlr-randr
 wlrobs
+wlroots
 wlsunset
 wofi
 wpa_supplicant
@@ -307,6 +315,8 @@ xz
 yay
 ydcv-rs-git
 zathura
+zf
 zig
 zls-bin
+zoxide
 zsh-fast-syntax-highlighting
