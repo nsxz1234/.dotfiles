@@ -147,7 +147,7 @@ opt.cursorlineopt = 'screenline,number'
 -----------------------------------------------------------------------------//
 -- Jumplist
 -----------------------------------------------------------------------------//
-opt.jumpoptions = { 'stack', 'view' } -- make the jumplist behave like a browser stack
+opt.jumpoptions = { 'stack' } -- make the jumplist behave like a browser stack
 
 -- Backup and swap
 opt.undofile = true
