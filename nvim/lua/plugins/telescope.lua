@@ -6,7 +6,7 @@ return function()
     defaults = {
       mappings = {
         i = {
-          ['<c-c>'] = function() vim.cmd('stopinsert!') end,
+          ['<c-c>'] = function() vim.cmd.stopinsert({ bang = true }) end,
           ['<esc>'] = actions.close,
           ['<c-j>'] = actions.move_selection_next,
           ['<c-k>'] = actions.move_selection_previous,
