@@ -16,8 +16,10 @@ require('packer').startup(function(use)
   use({
     'williamboman/mason.nvim',
     branch = 'alpha',
+    requires = { 'nvim-lspconfig', 'williamboman/mason-lspconfig.nvim' },
     config = function()
       require('mason').setup()
+      require('mason-lspconfig').setup({ automatic_installation = true })
     end,
   })
   use({ 'neovim/nvim-lspconfig', config = conf('lspconfig') })
