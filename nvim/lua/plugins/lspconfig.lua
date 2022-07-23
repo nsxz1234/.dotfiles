@@ -13,19 +13,18 @@ return function()
   end
 
   -- luadev
-  local luadev = require('lua-dev').setup({
-    library = { plugins = { 'plenary.nvim' } },
-    lspconfig = {
-      capabilities = capabilities,
-      settings = {
-        Lua = {
-          diagnostics = {
-            globals = { 'vim', 'describe', 'it', 'before_each', 'after_each', 'packer_plugins' },
-          },
-          completion = { keywordSnippet = 'Replace', callSnippet = 'Replace' },
+  require('lspconfig').sumneko_lua.setup({
+    capabilities = capabilities,
+    settings = {
+      Lua = {
+        diagnostics = {
+          globals = { 'vim', 'describe', 'it', 'before_each', 'after_each', 'packer_plugins' },
+        },
+        completion = { keywordSnippet = 'Replace', callSnippet = 'Replace' },
+        workspace = {
+          library = vim.api.nvim_get_runtime_file('', true),
         },
       },
     },
   })
-  require('lspconfig').sumneko_lua.setup(luadev)
 end
