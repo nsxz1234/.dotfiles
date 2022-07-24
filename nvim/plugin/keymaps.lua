@@ -82,6 +82,12 @@ end
 nnoremap('<leader>,', modify_line_end_delimiter(','))
 nnoremap('<leader>;', modify_line_end_delimiter(';'))
 
+local function run()
+  if vim.bo.filetype == 'markdown' then vim.cmd('MarkdownPreviewToggle') end
+end
+
+nnoremap('<leader><cr>', run)
+
 -- buffer
 nnoremap('fD', ':BufferLinePickClose<cr>')
 nnoremap('H', ':BufferLineCyclePrev<cr>')

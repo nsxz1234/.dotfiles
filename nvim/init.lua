@@ -15,5 +15,3 @@ R('globals')
 R('styles')
 R('settings')
 R('init')
-
-vim.cmd('source $HOME/.config/nvim/config.vim')
