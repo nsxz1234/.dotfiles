@@ -15,7 +15,6 @@ require('packer').startup(function(use)
   use('sainnhe/gruvbox-material')
   use({
     'williamboman/mason.nvim',
-    branch = 'alpha',
     requires = { 'nvim-lspconfig', 'williamboman/mason-lspconfig.nvim' },
     config = function()
       require('mason').setup()
