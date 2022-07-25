@@ -220,7 +220,7 @@ require('packer').startup(function(use)
   })
   use({
     'nvim-neo-tree/neo-tree.nvim',
-    branch = 'main', -- branch = 'v2.x',
+    branch = 'v2.x',
     config = conf('neo-tree'),
     keys = { '<tab>', '<C-e>' },
     cmd = { 'NeoTree' },
