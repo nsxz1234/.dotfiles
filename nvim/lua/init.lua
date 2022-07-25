@@ -370,7 +370,7 @@ require('packer').startup(function(use)
     event = 'InsertEnter',
     config = conf('cmp'),
     requires = {
-      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'hrsh7th/cmp-nvim-lsp', module = 'cmp_nvim_lsp' },
       { 'hrsh7th/cmp-nvim-lsp-document-symbol', after = 'nvim-cmp' },
       { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' },
       { 'f3fora/cmp-spell', after = 'nvim-cmp' },
