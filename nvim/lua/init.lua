@@ -228,6 +228,7 @@ require('packer').startup(function(use)
       'nvim-lua/plenary.nvim',
       'MunifTanjim/nui.nvim',
       'kyazdani42/nvim-web-devicons',
+      { 'mrbjarksen/neo-tree-diagnostics.nvim', module = 'neo-tree.sources.diagnostics' },
     },
   })
   use({
