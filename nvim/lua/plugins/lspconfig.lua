@@ -1,5 +1,3 @@
-as.lsp = {}
-
 return function()
   -- nvim-cmp supports additional completion capabilities
   local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -21,9 +19,9 @@ return function()
           globals = { 'vim', 'describe', 'it', 'before_each', 'after_each', 'packer_plugins' },
         },
         completion = { keywordSnippet = 'Replace', callSnippet = 'Replace' },
-        workspace = {
-          library = vim.api.nvim_get_runtime_file('', true),
-        },
+        -- workspace = {
+        --   library = vim.api.nvim_get_runtime_file('', true),
+        -- },
       },
     },
   })
