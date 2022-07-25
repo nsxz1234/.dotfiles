@@ -35,15 +35,15 @@ opt.fillchars = {
 -- Diff
 -- Use in vertical diff mode, blank lines to keep sides aligned, Ignore whitespace changes
 opt.diffopt = opt.diffopt
-    + {
-      'vertical',
-      'iwhite',
-      'hiddenoff',
-      'foldcolumn:0',
-      'context:4',
-      'algorithm:histogram',
-      'indent-heuristic',
-    }
+  + {
+    'vertical',
+    'iwhite',
+    'hiddenoff',
+    'foldcolumn:0',
+    'context:4',
+    'algorithm:histogram',
+    'indent-heuristic',
+  }
 
 -- Format
 opt.formatoptions = {
@@ -79,7 +79,7 @@ elseif as.executable('ag') then
 end
 
 -- Wild and file globbing stuff in command mode
-opt.wildcharm = fn.char2nr(as.replace_termcodes([[<Tab>]]))
+opt.wildcharm = ('\t'):byte()
 opt.wildmode = 'longest:full,full' -- Shows a menu bar as opposed to an enormous list
 opt.wildignorecase = true -- Ignore case when completing file names and directories
 -- Binary
