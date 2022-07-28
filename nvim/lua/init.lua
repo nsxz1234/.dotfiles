@@ -454,6 +454,9 @@ require('packer').startup(function(use)
     end,
     config = function()
       require('diffview').setup({
+        default_args = {
+          DiffviewFileHistory = { '%' },
+        },
         enhanced_diff_hl = true,
         keymaps = {
           view = { q = '<Cmd>DiffviewClose<CR>' },
