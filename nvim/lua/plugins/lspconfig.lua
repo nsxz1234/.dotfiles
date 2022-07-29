@@ -13,10 +13,10 @@ return function()
   end
 
   -- luadev
-  local lib = vim.tbl_filter(function(dir)
-    if dir:match('emmy') then return true end
-    return not vim.startswith(dir, fn.stdpath('data') .. '/site/')
-  end, api.nvim_get_runtime_file('', true))
+  local plugins = ('%s/site/pack/packer'):format(fn.stdpath('data'))
+  local emmy = ('%s/start/emmylua-nvim'):format(plugins)
+  local plenary = ('%s/start/plenary.nvim'):format(plugins)
+  local packer = ('%s/opt/packer.nvim'):format(plugins)
 
   require('lspconfig').sumneko_lua.setup({
     capabilities = capabilities,
@@ -27,7 +27,7 @@ return function()
         },
         completion = { keywordSnippet = 'Replace', callSnippet = 'Replace' },
         workspace = {
-          library = lib,
+          library = { vim.env.VIMRUNTIME, emmy, packer, plenary },
         },
       },
     },
