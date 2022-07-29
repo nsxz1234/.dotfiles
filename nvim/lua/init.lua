@@ -339,7 +339,8 @@ require('packer').startup(function(use)
   })
   use({
     'akinsho/pubspec-assist.nvim',
-    requires = 'plenary.nvim',
+    ft = { 'dart' },
+    event = 'BufEnter pubspec.yaml',
     rocks = {
       {
         'lyaml',
