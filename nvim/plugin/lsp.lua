@@ -59,12 +59,7 @@ local function setup_mappings(_, bufnr)
   as.nnoremap('ge', vim.diagnostic.setqflist, with_desc('lsp: diagnostic list'))
 
   as.nnoremap('F', vim.lsp.buf.format, with_desc('lsp: format buffer'))
-  as.nnoremap('<leader>a', vim.lsp.buf.code_action, with_desc('lsp: code action'))
-  as.xnoremap(
-    '<leader>a',
-    '<esc><Cmd>lua vim.lsp.buf.range_code_action()<CR>',
-    with_desc('lsp: code action')
-  )
+  vim.keymap.set({ 'n', 'x' }, '<leader>a', vim.lsp.buf.code_action, with_desc('lsp: code action'))
   as.nnoremap('gd', vim.lsp.buf.definition, with_desc('lsp: definition'))
   as.nnoremap('gr', vim.lsp.buf.references, with_desc('lsp: references'))
   as.nnoremap('gi', vim.lsp.buf.implementation, with_desc('lsp: implementation'))
