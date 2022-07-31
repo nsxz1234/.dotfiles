@@ -1,9 +1,6 @@
 return function()
   local cmp = require('cmp')
 
-  local api = vim.api
-  local t = as.replace_termcodes
-
   local function tab(fallback)
     local ok, luasnip = as.safe_require('luasnip', { silent = true })
     if ok and luasnip.expand_or_locally_jumpable() then

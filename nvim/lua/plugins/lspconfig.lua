@@ -1,5 +1,5 @@
 return function()
-  local fn, api = vim.fn, vim.api
+  local fn = vim.fn
 
   -- nvim-cmp supports additional completion capabilities
   local capabilities = vim.lsp.protocol.make_client_capabilities()
