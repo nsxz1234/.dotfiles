@@ -143,7 +143,10 @@ opt.laststatus = 3 -- 全局状态栏
 opt.termguicolors = true
 opt.guifont = 'FantasqueSansMono Nerd Font:h16'
 opt.emoji = false
-opt.cursorlineopt = 'screenline,number'
+opt.number = true
+opt.relativenumber = true
+opt.cursorline = true
+opt.cursorlineopt = 'number'
 -----------------------------------------------------------------------------//
 -- Jumplist
 -----------------------------------------------------------------------------//
@@ -156,8 +159,6 @@ opt.swapfile = false
 -- Match and search
 opt.ic = true
 opt.smartcase = true
-opt.number = true
-opt.relativenumber = true
 opt.scrolloff = 9
 
 -- Mouse
