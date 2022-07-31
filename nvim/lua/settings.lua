@@ -146,7 +146,6 @@ opt.emoji = false
 opt.number = true
 opt.relativenumber = true
 opt.cursorline = true
-opt.cursorlineopt = 'number'
 -----------------------------------------------------------------------------//
 -- Jumplist
 -----------------------------------------------------------------------------//
