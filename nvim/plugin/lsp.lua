@@ -69,6 +69,8 @@ local function setup_mappings(_, bufnr)
 end
 
 local function on_attach(client, bufnr)
+  local hints_ok, hints = pcall(require, 'lsp-inlayhints')
+  if hints_ok then hints.on_attach(bufnr, client) end
   setup_autocommands(client, bufnr)
   setup_mappings(client, bufnr)
 end

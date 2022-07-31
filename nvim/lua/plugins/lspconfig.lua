@@ -22,6 +22,7 @@ return function()
     capabilities = capabilities,
     settings = {
       Lua = {
+        hint = { enable = true, arrayIndex = 'Disable', setType = true },
         diagnostics = {
           globals = { 'vim', 'describe', 'it', 'before_each', 'after_each', 'packer_plugins' },
         },

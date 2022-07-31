@@ -40,6 +40,16 @@ require('packer').startup(function(use)
   use({ 'kevinhwang91/nvim-bqf', ft = 'qf' })
   use('ziglang/zig.vim')
   use({
+    'lvimuser/lsp-inlayhints.nvim',
+    config = function()
+      require('lsp-inlayhints').setup({
+        inlay_hints = {
+          highlight = 'Comment',
+        },
+      })
+    end,
+  })
+  use({
     'linty-org/readline.nvim',
     event = 'CmdlineEnter',
     config = function()
