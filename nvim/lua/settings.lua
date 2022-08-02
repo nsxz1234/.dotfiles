@@ -35,15 +35,15 @@ opt.fillchars = {
 -- Diff
 -- Use in vertical diff mode, blank lines to keep sides aligned, Ignore whitespace changes
 opt.diffopt = opt.diffopt
-  + {
-    'vertical',
-    'iwhite',
-    'hiddenoff',
-    'foldcolumn:0',
-    'context:4',
-    'algorithm:histogram',
-    'indent-heuristic',
-  }
+    + {
+      'vertical',
+      'iwhite',
+      'hiddenoff',
+      'foldcolumn:0',
+      'context:4',
+      'algorithm:histogram',
+      'indent-heuristic',
+    }
 
 -- Format
 opt.formatoptions = {
@@ -174,12 +174,10 @@ opt.spelllang:append('programming')
 
 -- Color Scheme
 if as.plugin_installed('everforest') then
-  vim.opt.background = 'dark'
   vim.g.everforest_background = 'soft'
-  vim.cmd('colorscheme everforest')
+  vim.cmd.colorscheme('everforest')
 end
 -- if as.plugin_installed('gruvbox-material') then
---   vim.opt.background = 'dark'
 --   vim.g.gruvbox_material_background = 'soft'
---   vim.cmd('colorscheme gruvbox-material')
+--   vim.cmd.colorscheme('gruvbox-material')
 -- end
