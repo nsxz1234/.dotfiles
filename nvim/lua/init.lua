@@ -1,4 +1,4 @@
-as.safe_require('impatient')
+as.require('impatient')
 
 local utils = require('utils.plugins')
 local conf = utils.conf

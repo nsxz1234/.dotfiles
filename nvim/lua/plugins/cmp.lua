@@ -2,7 +2,7 @@ return function()
   local cmp = require('cmp')
 
   local function tab(fallback)
-    local ok, luasnip = as.safe_require('luasnip', { silent = true })
+    local ok, luasnip = as.require('luasnip', { silent = true })
     if ok and luasnip.expand_or_locally_jumpable() then
       luasnip.expand_or_jump()
     elseif cmp.visible() then
@@ -13,7 +13,7 @@ return function()
   end
 
   local function shift_tab(fallback)
-    local ok, luasnip = as.safe_require('luasnip', { silent = true })
+    local ok, luasnip = as.require('luasnip', { silent = true })
     if ok and luasnip.jumpable(-1) then
       luasnip.jump(-1)
     elseif cmp.visible() then
