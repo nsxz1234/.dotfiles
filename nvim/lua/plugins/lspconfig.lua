@@ -28,7 +28,7 @@ return function()
         },
         completion = { keywordSnippet = 'Replace', callSnippet = 'Replace' },
         workspace = {
-          library = { vim.env.VIMRUNTIME, emmy, packer, plenary },
+          library = { fn.expand('$VIMRUNTIME/lua'), emmy, packer, plenary },
         },
       },
     },
