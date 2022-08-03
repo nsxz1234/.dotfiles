@@ -3,7 +3,6 @@ QT_IM_MODULE=fcitx
 XMODIFIERS=@im=fcitx
 SDL_IM_MODULE=fcitx
 INPUT_METHOD=fcitx
-GLFW_IM_MODULE=ibus
 
 # flameshot截图位置错误
 #QT_AUTO_SCREEN_SCALE_FACTOR=0
