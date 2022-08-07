@@ -29,6 +29,7 @@ return function()
         completion = { keywordSnippet = 'Replace', callSnippet = 'Replace' },
         workspace = {
           library = { fn.expand('$VIMRUNTIME/lua'), emmy, packer, plenary },
+          checkThirdParty = false,
         },
       },
     },
