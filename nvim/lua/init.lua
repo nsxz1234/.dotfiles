@@ -326,13 +326,13 @@ require('packer').startup(function(use)
   })
   use({
     'nvim-neotest/neotest',
+    module = 'neotest',
     config = conf('neotest'),
     requires = {
+      'plenary.nvim',
+      'nvim-treesitter',
+      'FixCursorHold.nvim',
       'rcarriga/neotest-plenary',
-      'rcarriga/neotest-vim-test',
-      'nvim-lua/plenary.nvim',
-      'nvim-treesitter/nvim-treesitter',
-      'antoinemadec/FixCursorHold.nvim',
     },
   })
   use({
