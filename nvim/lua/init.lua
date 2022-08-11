@@ -42,9 +42,7 @@ require('packer').startup(function(use)
     'lvimuser/lsp-inlayhints.nvim',
     config = function()
       require('lsp-inlayhints').setup({
-        inlay_hints = {
-          highlight = 'Comment',
-        },
+        inlay_hints = { highlight = 'Comment' },
       })
     end,
   })
