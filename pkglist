@@ -23,7 +23,6 @@ brave-browser
 btop
 btrfs-progs
 bzip2
-code
 coreutils
 cpupower
 cronie
@@ -43,10 +42,10 @@ dnsmasq
 dosfstools
 downgrade
 dpkg
+drawio-desktop-bin
 duf
 e2fsprogs
 ecryptfs-utils
-edrawmax-cn
 efibootmgr
 electron-netease-cloud-music
 epiphany
@@ -133,6 +132,7 @@ iputils
 jdk-openjdk
 jfsutils
 kanshi
+kitty
 kooha
 lazygit
 less
@@ -197,7 +197,7 @@ networkmanager-openvpn
 networkmanager-pptp
 networkmanager-vpnc
 nfs-utils
-nnn-nerd
+nnn
 noto-fonts
 nss-mdns
 ntfs-3g
@@ -232,6 +232,7 @@ qbittorrent
 qgnomeplatform-qt5
 rar
 reiserfsprogs
+ripgrep
 rsync
 s-nail
 screenfetch
@@ -255,6 +256,7 @@ tar
 telegram-desktop
 texinfo
 thunderbird
+tilix
 timeshift
 tlp
 tmux
@@ -277,7 +279,7 @@ vlc
 vulkan-intel
 vulkan-radeon
 w3m
-wemeet-bin
+wezterm
 wf-recorder
 wget
 which
