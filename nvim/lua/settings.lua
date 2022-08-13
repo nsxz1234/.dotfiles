@@ -144,7 +144,6 @@ opt.termguicolors = true
 opt.guifont = 'FantasqueSansMono Nerd Font:h16'
 opt.emoji = false
 opt.number = true
-opt.relativenumber = true
 opt.cursorline = true
 -----------------------------------------------------------------------------//
 -- Jumplist
