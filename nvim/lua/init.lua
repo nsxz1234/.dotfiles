@@ -310,19 +310,6 @@ require('packer').startup(function(use)
     end,
   })
   use({
-    'mg979/vim-visual-multi',
-    config = function()
-      vim.g.VM_highlight_matches = 'underline'
-      vim.g.VM_theme = 'codedark'
-      vim.g.VM_maps = {
-        ['Find Under'] = '<m-n>',
-        ['Find Subword Under'] = '<m-n>',
-        ['Select Cursor Down'] = '\\j',
-        ['Select Cursor Up'] = '\\k',
-      }
-    end,
-  })
-  use({
     'nvim-neotest/neotest',
     module = 'neotest',
     config = conf('neotest'),
