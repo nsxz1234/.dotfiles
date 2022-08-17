@@ -21,6 +21,7 @@ as.ftplugin_conf(
       },
     }, {
       prefix = '<localleader>',
+      buffer = vim.api.nvim_get_current_buf(),
     })
   end
 )
