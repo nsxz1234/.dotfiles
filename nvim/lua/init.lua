@@ -102,10 +102,6 @@ require('packer').startup(function(use)
     end,
   })
   use({
-    'simrat39/symbols-outline.nvim',
-    setup = function() as.nnoremap('ts', '<cmd>SymbolsOutline<cr>') end,
-  })
-  use({
     'akinsho/nvim-toggleterm.lua',
     config = conf('toggleterm'),
   })
