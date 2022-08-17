@@ -38,6 +38,7 @@ require('packer').startup(function(use)
   use('lewis6991/impatient.nvim')
   use('antoinemadec/FixCursorHold.nvim')
   use({ 'kevinhwang91/nvim-bqf', ft = 'qf' })
+  use({ 'monaqa/dial.nvim', config = conf('dial') })
   use({
     'lvimuser/lsp-inlayhints.nvim',
     config = function()
