@@ -1,5 +1,4 @@
-local opt, fn = vim.opt, vim.fn
-
+local opt = vim.opt
 opt.shortmess = {
   t = true, -- truncate file messages at start
   A = true, -- ignore annoying swap file messages
@@ -114,7 +113,9 @@ opt.wildoptions = 'pum'
 -- Display
 opt.breakindentopt = 'sbr'
 opt.linebreak = true
-opt.signcolumn = 'number'
+opt.signcolumn = 'yes'
+-- opt.number = true
+opt.cursorline = true
 opt.ruler = false
 opt.showbreak = [[↪ ]]
 
@@ -143,8 +144,6 @@ opt.laststatus = 3 -- 全局状态栏
 opt.termguicolors = true
 opt.guifont = 'FantasqueSansMono Nerd Font:h16'
 opt.emoji = false
-opt.number = true
-opt.cursorline = true
 -----------------------------------------------------------------------------//
 -- Jumplist
 -----------------------------------------------------------------------------//

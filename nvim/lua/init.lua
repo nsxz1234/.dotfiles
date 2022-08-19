@@ -40,6 +40,11 @@ require('packer').startup(function(use)
   use({ 'kevinhwang91/nvim-bqf', ft = 'qf' })
   use({ 'monaqa/dial.nvim', config = conf('dial') })
   use({
+    'nacro90/numb.nvim',
+    event = 'CmdlineEnter',
+    config = function() require('numb').setup() end,
+  })
+  use({
     'lvimuser/lsp-inlayhints.nvim',
     config = function()
       require('lsp-inlayhints').setup({
