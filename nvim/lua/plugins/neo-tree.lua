@@ -53,7 +53,7 @@ return function()
     window = {
       width = 30,
       mappings = {
-        o = 'toggle_node',
+        ['o'] = 'toggle_node',
       },
     },
   })
