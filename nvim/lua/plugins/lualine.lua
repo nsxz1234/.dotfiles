@@ -1,4 +1,10 @@
 return function()
+  local filetype = {
+    'filetype',
+    colored = true,
+    icon_only = true,
+    padding = { left = 1 },
+  }
   local file_name = {
     'filename',
     path = 1, -- 0: Just the filename  1: Relative path  2: Absolute path
@@ -19,7 +25,7 @@ return function()
     sections = {
       lualine_a = {},
       lualine_b = {},
-      lualine_c = { file_name },
+      lualine_c = { filetype, file_name },
       lualine_x = { diff },
       lualine_y = { 'progress' },
       lualine_z = { { 'location', padding = {} } },
