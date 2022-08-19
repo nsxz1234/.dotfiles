@@ -17,7 +17,7 @@ return function()
       disabled_filetypes = { 'toggleterm' },
     },
     sections = {
-      lualine_a = { { 'mode', padding = {} } },
+      lualine_a = {},
       lualine_b = {},
       lualine_c = { file_name },
       lualine_x = { diff },
