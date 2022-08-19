@@ -1,6 +1,9 @@
 return function()
   local neotest = require('neotest')
   neotest.setup({
+    discovery = {
+      enabled = false,
+    },
     diagnostic = {
       enabled = false,
     },
@@ -15,13 +18,9 @@ return function()
       border = as.style.current.border,
     },
   })
-  local function open()
-    neotest.output.open({ enter = true, short = false })
-  end
+  local function open() neotest.output.open({ enter = true, short = false }) end
 
-  local function run_file()
-    neotest.run.run(vim.fn.expand('%'))
-  end
+  local function run_file() neotest.run.run(vim.fn.expand('%')) end
 
   as.nnoremap('<leader>ts', neotest.summary.toggle, 'neotest: run suite')
   as.nnoremap('<leader>to', open, 'neotest: output')
