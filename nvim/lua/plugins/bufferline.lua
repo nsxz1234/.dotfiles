@@ -1,15 +1,6 @@
 return function()
   local fn = vim.fn
-  local lsp = as.style.icons.lsp
-
-  local function diagnostics_indicator(_, _, diagnostics)
-    local symbols = { error = lsp.error, warning = lsp.warn, hint = lsp.hint, info = lsp.info }
-    local result = as.fold(function(accum, count, name)
-      if symbols[name] and count > 0 then table.insert(accum, symbols[name] .. ' ' .. count) end
-      return accum
-    end, diagnostics, {})
-    return table.concat(result, ' ')
-  end
+  local icons = as.style.icons.lsp
 
   local groups = require('bufferline.groups')
 
@@ -21,7 +12,7 @@ return function()
       right_mouse_command = 'vert sbuffer %d',
       show_close_icon = false,
       diagnostics = 'nvim_lsp',
-      diagnostics_indicator = diagnostics_indicator,
+      diagnostics_indicator = function(count, level) return (icons[level] or '?') .. ' ' .. count end,
       diagnostics_update_in_insert = false,
       offsets = {
         {
