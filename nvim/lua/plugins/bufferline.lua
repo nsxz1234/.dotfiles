@@ -32,9 +32,7 @@ return function()
         },
       },
       groups = {
-        options = {
-          toggle_hidden_on_enter = true,
-        },
+        options = { toggle_hidden_on_enter = true },
         items = {
           groups.builtin.pinned:with({ icon = '' }),
           groups.builtin.ungrouped,
