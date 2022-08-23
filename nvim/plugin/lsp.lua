@@ -3,20 +3,30 @@ local fmt = string.format
 
 if vim.env.DEVELOPING then vim.lsp.set_log_level(vim.lsp.log_levels.DEBUG) end
 
-local get_augroup = function(bufnr)
+local features = {
+  FORMATTIN = 'formatting',
+  CODELENS = 'codelens',
+  DIAGNOSTICS = 'diagnostics',
+  REFERENCES = 'references',
+}
+
+local get_augroup = function(bufnr, method)
   assert(bufnr, 'A bufnr is required to create an lsp augroup')
-  return fmt('LspCommands_%d', bufnr)
+  return fmt('LspCommands_%d_%s', bufnr, method)
+end
+
+--- Check that a buffer is valid and loaded before calling a callback
+---@param callback function
+---@param buf integer
+local function valid_call(callback, buf)
+  if not buf or not api.nvim_buf_is_loaded(buf) or not api.nvim_buf_is_valid(buf) then return end
+  callback()
 end
 
 --- Add lsp autocommands
 ---@param client table<string, any>
 ---@param bufnr number
 local function setup_autocommands(client, bufnr)
-  local group = get_augroup(bufnr)
-  -- Clear pre-existing buffer autocommands
-  pcall(api.nvim_clear_autocmds, { group = group, buffer = bufnr })
-
-  local cmds = {}
   vim.api.nvim_create_autocmd('CursorHold', {
     buffer = bufnr,
     callback = function()
@@ -29,12 +39,13 @@ local function setup_autocommands(client, bufnr)
     end,
   })
   if client.server_capabilities.codeLensProvider then
-    table.insert(cmds, {
-      event = { 'BufEnter', 'CursorHold', 'InsertLeave' },
-      buffer = bufnr,
-      command = function(args)
-        if api.nvim_buf_is_valid(args.buf) then vim.lsp.codelens.refresh() end
-      end,
+    as.augroup(get_augroup(bufnr, features.CODELENS), {
+      {
+        event = { 'BufEnter', 'CursorHold', 'InsertLeave' },
+        desc = 'LSP: Code Lens',
+        buffer = bufnr,
+        command = function(args) valid_call(vim.lsp.codelens.refresh, args.buf) end,
+      },
     })
   end
   -- nvim-lspconfig
@@ -47,7 +58,6 @@ local function setup_autocommands(client, bufnr)
           augroup END
           ]])
   end
-  as.augroup(group, cmds)
 end
 
 ---@param bufnr number
@@ -90,7 +100,20 @@ as.augroup('LspSetupCommands', {
   {
     event = 'LspDetach',
     desc = 'Clean up after detached LSP',
-    command = function(args) api.nvim_clear_autocmds({ group = get_augroup(args.buf), buffer = args.buf }) end,
+    -- command = function(args) api.nvim_clear_autocmds({ group = get_augroup(args.buf), buffer = args.buf }) end,
+    command = function(args)
+      -- Only clear autocommands if there are no other clients attached to the buffer
+      if next(vim.lsp.get_active_clients({ bufnr = args.buf })) then return end
+      as.foreach(
+        function(feature)
+          pcall(api.nvim_clear_autocmds, {
+            group = get_augroup(args.buf, feature),
+            buffer = args.buf,
+          })
+        end,
+        features
+      )
+    end,
   },
 })
 
