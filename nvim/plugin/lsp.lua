@@ -3,7 +3,7 @@ local fmt = string.format
 
 if vim.env.DEVELOPING then vim.lsp.set_log_level(vim.lsp.log_levels.DEBUG) end
 
-local features = {
+local FEATURES = {
   FORMATTIN = 'formatting',
   CODELENS = 'codelens',
   DIAGNOSTICS = 'diagnostics',
@@ -39,7 +39,7 @@ local function setup_autocommands(client, bufnr)
     end,
   })
   if client.server_capabilities.codeLensProvider then
-    as.augroup(get_augroup(bufnr, features.CODELENS), {
+    as.augroup(get_augroup(bufnr, FEATURES.CODELENS), {
       {
         event = { 'BufEnter', 'CursorHold', 'InsertLeave' },
         desc = 'LSP: Code Lens',
@@ -111,7 +111,7 @@ as.augroup('LspSetupCommands', {
             buffer = args.buf,
           })
         end,
-        features
+        FEATURES
       )
     end,
   },
