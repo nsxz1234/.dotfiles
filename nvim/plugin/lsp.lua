@@ -80,7 +80,7 @@ end
 
 local function on_attach(client, bufnr)
   local hints_ok, hints = pcall(require, 'lsp-inlayhints')
-  if hints_ok then hints.on_attach(bufnr, client) end
+  if hints_ok then hints.on_attach(client, bufnr) end
   setup_autocommands(client, bufnr)
   setup_mappings(client, bufnr)
 end
