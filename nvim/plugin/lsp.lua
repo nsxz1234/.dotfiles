@@ -25,16 +25,21 @@ local function clients_by_capability(bufnr, capability)
   )
 end
 
+---@param buf integer
+---@return boolean
+local function is_buffer_valid(buf)
+  return buf and api.nvim_buf_is_loaded(buf) and api.nvim_buf_is_valid(buf)
+end
+
 --- TODO: neovim upstream should validate the buffer itself rather than each user having to implement this logic
 --- Check that a buffer is valid and loaded before calling a callback
 --- it also ensures that a client which supports the capability is attached
----@param callback function
 ---@param buf integer
-local function check_valid_request(callback, buf, capability)
-  if not buf or not api.nvim_buf_is_loaded(buf) or not api.nvim_buf_is_valid(buf) then return end
+---@return boolean, table[]
+local function check_valid_client(buf, capability)
+  if not is_buffer_valid(buf) then return false, {} end
   local clients = clients_by_capability(buf, capability)
-  if not next(clients) then return end
-  callback()
+  return next(clients) ~= nil, clients
 end
 
 --- Add lsp autocommands
@@ -59,7 +64,7 @@ local function setup_autocommands(client, bufnr)
         desc = 'LSP: Code Lens',
         buffer = bufnr,
         command = function(args)
-          check_valid_request(vim.lsp.codelens.refresh, args.buf, 'codeLensProvider')
+          if check_valid_client(args.buf, 'codeLensProvider') then vim.lsp.codelens.refresh() end
         end,
       },
     })
