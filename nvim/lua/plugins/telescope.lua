@@ -45,19 +45,11 @@ return function()
         },
       },
     },
-    extensions = {
-      fzf = {
-        override_generic_sorter = true, -- override the generic sorter
-        override_file_sorter = true, -- override the file sorter
-      },
-    },
+    extensions = {},
     pickers = {
       live_grep = {
-        file_ignore_patterns = { '.git/', '%.html' },
-        on_input_filter_cb = function(prompt)
-          -- AND operator for live_grep like how fzf handles spaces with wildcards in rg
-          return { prompt = prompt:gsub('%s', '.*') }
-        end,
+        file_ignore_patterns = { '.git/', '%.svg', '%.lock' },
+        max_results = 2000,
       },
       colorscheme = {
         enable_preview = true,
