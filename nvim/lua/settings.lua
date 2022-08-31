@@ -1,4 +1,4 @@
-local opt = vim.opt
+local o, opt = vim.o, vim.opt
 opt.shortmess = {
   t = true, -- truncate file messages at start
   A = true, -- ignore annoying swap file messages
@@ -13,14 +13,14 @@ opt.shortmess = {
 }
 
 -- Timings
-opt.updatetime = 300
-opt.timeoutlen = 500
-opt.ttimeoutlen = 10
+o.updatetime = 300
+o.timeoutlen = 500
+o.ttimeoutlen = 10
 
 -- Window
-opt.splitbelow = true
-opt.splitright = true
-opt.switchbuf = 'useopen,uselast'
+o.splitbelow = true
+o.splitright = true
+o.switchbuf = 'useopen,uselast'
 opt.fillchars = {
   fold = ' ',
   eob = ' ', -- suppress ~ at EndOfBuffer
@@ -63,9 +63,9 @@ opt.formatoptions = {
 
 -- Fold
 opt.foldenable = false
-opt.foldlevelstart = 2
-opt.foldexpr = 'nvim_treesitter#foldexpr()'
-opt.foldmethod = 'expr'
+o.foldlevelstart = 2
+o.foldexpr = 'nvim_treesitter#foldexpr()'
+o.foldmethod = 'expr'
 
 -- Grep
 -- Use faster grep alternatives if possible
@@ -78,9 +78,9 @@ elseif as.executable('ag') then
 end
 
 -- Wild and file globbing stuff in command mode
-opt.wildcharm = ('\t'):byte()
-opt.wildmode = 'longest:full,full' -- Shows a menu bar as opposed to an enormous list
-opt.wildignorecase = true -- Ignore case when completing file names and directories
+o.wildcharm = ('\t'):byte()
+o.wildmode = 'longest:full,full' -- Shows a menu bar as opposed to an enormous list
+o.wildignorecase = true -- Ignore case when completing file names and directories
 -- Binary
 opt.wildignore = {
   '*.aux',
@@ -108,19 +108,18 @@ opt.wildignore = {
   '.DS_Store',
   'tags.lock',
 }
-opt.wildoptions = 'pum'
+o.wildoptions = 'pum'
 
 -- Display
-opt.breakindentopt = 'sbr'
-opt.linebreak = true
-opt.signcolumn = 'yes'
--- opt.number = true
-opt.cursorline = true
-opt.ruler = false
-opt.showbreak = [[↪ ]]
+o.breakindentopt = 'sbr'
+o.linebreak = true
+o.signcolumn = 'yes'
+o.cursorline = true
+o.ruler = false
+o.showbreak = [[↪ ]]
 
 -- List
-opt.list = true -- invisible chars
+o.list = true -- invisible chars
 opt.listchars = {
   eol = nil,
   tab = '  ', -- Alternatives: '▷▷',
@@ -130,36 +129,36 @@ opt.listchars = {
 }
 
 -- Indentation
-opt.shiftround = true
-opt.expandtab = true
-opt.shiftwidth = 2
+o.shiftround = true
+o.expandtab = true
+o.shiftwidth = 2
 
-opt.gdefault = true
-opt.pumheight = 15
-opt.confirm = true
+o.gdefault = true
+o.pumheight = 15
+o.confirm = true
 opt.completeopt = { 'menuone', 'noselect' }
-opt.hlsearch = true
-opt.autowriteall = true
-opt.laststatus = 3 -- 全局状态栏
-opt.termguicolors = true
-opt.guifont = 'FantasqueSansMono Nerd Font:h16'
-opt.emoji = false
+o.hlsearch = true
+o.autowriteall = true
+o.laststatus = 3 -- 全局状态栏
+o.termguicolors = true
+o.guifont = 'FantasqueSansMono Nerd Font:h16'
+o.emoji = false
 -----------------------------------------------------------------------------//
 -- Jumplist
 -----------------------------------------------------------------------------//
 opt.jumpoptions = { 'stack' } -- make the jumplist behave like a browser stack
 
 -- Backup and swap
-opt.undofile = true
-opt.swapfile = false
+o.undofile = true
+o.swapfile = false
 
 -- Match and search
-opt.ic = true
-opt.smartcase = true
-opt.scrolloff = 9
+o.ic = true
+o.smartcase = true
+o.scrolloff = 9
 
 -- Mouse
-opt.mousefocus = true
+o.mousefocus = true
 opt.mousescroll = { 'ver:2', 'hor:6' }
 
 -- Spelling
