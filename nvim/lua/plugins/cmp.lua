@@ -66,7 +66,12 @@ return function()
         option = { additional_arguments = '--max-depth 8' },
       },
     }, {
-      { name = 'buffer' },
+      {
+        name = 'buffer',
+        options = {
+          get_bufnrs = function() return vim.api.nvim_list_bufs() end,
+        },
+      },
       { name = 'spell' },
     }),
   })
