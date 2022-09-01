@@ -125,17 +125,15 @@ as.augroup('LspSetupCommands', {
     command = function(args)
       -- Only clear autocommands if there are no other clients attached to the buffer
       if next(vim.lsp.get_active_clients({ bufnr = args.buf })) then return end
-      as.foreach(function(feature)
-        as.wrap_err(
-          fmt('Failed to clear buffer %d augroup for %s', args.buf, feature),
-          api.nvim_clear_autocmds,
-          { group = get_augroup(args.buf, feature), buffer = args.buf }
-        )
-        -- pcall(api.nvim_clear_autocmds, {
-        --   group = get_augroup(args.buf, feature),
-        --   buffer = args.buf,
-        -- })
-      end, FEATURES)
+      as.foreach(
+        function(feature)
+          pcall(
+            api.nvim_clear_autocmds,
+            { group = get_augroup(args.buf, feature), buffer = args.buf }
+          )
+        end,
+        FEATURES
+      )
     end,
   },
 })
