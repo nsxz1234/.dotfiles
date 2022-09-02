@@ -384,7 +384,6 @@ require('packer').startup(function(use)
       { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
       { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' },
       { 'dmitmel/cmp-cmdline-history', after = 'nvim-cmp' },
-      { 'lukas-reineke/cmp-rg', after = 'nvim-cmp' },
       {
         'petertriho/cmp-git',
         after = 'nvim-cmp',
