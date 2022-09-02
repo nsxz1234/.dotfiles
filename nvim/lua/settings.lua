@@ -62,7 +62,7 @@ opt.formatoptions = {
 }
 
 -- Fold
-opt.foldenable = false
+o.foldenable = false
 o.foldlevelstart = 2
 o.foldexpr = 'nvim_treesitter#foldexpr()'
 o.foldmethod = 'expr'
