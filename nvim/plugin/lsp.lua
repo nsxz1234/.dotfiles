@@ -1,19 +1,15 @@
+local lsp = vim.lsp
 local api = vim.api
 local fmt = string.format
 
 if vim.env.DEVELOPING then vim.lsp.set_log_level(vim.lsp.log_levels.DEBUG) end
 
 local FEATURES = {
-  FORMATTIN = 'formatting',
-  CODELENS = 'codelens',
-  DIAGNOSTICS = 'diagnostics',
-  REFERENCES = 'references',
+  DIAGNOSTICS = { name = 'diagnostics' },
+  CODELENS = { name = 'codelens', provider = 'codeLensProvider' },
+  FORMATTING = { name = 'formatting', provider = 'documentFormattingProvider' },
+  REFERENCES = { name = 'references', provider = 'documentHighlightProvider' },
 }
-
-local get_augroup = function(bufnr, method)
-  assert(bufnr, 'A bufnr is required to create an lsp augroup')
-  return fmt('LspCommands_%d_%s', bufnr, method)
-end
 
 ---@param bufnr integer
 ---@param capability string
@@ -42,10 +38,40 @@ local function check_valid_client(buf, capability)
   return next(clients) ~= nil, clients
 end
 
+--- Create augroups for each LSP feature and track which capabilities each client
+--- registers in a buffer local table
+---@param bufnr integer
+---@param client table
+---@param events table
+---@return fun(feature: string, commands: fun(string): Autocommand[])
+local function augroup_factory(bufnr, client, events)
+  return function(feature, commands)
+    local provider, name = feature.provider, feature.name
+    if not provider or client.server_capabilities[provider] then
+      events[name].group_id = as.augroup(fmt('LspCommands_%d_%s', bufnr, name), commands(provider))
+      table.insert(events[name].clients, client.id)
+    end
+  end
+end
+
 --- Add lsp autocommands
 ---@param client table<string, any>
 ---@param bufnr number
 local function setup_autocommands(client, bufnr)
+  if not client then
+    local msg = fmt('Unable to setup LSP autocommands, client for %d is missing', bufnr)
+    return vim.notify(msg, 'error', { title = 'LSP Setup' })
+  end
+
+  local events = vim.F.if_nil(vim.b.lsp_events, {
+    [FEATURES.CODELENS.name] = { clients = {}, group_id = nil },
+    [FEATURES.FORMATTING.name] = { clients = {}, group_id = nil },
+    [FEATURES.DIAGNOSTICS.name] = { clients = {}, group_id = nil },
+    [FEATURES.REFERENCES.name] = { clients = {}, group_id = nil },
+  })
+
+  local lsp_augroup = augroup_factory(bufnr, client, events)
+
   vim.api.nvim_create_autocmd('CursorHold', {
     buffer = bufnr,
     callback = function()
@@ -57,19 +83,20 @@ local function setup_autocommands(client, bufnr)
       vim.diagnostic.open_float(nil, opts)
     end,
   })
-  if client.server_capabilities.codeLensProvider then
-    as.augroup(get_augroup(bufnr, FEATURES.CODELENS), {
+
+  lsp_augroup(FEATURES.CODELENS, function(provider)
+    return {
       {
         event = { 'BufEnter', 'CursorHold', 'InsertLeave' },
         desc = 'LSP: Code Lens',
         buffer = bufnr,
         command = function(args)
-          if check_valid_client(args.buf, 'codeLensProvider') then vim.lsp.codelens.refresh() end
+          if check_valid_client(args.buf, provider) then lsp.codelens.refresh() end
         end,
       },
-    })
-  end
-  -- nvim-lspconfig
+    }
+  end)
+
   if client.server_capabilities.documentHighlightProvider then
     vim.cmd([[
           augroup lsp_document_highlight
@@ -79,6 +106,7 @@ local function setup_autocommands(client, bufnr)
           augroup END
           ]])
   end
+  vim.b[bufnr].lsp_events = events
 end
 
 ---@param bufnr number
@@ -113,7 +141,7 @@ as.augroup('LspSetupCommands', {
     command = function(args)
       local bufnr = args.buf
       -- if the buffer is invalid we should not try and attach to it
-      if not api.nvim_buf_is_valid(args.buf) or not args.data then return end
+      if not api.nvim_buf_is_valid(bufnr) or not args.data then return end
       local client = vim.lsp.get_client_by_id(args.data.client_id)
       on_attach(client, bufnr)
     end,
@@ -123,17 +151,14 @@ as.augroup('LspSetupCommands', {
     desc = 'Clean up after detached LSP',
     -- command = function(args) api.nvim_clear_autocmds({ group = get_augroup(args.buf), buffer = args.buf }) end,
     command = function(args)
-      -- Only clear autocommands if there are no other clients attached to the buffer
-      if next(vim.lsp.get_active_clients({ bufnr = args.buf })) then return end
-      as.foreach(
-        function(feature)
-          pcall(
-            api.nvim_clear_autocmds,
-            { group = get_augroup(args.buf, feature), buffer = args.buf }
-          )
-        end,
-        FEATURES
-      )
+      local client_id = args.data.client_id
+      if not vim.b.lsp_events or not client_id then return end
+      for _, state in pairs(vim.b.lsp_events) do
+        if #state.clients == 1 and state.clients[1] == client_id then
+          api.nvim_clear_autocmds({ group = state.group_id, buffer = args.buf })
+        end
+        vim.tbl_filter(function(id) return id ~= client_id end, state.clients)
+      end
     end,
   },
 })
