@@ -1,5 +1,7 @@
 return function()
   require('gitsigns').setup({
+    _threaded_diff = true,
+    _extmark_signs = true,
     signs = {
       add = {
         hl = 'GitSignsAdd',
@@ -26,7 +28,6 @@ return function()
         linehl = 'GitSignsChangeLn',
       },
     },
-    _threaded_diff = true, -- NOTE: experimental but I'm curious
     word_diff = false,
     numhl = false,
     on_attach = function()
