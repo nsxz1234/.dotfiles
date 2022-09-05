@@ -237,10 +237,6 @@ require('packer').startup(function(use)
     end,
   })
   use({
-    'goolord/alpha-nvim',
-    config = function() require('alpha').setup(require('alpha.themes.startify').config) end,
-  })
-  use({
     'nvim-neo-tree/neo-tree.nvim',
     branch = 'v2.x',
     config = conf('neo-tree'),
