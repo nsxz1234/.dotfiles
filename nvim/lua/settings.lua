@@ -165,7 +165,7 @@ opt.mousescroll = { 'ver:2', 'hor:6' }
 -- Spelling
 opt.spell = false
 opt.spellsuggest:prepend({ 12 })
-opt.spelloptions = 'camel'
+opt.spelloptions:append({ 'camel', 'noplainbuffer' })
 opt.spellcapcheck = '' -- don't check for capital letters at start of sentence
 opt.fileformats = { 'unix', 'mac', 'dos' }
 opt.spelllang:append('programming')
