@@ -39,7 +39,7 @@ require('packer').startup(function(use)
   use({ 'kevinhwang91/nvim-bqf', ft = 'qf' })
   use({ 'monaqa/dial.nvim', config = conf('dial') })
   use({
-    'B4mbus/todo-comments.nvim',
+    'folke/todo-comments.nvim',
     config = function() require('todo-comments').setup() end,
   })
   use({
