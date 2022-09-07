@@ -2,6 +2,7 @@ return function()
   require('toggleterm').setup({
     open_mapping = [[<c-t>]],
     direction = 'horizontal',
+    autochdir = true,
   })
 
   local Terminal = require('toggleterm.terminal').Terminal
