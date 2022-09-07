@@ -40,6 +40,8 @@ require('packer').startup(function(use)
   use({ 'monaqa/dial.nvim', config = conf('dial') })
   use({
     'folke/todo-comments.nvim',
+    after = 'nvim-treesitter',
+    requires = { 'nvim-treesitter' },
     config = function() require('todo-comments').setup() end,
   })
   use({
