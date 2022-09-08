@@ -1,9 +1,7 @@
 return function()
   local neotest = require('neotest')
   neotest.setup({
-    discovery = {
-      enabled = false,
-    },
+    discovery = { enabled = true },
     diagnostic = {
       enabled = false,
     },
