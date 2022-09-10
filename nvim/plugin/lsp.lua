@@ -27,17 +27,6 @@ local function is_buffer_valid(buf)
   return buf and api.nvim_buf_is_loaded(buf) and api.nvim_buf_is_valid(buf)
 end
 
---- TODO: neovim upstream should validate the buffer itself rather than each user having to implement this logic
---- Check that a buffer is valid and loaded before calling a callback
---- it also ensures that a client which supports the capability is attached
----@param buf integer
----@return boolean, table[]
-local function check_valid_client(buf, capability)
-  if not is_buffer_valid(buf) then return false, {} end
-  local clients = clients_by_capability(buf, capability)
-  return next(clients) ~= nil, clients
-end
-
 --- Create augroups for each LSP feature and track which capabilities each client
 --- registers in a buffer local table
 ---@param bufnr integer
@@ -70,7 +59,7 @@ local function setup_autocommands(client, bufnr)
     [FEATURES.REFERENCES.name] = { clients = {}, group_id = nil },
   })
 
-  local lsp_augroup = augroup_factory(bufnr, client, events)
+  local augroup = augroup_factory(bufnr, client, events)
 
   vim.api.nvim_create_autocmd('CursorHold', {
     buffer = bufnr,
@@ -84,15 +73,13 @@ local function setup_autocommands(client, bufnr)
     end,
   })
 
-  lsp_augroup(FEATURES.CODELENS, function(provider)
+  augroup(FEATURES.CODELENS, function()
     return {
       {
         event = { 'BufEnter', 'CursorHold', 'InsertLeave' },
         desc = 'LSP: Code Lens',
         buffer = bufnr,
-        command = function(args)
-          if check_valid_client(args.buf, provider) then lsp.codelens.refresh() end
-        end,
+        command = function() lsp.codelens.refresh() end,
       },
     }
   end)
