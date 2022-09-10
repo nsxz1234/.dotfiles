@@ -38,10 +38,10 @@ return function()
       swap = {
         enable = true,
         swap_next = {
-          [']a'] = { '@parameter.inner' },
+          [']a'] = '@parameter.inner',
         },
         swap_previous = {
-          ['[a'] = { '@parameter.inner' },
+          ['[a'] = '@parameter.inner',
         },
       },
       move = {
