@@ -260,15 +260,12 @@ require('packer').startup(function(use)
     end,
   })
   use({
-    'AckslD/nvim-trevJ.lua',
-    config = 'require("trevj").setup()',
-    module = 'trevj',
+    'aarondiel/spread.nvim',
+    after = 'nvim-treesitter',
+    module = 'spread',
     setup = function()
-      as.nnoremap(
-        'S',
-        function() require('trevj').format_at_cursor() end,
-        { desc = 'splitjoin: split' }
-      )
+      as.nnoremap('S', function() require('spread').out() end, 'spread: expand')
+      as.nnoremap('C', function() require('spread').combine() end, 'spread: combine')
     end,
   })
   use({
