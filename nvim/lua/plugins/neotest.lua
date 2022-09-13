@@ -5,15 +5,9 @@ return function()
     diagnostic = {
       enabled = false,
     },
-    icons = {
-      running = as.style.icons.misc.clock,
-    },
+    floating = { border = as.style.current.border },
     adapters = {
       require('neotest-plenary'),
-      -- require('neotest-vim-test')({ ignore_filetypes = { 'python', 'lua', 'go' } }),
-    },
-    floating = {
-      border = as.style.current.border,
     },
   })
   local function open() neotest.output.open({ enter = true, short = false }) end
