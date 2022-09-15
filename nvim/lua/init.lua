@@ -43,7 +43,13 @@ require('packer').startup(function(use)
     'folke/todo-comments.nvim',
     after = 'nvim-treesitter',
     requires = { 'nvim-treesitter' },
-    config = function() require('todo-comments').setup() end,
+    config = function()
+      require('todo-comments').setup({
+        highlight = {
+          exclude = { 'dart' },
+        },
+      })
+    end,
   })
   use({
     'nacro90/numb.nvim',
