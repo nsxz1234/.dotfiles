@@ -26,7 +26,7 @@ return function()
         virtual_text = false,
       },
       settings = {
-        showTodos = true,
+        showTodos = false,
         renameFilesWithClasses = 'prompt',
         updateImportsOnRename = true,
         completeFunctionCalls = true,
