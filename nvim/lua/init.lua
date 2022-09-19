@@ -36,7 +36,6 @@ require('packer').startup(function(use)
   use({ 'nvim-lualine/lualine.nvim', config = conf('lualine') })
   use('mtdl9/vim-log-highlighting')
   use('lewis6991/impatient.nvim')
-  use('antoinemadec/FixCursorHold.nvim')
   use({ 'kevinhwang91/nvim-bqf', ft = 'qf' })
   use({ 'monaqa/dial.nvim', config = conf('dial') })
   use({
