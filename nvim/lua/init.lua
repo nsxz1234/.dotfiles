@@ -474,3 +474,5 @@ require('packer').startup(function(use)
     end,
   })
 end)
+
+-- vim:foldmethod=marker nospell
