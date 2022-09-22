@@ -27,6 +27,7 @@ return function()
         '^.git/',
         '^node_modules/',
         '^site-packages/',
+        '^.yarn/',
       },
       path_display = { 'truncate' },
       sorting_strategy = 'ascending',
