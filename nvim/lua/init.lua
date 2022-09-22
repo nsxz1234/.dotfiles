@@ -204,11 +204,20 @@ require('packer').startup(function(use)
     end,
   })
   use({
-    'norcalli/nvim-colorizer.lua',
+    'uga-rosa/ccc.nvim',
     config = function()
-      require('colorizer').setup({ 'lua', 'vim', 'kitty', 'conf' }, {
-        RGB = false,
-        mode = 'background',
+      local ccc = require('ccc')
+      ccc.setup({
+        pickers = {
+          ccc.picker.hex,
+          ccc.picker.css_rgb,
+          ccc.picker.css_hsl,
+        },
+        win_opts = { border = as.style.current.border },
+        highlighter = {
+          auto_enable = true,
+          excludes = { 'dart' },
+        },
       })
     end,
   })
