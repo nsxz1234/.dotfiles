@@ -36,6 +36,7 @@ alias lg='lazygit'
 alias ra='ranger'
 alias n="n -e"
 alias yd="ydcv"
+alias t="ydcv"
 
 # ^g to open lazygit (below oh-my-zsh)
 bindkey -s '^g' 'lazygit\n'
