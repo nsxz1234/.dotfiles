@@ -31,6 +31,7 @@ eval "$(zoxide init zsh)"
 
 alias l="exa -la"
 alias v='nvim'
+alias e='nvim'
 alias lg='lazygit'
 alias ra='ranger'
 alias n="n -e"
