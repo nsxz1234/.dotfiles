@@ -89,7 +89,7 @@ end
 nnoremap('<leader><cr>', run)
 
 -- buffer
-nnoremap('fD', ':BufferLinePickClose<cr>')
+nnoremap('d<space>', ':BufferLinePickClose<cr>')
 nnoremap('H', ':BufferLineCyclePrev<cr>')
 nnoremap('L', ':BufferLineCycleNext<cr>')
 nnoremap('<m-H>', ':BufferLineMovePrev<CR>')
@@ -118,7 +118,7 @@ nnoremap('fw', ':Telescope grep_string<cr>')
 nnoremap('fh', ':Telescope search_history<cr>')
 nnoremap('f;', ':Telescope commands<cr>')
 nnoremap('fc', ':Telescope command_history<cr>')
-nnoremap('fb', ':Telescope buffers<cr>')
+nnoremap('fd', ':Telescope buffers<cr>')
 nnoremap('f/', ':Telescope current_buffer_fuzzy_find<cr>')
 nnoremap('f?', ':Telescope help_tags<cr>')
 nnoremap('fm', ':Telescope marks<cr>')

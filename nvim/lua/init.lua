@@ -223,7 +223,7 @@ require('packer').startup(function(use)
   })
   use({
     'moll/vim-bbye',
-    config = function() as.nnoremap('d<space>', '<Cmd>Bwipeout<CR>', 'bbye: quit') end,
+    config = function() as.nnoremap('df', '<Cmd>Bwipeout<CR>', 'bbye: quit') end,
   })
   use({
     'iamcco/markdown-preview.nvim',
