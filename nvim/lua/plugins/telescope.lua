@@ -48,6 +48,17 @@ return function()
     },
     extensions = {},
     pickers = {
+      buffers = {
+        sort_mru = true,
+        sort_lastused = true,
+        show_all_buffers = true,
+        ignore_current_buffer = true,
+        previewer = false,
+        mappings = {
+          i = { ['<c-x>'] = 'delete_buffer' },
+          n = { ['<c-x>'] = 'delete_buffer' },
+        },
+      },
       live_grep = {
         file_ignore_patterns = { '.git/', '%.svg', '%.lock' },
         max_results = 2000,
