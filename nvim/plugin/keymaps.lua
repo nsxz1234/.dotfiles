@@ -100,7 +100,7 @@ nnoremap('te', ':tabe<cr>')
 nnoremap('<leader><tab>', 'gt')
 
 -- window
-nnoremap('<c-space>', '<C-w>w')
+nnoremap(',', '<C-w>w')
 nnoremap('<m-h>', '<C-w>h')
 nnoremap('<m-j>', '<C-w>j')
 nnoremap('<m-k>', '<C-w>k')
