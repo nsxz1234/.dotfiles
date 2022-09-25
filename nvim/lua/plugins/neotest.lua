@@ -22,5 +22,5 @@ return function()
   as.nnoremap('<leader>to', open, 'neotest: output')
   as.nnoremap('<leader>tn', neotest.run.run, 'neotest: run')
   as.nnoremap('<leader>tf', run_file, 'neotest: run file')
-  as.nnoremap('<localleader>tF', run_file_sync, 'neotest: run file synchronously')
+  as.nnoremap('<leader>tF', run_file_sync, 'neotest: run file synchronously')
 end
