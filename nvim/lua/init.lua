@@ -414,7 +414,7 @@ require('packer').startup(function(use)
   --
   -- Git
   --
-  use({ 'lewis6991/gitsigns.nvim', config = conf('gitsigns') })
+  use({ 'lewis6991/gitsigns.nvim', event = 'BufRead', config = conf('gitsigns') })
   use({
     'TimUntersberger/neogit',
     requires = 'plenary.nvim',
