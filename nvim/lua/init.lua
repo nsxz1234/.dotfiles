@@ -206,13 +206,7 @@ require('packer').startup(function(use)
   use({
     'uga-rosa/ccc.nvim',
     config = function()
-      local ccc = require('ccc')
-      ccc.setup({
-        pickers = {
-          ccc.picker.hex,
-          ccc.picker.css_rgb,
-          ccc.picker.css_hsl,
-        },
+      require('ccc').setup({
         win_opts = { border = as.style.current.border },
         highlighter = {
           auto_enable = true,
