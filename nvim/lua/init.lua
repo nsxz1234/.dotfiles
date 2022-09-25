@@ -1,5 +1,3 @@
-as.require('impatient')
-
 local utils = require('utils.plugins')
 local conf = utils.conf
 
@@ -35,7 +33,6 @@ require('packer').startup(function(use)
   use({ 'psliwka/vim-dirtytalk', run = ':DirtytalkUpdate' })
   use({ 'nvim-lualine/lualine.nvim', config = conf('lualine') })
   use('mtdl9/vim-log-highlighting')
-  use('lewis6991/impatient.nvim')
   use({ 'kevinhwang91/nvim-bqf', ft = 'qf' })
   use({ 'monaqa/dial.nvim', config = conf('dial') })
   use({
