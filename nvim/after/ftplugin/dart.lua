@@ -6,7 +6,7 @@ if not as then return end
 local function with_desc(desc) return { desc = desc } end
 
 as.nnoremap(
-  '<localleader>fb',
+  '<leader>fb',
   "<cmd>TermExec cmd='flutter pub run build_runner build --delete-conflicting-outputs'<CR>",
   'flutter: run code generation'
 )
