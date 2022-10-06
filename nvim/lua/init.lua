@@ -93,7 +93,7 @@ require('packer').startup(function(use)
     config = function()
       require('neodim').setup({
         hide = {
-          signs = false,
+          underline = false,
         },
       })
     end,
