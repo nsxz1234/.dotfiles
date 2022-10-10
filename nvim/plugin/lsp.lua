@@ -69,6 +69,7 @@ local function setup_autocommands(client, bufnr)
         close_events = { 'BufLeave', 'CursorMoved', 'InsertEnter', 'FocusLost' },
         scope = 'cursor',
       }
+      if vim.b.lsp_hover_win and api.nvim_win_is_valid(vim.b.lsp_hover_win) then return end
       vim.diagnostic.open_float(nil, opts)
     end,
   })
@@ -165,3 +166,8 @@ end
 vim.diagnostic.config({
   virtual_text = false,
 })
+
+lsp.handlers['textDocument/hover'] = function(...)
+  local hover_handler = lsp.with(lsp.handlers.hover, {})
+  vim.b.lsp_hover_buf, vim.b.lsp_hover_win = hover_handler(...)
+end
