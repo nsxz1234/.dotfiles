@@ -35,6 +35,19 @@ require('packer').startup(function(use)
   use('mtdl9/vim-log-highlighting')
   use({ 'kevinhwang91/nvim-bqf', ft = 'qf' })
   use({ 'monaqa/dial.nvim', config = conf('dial') })
+  -- use({
+  --   'folke/noice.nvim',
+  --   event = { 'VimEnter' },
+  --   config = function()
+  --     require('noice').setup({
+  --       views = {
+  --         cmdline_popup = {
+  --           position = { row = 2 },
+  --         },
+  --       },
+  --     })
+  --   end,
+  -- })
   use({
     'folke/todo-comments.nvim',
     after = 'nvim-treesitter',
