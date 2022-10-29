@@ -137,3 +137,15 @@ nnoremap('<leader>dr', '<cmd>lua require("dap").repl.toggle()<cr>')
 
 -- dap-ui
 nnoremap('<leader>dt', '<cmd>lua require("dapui").toggle()<cr>')
+
+-- hlslens
+nnoremap(
+  'n',
+  [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]]
+)
+nnoremap(
+  'N',
+  [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]]
+)
+nnoremap('*', [[*<Cmd>lua require('hlslens').start()<CR>]])
+nnoremap('#', [[#<Cmd>lua require('hlslens').start()<CR>]])

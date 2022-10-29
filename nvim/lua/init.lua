@@ -35,6 +35,10 @@ require('packer').startup(function(use)
   use('mtdl9/vim-log-highlighting')
   use({ 'kevinhwang91/nvim-bqf', ft = 'qf' })
   use({ 'monaqa/dial.nvim', config = conf('dial') })
+  use({
+    'kevinhwang91/nvim-hlslens',
+    config = function() require('hlslens').setup() end,
+  })
   -- use({
   --   'folke/noice.nvim',
   --   event = { 'VimEnter' },
