@@ -124,6 +124,7 @@ nnoremap('f/', ':Telescope current_buffer_fuzzy_find<cr>')
 nnoremap('f?', ':Telescope help_tags<cr>')
 nnoremap('fm', ':Telescope marks<cr>')
 nnoremap('ft', ':Telescope lsp_dynamic_workspace_symbols<cr>')
+nnoremap('fa', ':Telescope lsp_document_symbols<cr>')
 nnoremap('fn', ':Telescope notify<cr>')
 
 -- dap
