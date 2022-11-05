@@ -432,6 +432,7 @@ require('packer').startup(function(use)
   use({
     'TimUntersberger/neogit',
     requires = 'plenary.nvim',
+    commit = '691cf89f59ed887809db7854b670cdb944dc9559',
     config = function()
       local neogit = require('neogit')
       neogit.setup({

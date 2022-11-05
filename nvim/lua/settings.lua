@@ -171,11 +171,11 @@ opt.fileformats = { 'unix', 'mac', 'dos' }
 opt.spelllang:append('programming')
 
 -- Color Scheme
-if as.plugin_installed('everforest') then
-  vim.g.everforest_background = 'soft'
-  vim.cmd.colorscheme('everforest')
-end
--- if as.plugin_installed('gruvbox-material') then
---   vim.g.gruvbox_material_background = 'soft'
---   vim.cmd.colorscheme('gruvbox-material')
+-- if as.plugin_installed('everforest') then
+--   vim.g.everforest_background = 'soft'
+--   vim.cmd.colorscheme('everforest')
 -- end
+if as.plugin_installed('gruvbox-material') then
+  vim.g.gruvbox_material_background = 'soft'
+  vim.cmd.colorscheme('gruvbox-material')
+end
