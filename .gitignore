@@ -6,5 +6,6 @@ credentials.*
 .nvimlog
 
 lazygit/state.yml
+fcitx5/crash.log
 
 __pycache__
