@@ -28,8 +28,8 @@ as.augroup('AddTerminalMappings', {
 
 -- motions
 vnoremap('$', 'g_')
-noremap('<c-j>', '5j')
-noremap('<c-k>', '5k')
+noremap('<c-j>', '7j')
+noremap('<c-k>', '7k')
 noremap('<c-h>', '^')
 noremap('<c-l>', 'g_')
 inoremap('<c-l>', '<End>')
