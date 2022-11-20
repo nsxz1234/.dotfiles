@@ -1,11 +1,11 @@
 return function()
   require('flutter-tools').setup({
     ui = { border = 'rounded' },
-    -- debugger = {
-    --   enabled = true,
-    --   run_via_dap = true,
-    --   exception_breakpoints = {},
-    -- },
+    debugger = {
+      enabled = true,
+      -- run_via_dap = true,
+      exception_breakpoints = {},
+    },
     outline = {
       open_cmd = '30vnew',
       auto_open = false,

@@ -49,7 +49,7 @@ nnoremap('<leader>}', [[ciw{<c-r>"}<esc>]])
 -- Capitalize
 nnoremap('U', 'gUiw`]')
 -- Evaluates whether there is a fold on the current line if so unfold it else return a normal space
-nnoremap('<space><space>', [[@=(foldlevel('.')?'za':"\<Space>")<CR>]])
+nnoremap('<c-space>', [[@=(foldlevel('.')?'za':"\<Space>")<CR>]])
 
 -- search visual selection
 vnoremap('//', [[y/<C-R>"<CR>]])
@@ -128,16 +128,15 @@ nnoremap('fa', ':Telescope lsp_document_symbols<cr>')
 nnoremap('fn', ':Telescope notify<cr>')
 
 -- dap
-nnoremap('<leader>dd', '<cmd>lua require("dap").toggle_breakpoint()<cr>')
-nnoremap('<leader>dc', '<cmd>lua require("dap").continue()<cr>')
-nnoremap('<leader>di', '<cmd>lua require("dap").step_into()<cr>')
-nnoremap('<leader>du', '<cmd>lua require("dap").step_out()<cr>')
-nnoremap('<leader>do', '<cmd>lua require("dap").step_over()<cr>')
-nnoremap('<leader>dl', '<cmd>lua require("dap").run_last()<cr>')
-nnoremap('<leader>dr', '<cmd>lua require("dap").repl.toggle()<cr>')
-
+nnoremap('<leader><space>', '<cmd>lua require("dap").toggle_breakpoint()<cr>')
+nnoremap('<leader>1', '<cmd>lua require("dap").continue()<cr>')
+nnoremap('<leader>2', '<cmd>lua require("dap").step_into()<cr>')
+nnoremap('<leader>3', '<cmd>lua require("dap").step_over()<cr>')
+nnoremap('<leader>4', '<cmd>lua require("dap").step_out()<cr>')
+nnoremap('<leader>5', '<cmd>lua require("dap").repl.toggle()<cr>')
+nnoremap('<leader>6', '<cmd>lua require("dap").run_last()<cr>')
 -- dap-ui
-nnoremap('<leader>dt', '<cmd>lua require("dapui").toggle()<cr>')
+nnoremap('<leader>d', '<cmd>lua require("dapui").toggle()<cr>')
 
 -- hlslens
 nnoremap(
