@@ -170,8 +170,8 @@ require('packer').startup(function(use)
     'voldikss/vim-translator',
     config = function()
       vim.g.translator_default_engines = { 'haici' }
-      as.nnoremap('tr', ':TranslateW<cr>')
-      as.xnoremap('tr', ':TranslateW<cr>')
+      as.nnoremap('<leader>t', ':TranslateW<cr>')
+      as.xnoremap('<leader>t', ':TranslateW<cr>')
     end,
   })
   use({

@@ -97,7 +97,6 @@ nnoremap('<m-L>', ':BufferLineMoveNext<CR>')
 nnoremap('tt', '<c-^>')
 
 -- tabedit
-nnoremap('te', ':tabe<cr>')
 nnoremap('<leader><tab>', 'gt')
 
 -- window
