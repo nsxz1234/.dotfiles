@@ -94,7 +94,7 @@ nnoremap('H', ':BufferLineCyclePrev<cr>')
 nnoremap('L', ':BufferLineCycleNext<cr>')
 nnoremap('<m-H>', ':BufferLineMovePrev<CR>')
 nnoremap('<m-L>', ':BufferLineMoveNext<CR>')
-nnoremap('tt', '<c-^>')
+nnoremap('t', '<c-^>')
 
 -- tabedit
 nnoremap('<leader><tab>', 'gt')

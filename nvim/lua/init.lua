@@ -208,7 +208,7 @@ require('packer').startup(function(use)
   use({
     'mbbill/undotree',
     cmd = 'UndotreeToggle',
-    setup = function() as.nnoremap('tu', '<cmd>UndotreeToggle<CR>') end,
+    setup = function() as.nnoremap('<leader>u', '<cmd>UndotreeToggle<CR>') end,
     config = function()
       vim.g.undotree_TreeNodeShape = '◦' -- Alternative: '◉'
       vim.g.undotree_SetFocusWhenToggle = 1
