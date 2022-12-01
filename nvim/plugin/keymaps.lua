@@ -49,7 +49,7 @@ nnoremap('<leader>}', [[ciw{<c-r>"}<esc>]])
 -- Capitalize
 nnoremap('U', 'gUiw`]')
 -- Evaluates whether there is a fold on the current line if so unfold it else return a normal space
-nnoremap('<c-space>', [[@=(foldlevel('.')?'za':"\<Space>")<CR>]])
+nnoremap('<leader><space>', [[@=(foldlevel('.')?'za':"\<Space>")<CR>]])
 
 -- search visual selection
 vnoremap('//', [[y/<C-R>"<CR>]])
@@ -127,7 +127,7 @@ nnoremap('fa', ':Telescope lsp_document_symbols<cr>')
 nnoremap('fn', ':Telescope notify<cr>')
 
 -- dap
-nnoremap('<leader><space>', '<cmd>lua require("dap").toggle_breakpoint()<cr>')
+nnoremap('<leader>b', '<cmd>lua require("dap").toggle_breakpoint()<cr>')
 nnoremap('<leader>1', '<cmd>lua require("dap").continue()<cr>')
 nnoremap('<leader>2', '<cmd>lua require("dap").step_into()<cr>')
 nnoremap('<leader>3', '<cmd>lua require("dap").step_over()<cr>')
