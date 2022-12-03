@@ -125,6 +125,7 @@ nnoremap('fm', ':Telescope marks<cr>')
 nnoremap('ft', ':Telescope lsp_dynamic_workspace_symbols<cr>')
 nnoremap('fa', ':Telescope lsp_document_symbols<cr>')
 nnoremap('fn', ':Telescope notify<cr>')
+nnoremap('fk', ':Telescope keymaps<cr>')
 
 -- dap
 nnoremap('<leader>b', '<cmd>lua require("dap").toggle_breakpoint()<cr>')
