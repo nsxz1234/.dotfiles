@@ -156,7 +156,7 @@ o.swapfile = false
 -- Match and search
 o.ic = true
 o.smartcase = true
-o.scrolloff = 9
+o.scrolloff = 8
 
 -- Mouse
 o.mousefocus = true
