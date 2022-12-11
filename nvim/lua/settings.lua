@@ -62,7 +62,7 @@ opt.formatoptions = {
 }
 
 -- Fold
-o.foldcolumn = '1' -- '0' is not bad
+o.foldcolumn = '0' -- '0' is not bad
 o.foldlevel = 99
 o.foldlevelstart = 2
 if not as.plugin_installed('nvim-ufo') then
