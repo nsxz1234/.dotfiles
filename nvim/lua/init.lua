@@ -37,6 +37,11 @@ require('packer').startup(function(use)
   use({ 'monaqa/dial.nvim', config = conf('dial') })
   use({ 'romainl/vim-cool' })
   use({
+    'kevinhwang91/nvim-ufo',
+    requires = 'kevinhwang91/promise-async',
+    config = conf('ufo'),
+  })
+  use({
     'kevinhwang91/nvim-hlslens',
     config = function() require('hlslens').setup() end,
   })

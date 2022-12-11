@@ -62,10 +62,13 @@ opt.formatoptions = {
 }
 
 -- Fold
-o.foldenable = false
+o.foldcolumn = '1' -- '0' is not bad
+o.foldlevel = 99
 o.foldlevelstart = 2
-o.foldexpr = 'nvim_treesitter#foldexpr()'
-o.foldmethod = 'expr'
+if not as.plugin_installed('nvim-ufo') then
+  o.foldexpr = 'nvim_treesitter#foldexpr()'
+  o.foldmethod = 'expr'
+end
 
 -- Grep
 -- Use faster grep alternatives if possible
