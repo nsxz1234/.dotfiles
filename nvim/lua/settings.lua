@@ -176,11 +176,9 @@ opt.spelllang:append('programming')
 -- Color Scheme
 -- if as.plugin_installed('everforest') then
 --   vim.g.everforest_background = 'soft'
---   vim.g.everforest_transparent_background = 2
 --   vim.cmd.colorscheme('everforest')
 -- end
 if as.plugin_installed('gruvbox-material') then
   vim.g.gruvbox_material_background = 'soft'
-  vim.g.gruvbox_material_transparent_background = 2
   vim.cmd.colorscheme('gruvbox-material')
 end
