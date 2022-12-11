@@ -61,8 +61,6 @@ vnoremap('.', ':norm.<CR>')
 -- Smart mappings on the command line
 cnoremap('w!!', [[w !sudo tee % >/dev/null]])
 
-nnoremap('<BS>', ':nohl<cr>')
-
 -- Conditionally modify character at end of line
 local function modify_line_end_delimiter(character)
   local delimiters = { ',', ';' }
