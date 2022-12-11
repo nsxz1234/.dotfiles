@@ -372,15 +372,6 @@ require('packer').startup(function(use)
   use({ 'p00f/nvim-ts-rainbow' })
   use({ 'nvim-treesitter/nvim-treesitter-textobjects' })
   use({
-    'nvim-treesitter/nvim-treesitter-context',
-    config = function()
-      require('treesitter-context').setup({
-        multiline_threshold = 4,
-        mode = 'topline',
-      })
-    end,
-  })
-  use({
     'hrsh7th/nvim-cmp',
     module = 'cmp',
     event = 'InsertEnter',
