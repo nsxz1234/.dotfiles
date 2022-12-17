@@ -9,6 +9,7 @@ return function()
 
   local lazygit = Terminal:new({
     cmd = 'lazygit',
+    count = 2,
     dir = 'git_dir',
     hidden = true,
     direction = 'float',
@@ -19,6 +20,7 @@ return function()
 
   local btop = Terminal:new({
     cmd = 'btop',
+    count = 2,
     hidden = true,
     direction = 'float',
     float_opts = {
@@ -26,11 +28,7 @@ return function()
     },
   })
 
-  as.command('Btop', function()
-    btop:toggle()
-  end)
+  as.command('Btop', function() btop:toggle() end)
 
-  as.nnoremap('<C-g>', function()
-    lazygit:toggle()
-  end)
+  as.nnoremap('<C-g>', function() lazygit:toggle() end)
 end
