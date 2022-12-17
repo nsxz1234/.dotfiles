@@ -33,7 +33,7 @@ alias l="exa -la"
 alias e='nvim'
 alias lg='lazygit'
 alias ra='ranger'
-alias n="n -e"
+alias n="n -ex"
 alias t="ydcv"
 
 # ^g to open lazygit (below oh-my-zsh)
