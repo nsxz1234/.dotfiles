@@ -17,6 +17,8 @@ source /usr/share/fzf/completion.zsh
 
 plugins=(git)
 
+# zig
+export PATH=$PATH:~/zig
 # flutter
 export CHROME_EXECUTABLE=/usr/bin/brave
 export PUB_HOSTED_URL=https://pub.flutter-io.cn
