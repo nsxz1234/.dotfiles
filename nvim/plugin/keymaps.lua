@@ -10,6 +10,22 @@ local snoremap = as.snoremap
 local cnoremap = as.cnoremap
 local tnoremap = as.tnoremap
 
+-- Terminal
+as.augroup('AddTerminalMappings', {
+  {
+    event = { 'TermOpen' },
+    pattern = { 'term://*' },
+    command = function()
+      if vim.bo.filetype == '' or vim.bo.filetype == 'toggleterm' then
+        local opts = { silent = false, buffer = 0 }
+        tnoremap('jk', [[<C-\><C-n>]], opts)
+        tnoremap('<a-=>', '<Cmd>res +1<CR>', opts)
+        tnoremap('<a-->', '<Cmd>res -1<CR>', opts)
+      end
+    end,
+  },
+})
+
 -- motions
 vnoremap('$', 'g_')
 noremap('<c-j>', '5j')
@@ -28,7 +44,6 @@ nnoremap(';', ':', noisy)
 nnoremap('<c-q>', '<Cmd>q<cr>')
 nnoremap('<c-s>', '<Cmd>w!<cr>')
 nnoremap('<c-i>', '<c-i>')
-tnoremap(',,', [[<C-\><C-n>]])
 nnoremap('dw', 'diw')
 nnoremap('cw', 'ciw')
 nnoremap('yw', 'yiw')
@@ -105,8 +120,10 @@ nnoremap('<m-k>', '<C-w>k')
 nnoremap('<m-l>', '<C-w>l')
 nnoremap('<up>', ':res +1<cr>')
 nnoremap('<down>', ':res -1<cr>')
-nnoremap('<left>', ':vertical res -1<cr>')
-nnoremap('<right>', ':vertical res +1<cr>')
+nnoremap('<a-=>', '<C-W>+')
+nnoremap('<a-->', '<C-W>-')
+nnoremap('<a-,>', '<C-W><')
+nnoremap('<a-.>', '<C-W>>')
 
 -- Telescope
 nnoremap('ff', ':Telescope find_files<cr>')
