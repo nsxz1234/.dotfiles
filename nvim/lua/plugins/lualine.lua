@@ -14,6 +14,7 @@ return function()
     'diff',
     colored = true,
     symbols = { added = ' ', modified = ' ', removed = ' ' },
+    padding = { right = 1 },
   }
   require('lualine').setup({
     options = {
@@ -26,7 +27,7 @@ return function()
       lualine_a = {},
       lualine_b = {},
       lualine_c = { filetype, file_name },
-      lualine_x = { diff },
+      lualine_x = { 'searchcount', diff },
       lualine_y = { 'progress' },
       lualine_z = { { 'location', padding = {} } },
     },

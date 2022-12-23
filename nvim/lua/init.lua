@@ -40,10 +40,6 @@ require('packer').startup(function(use)
     requires = 'kevinhwang91/promise-async',
     config = conf('ufo'),
   })
-  use({
-    'kevinhwang91/nvim-hlslens',
-    config = function() require('hlslens').setup() end,
-  })
   -- use({
   --   'folke/noice.nvim',
   --   event = { 'VimEnter' },
