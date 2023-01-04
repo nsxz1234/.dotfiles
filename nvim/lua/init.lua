@@ -1,488 +1,523 @@
-local utils = require('utils.plugins')
-local conf = utils.conf
+local fmt = string.format
+local function conf(name) return require(fmt('plugins.%s', name)) end
 
-local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable', -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
-require('packer').startup(function(use)
-  use('wbthomason/packer.nvim')
-  use('sainnhe/everforest')
-  use('sainnhe/gruvbox-material')
-  use({
-    'williamboman/mason.nvim',
-    requires = { 'nvim-lspconfig', 'williamboman/mason-lspconfig.nvim' },
-    config = function()
-      require('mason').setup()
-      require('mason-lspconfig').setup({ automatic_installation = true })
-    end,
-  })
-  use({ 'neovim/nvim-lspconfig', config = conf('lspconfig') })
-  use('nvim-lua/plenary.nvim')
-  use({ 'akinsho/flutter-tools.nvim', config = conf('flutter-tools') })
-  use('RobertBrunhage/flutter-riverpod-snippets')
-  use({ 'akinsho/nvim-bufferline.lua', config = conf('bufferline') })
-  use({ 'lukas-reineke/indent-blankline.nvim', config = conf('indentline') })
-  use('kyazdani42/nvim-web-devicons')
-  use({ 'stevearc/dressing.nvim', after = 'telescope.nvim' })
-  use({ 'rcarriga/nvim-notify', config = conf('notify') })
-  use({ 'ii14/emmylua-nvim' })
-  use('wellle/targets.vim')
-  use({ 'psliwka/vim-dirtytalk', run = ':DirtytalkUpdate' })
-  use({ 'nvim-lualine/lualine.nvim', config = conf('lualine') })
-  use('mtdl9/vim-log-highlighting')
-  use({ 'kevinhwang91/nvim-bqf', ft = 'qf' })
-  use({ 'monaqa/dial.nvim', config = conf('dial') })
-  use({ 'romainl/vim-cool' })
-  use({
-    'kevinhwang91/nvim-ufo',
-    requires = 'kevinhwang91/promise-async',
-    config = conf('ufo'),
-  })
-  -- use({
-  --   'folke/noice.nvim',
-  --   event = { 'VimEnter' },
-  --   config = function()
-  --     require('noice').setup({
-  --       views = {
-  --         cmdline_popup = {
-  --           position = { row = 2 },
-  --         },
-  --       },
-  --     })
-  --   end,
-  -- })
-  use({
-    'folke/todo-comments.nvim',
-    after = 'nvim-treesitter',
-    requires = { 'nvim-treesitter' },
-    config = function() require('todo-comments').setup() end,
-  })
-  use({
-    'nacro90/numb.nvim',
-    event = 'CmdlineEnter',
-    config = function() require('numb').setup() end,
-  })
-  use({
-    'lvimuser/lsp-inlayhints.nvim',
-    config = function()
-      require('lsp-inlayhints').setup({
-        inlay_hints = {
-          highlight = 'Comment',
-          labels_separator = ' ⏐ ',
-          parameter_hints = {
-            prefix = '',
+require('lazy').setup(
+  {
+    {
+      'sainnhe/gruvbox-material',
+      lazy = false,
+      priority = 1000,
+      config = function()
+        vim.g.gruvbox_material_background = 'soft'
+        vim.cmd.colorscheme('gruvbox-material')
+      end,
+    },
+    {
+      'sainnhe/everforest',
+      lazy = false,
+      priority = 1000,
+      config = function()
+        vim.g.everforest_background = 'soft'
+        -- vim.cmd.colorscheme('everforest')
+      end,
+    },
+    'nvim-lua/plenary.nvim',
+    {
+      'williamboman/mason.nvim',
+      dependencies = {
+        'neovim/nvim-lspconfig',
+        'williamboman/mason-lspconfig.nvim',
+      },
+      config = function()
+        require('mason').setup()
+        require('mason-lspconfig').setup({ automatic_installation = true })
+      end,
+    },
+    {
+      'neovim/nvim-lspconfig',
+      config = conf('lspconfig'),
+    },
+    {
+      'akinsho/flutter-tools.nvim',
+      config = conf('flutter-tools'),
+      dependencies = { 'nvim-lua/plenary.nvim' },
+    },
+    'RobertBrunhage/flutter-riverpod-snippets',
+    {
+      'akinsho/nvim-bufferline.lua',
+      config = conf('bufferline'),
+      dependencies = { 'kyazdani42/nvim-web-devicons' },
+    },
+    { 'lukas-reineke/indent-blankline.nvim', config = conf('indentline') },
+    'kyazdani42/nvim-web-devicons',
+    { 'stevearc/dressing.nvim', after = 'telescope.nvim' },
+    { 'rcarriga/nvim-notify', config = conf('notify') },
+    'ii14/emmylua-nvim',
+    'wellle/targets.vim',
+    { 'nvim-lualine/lualine.nvim', config = conf('lualine') },
+    'mtdl9/vim-log-highlighting',
+    { 'kevinhwang91/nvim-bqf', ft = 'qf' },
+    { 'monaqa/dial.nvim', config = conf('dial') },
+    'romainl/vim-cool',
+    {
+      'kevinhwang91/nvim-ufo',
+      dependencies = { 'kevinhwang91/promise-async' },
+      config = conf('ufo'),
+    },
+    {
+      'folke/todo-comments.nvim',
+      enabled = true,
+      after = 'nvim-treesitter',
+      dependencies = { 'nvim-treesitter/nvim-treesitter' },
+      config = function() require('todo-comments').setup() end,
+    },
+    {
+      'nacro90/numb.nvim',
+      event = 'CmdlineEnter',
+      config = function() require('numb').setup() end,
+    },
+    {
+      'lvimuser/lsp-inlayhints.nvim',
+      config = function()
+        require('lsp-inlayhints').setup({
+          inlay_hints = {
+            highlight = 'Comment',
+            labels_separator = ' ⏐ ',
+            parameter_hints = {
+              prefix = '',
+            },
+            type_hints = {
+              prefix = '=> ',
+              remove_colon_start = true,
+            },
           },
-          type_hints = {
-            prefix = '=> ',
-            remove_colon_start = true,
+        })
+      end,
+    },
+    {
+      'linty-org/readline.nvim',
+      event = 'CmdlineEnter',
+      config = function()
+        local readline = require('readline')
+        local map = vim.keymap.set
+        map('!', '<M-f>', readline.forward_word)
+        map('!', '<M-b>', readline.backward_word)
+        map('!', '<C-a>', readline.beginning_of_line)
+        map('!', '<C-e>', readline.end_of_line)
+        map('!', '<M-d>', readline.kill_word)
+        map('!', '<M-BS>', readline.backward_kill_word)
+        map('!', '<C-w>', readline.unix_word_rubout)
+        map('!', '<C-u>', readline.backward_kill_line)
+      end,
+    },
+    {
+      'kylechui/nvim-surround',
+      config = function()
+        require('nvim-surround').setup({
+          keymaps = { visual = 's' },
+        })
+      end,
+    },
+    {
+      'zbirenbaum/neodim',
+      config = function()
+        require('neodim').setup({
+          hide = {
+            underline = false,
           },
+        })
+      end,
+    },
+    {
+      'smjonas/inc-rename.nvim',
+      config = function()
+        require('inc_rename').setup()
+        as.nnoremap(
+          '<leader>rn',
+          function() return ':IncRename ' .. vim.fn.expand('<cword>') end,
+          { expr = true, silent = false, desc = 'lsp: incremental rename' }
+        )
+      end,
+    },
+    {
+      'akinsho/nvim-toggleterm.lua',
+      config = conf('toggleterm'),
+    },
+    {
+      'nvim-telescope/telescope.nvim',
+      branch = 'master', -- '0.1.x',
+      lazy = true,
+      config = conf('telescope'),
+      event = 'CursorHold',
+      dependencies = {
+        {
+          'natecraddock/telescope-zf-native.nvim',
+          after = 'telescope.nvim',
+          config = function() require('telescope').load_extension('zf-native') end,
         },
-      })
-    end,
-  })
-  use({
-    'linty-org/readline.nvim',
-    event = 'CmdlineEnter',
-    config = function()
-      local readline = require('readline')
-      local map = vim.keymap.set
-      map('!', '<M-f>', readline.forward_word)
-      map('!', '<M-b>', readline.backward_word)
-      map('!', '<C-a>', readline.beginning_of_line)
-      map('!', '<C-e>', readline.end_of_line)
-      map('!', '<M-d>', readline.kill_word)
-      map('!', '<M-BS>', readline.backward_kill_word)
-      map('!', '<C-w>', readline.unix_word_rubout)
-      map('!', '<C-u>', readline.backward_kill_line)
-    end,
-  })
-  use({
-    'kylechui/nvim-surround',
-    config = function()
-      require('nvim-surround').setup({
-        keymaps = { visual = 's' },
-      })
-    end,
-  })
-  use({
-    'zbirenbaum/neodim',
-    config = function()
-      require('neodim').setup({
-        hide = {
-          underline = false,
+        {
+          'ilAYAli/scMRU.nvim',
+          init = function()
+            as.nnoremap('fr', '<Cmd>Mru<CR>', 'most recently used')
+            as.nnoremap('fu', '<Cmd>Mfu<CR>', 'most frequently used')
+          end,
         },
-      })
-    end,
-  })
-  use({
-    'smjonas/inc-rename.nvim',
-    config = function()
-      require('inc_rename').setup()
-      as.nnoremap(
-        '<leader>rn',
-        function() return ':IncRename ' .. vim.fn.expand('<cword>') end,
-        { expr = true, silent = false, desc = 'lsp: incremental rename' }
-      )
-    end,
-  })
-  use({
-    'akinsho/nvim-toggleterm.lua',
-    config = conf('toggleterm'),
-  })
-  use({
-    'nvim-telescope/telescope.nvim',
-    branch = 'master', -- '0.1.x',
-    module_pattern = 'telescope.*',
-    config = conf('telescope'),
-    event = 'CursorHold',
-    requires = {
-      {
-        'natecraddock/telescope-zf-native.nvim',
-        after = 'telescope.nvim',
-        config = function() require('telescope').load_extension('zf-native') end,
-      },
-      {
-        'ilAYAli/scMRU.nvim',
-        setup = function()
-          as.nnoremap('fr', '<Cmd>Mru<CR>', 'most recently used')
-          as.nnoremap('fu', '<Cmd>Mfu<CR>', 'most frequently used')
-        end,
       },
     },
-  })
-  use({
-    'numToStr/Comment.nvim',
-    config = function()
-      require('Comment').setup()
-      vim.api.nvim_command('set commentstring=//%s')
-    end,
-  })
-  use({
-    'windwp/nvim-autopairs',
-    config = function()
-      require('nvim-autopairs').setup({
-        fast_wrap = { map = '<c-e>' },
-      })
-    end,
-  })
-  use({
-    'voldikss/vim-translator',
-    config = function()
-      vim.g.translator_default_engines = { 'haici' }
-      as.nnoremap('<leader>t', ':TranslateW<cr>')
-      as.xnoremap('<leader>t', ':TranslateW<cr>')
-    end,
-  })
-  use({
-    'Shatur/neovim-session-manager',
-    config = function()
-      require('session_manager').setup({
-        autoload_mode = require('session_manager.config').AutoloadMode.Disabled,
-        autosave_ignore_not_normal = false,
-      })
-      as.nnoremap('fs', ':SessionManager load_session<cr>')
-      as.nnoremap('<leader>ss', ':SessionManager save_current_session<cr>', { silent = false })
-      as.nnoremap('<leader>sd', ':SessionManager delete_session<cr>')
-    end,
-  })
-  use({
-    'phaazon/hop.nvim',
-    config = function()
-      require('hop').setup()
-      as.nnoremap('s', require('hop').hint_words)
-    end,
-  })
-  use({
-    'jose-elias-alvarez/null-ls.nvim',
-    requires = { 'nvim-lua/plenary.nvim' },
-    config = conf('null-ls'),
-  })
-  use({
-    'danymat/neogen',
-    requires = 'nvim-treesitter/nvim-treesitter',
-    module = 'neogen',
-    setup = function() as.nnoremap('<leader>cc', require('neogen').generate, 'comment: generate') end,
-    config = function() require('neogen').setup({ snippet_engine = 'luasnip' }) end,
-  })
-  use({
-    'mbbill/undotree',
-    cmd = 'UndotreeToggle',
-    setup = function() as.nnoremap('<leader>u', '<cmd>UndotreeToggle<CR>') end,
-    config = function()
-      vim.g.undotree_TreeNodeShape = '◦' -- Alternative: '◉'
-      vim.g.undotree_SetFocusWhenToggle = 1
-      vim.g.undotree_WindowLayout = 2
-      vim.g.undotree_DiffpanelHeight = 8
-      vim.g.undotree_SplitWidth = 24
-    end,
-  })
-  use({
-    'uga-rosa/ccc.nvim',
-    config = function()
-      require('ccc').setup({
-        win_opts = { border = as.style.current.border },
-        highlighter = {
-          auto_enable = true,
-          excludes = { 'dart' },
-        },
-      })
-    end,
-  })
-  use({
-    'moll/vim-bbye',
-    config = function() as.nnoremap('df', '<Cmd>Bwipeout<CR>', 'bbye: quit') end,
-  })
-  use({
-    'iamcco/markdown-preview.nvim',
-    run = function() vim.fn['mkdp#util#install']() end,
-    ft = { 'markdown' },
-    config = function()
-      vim.g.mkdp_auto_start = 0
-      vim.g.mkdp_auto_close = 1
-    end,
-  })
-  use({
-    'ray-x/lsp_signature.nvim',
-    config = function()
-      require('lsp_signature').setup({
-        bind = true,
-        fix_pos = false,
-        auto_close_after = 15, -- close after 15 seconds
-        hint_enable = false,
-        handler_opts = { border = as.style.current.border },
-        toggle_key = '<C-c>',
-      })
-    end,
-  })
-  use({
-    'nvim-neo-tree/neo-tree.nvim',
-    branch = 'v2.x',
-    config = conf('neo-tree'),
-    keys = { '<tab>', '<C-e>' },
-    cmd = { 'NeoTree' },
-    requires = {
-      'nvim-lua/plenary.nvim',
-      'MunifTanjim/nui.nvim',
-      'kyazdani42/nvim-web-devicons',
-      { 'mrbjarksen/neo-tree-diagnostics.nvim', module = 'neo-tree.sources.diagnostics' },
+    {
+      'numToStr/Comment.nvim',
+      config = function()
+        require('Comment').setup()
+        vim.api.nvim_command('set commentstring=//%s')
+      end,
     },
-  })
-  use({
-    'j-hui/fidget.nvim',
-    config = function()
-      require('fidget').setup({
-        window = { blend = 0 },
-      })
-    end,
-  })
-  use({
-    'aarondiel/spread.nvim',
-    after = 'nvim-treesitter',
-    module = 'spread',
-    setup = function()
-      as.nnoremap('S', function() require('spread').out() end, 'spread: expand')
-      as.nnoremap('C', function() require('spread').combine() end, 'spread: combine')
-    end,
-  })
-  use({
-    'nvim-pack/nvim-spectre',
-    config = function()
-      as.nnoremap('<leader>so', '<cmd>lua require("spectre").open()<CR>')
-      as.nnoremap('<leader>sw', '<cmd>lua require("spectre").open_visual({select_word=true})<CR>')
-      as.nnoremap('<leader>sp', 'viw:lua require("spectre").open_file_search()<cr>')
-    end,
-  })
-  use({
-    'AckslD/nvim-neoclip.lua',
-    config = function()
-      require('neoclip').setup({
-        keys = {
-          telescope = {
-            i = { select = '<cr>', paste = '<m-p>', paste_behind = '<m-P>' },
+    {
+      'windwp/nvim-autopairs',
+      config = function()
+        require('nvim-autopairs').setup({
+          fast_wrap = { map = '<c-e>' },
+        })
+      end,
+    },
+    {
+      'voldikss/vim-translator',
+      config = function()
+        vim.g.translator_default_engines = { 'haici' }
+        as.nnoremap('<leader>t', ':TranslateW<cr>')
+        as.xnoremap('<leader>t', ':TranslateW<cr>')
+      end,
+    },
+    {
+      'Shatur/neovim-session-manager',
+      config = function()
+        require('session_manager').setup({
+          autoload_mode = require('session_manager.config').AutoloadMode.Disabled,
+          autosave_ignore_not_normal = false,
+        })
+        as.nnoremap('fs', ':SessionManager load_session<cr>')
+        as.nnoremap('<leader>ss', ':SessionManager save_current_session<cr>', { silent = false })
+        as.nnoremap('<leader>sd', ':SessionManager delete_session<cr>')
+      end,
+    },
+    {
+      'phaazon/hop.nvim',
+      config = function()
+        require('hop').setup()
+        as.nnoremap('s', require('hop').hint_words)
+      end,
+    },
+    {
+      'jose-elias-alvarez/null-ls.nvim',
+      dependencies = { 'nvim-lua/plenary.nvim' },
+      config = conf('null-ls'),
+    },
+    {
+      'danymat/neogen',
+      dependencies = { 'nvim-treesitter/nvim-treesitter' },
+      module = 'neogen',
+      init = function() as.nnoremap('<leader>cc', require('neogen').generate, 'comment: generate') end,
+      config = function() require('neogen').setup({ snippet_engine = 'luasnip' }) end,
+    },
+    {
+      'mbbill/undotree',
+      cmd = 'UndotreeToggle',
+      init = function() as.nnoremap('<leader>u', '<cmd>UndotreeToggle<CR>') end,
+      config = function()
+        vim.g.undotree_TreeNodeShape = '◦' -- Alternative: '◉'
+        vim.g.undotree_SetFocusWhenToggle = 1
+        vim.g.undotree_WindowLayout = 2
+        vim.g.undotree_DiffpanelHeight = 8
+        vim.g.undotree_SplitWidth = 24
+      end,
+    },
+    {
+      'uga-rosa/ccc.nvim',
+      config = function()
+        require('ccc').setup({
+          win_opts = { border = as.style.current.border },
+          highlighter = {
+            auto_enable = true,
+            excludes = { 'dart' },
           },
-        },
-      })
-      as.nnoremap('fp', require('telescope').extensions.neoclip.default)
-    end,
-  })
-  use({
-    'ahmedkhalf/project.nvim',
-    config = function()
-      require('project_nvim').setup({
-        -- ignore_lsp = { 'null-ls' },
-        patterns = { '.git', 'pubspec.yaml' },
-      })
-    end,
-  })
-  use({
-    'is0n/fm-nvim',
-    config = function()
-      require('fm-nvim').setup({
-        ui = {
-          float = {
-            border = 'rounded',
+        })
+      end,
+    },
+    {
+      'moll/vim-bbye',
+      config = function() as.nnoremap('df', '<Cmd>Bwipeout<CR>', 'bbye: quit') end,
+    },
+    {
+      'iamcco/markdown-preview.nvim',
+      build = function() vim.fn['mkdp#util#install']() end,
+      ft = { 'markdown' },
+      config = function()
+        vim.g.mkdp_auto_start = 0
+        vim.g.mkdp_auto_close = 1
+      end,
+    },
+    {
+      'ray-x/lsp_signature.nvim',
+      config = function()
+        require('lsp_signature').setup({
+          bind = true,
+          fix_pos = false,
+          auto_close_after = 15, -- close after 15 seconds
+          hint_enable = false,
+          handler_opts = { border = as.style.current.border },
+          toggle_key = '<C-c>',
+        })
+      end,
+    },
+    {
+      'nvim-neo-tree/neo-tree.nvim',
+      branch = 'v2.x',
+      config = conf('neo-tree'),
+      keys = { '<tab>', '<C-e>' },
+      cmd = { 'NeoTree' },
+      dependencies = {
+        'nvim-lua/plenary.nvim',
+        'MunifTanjim/nui.nvim',
+        'kyazdani42/nvim-web-devicons',
+        { 'mrbjarksen/neo-tree-diagnostics.nvim' },
+      },
+    },
+    {
+      'j-hui/fidget.nvim',
+      config = function()
+        require('fidget').setup({
+          window = { blend = 0 },
+        })
+      end,
+    },
+    {
+      'aarondiel/spread.nvim',
+      after = 'nvim-treesitter',
+      init = function()
+        as.nnoremap('gS', function() require('spread').out() end, 'spread: expand')
+        as.nnoremap('gJ', function() require('spread').combine() end, 'spread: combine')
+      end,
+    },
+    {
+      'nvim-pack/nvim-spectre',
+      config = function()
+        as.nnoremap('<leader>so', '<cmd>lua require("spectre").open()<CR>')
+        as.nnoremap('<leader>sw', '<cmd>lua require("spectre").open_visual({select_word=true})<CR>')
+        as.nnoremap('<leader>sp', 'viw:lua require("spectre").open_file_search()<cr>')
+      end,
+    },
+    {
+      'AckslD/nvim-neoclip.lua',
+      config = function()
+        require('neoclip').setup({
+          keys = {
+            telescope = {
+              i = { select = '<cr>', paste = '<m-p>', paste_behind = '<m-P>' },
+            },
           },
-        },
-      })
-      as.nnoremap('<leader>e', '<cmd>Nnn<CR>')
-    end,
-  })
-  use({
-    'nvim-neotest/neotest',
-    config = conf('neotest'),
-    requires = {
-      'rcarriga/neotest-plenary',
+        })
+        as.nnoremap('fp', require('telescope').extensions.neoclip.default)
+      end,
     },
-  })
-  use({
-    'mfussenegger/nvim-dap',
-    module = 'dap',
-    requires = {
-      {
-        'rcarriga/nvim-dap-ui',
-        after = 'nvim-dap',
-        config = function() require('dapui').setup() end,
+    {
+      'ahmedkhalf/project.nvim',
+      config = function()
+        require('project_nvim').setup({
+          detection_methods = { 'pattern', 'lsp' },
+          ignore_lsp = { 'null-ls' },
+          patterns = { '.git' },
+        })
+      end,
+    },
+    {
+      'is0n/fm-nvim',
+      config = function()
+        require('fm-nvim').setup({
+          ui = {
+            float = {
+              border = 'rounded',
+            },
+          },
+        })
+        as.nnoremap('<leader>e', '<cmd>Nnn<CR>')
+      end,
+    },
+    {
+      'nvim-neotest/neotest',
+      lazy = true,
+      config = conf('neotest'),
+      dependencies = {
+        { 'rcarriga/neotest-plenary' },
+        { 'sidlatau/neotest-dart' },
       },
     },
-  })
-  use({
-    'akinsho/pubspec-assist.nvim',
-    ft = { 'dart' },
-    event = 'BufEnter pubspec.yaml',
-    rocks = {
-      {
-        'lyaml',
-        server = 'http://rocks.moonscript.org',
+    {
+      'mfussenegger/nvim-dap',
+      lazy = true,
+      dependencies = {
+        {
+          'rcarriga/nvim-dap-ui',
+          config = function() require('dapui').setup() end,
+        },
+        {
+          'theHamsta/nvim-dap-virtual-text',
+          config = function() require('nvim-dap-virtual-text').setup({ all_frames = true }) end,
+        },
       },
     },
-    config = function() require('pubspec-assist').setup() end,
-  })
-  use({
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
-    config = conf('treesitter'),
-  })
-  use({ 'p00f/nvim-ts-rainbow' })
-  use({ 'nvim-treesitter/nvim-treesitter-textobjects' })
-  use({
-    'hrsh7th/nvim-cmp',
-    module = 'cmp',
-    event = 'InsertEnter',
-    config = conf('cmp'),
-    requires = {
-      { 'hrsh7th/cmp-nvim-lsp', module = 'cmp_nvim_lsp' },
-      { 'hrsh7th/cmp-nvim-lsp-document-symbol', after = 'nvim-cmp' },
-      { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' },
-      { 'f3fora/cmp-spell', after = 'nvim-cmp' },
-      { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
-      { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
-      { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' },
-      { 'dmitmel/cmp-cmdline-history', after = 'nvim-cmp' },
-      {
-        'petertriho/cmp-git',
-        after = 'nvim-cmp',
-        config = function()
-          require('cmp_git').setup({ filetypes = { 'gitcommit', 'NeogitCommitMessage' } })
-        end,
+    {
+      'akinsho/pubspec-assist.nvim',
+      ft = { 'dart' },
+      event = 'BufEnter pubspec.yaml',
+      rocks = {
+        {
+          'lyaml',
+          server = 'http://rocks.moonscript.org',
+        },
+      },
+      config = function() require('pubspec-assist').setup() end,
+    },
+    {
+      'nvim-treesitter/nvim-treesitter',
+      build = ':TSUpdate',
+      config = conf('treesitter'),
+    },
+    'p00f/nvim-ts-rainbow',
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    {
+      'hrsh7th/nvim-cmp',
+      event = 'InsertEnter',
+      config = conf('cmp'),
+      dependencies = {
+        { 'hrsh7th/cmp-nvim-lsp' },
+        { 'hrsh7th/cmp-nvim-lsp-document-symbol', after = 'nvim-cmp' },
+        { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' },
+        { 'f3fora/cmp-spell', after = 'nvim-cmp' },
+        { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
+        { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
+        { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' },
+        { 'dmitmel/cmp-cmdline-history', after = 'nvim-cmp' },
+        {
+          'petertriho/cmp-git',
+          after = 'nvim-cmp',
+          config = function()
+            require('cmp_git').setup({ filetypes = { 'gitcommit', 'NeogitCommitMessage' } })
+          end,
+        },
       },
     },
-  })
-  use({
-    'L3MON4D3/LuaSnip',
-    event = 'InsertEnter',
-    module = 'luasnip',
-    requires = 'rafamadriz/friendly-snippets',
-    config = conf('luasnip'),
-  })
-  use('rafamadriz/friendly-snippets')
-  use({
-    'dstein64/vim-startuptime',
-    cmd = 'StartupTime',
-    config = function() vim.g.startuptime_tries = 15 end,
-  })
-  --
-  -- TPOPE
-  --
-  use('tpope/vim-eunuch')
-  use('tpope/vim-sleuth')
-  use('tpope/vim-repeat')
-  use({
-    'johmsalas/text-case.nvim',
-    -- "&" Repeat last substitute with flags
-    config = function()
-      require('textcase').setup()
-      as.nnoremap('<leader>/', ':%s/<C-r><C-w>//c<left><left>', { silent = false })
-      as.xnoremap('<leader>/', [["zy:%s/<C-r><C-o>"//c<left><left>]], { silent = false })
-    end,
-  })
-  --
-  -- Git
-  --
-  use({ 'lewis6991/gitsigns.nvim', event = 'BufRead', config = conf('gitsigns') })
-  use({
-    'TimUntersberger/neogit',
-    requires = 'plenary.nvim',
-    commit = '691cf89f59ed887809db7854b670cdb944dc9559',
-    config = function()
-      local neogit = require('neogit')
-      neogit.setup({
-        disable_signs = false,
-        disable_hint = true,
-        disable_commit_confirmation = true,
-        disable_builtin_notifications = true,
-        disable_insert_on_commit = false,
-        signs = {
-          section = { '', '' }, -- "", ""
-          item = { '▸', '▾' },
-          hunk = { '樂', '' },
-        },
-        integrations = {
-          diffview = true,
-        },
-      })
-      as.nnoremap('<leader>gs', function() neogit.open() end, 'neogit: open status buffer')
-    end,
-  })
-  use({
-    'sindrets/diffview.nvim',
-    cmd = { 'DiffviewOpen', 'DiffviewFileHistory' },
-    module = 'diffview',
-    setup = function()
-      as.nnoremap('<leader>gd', '<Cmd>DiffviewOpen<CR>', 'diffview: open')
-      as.nnoremap('<leader>gh', '<Cmd>DiffviewFileHistory<CR>', 'diffview: file history')
-      as.xnoremap('<leader>gh', [[:'<'>DiffviewFileHistory<CR>]], 'diffview: file history')
-    end,
-    config = function()
-      require('diffview').setup({
-        default_args = {
-          DiffviewFileHistory = { '%' },
-        },
-        enhanced_diff_hl = true,
-        keymaps = {
-          view = { q = '<Cmd>DiffviewClose<CR>' },
-          file_panel = { q = '<Cmd>DiffviewClose<CR>' },
-          file_history_panel = { q = '<Cmd>DiffviewClose<CR>' },
-        },
-      })
-    end,
-  })
-  use({
-    'akinsho/git-conflict.nvim',
-    config = function()
-      require('git-conflict').setup({
-        default_mappings = true,
-        disable_diagnostics = true,
-      })
-      as.nnoremap('co', '<Plug>(git-conflict-ours)')
-      as.nnoremap('cb', '<Plug>(git-conflict-both)')
-      as.nnoremap('cn', '<Plug>(git-conflict-none)')
-      as.nnoremap('ct', '<Plug>(git-conflict-theirs)')
-      as.nnoremap(']c', '<Plug>(git-conflict-next-conflict)')
-      as.nnoremap('[c', '<Plug>(git-conflict-prev-conflict)')
-    end,
-  })
-end)
+    {
+      'L3MON4D3/LuaSnip',
+      event = 'InsertEnter',
+      module = 'luasnip',
+      dependencies = { 'rafamadriz/friendly-snippets' },
+      config = conf('luasnip'),
+    },
+    {
+      'dstein64/vim-startuptime',
+      cmd = 'StartupTime',
+      config = function() vim.g.startuptime_tries = 15 end,
+    },
+    --
+    -- TPOPE
+    --
+    'tpope/vim-eunuch',
+    'tpope/vim-sleuth',
+    'tpope/vim-repeat',
+    {
+      'johmsalas/text-case.nvim',
+      -- "&" Repeat last substitute with flags
+      config = function()
+        require('textcase').setup()
+        as.nnoremap('<leader>/', ':%s/<C-r><C-w>//c<left><left>', { silent = false })
+        as.xnoremap('<leader>/', [["zy:%s/<C-r><C-o>"//c<left><left>]], { silent = false })
+      end,
+    },
+    --
+    -- Git
+    --
+    { 'lewis6991/gitsigns.nvim', event = 'BufRead', config = conf('gitsigns') },
+    {
+      'TimUntersberger/neogit',
+      commit = '691cf89f59ed887809db7854b670cdb944dc9559',
+      cmd = 'Neogit',
+      keys = { '<leader>gs' },
+      dependencies = { 'nvim-lua/plenary.nvim' },
+      config = function()
+        local neogit = require('neogit')
+        neogit.setup({
+          disable_signs = false,
+          disable_hint = true,
+          disable_commit_confirmation = true,
+          disable_builtin_notifications = true,
+          disable_insert_on_commit = false,
+          signs = {
+            section = { '', '' }, -- "", ""
+            item = { '▸', '▾' },
+            hunk = { '樂', '' },
+          },
+          integrations = {
+            diffview = true,
+          },
+        })
+        as.nnoremap('<leader>gs', function() neogit.open() end, 'neogit: open status buffer')
+      end,
+    },
+    {
+      'sindrets/diffview.nvim',
+      cmd = { 'DiffviewOpen', 'DiffviewFileHistory' },
+      module = 'diffview',
+      init = function()
+        as.nnoremap('<leader>gd', '<Cmd>DiffviewOpen<CR>', 'diffview: open')
+        as.nnoremap('<leader>gh', '<Cmd>DiffviewFileHistory<CR>', 'diffview: file history')
+        as.xnoremap('<leader>gh', [[:'<'>DiffviewFileHistory<CR>]], 'diffview: file history')
+      end,
+      config = function()
+        require('diffview').setup({
+          default_args = {
+            DiffviewFileHistory = { '%' },
+          },
+          enhanced_diff_hl = true,
+          keymaps = {
+            view = { q = '<Cmd>DiffviewClose<CR>' },
+            file_panel = { q = '<Cmd>DiffviewClose<CR>' },
+            file_history_panel = { q = '<Cmd>DiffviewClose<CR>' },
+          },
+        })
+      end,
+    },
+    {
+      'akinsho/git-conflict.nvim',
+      config = function()
+        require('git-conflict').setup({
+          default_mappings = true,
+          disable_diagnostics = true,
+        })
+        as.nnoremap('co', '<Plug>(git-conflict-ours)')
+        as.nnoremap('cb', '<Plug>(git-conflict-both)')
+        as.nnoremap('cn', '<Plug>(git-conflict-none)')
+        as.nnoremap('ct', '<Plug>(git-conflict-theirs)')
+        as.nnoremap(']c', '<Plug>(git-conflict-next-conflict)')
+        as.nnoremap('[c', '<Plug>(git-conflict-prev-conflict)')
+      end,
+    },
+  },
+  --------------------------
+  {
+    defaults = {},
+  }
+)
 
 -- vim:foldmethod=marker nospell

@@ -66,10 +66,8 @@ opt.formatoptions = {
 o.foldcolumn = '0' -- '0' is not bad
 o.foldlevel = 99
 o.foldlevelstart = 2
-if not as.plugin_installed('nvim-ufo') then
-  o.foldexpr = 'nvim_treesitter#foldexpr()'
-  o.foldmethod = 'expr'
-end
+o.foldexpr = 'nvim_treesitter#foldexpr()'
+o.foldmethod = 'expr'
 
 -- Grep
 -- Use faster grep alternatives if possible
@@ -172,14 +170,3 @@ opt.spellsuggest:prepend({ 12 })
 opt.spelloptions:append({ 'camel', 'noplainbuffer' })
 opt.spellcapcheck = '' -- don't check for capital letters at start of sentence
 opt.fileformats = { 'unix', 'mac', 'dos' }
-opt.spelllang:append('programming')
-
--- Color Scheme
--- if as.plugin_installed('everforest') then
---   vim.g.everforest_background = 'soft'
---   vim.cmd.colorscheme('everforest')
--- end
-if as.plugin_installed('gruvbox-material') then
-  vim.g.gruvbox_material_background = 'soft'
-  vim.cmd.colorscheme('gruvbox-material')
-end
