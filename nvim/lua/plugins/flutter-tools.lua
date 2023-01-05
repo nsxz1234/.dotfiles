@@ -22,8 +22,7 @@ return function()
     lsp = {
       color = {
         enabled = true,
-        foreground = true,
-        virtual_text = false,
+        virtual_text = true,
       },
       settings = {
         showTodos = false,
