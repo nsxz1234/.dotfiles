@@ -353,7 +353,6 @@ require('lazy').setup(
     },
     {
       'nvim-neotest/neotest',
-      lazy = true,
       config = conf('neotest'),
       dependencies = {
         { 'rcarriga/neotest-plenary' },
@@ -376,6 +375,7 @@ require('lazy').setup(
     },
     {
       'akinsho/pubspec-assist.nvim',
+      enabled = false,
       ft = { 'dart' },
       event = 'BufEnter pubspec.yaml',
       rocks = {

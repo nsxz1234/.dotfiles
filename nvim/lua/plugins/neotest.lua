@@ -8,6 +8,9 @@ return function()
     floating = { border = as.style.current.border },
     adapters = {
       require('neotest-plenary'),
+      require('neotest-dart')({
+        command = 'flutter',
+      }),
     },
   })
   local function open() neotest.output.open({ enter = true, short = false }) end
