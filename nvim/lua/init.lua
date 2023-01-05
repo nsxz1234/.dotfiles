@@ -63,7 +63,7 @@ require('lazy').setup(
     },
     { 'lukas-reineke/indent-blankline.nvim', config = conf('indentline') },
     'kyazdani42/nvim-web-devicons',
-    { 'stevearc/dressing.nvim', after = 'telescope.nvim' },
+    { 'stevearc/dressing.nvim' },
     { 'rcarriga/nvim-notify', config = conf('notify') },
     'ii14/emmylua-nvim',
     'wellle/targets.vim',
@@ -80,7 +80,6 @@ require('lazy').setup(
     {
       'folke/todo-comments.nvim',
       enabled = true,
-      after = 'nvim-treesitter',
       dependencies = { 'nvim-treesitter/nvim-treesitter' },
       config = function() require('todo-comments').setup() end,
     },
@@ -165,7 +164,6 @@ require('lazy').setup(
       dependencies = {
         {
           'natecraddock/telescope-zf-native.nvim',
-          after = 'telescope.nvim',
           config = function() require('telescope').load_extension('zf-native') end,
         },
         {
@@ -304,7 +302,6 @@ require('lazy').setup(
     },
     {
       'aarondiel/spread.nvim',
-      after = 'nvim-treesitter',
       init = function()
         as.nnoremap('gS', function() require('spread').out() end, 'spread: expand')
         as.nnoremap('gJ', function() require('spread').combine() end, 'spread: combine')
@@ -402,16 +399,15 @@ require('lazy').setup(
       config = conf('cmp'),
       dependencies = {
         { 'hrsh7th/cmp-nvim-lsp' },
-        { 'hrsh7th/cmp-nvim-lsp-document-symbol', after = 'nvim-cmp' },
-        { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' },
-        { 'f3fora/cmp-spell', after = 'nvim-cmp' },
-        { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
-        { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
-        { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' },
-        { 'dmitmel/cmp-cmdline-history', after = 'nvim-cmp' },
+        { 'hrsh7th/cmp-nvim-lsp-document-symbol' },
+        { 'hrsh7th/cmp-cmdline' },
+        { 'f3fora/cmp-spell' },
+        { 'hrsh7th/cmp-path' },
+        { 'hrsh7th/cmp-buffer' },
+        { 'saadparwaiz1/cmp_luasnip' },
+        { 'dmitmel/cmp-cmdline-history' },
         {
           'petertriho/cmp-git',
-          after = 'nvim-cmp',
           config = function()
             require('cmp_git').setup({ filetypes = { 'gitcommit', 'NeogitCommitMessage' } })
           end,
