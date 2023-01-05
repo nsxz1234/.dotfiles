@@ -23,6 +23,7 @@ return function()
       color = {
         enabled = true,
         virtual_text = true,
+        virtual_text_str = '◉',
       },
       settings = {
         showTodos = false,
