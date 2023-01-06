@@ -69,6 +69,9 @@ return function()
       find_files = {
         hidden = true,
       },
+      lsp_document_symbols = {
+        previewer = false,
+      }
     },
   })
 end
