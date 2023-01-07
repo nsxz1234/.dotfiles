@@ -155,8 +155,9 @@ riverctl border-color-unfocused 0x586e75
 riverctl set-repeat 50 300
 
 # auto starting apps
-riverctl spawn waybar
+riverctl spawn kanshi
 riverctl spawn "wlsunset -T 4001"
+riverctl spawn waybar
 
 # Make certain views start floating
 riverctl float-filter-add app-id float
