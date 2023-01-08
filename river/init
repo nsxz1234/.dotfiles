@@ -21,7 +21,7 @@ riverctl map normal Super Q close
 
 # Super+Shift+E to exit river
 # riverctl map normal Super+Shift E exit
-riverctl map normal Super+Shift E spawn wlogout
+riverctl map normal Super Escape spawn wlogout
 
 # Super+J and Super+K to focus the next/previous view in the layout stack
 riverctl map normal Super J focus-view next
@@ -156,7 +156,7 @@ riverctl set-repeat 50 300
 
 # auto starting apps
 riverctl spawn kanshi
-riverctl spawn "wlsunset -T 4001"
+riverctl spawn "wlsunset -t 4000"
 riverctl spawn waybar
 
 # Make certain views start floating
