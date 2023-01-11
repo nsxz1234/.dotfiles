@@ -303,8 +303,8 @@ require('lazy').setup(
     {
       'aarondiel/spread.nvim',
       init = function()
-        as.nnoremap('gS', function() require('spread').out() end, 'spread: expand')
-        as.nnoremap('gJ', function() require('spread').combine() end, 'spread: combine')
+        as.nnoremap('gs', function() require('spread').out() end, 'spread: expand')
+        as.nnoremap('gj', function() require('spread').combine() end, 'spread: combine')
       end,
     },
     {
