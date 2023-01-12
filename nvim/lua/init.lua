@@ -78,6 +78,10 @@ require('lazy').setup(
       config = conf('ufo'),
     },
     {
+      'kevinhwang91/nvim-hlslens',
+      config = function() require('hlslens').setup() end,
+    },
+    {
       'folke/todo-comments.nvim',
       enabled = true,
       dependencies = { 'nvim-treesitter/nvim-treesitter' },
