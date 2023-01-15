@@ -48,7 +48,7 @@ nnoremap('dw', 'diw')
 nnoremap('cw', 'ciw')
 nnoremap('yw', 'yiw')
 nnoremap('vw', 'viw')
-nnoremap('c\'', 'ci\'')
+nnoremap("c'", "ci'")
 nnoremap('yp', [[:let @+=expand("%:p")<CR>]], 'yank file path')
 nnoremap('vv', 'V')
 nnoremap('V', 'v$')
@@ -153,3 +153,15 @@ nnoremap('<leader>5', '<cmd>lua require("dap").repl.toggle()<cr>')
 nnoremap('<leader>6', '<cmd>lua require("dap").run_last()<cr>')
 -- dap-ui
 nnoremap('<leader>d', '<cmd>lua require("dapui").toggle()<cr>')
+
+-- hlslens
+nnoremap(
+  'n',
+  [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]]
+)
+nnoremap(
+  'N',
+  [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]]
+)
+nnoremap('*', [[*<Cmd>lua require('hlslens').start()<CR>]])
+nnoremap('#', [[#<Cmd>lua require('hlslens').start()<CR>]])
