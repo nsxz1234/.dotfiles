@@ -23,12 +23,12 @@ o.splitbelow = true
 o.splitright = true
 o.switchbuf = 'useopen,uselast'
 opt.fillchars = {
-  fold = ' ',
   eob = ' ', -- suppress ~ at EndOfBuffer
   diff = '╱', -- alternatives = ⣿ ░ ─
   msgsep = ' ', -- alternatives: ‾ ─
+  fold = ' ',
   foldopen = '▾',
-  foldsep = '│',
+  foldsep = ' ',
   foldclose = '▸',
 }
 
@@ -66,8 +66,6 @@ opt.formatoptions = {
 o.foldcolumn = '0' -- '0' is not bad
 o.foldlevel = 99
 o.foldlevelstart = 2
-o.foldexpr = 'nvim_treesitter#foldexpr()'
-o.foldmethod = 'expr'
 
 -- Grep
 -- Use faster grep alternatives if possible

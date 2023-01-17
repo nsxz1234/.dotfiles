@@ -59,15 +59,16 @@ function as.find(matcher, haystack)
   return found
 end
 
----NOTE: this plugin returns the currently loaded state of a plugin given
----given certain assumptions i.e. it will only be true if the plugin has been
----loaded e.g. lazy loading will return false
+function as.installed_plugins()
+  local ok, lazy = pcall(require, 'lazy')
+  if not ok then return 0 end
+  return lazy.stats().count
+end
+
 ---@param plugin_name string
 ---@return boolean?
-function as.plugin_loaded(plugin_name)
-  local plugins = packer_plugins or {}
-  return plugins[plugin_name] and plugins[plugin_name].loaded
-end
+-- TODO: figure out how to do this using lazy.nvim
+function as.plugin_loaded(plugin_name) return true end
 
 ---Check whether or not the location or quickfix list is open
 ---@return boolean
