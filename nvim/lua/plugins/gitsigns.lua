@@ -2,6 +2,7 @@ return function()
   require('gitsigns').setup({
     _threaded_diff = true,
     _extmark_signs = true,
+    _signs_staged_enable = true,
     signs = {
       add = {
         hl = 'GitSignsAdd',
