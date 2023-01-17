@@ -306,10 +306,15 @@ require('lazy').setup(
       end,
     },
     {
-      'aarondiel/spread.nvim',
-      init = function()
-        as.nnoremap('gs', function() require('spread').out() end, 'spread: expand')
-        as.nnoremap('gj', function() require('spread').combine() end, 'spread: combine')
+      'Wansmer/treesj',
+      dependencies = { 'nvim-treesitter' },
+      keys = { 'gs', 'gj' },
+      config = function()
+        require('treesj').setup({
+          use_default_keymaps = false,
+        })
+        as.nnoremap('gs', '<Cmd>TSJSplit<CR>', 'split expression to multiple lines')
+        as.nnoremap('gj', '<Cmd>TSJJoin<CR>', 'join expression to single line')
       end,
     },
     {
