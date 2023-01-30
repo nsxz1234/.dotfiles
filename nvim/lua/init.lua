@@ -457,7 +457,6 @@ require('lazy').setup(
     { 'lewis6991/gitsigns.nvim', event = 'BufRead', config = conf('gitsigns') },
     {
       'TimUntersberger/neogit',
-      commit = '691cf89f59ed887809db7854b670cdb944dc9559',
       cmd = 'Neogit',
       keys = { '<leader>gs' },
       dependencies = { 'nvim-lua/plenary.nvim' },
