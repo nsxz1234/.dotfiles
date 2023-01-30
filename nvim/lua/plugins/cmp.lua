@@ -71,11 +71,10 @@ return function()
   })
 
   local search_sources = {
-    sources = cmp.config.sources({
-      { name = 'nvim_lsp_document_symbol' },
-    }, {
-      { name = 'buffer' },
-    }),
+    sources = cmp.config.sources(
+      { { name = 'nvim_lsp_document_symbol' } },
+      { { name = 'buffer' } }
+    ),
   }
 
   cmp.setup.cmdline('/', search_sources)
