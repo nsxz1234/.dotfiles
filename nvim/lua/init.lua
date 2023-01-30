@@ -74,18 +74,6 @@ require('lazy').setup(
     { 'monaqa/dial.nvim', config = conf('dial') },
     'romainl/vim-cool',
     {
-      'Exafunction/codeium.vim',
-      config = function()
-        vim.g.codeium_disable_bindings = 1
-        vim.keymap.set(
-          'i',
-          '<C-g>',
-          function() return vim.fn['codeium#Accept']() end,
-          { expr = true }
-        )
-      end,
-    },
-    {
       'kevinhwang91/nvim-ufo',
       dependencies = { 'kevinhwang91/promise-async' },
       config = conf('ufo'),
