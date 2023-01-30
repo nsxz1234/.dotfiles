@@ -112,7 +112,7 @@ o.wildoptions = 'pum'
 
 -- Display
 o.breakindentopt = 'sbr'
-o.linebreak = true
+o.linebreak = false
 o.signcolumn = 'yes'
 o.cursorline = true
 o.ruler = false
