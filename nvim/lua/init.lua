@@ -344,7 +344,7 @@ require('lazy').setup(
         require('project_nvim').setup({
           detection_methods = { 'pattern', 'lsp' },
           ignore_lsp = { 'null-ls' },
-          patterns = { '.git' },
+          patterns = { '.git', 'pubspec.yaml' },
         })
       end,
     },
