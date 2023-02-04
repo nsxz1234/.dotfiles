@@ -507,6 +507,7 @@ require('lazy').setup(
     },
     {
       'akinsho/git-conflict.nvim',
+      event = 'VeryLazy',
       config = function()
         require('git-conflict').setup({
           default_mappings = true,
