@@ -59,13 +59,7 @@ return function()
     },
     rainbow = {
       enable = true,
-      colors = {
-        'royalblue3',
-        'darkorange3',
-        'seagreen3',
-        'firebrick',
-        'darkorchid3',
-      },
+      query = 'rainbow-parens',
     },
     autopairs = { enable = true },
     query_linter = {
