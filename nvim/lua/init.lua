@@ -1,4 +1,4 @@
-local fmt = string.format
+local opt, fmt = vim.opt, string.format
 local function conf(name) return require(fmt('plugins.%s', name)) end
 
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
@@ -12,7 +12,7 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath,
   })
 end
-vim.opt.rtp:prepend(lazypath)
+opt.rtp:prepend(lazypath)
 
 require('lazy').setup(
   {
