@@ -400,9 +400,11 @@ require('lazy').setup(
       'nvim-treesitter/nvim-treesitter',
       build = ':TSUpdate',
       config = conf('treesitter'),
+      dependencies = {
+        { 'nvim-treesitter/nvim-treesitter-textobjects' },
+        { 'p00f/nvim-ts-rainbow' },
+      },
     },
-    'p00f/nvim-ts-rainbow',
-    'nvim-treesitter/nvim-treesitter-textobjects',
     {
       'hrsh7th/nvim-cmp',
       event = 'InsertEnter',
