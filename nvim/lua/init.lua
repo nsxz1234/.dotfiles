@@ -81,7 +81,7 @@ require('lazy').setup(
     { 'stevearc/dressing.nvim', event = 'VeryLazy' },
     { 'rcarriga/nvim-notify', config = conf('notify') },
     'ii14/emmylua-nvim',
-    'wellle/targets.vim',
+    { 'wellle/targets.vim', event = 'VeryLazy' },
     { 'nvim-lualine/lualine.nvim', config = conf('lualine') },
     'mtdl9/vim-log-highlighting',
     { 'kevinhwang91/nvim-bqf', ft = 'qf' },
@@ -242,22 +242,28 @@ require('lazy').setup(
     {
       'danymat/neogen',
       dependencies = { 'nvim-treesitter/nvim-treesitter' },
-      init = function() as.nnoremap('<leader>cc', require('neogen').generate, 'comment: generate') end,
       opts = { snippet_engine = 'luasnip' },
+      keys = {
+        {
+          '<leader>cc',
+          function() require('neogen').generate() end,
+          desc = 'comment: generate',
+        },
+      },
     },
     {
       'mizlan/iswap.nvim',
-      cmd = { 'ISwap', 'ISwapWith' },
       config = true,
-      init = function()
-        as.nnoremap('<leader>iw', '<Cmd>ISwapWith<CR>', 'ISwap: swap with')
-        as.nnoremap('<leader>ia', '<Cmd>ISwap<CR>', 'ISwap: swap any')
-      end,
+      cmd = { 'ISwap', 'ISwapWith' },
+      keys = {
+        { '<leader>iw', '<Cmd>ISwapWith<CR>', desc = 'ISwap: swap with' },
+        { '<leader>ia', '<Cmd>ISwap<CR>', desc = 'ISwap: swap any' },
+      },
     },
     {
       'mbbill/undotree',
       cmd = 'UndotreeToggle',
-      init = function() as.nnoremap('<leader>u', '<cmd>UndotreeToggle<CR>') end,
+      keys = { { '<leader>u', '<Cmd>UndotreeToggle<CR>', desc = 'undotree: toggle' } },
       config = function()
         vim.g.undotree_TreeNodeShape = '◦' -- Alternative: '◉'
         vim.g.undotree_SetFocusWhenToggle = 1
@@ -324,14 +330,11 @@ require('lazy').setup(
     {
       'Wansmer/treesj',
       dependencies = { 'nvim-treesitter' },
-      keys = { 'gs', 'gj' },
-      config = function()
-        require('treesj').setup({
-          use_default_keymaps = false,
-        })
-        as.nnoremap('gs', '<Cmd>TSJSplit<CR>', 'split expression to multiple lines')
-        as.nnoremap('gj', '<Cmd>TSJJoin<CR>', 'join expression to single line')
-      end,
+      opts = { use_default_keymaps = false },
+      keys = {
+        { 'gs', '<Cmd>TSJSplit<CR>', desc = 'split expression to multiple lines' },
+        { 'gj', '<Cmd>TSJJoin<CR>', desc = 'join expression to single line' },
+      },
     },
     {
       'nvim-pack/nvim-spectre',
@@ -437,22 +440,21 @@ require('lazy').setup(
     },
     {
       'andrewferrier/debugprint.nvim',
-      keys = { '<leader>dp' },
-      config = function()
-        local dp = require('debugprint')
-        dp.setup({ create_keymaps = false })
-        as.nnoremap(
+      opts = { create_keymaps = false },
+      keys = {
+        {
           '<leader>dp',
-          function() return dp.debugprint({ variable = true }) end,
-          { desc = 'debugprint: cursor', expr = true }
-        )
-        as.nnoremap(
+          function() return require('debugprint').debugprint({ variable = true }) end,
+          desc = 'debugprint: cursor',
+          expr = true,
+        },
+        {
           '<leader>do',
-          function() return dp.debugprint({ motion = true }) end,
-          { desc = 'debugprint: operator', expr = true }
-        )
-        as.nnoremap('<leader>dc', '<Cmd>DeleteDebugPrints<CR>', 'debugprint: clear all')
-      end,
+          function() return require('debugprint').debugprint({ motion = true }) end,
+          { desc = 'debugprint: operator', expr = true },
+        },
+        { '<leader>dc', '<Cmd>DeleteDebugPrints<CR>', desc = 'debugprint: clear all' },
+      },
     },
     {
       'dstein64/vim-startuptime',
@@ -462,17 +464,17 @@ require('lazy').setup(
     --
     -- TPOPE
     --
-    'tpope/vim-eunuch',
-    'tpope/vim-sleuth',
-    'tpope/vim-repeat',
+    { 'tpope/vim-eunuch', event = 'VeryLazy' },
+    { 'tpope/vim-sleuth', event = 'VeryLazy' },
+    { 'tpope/vim-repeat', event = 'VeryLazy' },
     {
       'johmsalas/text-case.nvim',
+      event = 'VeryLazy',
       -- "&" Repeat last substitute with flags
-      config = function()
-        require('textcase').setup()
-        as.nnoremap('<leader>/', ':%s/<C-r><C-w>//c<left><left>', { silent = false })
-        as.xnoremap('<leader>/', [["zy:%s/<C-r><C-o>"//c<left><left>]], { silent = false })
-      end,
+      keys = {
+        { '<leader>/', ':%s/<C-r><C-w>//c<left><left>', mode = 'n', silent = false },
+        { '<leader>/', [["zy:%s/<C-r><C-o>"//c<left><left>]], mode = 'x', silent = false },
+      },
     },
     --
     -- Git
