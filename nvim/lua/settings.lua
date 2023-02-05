@@ -108,7 +108,7 @@ opt.wildignore = {
   '.DS_Store',
   'tags.lock',
 }
-o.wildoptions = 'pum'
+opt.wildoptions = 'pum'
 
 -- Display
 o.breakindentopt = 'sbr'
