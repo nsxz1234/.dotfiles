@@ -254,6 +254,15 @@ require('lazy').setup(
       config = function() require('neogen').setup({ snippet_engine = 'luasnip' }) end,
     },
     {
+      'mizlan/iswap.nvim',
+      cmd = { 'ISwap', 'ISwapWith' },
+      config = true,
+      init = function()
+        as.nnoremap('<leader>iw', '<Cmd>ISwapWith<CR>', 'ISwap: swap with')
+        as.nnoremap('<leader>ia', '<Cmd>ISwap<CR>', 'ISwap: swap any')
+      end,
+    },
+    {
       'mbbill/undotree',
       cmd = 'UndotreeToggle',
       init = function() as.nnoremap('<leader>u', '<cmd>UndotreeToggle<CR>') end,
