@@ -39,10 +39,13 @@ require('lazy').setup(
     {
       {
         'williamboman/mason.nvim',
-        event = 'VeryLazy',
+        event = 'BufRead',
         dependencies = {
-          'neovim/nvim-lspconfig',
           'williamboman/mason-lspconfig.nvim',
+          {
+            'neovim/nvim-lspconfig',
+            config = conf('lspconfig'),
+          },
         },
         config = function()
           require('mason').setup()
@@ -60,10 +63,6 @@ require('lazy').setup(
           automatic_installation = true,
         },
       },
-    },
-    {
-      'neovim/nvim-lspconfig',
-      config = conf('lspconfig'),
     },
     {
       'akinsho/flutter-tools.nvim',
@@ -137,12 +136,7 @@ require('lazy').setup(
         map('!', '<C-u>', readline.backward_kill_line)
       end,
     },
-    {
-      'kylechui/nvim-surround',
-      opts = {
-        keymaps = { visual = 's' },
-      },
-    },
+    { 'kylechui/nvim-surround', opts = { keymaps = { visual = 's' } } },
     {
       'zbirenbaum/neodim',
       config = function()
@@ -155,14 +149,15 @@ require('lazy').setup(
     },
     {
       'smjonas/inc-rename.nvim',
-      config = function()
-        require('inc_rename').setup()
-        as.nnoremap(
+      keys = {
+        {
           '<leader>rn',
           function() return ':IncRename ' .. vim.fn.expand('<cword>') end,
-          { expr = true, silent = false, desc = 'lsp: incremental rename' }
-        )
-      end,
+          expr = true,
+          silent = false,
+          desc = 'lsp: incremental rename',
+        },
+      },
     },
     {
       'akinsho/nvim-toggleterm.lua',
@@ -202,7 +197,12 @@ require('lazy').setup(
       dependencies = { 'hrsh7th/nvim-cmp' },
       config = function()
         require('nvim-autopairs').setup({
+          check_ts = true,
           fast_wrap = { map = '<c-e>' },
+          ts_config = {
+            lua = { 'string' },
+            dart = { 'string' },
+          },
         })
       end,
     },
@@ -241,7 +241,6 @@ require('lazy').setup(
     {
       'danymat/neogen',
       dependencies = { 'nvim-treesitter/nvim-treesitter' },
-      module = 'neogen',
       init = function() as.nnoremap('<leader>cc', require('neogen').generate, 'comment: generate') end,
       opts = { snippet_engine = 'luasnip' },
     },
@@ -270,16 +269,13 @@ require('lazy').setup(
       'uga-rosa/ccc.nvim',
       opts = {
         win_opts = { border = as.style.current.border },
-        highlighter = {
-          auto_enable = true,
-          excludes = { 'dart' },
-        },
+        highlighter = { auto_enable = true, excludes = { 'dart' } },
       },
     },
     {
       'moll/vim-bbye',
-      event = 'VeryLazy',
-      config = function() as.nnoremap('df', '<Cmd>Bwipeout<CR>', 'bbye: quit') end,
+      cmd = 'Bwipeout',
+      keys = { { 'df', '<Cmd>Bwipeout<CR>', desc = 'bbye: quit' } },
     },
     {
       'iamcco/markdown-preview.nvim',
@@ -393,10 +389,7 @@ require('lazy').setup(
       'mfussenegger/nvim-dap',
       lazy = true,
       dependencies = {
-        {
-          'rcarriga/nvim-dap-ui',
-          config = function() require('dapui').setup() end,
-        },
+        { 'rcarriga/nvim-dap-ui', config = true },
         { 'theHamsta/nvim-dap-virtual-text', opts = { all_frames = true } },
       },
     },
@@ -438,7 +431,6 @@ require('lazy').setup(
     {
       'L3MON4D3/LuaSnip',
       event = 'InsertEnter',
-      module = 'luasnip',
       dependencies = { 'rafamadriz/friendly-snippets' },
       config = conf('luasnip'),
     },
@@ -513,7 +505,6 @@ require('lazy').setup(
     {
       'sindrets/diffview.nvim',
       cmd = { 'DiffviewOpen', 'DiffviewFileHistory' },
-      module = 'diffview',
       init = function()
         as.nnoremap('<leader>gd', '<Cmd>DiffviewOpen<CR>', 'diffview: open')
         as.nnoremap('<leader>gh', '<Cmd>DiffviewFileHistory<CR>', 'diffview: file history')
