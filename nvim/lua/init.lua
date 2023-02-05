@@ -145,11 +145,13 @@ require('lazy').setup(
     },
     {
       'zbirenbaum/neodim',
-      opts = {
-        hide = {
-          underline = false,
-        },
-      },
+      config = function()
+        require('neodim').setup({
+          hide = {
+            underline = false,
+          },
+        })
+      end,
     },
     {
       'smjonas/inc-rename.nvim',
