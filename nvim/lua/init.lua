@@ -385,15 +385,8 @@ require('lazy').setup(
     },
     {
       'akinsho/pubspec-assist.nvim',
-      enabled = false,
       ft = { 'dart' },
       event = 'BufEnter pubspec.yaml',
-      rocks = {
-        {
-          'lyaml',
-          server = 'http://rocks.moonscript.org',
-        },
-      },
       config = function() require('pubspec-assist').setup() end,
     },
     {
