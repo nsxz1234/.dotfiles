@@ -186,6 +186,7 @@ require('lazy').setup(
     },
     {
       'numToStr/Comment.nvim',
+      event = 'VeryLazy',
       config = true,
       -- opts = {
       --   vim.api.nvim_command('set commentstring=//%s'),
