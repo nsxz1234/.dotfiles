@@ -449,6 +449,25 @@ require('lazy').setup(
       config = conf('luasnip'),
     },
     {
+      'andrewferrier/debugprint.nvim',
+      keys = { '<leader>dp' },
+      config = function()
+        local dp = require('debugprint')
+        dp.setup({ create_keymaps = false })
+        as.nnoremap(
+          '<leader>dp',
+          function() return dp.debugprint({ variable = true }) end,
+          { desc = 'debugprint: cursor', expr = true }
+        )
+        as.nnoremap(
+          '<leader>do',
+          function() return dp.debugprint({ motion = true }) end,
+          { desc = 'debugprint: operator', expr = true }
+        )
+        as.nnoremap('<leader>dc', '<Cmd>DeleteDebugPrints<CR>', 'debugprint: clear all')
+      end,
+    },
+    {
       'dstein64/vim-startuptime',
       cmd = 'StartupTime',
       config = function() vim.g.startuptime_tries = 15 end,
