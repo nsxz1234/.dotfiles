@@ -37,16 +37,29 @@ require('lazy').setup(
     },
     'nvim-lua/plenary.nvim',
     {
-      'williamboman/mason.nvim',
-      event = 'VeryLazy',
-      dependencies = {
-        'neovim/nvim-lspconfig',
-        'williamboman/mason-lspconfig.nvim',
+      {
+        'williamboman/mason.nvim',
+        event = 'VeryLazy',
+        dependencies = {
+          'neovim/nvim-lspconfig',
+          'williamboman/mason-lspconfig.nvim',
+        },
+        config = function()
+          require('mason').setup()
+          require('mason-lspconfig').setup({ automatic_installation = true })
+        end,
       },
-      config = function()
-        require('mason').setup()
-        require('mason-lspconfig').setup({ automatic_installation = true })
-      end,
+      {
+        'jayp0521/mason-null-ls.nvim',
+        event = 'VeryLazy',
+        dependencies = {
+          'williamboman/mason.nvim',
+          'jose-elias-alvarez/null-ls.nvim',
+        },
+        opts = {
+          automatic_installation = true,
+        },
+      },
     },
     {
       'neovim/nvim-lspconfig',
