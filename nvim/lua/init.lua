@@ -38,6 +38,7 @@ require('lazy').setup(
     'nvim-lua/plenary.nvim',
     {
       'williamboman/mason.nvim',
+      event = 'VeryLazy',
       dependencies = {
         'neovim/nvim-lspconfig',
         'williamboman/mason-lspconfig.nvim',
@@ -59,10 +60,11 @@ require('lazy').setup(
     'RobertBrunhage/flutter-riverpod-snippets',
     {
       'akinsho/nvim-bufferline.lua',
+      event = 'VeryLazy',
       config = conf('bufferline'),
       dependencies = { 'kyazdani42/nvim-web-devicons' },
     },
-    { 'lukas-reineke/indent-blankline.nvim', config = conf('indentline') },
+    { 'lukas-reineke/indent-blankline.nvim', event = 'VeryLazy', config = conf('indentline') },
     'kyazdani42/nvim-web-devicons',
     { 'stevearc/dressing.nvim', event = 'VeryLazy' },
     { 'rcarriga/nvim-notify', config = conf('notify') },
@@ -75,6 +77,7 @@ require('lazy').setup(
     'romainl/vim-cool',
     {
       'kevinhwang91/nvim-ufo',
+      event = 'VeryLazy',
       dependencies = { 'kevinhwang91/promise-async' },
       config = conf('ufo'),
     },
@@ -84,7 +87,7 @@ require('lazy').setup(
     },
     {
       'folke/todo-comments.nvim',
-      enabled = true,
+      event = 'VeryLazy',
       dependencies = { 'nvim-treesitter/nvim-treesitter' },
       config = function() require('todo-comments').setup() end,
     },
@@ -158,6 +161,7 @@ require('lazy').setup(
     },
     {
       'akinsho/nvim-toggleterm.lua',
+      event = 'VeryLazy',
       config = conf('toggleterm'),
     },
     {
@@ -189,6 +193,8 @@ require('lazy').setup(
     },
     {
       'windwp/nvim-autopairs',
+      event = 'InsertEnter',
+      dependencies = { 'hrsh7th/nvim-cmp' },
       config = function()
         require('nvim-autopairs').setup({
           fast_wrap = { map = '<c-e>' },
@@ -260,6 +266,7 @@ require('lazy').setup(
     },
     {
       'moll/vim-bbye',
+      event = 'VeryLazy',
       config = function() as.nnoremap('df', '<Cmd>Bwipeout<CR>', 'bbye: quit') end,
     },
     {
@@ -363,6 +370,7 @@ require('lazy').setup(
     },
     {
       'nvim-neotest/neotest',
+      lazy = true,
       config = conf('neotest'),
       dependencies = {
         { 'rcarriga/neotest-plenary' },
@@ -450,7 +458,7 @@ require('lazy').setup(
     --
     -- Git
     --
-    { 'lewis6991/gitsigns.nvim', event = 'BufRead', config = conf('gitsigns') },
+    { 'lewis6991/gitsigns.nvim', event = 'VeryLazy', config = conf('gitsigns') },
     {
       'TimUntersberger/neogit',
       cmd = 'Neogit',
