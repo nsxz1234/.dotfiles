@@ -104,28 +104,22 @@ require('lazy').setup(
       dependencies = { 'nvim-treesitter/nvim-treesitter' },
       config = function() require('todo-comments').setup() end,
     },
-    {
-      'nacro90/numb.nvim',
-      event = 'CmdlineEnter',
-      config = function() require('numb').setup() end,
-    },
+    { 'nacro90/numb.nvim', event = 'CmdlineEnter', config = true },
     {
       'lvimuser/lsp-inlayhints.nvim',
-      config = function()
-        require('lsp-inlayhints').setup({
-          inlay_hints = {
-            highlight = 'Comment',
-            labels_separator = ' ⏐ ',
-            parameter_hints = {
-              prefix = '',
-            },
-            type_hints = {
-              prefix = '=> ',
-              remove_colon_start = true,
-            },
+      opts = {
+        inlay_hints = {
+          highlight = 'Comment',
+          labels_separator = ' ⏐ ',
+          parameter_hints = {
+            prefix = '',
           },
-        })
-      end,
+          type_hints = {
+            prefix = '=> ',
+            remove_colon_start = true,
+          },
+        },
+      },
     },
     {
       'linty-org/readline.nvim',
@@ -145,21 +139,17 @@ require('lazy').setup(
     },
     {
       'kylechui/nvim-surround',
-      config = function()
-        require('nvim-surround').setup({
-          keymaps = { visual = 's' },
-        })
-      end,
+      opts = {
+        keymaps = { visual = 's' },
+      },
     },
     {
       'zbirenbaum/neodim',
-      config = function()
-        require('neodim').setup({
-          hide = {
-            underline = false,
-          },
-        })
-      end,
+      opts = {
+        hide = {
+          underline = false,
+        },
+      },
     },
     {
       'smjonas/inc-rename.nvim',
@@ -199,10 +189,10 @@ require('lazy').setup(
     },
     {
       'numToStr/Comment.nvim',
-      config = function()
-        require('Comment').setup()
-        vim.api.nvim_command('set commentstring=//%s')
-      end,
+      config = true,
+      -- opts = {
+      --   vim.api.nvim_command('set commentstring=//%s'),
+      -- },
     },
     {
       'windwp/nvim-autopairs',
@@ -251,7 +241,7 @@ require('lazy').setup(
       dependencies = { 'nvim-treesitter/nvim-treesitter' },
       module = 'neogen',
       init = function() as.nnoremap('<leader>cc', require('neogen').generate, 'comment: generate') end,
-      config = function() require('neogen').setup({ snippet_engine = 'luasnip' }) end,
+      opts = { snippet_engine = 'luasnip' },
     },
     {
       'mizlan/iswap.nvim',
@@ -276,15 +266,13 @@ require('lazy').setup(
     },
     {
       'uga-rosa/ccc.nvim',
-      config = function()
-        require('ccc').setup({
-          win_opts = { border = as.style.current.border },
-          highlighter = {
-            auto_enable = true,
-            excludes = { 'dart' },
-          },
-        })
-      end,
+      opts = {
+        win_opts = { border = as.style.current.border },
+        highlighter = {
+          auto_enable = true,
+          excludes = { 'dart' },
+        },
+      },
     },
     {
       'moll/vim-bbye',
@@ -407,17 +395,14 @@ require('lazy').setup(
           'rcarriga/nvim-dap-ui',
           config = function() require('dapui').setup() end,
         },
-        {
-          'theHamsta/nvim-dap-virtual-text',
-          config = function() require('nvim-dap-virtual-text').setup({ all_frames = true }) end,
-        },
+        { 'theHamsta/nvim-dap-virtual-text', opts = { all_frames = true } },
       },
     },
     {
       'akinsho/pubspec-assist.nvim',
       ft = { 'dart' },
       event = 'BufEnter pubspec.yaml',
-      config = function() require('pubspec-assist').setup() end,
+      config = true,
     },
     {
       'nvim-treesitter/nvim-treesitter',
@@ -444,9 +429,7 @@ require('lazy').setup(
         { 'lukas-reineke/cmp-rg' },
         {
           'petertriho/cmp-git',
-          config = function()
-            require('cmp_git').setup({ filetypes = { 'gitcommit', 'NeogitCommitMessage' } })
-          end,
+          opts = { filetypes = { 'gitcommit', 'NeogitCommitMessage' } },
         },
       },
     },
@@ -551,18 +534,18 @@ require('lazy').setup(
     {
       'akinsho/git-conflict.nvim',
       event = 'VeryLazy',
-      config = function()
-        require('git-conflict').setup({
-          default_mappings = true,
-          disable_diagnostics = true,
-        })
-        as.nnoremap('co', '<Plug>(git-conflict-ours)')
-        as.nnoremap('cb', '<Plug>(git-conflict-both)')
-        as.nnoremap('cn', '<Plug>(git-conflict-none)')
-        as.nnoremap('ct', '<Plug>(git-conflict-theirs)')
-        as.nnoremap(']c', '<Plug>(git-conflict-next-conflict)')
-        as.nnoremap('[c', '<Plug>(git-conflict-prev-conflict)')
-      end,
+      opts = {
+        default_mappings = true,
+        disable_diagnostics = true,
+      },
+      keys = {
+        { 'co', '<Plug>(git-conflict-ours)' },
+        { 'cb', '<Plug>(git-conflict-both)' },
+        { 'cn', '<Plug>(git-conflict-none)' },
+        { 'ct', '<Plug>(git-conflict-theirs)' },
+        { ']c', '<Plug>(git-conflict-next-conflict)' },
+        { '[c', '<Plug>(git-conflict-prev-conflict)' },
+      },
     },
   },
   --------------------------
