@@ -69,10 +69,10 @@ o.foldlevelstart = 2
 
 -- Grep
 -- Use faster grep alternatives if possible
-if as.executable('rg') then
+if as and as.executable('rg') then
   vim.o.grepprg = [[rg --glob "!.git" --no-heading --vimgrep --follow $*]]
   opt.grepformat = opt.grepformat ^ { '%f:%l:%c:%m' }
-elseif as.executable('ag') then
+elseif as and as.executable('ag') then
   vim.o.grepprg = [[ag --nogroup --nocolor --vimgrep]]
   opt.grepformat = opt.grepformat ^ { '%f:%l:%c:%m' }
 end
