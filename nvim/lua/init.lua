@@ -72,7 +72,7 @@ require('lazy').setup(
     'RobertBrunhage/flutter-riverpod-snippets',
     {
       'akinsho/nvim-bufferline.lua',
-      event = 'VeryLazy',
+      event = 'BufReadPre',
       config = conf('bufferline'),
       dependencies = { 'kyazdani42/nvim-web-devicons' },
     },
