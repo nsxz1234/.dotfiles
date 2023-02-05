@@ -551,6 +551,16 @@ require('lazy').setup(
   --------------------------
   {
     defaults = {},
+    rtp = {
+      disabled_plugins = {
+        'netrw',
+        'netrwPlugin',
+        'tarPlugin',
+        'tutor',
+        'tohtml',
+        'logipat',
+      },
+    },
   }
 )
 
