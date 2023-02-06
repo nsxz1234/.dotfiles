@@ -89,6 +89,7 @@ require('lazy').setup(
     'romainl/vim-cool',
     {
       'kevinhwang91/nvim-ufo',
+      enabled = false,
       event = 'VeryLazy',
       dependencies = { 'kevinhwang91/promise-async' },
       config = conf('ufo'),
