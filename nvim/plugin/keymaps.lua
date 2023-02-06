@@ -126,6 +126,9 @@ nnoremap('<a-->', '<C-W>-')
 nnoremap('<a-,>', '<C-W><')
 nnoremap('<a-.>', '<C-W>>')
 
+-- Lazy
+nnoremap('<leader>p', '<cmd>Lazy<cr>')
+
 -- Telescope
 nnoremap('ff', ':Telescope find_files<cr>')
 nnoremap('fo', ':Telescope oldfiles<cr>')
