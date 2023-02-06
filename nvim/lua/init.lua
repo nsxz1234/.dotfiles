@@ -149,6 +149,7 @@ require('lazy').setup(
     },
     {
       'smjonas/inc-rename.nvim',
+      config = true,
       keys = {
         {
           '<leader>rn',
