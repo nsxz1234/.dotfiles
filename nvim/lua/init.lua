@@ -456,11 +456,6 @@ require('lazy').setup(
         { '<leader>dc', '<Cmd>DeleteDebugPrints<CR>', desc = 'debugprint: clear all' },
       },
     },
-    {
-      'dstein64/vim-startuptime',
-      cmd = 'StartupTime',
-      config = function() vim.g.startuptime_tries = 15 end,
-    },
     --
     -- TPOPE
     --
