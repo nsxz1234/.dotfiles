@@ -55,13 +55,8 @@ require('lazy').setup(
       {
         'jayp0521/mason-null-ls.nvim',
         event = 'VeryLazy',
-        dependencies = {
-          'williamboman/mason.nvim',
-          'jose-elias-alvarez/null-ls.nvim',
-        },
-        opts = {
-          automatic_installation = true,
-        },
+        dependencies = { 'williamboman/mason.nvim', 'jose-elias-alvarez/null-ls.nvim' },
+        opts = { automatic_installation = true },
       },
     },
     {
