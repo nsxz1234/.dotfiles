@@ -500,11 +500,21 @@ require('lazy').setup(
     {
       'sindrets/diffview.nvim',
       cmd = { 'DiffviewOpen', 'DiffviewFileHistory' },
-      init = function()
-        as.nnoremap('<leader>gd', '<Cmd>DiffviewOpen<CR>', 'diffview: open')
-        as.nnoremap('<leader>gh', '<Cmd>DiffviewFileHistory<CR>', 'diffview: file history')
-        as.xnoremap('<leader>gh', [[:'<'>DiffviewFileHistory<CR>]], 'diffview: file history')
-      end,
+      keys = {
+        { '<leader>gd', '<Cmd>DiffviewOpen<CR>', desc = 'diffview: open', mode = 'n' },
+        {
+          '<leader>gh',
+          '<Cmd>DiffviewFileHistory<CR>',
+          desc = 'diffview: file history',
+          mode = 'n',
+        },
+        {
+          '<leader>gh',
+          [[:'<'>DiffviewFileHistory<CR>]],
+          desc = 'diffview: file history',
+          mode = 'x',
+        },
+      },
       config = function()
         require('diffview').setup({
           default_args = {
