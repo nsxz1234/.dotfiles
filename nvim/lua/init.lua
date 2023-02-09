@@ -73,7 +73,7 @@ require('lazy').setup(
     },
     { 'lukas-reineke/indent-blankline.nvim', event = 'VeryLazy', config = conf('indentline') },
     'kyazdani42/nvim-web-devicons',
-    { 'stevearc/dressing.nvim', event = 'VeryLazy' },
+    { 'stevearc/dressing.nvim' },
     { 'rcarriga/nvim-notify', config = conf('notify') },
     'ii14/emmylua-nvim',
     { 'wellle/targets.vim', event = 'VeryLazy' },
