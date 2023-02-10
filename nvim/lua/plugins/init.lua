@@ -24,19 +24,17 @@ return {
   {
     {
       'williamboman/mason.nvim',
-      event = 'BufRead',
-      dependencies = {
-        'williamboman/mason-lspconfig.nvim',
-      },
-      config = function()
-        require('mason').setup()
-        require('mason-lspconfig').setup({ automatic_installation = true })
-      end,
+      dependencies = { 'mason-lspconfig.nvim', 'mason-null-ls.nvim' },
+      config = true,
+    },
+    {
+      'williamboman/mason-lspconfig.nvim',
+      dependencies = { 'neovim/nvim-lspconfig' },
+      config = function() require('mason-lspconfig').setup({ automatic_installation = true }) end,
     },
     {
       'jayp0521/mason-null-ls.nvim',
-      event = 'VeryLazy',
-      dependencies = { 'williamboman/mason.nvim', 'jose-elias-alvarez/null-ls.nvim' },
+      dependencies = { 'jose-elias-alvarez/null-ls.nvim' },
       opts = { automatic_installation = true },
     },
   },
