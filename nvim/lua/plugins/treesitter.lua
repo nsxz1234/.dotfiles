@@ -61,7 +61,13 @@ local function config()
     },
     rainbow = {
       enable = true,
-      query = 'rainbow-parens',
+      colors = {
+        'royalblue3',
+        'darkorange3',
+        'seagreen3',
+        'firebrick',
+        'darkorchid3',
+      },
     },
     autopairs = { enable = true },
     query_linter = {
@@ -79,7 +85,7 @@ return {
     config = config,
     dependencies = {
       { 'nvim-treesitter/nvim-treesitter-textobjects' },
-      { 'p00f/nvim-ts-rainbow' },
+      { 'mrjones2014/nvim-ts-rainbow' },
     },
   },
 }
