@@ -24,4 +24,4 @@ _G.as = as or namespace
 R('globals')
 R('styles')
 R('settings')
-R('init')
+R('plugins')
