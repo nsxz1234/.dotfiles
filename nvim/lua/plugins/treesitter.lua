@@ -1,4 +1,4 @@
-return function()
+local function config()
   require('nvim-treesitter.configs').setup({
     ensure_installed = {
       'lua',
@@ -71,3 +71,15 @@ return function()
     },
   })
 end
+
+return {
+  {
+    'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate',
+    config = config,
+    dependencies = {
+      { 'nvim-treesitter/nvim-treesitter-textobjects' },
+      { 'p00f/nvim-ts-rainbow' },
+    },
+  },
+}

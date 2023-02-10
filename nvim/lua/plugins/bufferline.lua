@@ -1,4 +1,4 @@
-return function()
+local function config()
   local fn = vim.fn
   local icons = as.style.icons.lsp
 
@@ -43,7 +43,9 @@ return function()
           {
             name = 'tests',
             icon = '',
-            matcher = function(buf) return buf.filename:match('_spec') or buf.filename:match('_test') end,
+            matcher = function(buf)
+              return buf.filename:match('_spec') or buf.filename:match('_test')
+            end,
           },
           {
             name = 'docs',
@@ -59,3 +61,12 @@ return function()
     },
   })
 end
+
+return {
+  {
+    'akinsho/bufferline.nvim',
+    event = 'BufReadPre',
+    config = config,
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+  },
+}

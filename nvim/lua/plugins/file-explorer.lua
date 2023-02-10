@@ -1,4 +1,4 @@
-return function()
+local function config()
   vim.g.neo_tree_remove_legacy_commands = 1
   local icons = as.style.icons
   as.nnoremap('<tab>', '<Cmd>Neotree toggle reveal<CR>')
@@ -61,3 +61,18 @@ return function()
     },
   })
 end
+
+return {
+  {
+    'nvim-neo-tree/neo-tree.nvim',
+    branch = 'v2.x',
+    config = config,
+    keys = { '<tab>', '<C-e>' },
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'MunifTanjim/nui.nvim',
+      'nvim-tree/nvim-web-devicons',
+      { 'mrbjarksen/neo-tree-diagnostics.nvim' },
+    },
+  },
+}

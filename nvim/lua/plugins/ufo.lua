@@ -1,4 +1,4 @@
-return function()
+local function config()
   local ufo = require('ufo')
   local opt, strwidth = vim.opt, vim.api.nvim_strwidth
 
@@ -64,3 +64,13 @@ return function()
   as.nnoremap('zR', ufo.openAllFolds, 'open all folds')
   as.nnoremap('zM', ufo.closeAllFolds, 'close all folds')
 end
+
+return {
+  {
+    'kevinhwang91/nvim-ufo',
+    enabled = false,
+    event = 'VeryLazy',
+    dependencies = { 'kevinhwang91/promise-async' },
+    config = config,
+  },
+}

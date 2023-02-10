@@ -1,4 +1,4 @@
-return function()
+local function config()
   local wk = require('which-key')
   wk.setup({
     plugins = {
@@ -34,3 +34,10 @@ return function()
     },
   })
 end
+
+return { {
+  'folke/which-key.nvim',
+  enabled = false,
+  event = 'VeryLazy',
+  config = config,
+} }

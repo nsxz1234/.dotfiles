@@ -1,4 +1,4 @@
-return function()
+local function config()
   local neotest = require('neotest')
   neotest.setup({
     discovery = { enabled = true },
@@ -27,3 +27,15 @@ return function()
   as.nnoremap('<leader>tf', run_file, 'neotest: run file')
   as.nnoremap('<leader>tF', run_file_sync, 'neotest: run file synchronously')
 end
+
+return {
+  {
+    'nvim-neotest/neotest',
+    lazy = true,
+    config = config,
+    dependencies = {
+      { 'rcarriga/neotest-plenary' },
+      { 'sidlatau/neotest-dart' },
+    },
+  },
+}

@@ -1,4 +1,4 @@
-return function()
+local function config()
   local notify = require('notify')
   notify.setup({
     timeout = 3000,
@@ -9,3 +9,5 @@ return function()
   require('telescope').load_extension('notify')
   as.nnoremap('<leader>n', notify.dismiss, { desc = 'dismiss notifications' })
 end
+
+return { { 'rcarriga/nvim-notify', config = config } }

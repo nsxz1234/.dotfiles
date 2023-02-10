@@ -1,4 +1,4 @@
-return function()
+local function config()
   local filetype = {
     'filetype',
     colored = true,
@@ -33,3 +33,5 @@ return function()
     },
   })
 end
+
+return { { 'nvim-lualine/lualine.nvim', config = config } }

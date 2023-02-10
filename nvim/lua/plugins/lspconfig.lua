@@ -1,4 +1,4 @@
-return function()
+local function config()
   local fn = vim.fn
 
   -- nvim-cmp supports additional completion capabilities
@@ -39,3 +39,10 @@ return function()
     },
   })
 end
+
+return {
+  {
+    'neovim/nvim-lspconfig',
+    config = config,
+  },
+}

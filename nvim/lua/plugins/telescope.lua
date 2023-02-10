@@ -1,4 +1,4 @@
-return function()
+local function config()
   local telescope = require('telescope')
   local actions = require('telescope.actions')
 
@@ -71,7 +71,30 @@ return function()
       },
       lsp_document_symbols = {
         previewer = false,
-      }
+      },
     },
   })
 end
+
+return {
+  {
+    'nvim-telescope/telescope.nvim',
+    branch = 'master', -- '0.1.x',
+    lazy = true,
+    config = config,
+    event = 'CursorHold',
+    dependencies = {
+      {
+        'natecraddock/telescope-zf-native.nvim',
+        config = function() require('telescope').load_extension('zf-native') end,
+      },
+      {
+        'ilAYAli/scMRU.nvim',
+        init = function()
+          as.nnoremap('fr', '<Cmd>Mru<CR>', 'most recently used')
+          as.nnoremap('fu', '<Cmd>Mfu<CR>', 'most frequently used')
+        end,
+      },
+    },
+  },
+}

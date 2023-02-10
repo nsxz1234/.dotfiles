@@ -1,4 +1,4 @@
-return function()
+local function config()
   local ls = require('luasnip')
   local types = require('luasnip.util.types')
   local extras = require('luasnip.extras')
@@ -34,9 +34,7 @@ return function()
     },
   })
 
-  as.command('LuaSnipEdit', function()
-    require('luasnip.loaders.from_lua').edit_snippet_files()
-  end)
+  as.command('LuaSnipEdit', function() require('luasnip.loaders.from_lua').edit_snippet_files() end)
 
   require('luasnip.loaders.from_lua').lazy_load()
   -- NOTE: the loader is called twice so it picks up the defaults first then my custom textmate
@@ -46,3 +44,12 @@ return function()
 
   ls.filetype_extend('dart', { 'flutter' })
 end
+
+return {
+  {
+    'L3MON4D3/LuaSnip',
+    event = 'InsertEnter',
+    dependencies = { 'rafamadriz/friendly-snippets' },
+    config = config,
+  },
+}
