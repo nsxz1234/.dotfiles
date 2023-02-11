@@ -63,6 +63,7 @@ opt.formatoptions = {
 }
 
 -- Fold
+o.foldenable = false
 o.foldcolumn = '0' -- '0' is not bad
 o.foldlevel = 99
 o.foldlevelstart = 2
