@@ -1,3 +1,8 @@
+# ENV VARIABLES
+export XDG_CONFIG_HOME="$HOME/.config"
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+export DOTFILES=${HOME}/.dotfiles
+
 # nnn
 export NNN_PLUG='f:fzopen;v:imgview'
 export NNN_BMS=".:$HOME/.dotfiles;c:$HOME/.config"
