@@ -20,9 +20,9 @@ local function config()
   local plugins = ('%s/site/pack/packer'):format(fn.stdpath('data'))
   local emmy = ('%s/start/emmylua-nvim'):format(plugins)
   local plenary = ('%s/start/plenary.nvim'):format(plugins)
-  local packer = ('%s/opt/packer.nvim'):format(plugins)
+  local neotest = ('%s/opt/neotest'):format(plugins)
 
-  require('lspconfig').sumneko_lua.setup({
+  require('lspconfig').lua_ls.setup({
     capabilities = capabilities,
     settings = {
       Lua = {
@@ -32,7 +32,7 @@ local function config()
         },
         completion = { keywordSnippet = 'Replace', callSnippet = 'Replace' },
         workspace = {
-          library = { fn.expand('$VIMRUNTIME/lua'), emmy, packer, plenary },
+          library = { fn.expand('$VIMRUNTIME/lua'), emmy, neotest, plenary },
           checkThirdParty = false,
         },
       },
