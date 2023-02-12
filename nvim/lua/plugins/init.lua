@@ -63,10 +63,7 @@ return {
         highlight = 'Comment',
         labels_separator = ' ⏐ ',
         parameter_hints = { prefix = '' },
-        type_hints = {
-          prefix = '=> ',
-          remove_colon_start = true,
-        },
+        type_hints = { prefix = '=> ', remove_colon_start = true },
       },
     },
   },
@@ -91,9 +88,7 @@ return {
     'zbirenbaum/neodim',
     config = function()
       require('neodim').setup({
-        hide = {
-          underline = false,
-        },
+        hide = { underline = false },
       })
     end,
   },
