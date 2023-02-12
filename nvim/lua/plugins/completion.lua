@@ -23,10 +23,12 @@ local function config()
   end
 
   cmp.setup({
+    matching = {
+      disallow_partial_fuzzy_matching = false,
+    },
     snippet = {
       expand = function(args) require('luasnip').lsp_expand(args.body) end,
     },
-
     mapping = {
       ['<C-k>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
       ['<C-j>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
