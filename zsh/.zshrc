@@ -62,7 +62,7 @@ source /usr/share/fzf/completion.zsh
 # zig
 export PATH=$PATH:~/zig
 # flutter
-# export CHROME_EXECUTABLE=/usr/bin/chromium
+export CHROME_EXECUTABLE=/usr/bin/brave
 export PUB_HOSTED_URL=https://pub.flutter-io.cn
 export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 export PATH=~/flutter/bin:$PATH
@@ -77,8 +77,8 @@ alias l="exa -la"
 alias e='nvim'
 alias lg='lazygit'
 alias ra='ranger'
-alias n="nnn -ex"
-alias t="ydcv-rs"
+alias n="n -ex"
+alias t="ydcv"
 
 # ^g to open lazygit (below oh-my-zsh)
 bindkey -s '^g' 'lazygit\n'
