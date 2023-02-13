@@ -46,6 +46,15 @@ return {
   { 'kevinhwang91/nvim-bqf', ft = 'qf' },
   'romainl/vim-cool',
   {
+    'jcdickinson/codeium.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'MunifTanjim/nui.nvim',
+      'hrsh7th/nvim-cmp',
+    },
+    config = true,
+  },
+  {
     'kevinhwang91/nvim-hlslens',
     config = function() require('hlslens').setup() end,
   },
