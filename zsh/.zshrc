@@ -53,7 +53,7 @@ zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=10"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=241"
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
 source /usr/share/fzf/key-bindings.zsh
