@@ -200,6 +200,7 @@ return {
   },
   {
     'uga-rosa/ccc.nvim',
+    event = 'VeryLazy',
     opts = {
       win_opts = { border = as.style.current.border },
       highlighter = { auto_enable = true, excludes = { 'dart' } },
