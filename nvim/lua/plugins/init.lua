@@ -47,6 +47,7 @@ return {
   'romainl/vim-cool',
   {
     'jcdickinson/codeium.nvim',
+    event = 'VeryLazy',
     dependencies = {
       'nvim-lua/plenary.nvim',
       'MunifTanjim/nui.nvim',
