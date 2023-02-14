@@ -3,7 +3,6 @@ local opt, fmt = vim.opt, string.format
 return {
   {
     'sainnhe/gruvbox-material',
-    lazy = false,
     priority = 1000,
     config = function()
       vim.g.gruvbox_material_background = 'soft'
@@ -13,7 +12,6 @@ return {
   },
   {
     'sainnhe/everforest',
-    lazy = false,
     priority = 1000,
     config = function()
       vim.g.everforest_background = 'soft'
