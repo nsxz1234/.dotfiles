@@ -48,13 +48,6 @@ opt.rtp:prepend(lazypath)
 require('lazy').setup('plugins', {
   defaults = {},
   rtp = {
-    disabled_plugins = {
-      'netrw',
-      'netrwPlugin',
-      'tarPlugin',
-      'tutor',
-      'tohtml',
-      'logipat',
-    },
+    disabled_plugins = { 'netrw', 'netrwPlugin', 'tarPlugin', 'tutor', 'tohtml', 'logipat' },
   },
 })
