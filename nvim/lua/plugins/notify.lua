@@ -7,7 +7,11 @@ local function config()
   })
   vim.notify = notify
   require('telescope').load_extension('notify')
-  as.nnoremap('<leader>n', notify.dismiss, { desc = 'dismiss notifications' })
+  as.nnoremap(
+    '<leader>n',
+    function() notify.dismiss({ silent = true, pending = true }) end,
+    { desc = 'dismiss notifications' }
+  )
 end
 
 return { { 'rcarriga/nvim-notify', config = config } }
