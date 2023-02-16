@@ -129,22 +129,6 @@ nnoremap('<a-.>', '<C-W>>')
 -- Lazy
 nnoremap('<leader>p', '<cmd>Lazy<cr>')
 
--- Telescope
-nnoremap('ff', ':Telescope find_files<cr>')
-nnoremap('fo', ':Telescope oldfiles<cr>')
-nnoremap('fg', ':Telescope live_grep<cr>')
-nnoremap('fw', ':Telescope grep_string<cr>')
-nnoremap('fh', ':Telescope search_history<cr>')
-nnoremap('f;', ':Telescope commands<cr>')
-nnoremap('fc', ':Telescope command_history<cr>')
-nnoremap('fd', ':Telescope buffers<cr>')
-nnoremap('f/', ':Telescope help_tags<cr>')
-nnoremap('fm', ':Telescope marks<cr>')
-nnoremap('ft', ':Telescope lsp_dynamic_workspace_symbols<cr>')
-nnoremap('fa', ':Telescope lsp_document_symbols<cr>')
-nnoremap('fn', ':Telescope notify<cr>')
-nnoremap('fk', ':Telescope keymaps<cr>')
-
 -- dap
 nnoremap('<leader>b', '<cmd>lua require("dap").toggle_breakpoint()<cr>')
 nnoremap('<leader>1', '<cmd>lua require("dap").continue()<cr>')

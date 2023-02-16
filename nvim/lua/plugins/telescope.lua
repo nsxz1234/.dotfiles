@@ -69,6 +69,11 @@ local function config()
       find_files = {
         hidden = true,
       },
+      keymaps = {
+        layout_config = {
+          height = 18,
+        },
+      },
       lsp_document_symbols = {
         previewer = false,
       },
@@ -76,13 +81,31 @@ local function config()
   })
 end
 
+local function builtins() return require('telescope.builtin') end
+local function telescope() return require('telescope') end
+
 return {
   {
     'nvim-telescope/telescope.nvim',
-    branch = 'master', -- '0.1.x',
-    lazy = true,
+    cmd = { 'Telescope' },
     config = config,
-    event = 'CursorHold',
+    keys = {
+      { 'ff', function() builtins().find_files() end, desc = 'find files' },
+      { 'fo', '<cmd>Telescope oldfiles<cr>' },
+      { 'fg', function() builtins().live_grep() end, desc = 'live grep' },
+      { 'f;', function() builtins().commands() end, desc = 'commands' },
+      { 'fc', function() builtins().command_history() end, desc = 'command_history' },
+      { 'fd', function() builtins().buffers() end, desc = 'buffers' },
+      { 'f/', function() builtins().help_tags() end, desc = 'help' },
+      {
+        'ft',
+        function() builtins().lsp_dynamic_workspace_symbols() end,
+        desc = 'workspace symbols',
+      },
+      { 'fa', function() builtins().lsp_document_symbols() end, desc = 'document symbols' },
+      { 'fn', function() telescope().extensions.notify.notify() end, desc = 'notify' },
+      { 'fk', function() builtins().keymaps() end, desc = 'keymaps' },
+    },
     dependencies = {
       {
         'natecraddock/telescope-zf-native.nvim',
