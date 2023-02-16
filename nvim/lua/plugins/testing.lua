@@ -8,9 +8,7 @@ local function config()
     floating = { border = as.style.current.border },
     adapters = {
       require('neotest-plenary'),
-      require('neotest-dart')({
-        command = 'flutter',
-      }),
+      require('neotest-dart')({ command = 'flutter' }),
     },
   })
   local function open() neotest.output.open({ enter = true, short = false }) end
@@ -34,7 +32,7 @@ return {
     lazy = true,
     config = config,
     dependencies = {
-      { 'rcarriga/neotest-plenary' },
+      { 'rcarriga/neotest-plenary', dependencies = { 'nvim-lua/plenary.nvim' } },
       { 'sidlatau/neotest-dart' },
     },
   },
