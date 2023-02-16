@@ -57,7 +57,7 @@ return {
   },
   {
     'lewis6991/gitsigns.nvim',
-    event = 'VeryLazy',
+    event = { 'BufReadPre', 'BufNewFile' },
     opts = {
       signs = {
         add = { text = '│' },
@@ -65,11 +65,7 @@ return {
         delete = { text = '_' },
         changedelete = { text = '~' },
       },
-      numhl = false,
-      word_diff = false,
-      _threaded_diff = true,
-      _extmark_signs = false,
-      _signs_staged_enable = true,
+      -- _signs_staged_enable = true,
       on_attach = function()
         local gs = package.loaded.gitsigns
 
