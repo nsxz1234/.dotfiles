@@ -22,18 +22,21 @@ return {
   {
     {
       'williamboman/mason.nvim',
-      dependencies = { 'mason-lspconfig.nvim', 'mason-null-ls.nvim' },
-      config = true,
+      cmd = 'Mason',
+      opts = { ui = { height = 0.8 } },
     },
     {
       'williamboman/mason-lspconfig.nvim',
-      dependencies = { 'neovim/nvim-lspconfig' },
+      event = { 'BufReadPre', 'BufNewFile' },
+      dependencies = {
+        'mason.nvim',
+        {
+          'neovim/nvim-lspconfig',
+          dependencies = { 'mason-lspconfig.nvim' },
+          config = true,
+        },
+      },
       config = function() require('mason-lspconfig').setup({ automatic_installation = true }) end,
-    },
-    {
-      'jayp0521/mason-null-ls.nvim',
-      dependencies = { 'jose-elias-alvarez/null-ls.nvim' },
-      opts = { automatic_installation = true },
     },
   },
   'nvim-tree/nvim-web-devicons',
