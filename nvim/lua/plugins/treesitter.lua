@@ -39,6 +39,8 @@ return {
               ['ac'] = '@call.outer',
               ['if'] = '@function.inner',
               ['af'] = '@function.outer',
+              ['iA'] = '@assignment.lhs',
+              ['aA'] = '@assignment.rhs',
             },
           },
           swap = {
