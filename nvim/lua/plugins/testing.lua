@@ -5,7 +5,7 @@ local function config()
     diagnostic = {
       enabled = false,
     },
-    floating = { border = as.style.current.border },
+    floating = { border = as.ui.current.border },
     adapters = {
       require('neotest-plenary'),
       require('neotest-dart')({ command = 'flutter' }),

@@ -26,7 +26,7 @@ _G.as = as or namespace
 -- Settings
 
 R('globals')
-R('styles')
+R('ui')
 R('settings')
 R('plugins')
 

@@ -49,7 +49,7 @@ local function config()
       deprecated = true,
       fields = { 'kind', 'abbr', 'menu' },
       format = function(entry, vim_item)
-        vim_item.kind = as.style.lsp.kinds[vim_item.kind]
+        vim_item.kind = as.ui.lsp.kinds[vim_item.kind]
         vim_item.dup = ({
           luasnip = 0,
         })[entry.source.name] or 0

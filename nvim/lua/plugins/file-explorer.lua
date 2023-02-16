@@ -1,4 +1,4 @@
-local icons = as.style.icons
+local icons = as.ui.icons
 
 return {
   {

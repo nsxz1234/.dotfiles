@@ -24,7 +24,7 @@ local palette = {
   grey = '#3E4556',
 }
 
-as.style = {
+as.ui = {
   border = {
     line = { '🭽', '▔', '🭾', '▕', '🭿', '▁', '🭼', '▏' },
     rectangle = { '┌', '─', '┐', '│', '┘', '─', '└', '│' },
@@ -170,6 +170,6 @@ as.style = {
 -- Some styles can be tweaked here to apply globally i.e. by setting the current value for that style
 
 -- The current styles for various UI elements
-as.style.current = {
-  border = as.style.border.rectangle,
+as.ui.current = {
+  border = as.ui.border.rectangle,
 }
