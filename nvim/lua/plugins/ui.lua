@@ -37,4 +37,23 @@ return {
       buftype_exclude = { 'terminal', 'nofile' },
     },
   },
+  {
+    'rcarriga/nvim-notify',
+    init = function()
+      local notify = require('notify')
+      notify.setup({
+        timeout = 3000,
+        render = 'minimal',
+        max_width = function() return math.floor(vim.o.columns * 0.4) end,
+        max_height = function() return math.floor(vim.o.lines * 0.4) end,
+      })
+      vim.notify = notify
+      require('telescope').load_extension('notify')
+      as.nnoremap(
+        '<leader>n',
+        function() notify.dismiss({ silent = true, pending = true }) end,
+        { desc = 'dismiss notifications' }
+      )
+    end,
+  },
 }
