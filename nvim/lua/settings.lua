@@ -117,7 +117,7 @@ o.linebreak = false
 o.signcolumn = 'yes'
 o.cursorline = true
 o.ruler = false
-o.cmdheight = 1
+o.cmdheight = 0
 o.showbreak = [[↪ ]]
 
 -- List
