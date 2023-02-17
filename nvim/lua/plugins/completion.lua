@@ -1,5 +1,7 @@
 local function config()
   local cmp = require('cmp')
+  local api, fn = vim.api, vim.fn
+  local t = as.replace_termcodes
   local luasnip = require('luasnip')
 
   local function tab(fallback)
@@ -30,6 +32,9 @@ local function config()
       expand = function(args) require('luasnip').lsp_expand(args.body) end,
     },
     mapping = {
+      ['<C-h>'] = cmp.mapping(
+        function(_) api.nvim_feedkeys(fn['copilot#Accept'](t('<Tab>')), 'n', true) end
+      ),
       ['<C-k>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
       ['<C-j>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
       ['<Tab>'] = cmp.mapping(tab, { 's', 'c' }),
@@ -66,7 +71,7 @@ local function config()
         max_item_count = 10,
         option = { additional_arguments = '--max-depth 8' },
       },
-      { name = 'codeium' },
+      -- { name = 'codeium' },
     }, {
       {
         name = 'buffer',
@@ -116,5 +121,26 @@ return {
         opts = { filetypes = { 'gitcommit', 'NeogitCommitMessage' } },
       },
     },
+  },
+  {
+    'github/copilot.vim',
+    event = 'InsertEnter',
+    dependencies = { 'nvim-cmp' },
+    init = function() vim.g.copilot_no_tab_map = true end,
+    config = function()
+      as.imap('<Plug>(as-copilot-accept)', "copilot#Accept('<Tab>')", { expr = true })
+      as.inoremap('<M-]>', '<Plug>(copilot-next)')
+      as.inoremap('<M-[>', '<Plug>(copilot-previous)')
+      as.inoremap('<C-\\>', '<Cmd>vertical Copilot panel<CR>')
+      vim.g.copilot_filetypes = {
+        ['*'] = true,
+        gitcommit = false,
+        NeogitCommitMessage = false,
+        DressingInput = false,
+        TelescopePrompt = false,
+        ['neo-tree-popup'] = false,
+        ['dap-repl'] = false,
+      }
+    end,
   },
 }

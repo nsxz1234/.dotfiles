@@ -35,7 +35,7 @@ noremap('<c-l>', 'g_')
 inoremap('<c-l>', '<End>')
 snoremap('<c-l>', '<esc>A')
 snoremap('<space>', '<esc>ea')
-inoremap('<c-h>', '<Left>')
+-- inoremap('<c-h>', '<Left>')
 inoremap('<Tab>', '<Right>')
 
 -- basic
