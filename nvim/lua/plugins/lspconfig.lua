@@ -23,7 +23,16 @@ local function config()
       Lua = {
         hint = { enable = true, arrayIndex = 'Disable', setType = true },
         diagnostics = {
-          globals = { 'vim', 'describe', 'it', 'before_each', 'after_each', 'packer_plugins' },
+          globals = {
+            'vim',
+            'P',
+            'describe',
+            'it',
+            'before_each',
+            'after_each',
+            'packer_plugins',
+            'pending',
+          },
         },
         completion = { keywordSnippet = 'Replace', callSnippet = 'Replace' },
         workspace = { checkThirdParty = false },
