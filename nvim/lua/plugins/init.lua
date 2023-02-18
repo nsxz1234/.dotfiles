@@ -95,14 +95,6 @@ return {
   },
   { 'kylechui/nvim-surround', opts = { keymaps = { visual = 's' } } },
   {
-    'zbirenbaum/neodim',
-    config = function()
-      require('neodim').setup({
-        hide = { underline = false },
-      })
-    end,
-  },
-  {
     'smjonas/inc-rename.nvim',
     config = true,
     keys = {
@@ -273,6 +265,7 @@ return {
   },
   {
     'ahmedkhalf/project.nvim',
+    event = 'LspAttach',
     config = function()
       require('project_nvim').setup({
         detection_methods = { 'pattern', 'lsp' },
