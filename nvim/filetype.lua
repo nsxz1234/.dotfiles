@@ -6,7 +6,6 @@ vim.filetype.add({
   },
   filename = {
     ['NEOGIT_COMMIT_EDITMSG'] = 'NeogitCommitMessage',
-    ['.gitignore'] = 'conf',
     ['launch.json'] = 'jsonc',
   },
   pattern = {
