@@ -17,11 +17,6 @@ local function config()
   end
 
   -- luadev
-  local plugins = ('%s/site/pack/packer'):format(fn.stdpath('data'))
-  local emmy = ('%s/start/emmylua-nvim'):format(plugins)
-  local plenary = ('%s/start/plenary.nvim'):format(plugins)
-  local neotest = ('%s/opt/neotest'):format(plugins)
-
   require('lspconfig').lua_ls.setup({
     capabilities = capabilities,
     settings = {
@@ -31,10 +26,8 @@ local function config()
           globals = { 'vim', 'describe', 'it', 'before_each', 'after_each', 'packer_plugins' },
         },
         completion = { keywordSnippet = 'Replace', callSnippet = 'Replace' },
-        workspace = {
-          library = { fn.expand('$VIMRUNTIME/lua'), emmy, neotest, plenary },
-          checkThirdParty = false,
-        },
+        workspace = { checkThirdParty = false },
+        telemetry = { enable = false },
       },
     },
   })

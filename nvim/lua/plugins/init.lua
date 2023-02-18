@@ -32,7 +32,7 @@ return {
         'mason.nvim',
         {
           'neovim/nvim-lspconfig',
-          dependencies = { 'mason-lspconfig.nvim' },
+          dependencies = { { 'folke/neodev.nvim', opts = { library = { plugins = false } } } },
           config = true,
         },
       },
@@ -41,7 +41,6 @@ return {
   },
   'nvim-tree/nvim-web-devicons',
   { 'stevearc/dressing.nvim' },
-  'ii14/emmylua-nvim',
   { 'wellle/targets.vim', event = 'VeryLazy' },
   'mtdl9/vim-log-highlighting',
   { 'kevinhwang91/nvim-bqf', ft = 'qf' },
