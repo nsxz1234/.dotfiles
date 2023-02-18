@@ -12,7 +12,6 @@ return {
           'regex',
           'git_rebase',
           'gitcommit',
-          'comment',
           'markdown',
         },
         auto_install = true,
