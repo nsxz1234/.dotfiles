@@ -6,9 +6,12 @@ return {
       require('nvim-treesitter.configs').setup({
         ensure_installed = {
           'lua',
-          'regex',
           'bash',
           'dart',
+          'diff',
+          'regex',
+          'git_rebase',
+          'gitcommit',
           'comment',
           'markdown',
         },
