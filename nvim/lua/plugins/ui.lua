@@ -49,7 +49,8 @@ return {
       })
       vim.notify = notify
       require('telescope').load_extension('notify')
-      as.nnoremap(
+      map(
+        'n',
         '<leader>n',
         function() notify.dismiss({ silent = true, pending = true }) end,
         { desc = 'dismiss notifications' }

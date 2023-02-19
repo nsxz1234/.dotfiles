@@ -1,14 +1,19 @@
-local noisy = { silent = false }
-
 local api = vim.api
-local imap = as.imap
-local noremap = as.noremap
-local nnoremap = as.nnoremap
-local vnoremap = as.vnoremap
-local inoremap = as.inoremap
-local snoremap = as.snoremap
-local cnoremap = as.cnoremap
-local tnoremap = as.tnoremap
+
+local recursive_map = function(mode, lhs, rhs, opts)
+  opts = opts or {}
+  opts.remap = true
+  map(mode, lhs, rhs, opts)
+end
+
+local imap = function(...) recursive_map('i', ...) end
+local noremap = function(...) map('', ...) end
+local nnoremap = function(...) map('n', ...) end
+local vnoremap = function(...) map('v', ...) end
+local inoremap = function(...) map('i', ...) end
+local cnoremap = function(...) map('c', ...) end
+local tnoremap = function(...) map('t', ...) end
+local snoremap = function(...) map('s', ...) end
 
 -- Terminal
 as.augroup('AddTerminalMappings', {
@@ -40,7 +45,7 @@ inoremap('<Tab>', '<Right>')
 
 -- basic
 imap('jk', [[col('.') == 1 ? '<esc>' : '<esc>l']], { expr = true })
-nnoremap(';', ':', noisy)
+nnoremap(';', ':', { silent = false })
 nnoremap('<c-q>', '<Cmd>q<cr>')
 nnoremap('<c-s>', '<Cmd>w!<cr>')
 nnoremap('<c-i>', '<c-i>')
@@ -49,7 +54,7 @@ nnoremap('cw', 'ciw')
 nnoremap('yw', 'yiw')
 nnoremap('vw', 'viw')
 nnoremap("c'", "ci'")
-nnoremap('yp', [[:let @+=expand("%:p")<CR>]], 'yank file path')
+nnoremap('yp', ":let @+=expand('%:p')<CR>", { desc = 'yank file path' })
 nnoremap('vv', 'V')
 nnoremap('V', 'v$')
 vnoremap('Y', '"+y')
@@ -103,12 +108,7 @@ end
 nnoremap('<leader><cr>', run)
 
 -- buffer
-nnoremap('d<space>', ':BufferLinePickClose<cr>')
-nnoremap('H', ':BufferLineCyclePrev<cr>')
-nnoremap('L', ':BufferLineCycleNext<cr>')
-nnoremap('<m-H>', ':BufferLineMovePrev<CR>')
-nnoremap('<m-L>', ':BufferLineMoveNext<CR>')
-nnoremap('t', '<c-^>')
+map('n', 't', '<c-^>')
 
 -- tabedit
 nnoremap('<leader><tab>', 'gt')
@@ -125,20 +125,6 @@ nnoremap('<a-=>', '<C-W>+')
 nnoremap('<a-->', '<C-W>-')
 nnoremap('<a-,>', '<C-W><')
 nnoremap('<a-.>', '<C-W>>')
-
--- Lazy
-nnoremap('<leader>p', '<cmd>Lazy<cr>')
-
--- dap
-nnoremap('<leader>b', '<cmd>lua require("dap").toggle_breakpoint()<cr>')
-nnoremap('<leader>1', '<cmd>lua require("dap").continue()<cr>')
-nnoremap('<leader>2', '<cmd>lua require("dap").step_into()<cr>')
-nnoremap('<leader>3', '<cmd>lua require("dap").step_over()<cr>')
-nnoremap('<leader>4', '<cmd>lua require("dap").step_out()<cr>')
-nnoremap('<leader>5', '<cmd>lua require("dap").repl.toggle()<cr>')
-nnoremap('<leader>6', '<cmd>lua require("dap").run_last()<cr>')
--- dap-ui
-nnoremap('<leader>d', '<cmd>lua require("dapui").toggle()<cr>')
 
 -- hlslens
 nnoremap(

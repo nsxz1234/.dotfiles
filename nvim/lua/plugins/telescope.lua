@@ -114,8 +114,8 @@ return {
       {
         'ilAYAli/scMRU.nvim',
         init = function()
-          as.nnoremap('fr', '<Cmd>Mru<CR>', 'most recently used')
-          as.nnoremap('fu', '<Cmd>Mfu<CR>', 'most frequently used')
+          map('n', 'fr', '<Cmd>Mru<CR>', { desc = 'most recently used' })
+          map('n', 'fu', '<Cmd>Mfu<CR>', { desc = 'most frequently used' })
         end,
       },
     },

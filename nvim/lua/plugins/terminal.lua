@@ -28,7 +28,7 @@ local function config()
     },
   })
 
-  as.nnoremap('<C-g>', function() lazygit:toggle() end)
+  map('n', '<C-g>', function() lazygit:toggle() end)
 end
 
 return { { 'akinsho/toggleterm.nvim', event = 'VeryLazy', config = config } }

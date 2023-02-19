@@ -19,11 +19,11 @@ local function config()
     require('neotest').run.run({ vim.fn.expand('%'), concurrent = false })
   end
 
-  as.nnoremap('<leader>ts', neotest.summary.toggle, 'neotest: run suite')
-  as.nnoremap('<leader>to', open, 'neotest: output')
-  as.nnoremap('<leader>tn', neotest.run.run, 'neotest: run')
-  as.nnoremap('<leader>tf', run_file, 'neotest: run file')
-  as.nnoremap('<leader>tF', run_file_sync, 'neotest: run file synchronously')
+  map('n', '<leader>ts', neotest.summary.toggle, { desc = 'neotest: run suite' })
+  map('n', '<leader>to', open, { desc = 'neotest: output' })
+  map('n', '<leader>tn', neotest.run.run, { desc = 'neotest: run' })
+  map('n', '<leader>tf', run_file, { desc = 'neotest: run file' })
+  map('n', '<leader>tF', run_file_sync, { desc = 'neotest: run file synchronously' })
 end
 
 return {

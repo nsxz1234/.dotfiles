@@ -69,33 +69,36 @@ return {
       on_attach = function()
         local gs = package.loaded.gitsigns
 
-        as.nnoremap('<leader>hu', gs.undo_stage_hunk, 'undo stage')
-        as.nnoremap('<leader>hp', gs.preview_hunk_inline, 'preview current hunk')
-        as.nnoremap('<leader>h<space>', gs.stage_hunk, 'stage current hunk')
-        as.nnoremap('<leader>hr', gs.reset_hunk, 'reset current hunk')
-        as.nnoremap('<leader>hb', gs.blame_line, 'blame current hunk')
-        as.nnoremap('<leader>hd', gs.toggle_deleted, 'show deleted lines')
-        as.nnoremap('<leader>gw', gs.toggle_word_diff, 'gitsigns: toggle word diff')
-        as.nnoremap('<leader>g<space>', gs.stage_buffer, 'gitsigns: stage entire buffer')
-        as.nnoremap('<leader>gr', gs.reset_buffer, 'gitsigns: reset entire buffer')
-        as.nnoremap('gq', function() gs.setqflist('all') end, 'gitsigns: list modified in quickfix')
-        vim.keymap.set({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+        map('n', '<leader>hu', gs.undo_stage_hunk, { desc = 'undo stage' })
+        map('n', '<leader>hp', gs.preview_hunk_inline, { desc = 'preview current hunk' })
+        map('n', '<leader>h<space>', gs.stage_hunk, { desc = 'stage current hunk' })
+        map('n', '<leader>hr', gs.reset_hunk, { desc = 'reset current hunk' })
+        map('n', '<leader>hb', gs.blame_line, { desc = 'blame current hunk' })
+        map('n', '<leader>hd', gs.toggle_deleted, { desc = 'show deleted lines' })
+        map('n', '<leader>gw', gs.toggle_word_diff, { desc = 'gitsigns: toggle word diff' })
+        map('n', '<leader>g<space>', gs.stage_buffer, { desc = 'gitsigns: stage entire buffer' })
+        map('n', '<leader>gr', gs.reset_buffer, { desc = 'gitsigns: reset entire buffer' })
+        map(
+          'n',
+          'gq',
+          function() gs.setqflist('all') end,
+          { desc = 'gitsigns: list modified in quickfix' }
+        )
+        map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
 
-        as.xnoremap(
+        map(
+          'x',
           '<leader>h<space>',
           function() gs.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end
         )
-        as.xnoremap(
-          '<leader>hr',
-          function() gs.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end
-        )
+        map('x', '<leader>hr', function() gs.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end)
 
-        as.nnoremap('[h', function()
+        map('n', '[h', function()
           vim.schedule(function() gs.prev_hunk() end)
           return '<Ignor>'
         end, { expr = true, desc = 'go to previous git hunk' })
 
-        as.nnoremap(']h', function()
+        map('n', ']h', function()
           vim.schedule(function() gs.next_hunk() end)
           return '<Ignore>'
         end, { expr = true, desc = 'go to next git hunk' })

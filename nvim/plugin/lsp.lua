@@ -101,19 +101,17 @@ end
 local function setup_mappings(_, bufnr)
   local function with_desc(desc) return { buffer = bufnr, desc = desc } end
 
-  as.nnoremap('[e', vim.diagnostic.goto_prev, with_desc('lsp: go to prev diagnostic'))
-  as.nnoremap(']e', vim.diagnostic.goto_next, with_desc('lsp: go to next diagnostic'))
-  as.nnoremap('ge', vim.diagnostic.setqflist, with_desc('lsp: diagnostic list'))
-
-  as.nnoremap('F', vim.lsp.buf.format, with_desc('lsp: format buffer'))
-  as.xnoremap('F', vim.lsp.buf.format, with_desc('lsp: format buffer'))
-  vim.keymap.set({ 'n', 'x' }, '<leader>a', vim.lsp.buf.code_action, with_desc('lsp: code action'))
-  as.nnoremap('gd', vim.lsp.buf.definition, with_desc('lsp: definition'))
-  as.nnoremap('gr', vim.lsp.buf.references, with_desc('lsp: references'))
-  as.nnoremap('gi', vim.lsp.buf.implementation, with_desc('lsp: implementation'))
-  as.nnoremap('gk', vim.lsp.buf.hover, with_desc('lsp: hover'))
-  as.nnoremap('gt', vim.lsp.buf.type_definition, with_desc('lsp: go to type definition'))
-  as.nnoremap('<leader>cl', vim.lsp.codelens.run, with_desc('lsp: run code lens'))
+  map('n', '[e', vim.diagnostic.goto_prev, with_desc('lsp: go to prev diagnostic'))
+  map('n', ']e', vim.diagnostic.goto_next, with_desc('lsp: go to next diagnostic'))
+  map('n', 'ge', vim.diagnostic.setqflist, with_desc('lsp: diagnostic list'))
+  map({ 'n', 'x' }, 'F', vim.lsp.buf.format, with_desc('lsp: format buffer'))
+  map({ 'n', 'x' }, '<leader>a', vim.lsp.buf.code_action, with_desc('lsp: code action'))
+  map('n', 'gd', vim.lsp.buf.definition, with_desc('lsp: definition'))
+  map('n', 'gr', vim.lsp.buf.references, with_desc('lsp: references'))
+  map('n', 'gi', vim.lsp.buf.implementation, with_desc('lsp: implementation'))
+  map('n', 'gk', vim.lsp.buf.hover, with_desc('lsp: hover'))
+  map('n', 'gt', vim.lsp.buf.type_definition, with_desc('lsp: go to type definition'))
+  map('n', '<leader>cl', vim.lsp.codelens.run, with_desc('lsp: run code lens'))
 end
 
 local function on_attach(client, bufnr)

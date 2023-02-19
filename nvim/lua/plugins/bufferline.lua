@@ -60,6 +60,12 @@ local function config()
       },
     },
   })
+
+  map('n', 'd<space>', ':BufferLinePickClose<cr>')
+  map('n', 'H', ':BufferLineCyclePrev<cr>')
+  map('n', 'L', ':BufferLineCycleNext<cr>')
+  map('n', '<m-H>', ':BufferLineMovePrev<CR>')
+  map('n', '<m-L>', ':BufferLineMoveNext<CR>')
 end
 
 return {

@@ -133,8 +133,7 @@ return {
     'voldikss/vim-translator',
     config = function()
       vim.g.translator_default_engines = { 'haici' }
-      as.nnoremap('<leader>t', ':TranslateW<cr>')
-      as.xnoremap('<leader>t', ':TranslateW<cr>')
+      map({ 'n', 'x' }, '<leader>t', ':TranslateW<cr>')
     end,
   },
   {
@@ -144,16 +143,16 @@ return {
         autoload_mode = require('session_manager.config').AutoloadMode.Disabled,
         autosave_ignore_not_normal = false,
       })
-      as.nnoremap('fs', ':SessionManager load_session<cr>')
-      as.nnoremap('<leader>ss', ':SessionManager save_current_session<cr>', { silent = false })
-      as.nnoremap('<leader>sd', ':SessionManager delete_session<cr>')
+      map('n', 'fs', ':SessionManager load_session<cr>')
+      map('n', '<leader>ss', ':SessionManager save_current_session<cr>', { silent = false })
+      map('n', '<leader>sd', ':SessionManager delete_session<cr>')
     end,
   },
   {
     'phaazon/hop.nvim',
     config = function()
       require('hop').setup()
-      as.nnoremap('s', require('hop').hint_words)
+      map('n', 's', require('hop').hint_words)
     end,
   },
   {
@@ -244,9 +243,9 @@ return {
   {
     'nvim-pack/nvim-spectre',
     config = function()
-      as.nnoremap('<leader>so', '<cmd>lua require("spectre").open()<CR>')
-      as.nnoremap('<leader>sw', '<cmd>lua require("spectre").open_visual({select_word=true})<CR>')
-      as.nnoremap('<leader>sp', 'viw:lua require("spectre").open_file_search()<cr>')
+      map('n', '<leader>so', '<cmd>lua require("spectre").open()<CR>')
+      map('n', '<leader>sw', '<cmd>lua require("spectre").open_visual({select_word=true})<CR>')
+      map('n', '<leader>sp', 'viw:lua require("spectre").open_file_search()<cr>')
     end,
   },
   {
@@ -259,7 +258,7 @@ return {
           },
         },
       })
-      as.nnoremap('fp', require('telescope').extensions.neoclip.default)
+      map('n', 'fp', require('telescope').extensions.neoclip.default)
     end,
   },
   {
@@ -281,16 +280,8 @@ return {
           },
         },
       })
-      as.nnoremap('<leader>e', '<cmd>Nnn<CR>')
+      map('n', '<leader>e', '<cmd>Nnn<CR>')
     end,
-  },
-  {
-    'mfussenegger/nvim-dap',
-    lazy = true,
-    dependencies = {
-      { 'rcarriga/nvim-dap-ui', config = true },
-      { 'theHamsta/nvim-dap-virtual-text', opts = { all_frames = true } },
-    },
   },
   {
     'akinsho/pubspec-assist.nvim',

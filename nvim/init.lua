@@ -23,6 +23,8 @@ local namespace = {
 }
 _G.as = as or namespace
 
+_G.map = vim.keymap.set
+
 -- Settings
 
 R('globals')
@@ -51,3 +53,5 @@ require('lazy').setup('plugins', {
     disabled_plugins = { 'netrw', 'netrwPlugin', 'tarPlugin', 'tutor', 'tohtml', 'logipat' },
   },
 })
+-- Lazy
+map('n', '<leader>p', '<cmd>Lazy<cr>')
