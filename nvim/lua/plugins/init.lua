@@ -45,16 +45,18 @@ return {
   'mtdl9/vim-log-highlighting',
   { 'kevinhwang91/nvim-bqf', ft = 'qf' },
   'romainl/vim-cool',
-  -- {
-  --   'jcdickinson/codeium.nvim',
-  --   event = 'VeryLazy',
-  --   dependencies = {
-  --     'nvim-lua/plenary.nvim',
-  --     'MunifTanjim/nui.nvim',
-  --     'hrsh7th/nvim-cmp',
-  --   },
-  --   config = true,
-  -- },
+  {
+    'm-demare/hlargs.nvim',
+    event = 'VeryLazy',
+    config = function()
+      require('hlargs').setup({
+        excluded_argnames = {
+          declarations = { 'use', '_' },
+          usages = { lua = { 'self', 'use', '_' } },
+        },
+      })
+    end,
+  },
   {
     'kevinhwang91/nvim-hlslens',
     config = function() require('hlslens').setup() end,
