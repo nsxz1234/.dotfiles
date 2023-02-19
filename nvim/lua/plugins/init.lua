@@ -264,14 +264,12 @@ return {
   },
   {
     'ahmedkhalf/project.nvim',
-    event = 'LspAttach',
-    config = function()
-      require('project_nvim').setup({
-        detection_methods = { 'pattern', 'lsp' },
-        ignore_lsp = { 'null-ls' },
-        patterns = { '.git', 'pubspec.yaml' },
-      })
-    end,
+    name = 'project_nvim',
+    opts = {
+      detection_methods = { 'pattern', 'lsp' },
+      ignore_lsp = { 'null-ls' },
+      patterns = { '.git', 'pubspec.yaml' },
+    },
   },
   {
     'is0n/fm-nvim',
