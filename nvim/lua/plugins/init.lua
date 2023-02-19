@@ -32,7 +32,9 @@ return {
         'mason.nvim',
         {
           'neovim/nvim-lspconfig',
-          dependencies = { { 'folke/neodev.nvim', opts = { library = { plugins = false } } } },
+          dependencies = {
+            { 'folke/neodev.nvim', opts = { library = { plugins = { 'nvim-dap-ui' } } } },
+          },
           config = true,
         },
       },
