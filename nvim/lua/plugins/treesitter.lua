@@ -41,8 +41,6 @@ return {
               ['ac'] = '@call.outer',
               ['if'] = '@function.inner',
               ['af'] = '@function.outer',
-              ['iA'] = '@assignment.lhs',
-              ['aA'] = '@assignment.rhs',
             },
           },
           swap = {
@@ -69,13 +67,7 @@ return {
         },
         rainbow = {
           enable = true,
-          colors = {
-            'royalblue3',
-            'darkorange3',
-            'seagreen3',
-            'firebrick',
-            'darkorchid3',
-          },
+          colors = { 'royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3' },
         },
         autopairs = { enable = true },
         query_linter = {
