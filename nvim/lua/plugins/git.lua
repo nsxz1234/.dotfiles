@@ -66,7 +66,6 @@ return {
         change = { text = '│' },
         delete = { text = '_' },
         changedelete = { text = '~' },
-        untracked = { text = icons.light_shade_block },
       },
       -- _signs_staged_enable = true,
       on_attach = function()
