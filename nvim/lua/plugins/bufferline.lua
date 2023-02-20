@@ -17,6 +17,7 @@ return {
           show_close_icon = false,
           diagnostics = 'nvim_lsp',
           diagnostics_indicator = function(count, level)
+            level = level:match('warn') and 'warn' or level
             return (icons[level] or '?') .. ' ' .. count
           end,
           diagnostics_update_in_insert = false,
