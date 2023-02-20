@@ -1,5 +1,4 @@
 local function b() return require('telescope.builtin') end
-local function t() return require('telescope') end
 
 return {
   'nvim-telescope/telescope.nvim',
@@ -17,8 +16,12 @@ return {
       function() b().lsp_dynamic_workspace_symbols() end,
       desc = 'workspace symbols',
     },
-    { 'fa', function() b().lsp_document_symbols() end, desc = 'document symbols' },
-    { 'fn', function() t().extensions.notify.notify() end, desc = 'notify' },
+    {
+      'fa',
+      function() b().lsp_document_symbols() end,
+      desc = 'document symbols',
+    },
+    { 'fn', function() require('telescope').extensions.notify.notify() end, desc = 'notify' },
     { 'fk', function() b().keymaps() end, desc = 'keymaps' },
   },
   dependencies = {
@@ -81,7 +84,11 @@ return {
           },
         },
       },
-      extensions = {},
+      extensions = {
+        ['zf-native'] = {
+          generic = { enable = true, match_filename = true },
+        },
+      },
       pickers = {
         buffers = {
           sort_mru = true,
