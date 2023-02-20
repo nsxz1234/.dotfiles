@@ -4,25 +4,17 @@ return {
   'nvim-telescope/telescope.nvim',
   cmd = 'Telescope',
   keys = {
-    { 'ff', function() b().find_files() end, desc = 'find files' },
+    { 'ff', function() require('telescope').extensions.menufacture.find_files() end },
+    { 'fg', function() require('telescope').extensions.menufacture.live_grep() end },
     { 'fo', '<cmd>Telescope oldfiles<cr>' },
-    { 'fg', function() b().live_grep() end, desc = 'live grep' },
-    { 'f;', function() b().commands() end, desc = 'commands' },
-    { 'fc', function() b().command_history() end, desc = 'command_history' },
-    { 'fd', function() b().buffers() end, desc = 'buffers' },
-    { 'f/', function() b().help_tags() end, desc = 'help' },
-    {
-      'ft',
-      function() b().lsp_dynamic_workspace_symbols() end,
-      desc = 'workspace symbols',
-    },
-    {
-      'fa',
-      function() b().lsp_document_symbols() end,
-      desc = 'document symbols',
-    },
-    { 'fn', function() require('telescope').extensions.notify.notify() end, desc = 'notify' },
-    { 'fk', function() b().keymaps() end, desc = 'keymaps' },
+    { 'f;', function() b().commands() end },
+    { 'fc', function() b().command_history() end },
+    { 'fd', function() b().buffers() end },
+    { 'f/', function() b().help_tags() end },
+    { 'ft', function() b().lsp_dynamic_workspace_symbols() end },
+    { 'fa', function() b().lsp_document_symbols() end },
+    { 'fn', function() require('telescope').extensions.notify.notify() end },
+    { 'fk', function() b().keymaps() end },
   },
   dependencies = {
     {
@@ -31,10 +23,14 @@ return {
     },
     {
       'ilAYAli/scMRU.nvim',
-      init = function()
-        map('n', 'fr', '<Cmd>Mru<CR>', { desc = 'most recently used' })
-        map('n', 'fu', '<Cmd>Mfu<CR>', { desc = 'most frequently used' })
-      end,
+      keys = {
+        { 'fr', '<Cmd>Mru<CR>', desc = 'most recently used' },
+        { 'fu', '<Cmd>Mfu<CR>', desc = 'most frequently used' },
+      },
+    },
+    {
+      'molecule-man/telescope-menufacture',
+      config = function() require('telescope').load_extension('menufacture') end,
     },
   },
   config = function()
@@ -74,14 +70,8 @@ return {
           width = 0.90,
           height = 0.90,
           preview_cutoff = 1, -- Preview should always show
-          vertical = {
-            mirror = true,
-            prompt_position = 'top',
-          },
-          horizontal = {
-            mirror = false,
-            prompt_position = 'top',
-          },
+          vertical = { mirror = true, prompt_position = 'top' },
+          horizontal = { mirror = false, prompt_position = 'top' },
         },
       },
       extensions = {
@@ -105,20 +95,10 @@ return {
           file_ignore_patterns = { '.git/', '%.svg', '%.lock' },
           max_results = 2000,
         },
-        colorscheme = {
-          enable_preview = true,
-        },
-        find_files = {
-          hidden = true,
-        },
-        keymaps = {
-          layout_config = {
-            height = 18,
-          },
-        },
-        lsp_document_symbols = {
-          previewer = false,
-        },
+        colorscheme = { enable_preview = true },
+        find_files = { hidden = true },
+        keymaps = { layout_config = { height = 18 } },
+        lsp_document_symbols = { previewer = false },
       },
     })
   end,
