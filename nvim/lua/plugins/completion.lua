@@ -71,7 +71,6 @@ local function config()
         max_item_count = 10,
         option = { additional_arguments = '--max-depth 8' },
       },
-      -- { name = 'codeium' },
     }, {
       {
         name = 'buffer',
