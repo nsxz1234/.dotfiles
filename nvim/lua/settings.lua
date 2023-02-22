@@ -80,7 +80,7 @@ end
 
 -- Wild and file globbing stuff in command mode
 o.wildcharm = ('\t'):byte()
-o.wildmode = 'longest:full,full' -- Shows a menu bar as opposed to an enormous list
+o.wildmode = 'list:full' -- Shows a menu bar as opposed to an enormous list
 o.wildignorecase = true -- Ignore case when completing file names and directories
 -- Binary
 opt.wildignore = {
