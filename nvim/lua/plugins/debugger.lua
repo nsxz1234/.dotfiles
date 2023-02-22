@@ -9,13 +9,11 @@ return {
       { '<leader>4', '<cmd>lua require("dap").step_out()<cr>' },
       { '<leader>5', '<cmd>lua require("dap").repl.toggle()<cr>' },
       { '<leader>6', '<cmd>lua require("dap").run_last()<cr>' },
+      { '<leader>d', '<cmd>lua require("dapui").toggle()<cr>' },
     },
     dependencies = {
       {
         'rcarriga/nvim-dap-ui',
-        keys = {
-          { '<leader>d', '<cmd>lua require("dapui").toggle()<cr>' },
-        },
         config = true,
       },
       { 'theHamsta/nvim-dap-virtual-text', opts = { all_frames = true } },
