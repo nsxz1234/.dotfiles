@@ -48,6 +48,10 @@ return {
   { 'kevinhwang91/nvim-bqf', ft = 'qf' },
   'romainl/vim-cool',
   {
+    'cshuaimin/ssr.nvim',
+    keys = { { '<leader>sr', function() require('ssr').open() end, mode = { 'n', 'x' } } },
+  },
+  {
     'm-demare/hlargs.nvim',
     event = 'VeryLazy',
     config = function()
