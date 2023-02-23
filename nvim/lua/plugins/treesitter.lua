@@ -29,7 +29,7 @@ return {
         },
         indent = {
           enable = true,
-          disable = { 'yaml', 'dart' },
+          disable = { 'yaml' },
         },
         textobjects = {
           select = {
