@@ -76,6 +76,7 @@ return {
           use_virtual_text = false,
           lint_events = { 'BufWrite', 'CursorHold' },
         },
+        context_commentstring = { enable = true },
       })
     end,
     dependencies = {
@@ -83,4 +84,5 @@ return {
       { 'mrjones2014/nvim-ts-rainbow' },
     },
   },
+  'JoosepAlviste/nvim-ts-context-commentstring',
 }
