@@ -4,7 +4,7 @@ local icons = as.ui.icons.lsp
 return {
   {
     'akinsho/bufferline.nvim',
-    event = 'BufReadPre',
+    event = 'VimEnter',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
       local groups = require('bufferline.groups')
