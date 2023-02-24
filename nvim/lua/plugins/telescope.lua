@@ -28,10 +28,7 @@ return {
         { 'fu', '<Cmd>Mfu<CR>', desc = 'most frequently used' },
       },
     },
-    {
-      'molecule-man/telescope-menufacture',
-      config = function() require('telescope').load_extension('menufacture') end,
-    },
+    'molecule-man/telescope-menufacture',
   },
   config = function()
     local actions = require('telescope.actions')
@@ -101,5 +98,8 @@ return {
         lsp_document_symbols = { previewer = false },
       },
     })
+
+    -- Extensions (sometimes need to be explicitly loaded after telescope is setup)
+    require('telescope').load_extension('menufacture')
   end,
 }
