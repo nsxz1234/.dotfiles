@@ -33,7 +33,11 @@ return {
         {
           'neovim/nvim-lspconfig',
           dependencies = {
-            { 'folke/neodev.nvim', opts = { library = { plugins = { 'nvim-dap-ui' } } } },
+            {
+              'folke/neodev.nvim',
+              ft = 'lua',
+              opts = { library = { plugins = { 'nvim-dap-ui' } } },
+            },
           },
           config = true,
         },
