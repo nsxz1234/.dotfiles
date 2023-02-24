@@ -52,6 +52,11 @@ return {
   { 'kevinhwang91/nvim-bqf', ft = 'qf' },
   'romainl/vim-cool',
   {
+    'lukas-reineke/virt-column.nvim',
+    event = 'VimEnter',
+    opts = { char = '▕' },
+  },
+  {
     'cshuaimin/ssr.nvim',
     keys = { { '<leader>sr', function() require('ssr').open() end, mode = { 'n', 'x' } } },
   },
