@@ -1,4 +1,0 @@
-; extends
-[
- "}"
-] @indent_end
