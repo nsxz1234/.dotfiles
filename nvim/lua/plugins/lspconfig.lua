@@ -9,7 +9,15 @@ local function config()
   }
   capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-  local servers = { 'zls', 'rust_analyzer' }
+  local servers = {
+    'zls',
+    'rust_analyzer',
+    'jsonls',
+    'bashls',
+    'vimls',
+    'marksman',
+    'yamlls',
+  }
   for _, lsp in ipairs(servers) do
     require('lspconfig')[lsp].setup({
       capabilities = capabilities,
