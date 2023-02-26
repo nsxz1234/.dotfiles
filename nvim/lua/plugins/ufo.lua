@@ -35,8 +35,6 @@ local function fold_renderer(virt_text, _, end_lnum, width, truncate, ctx)
   return result
 end
 
-local ufo_ft_map = { dart = { 'lsp', 'treesitter' } }
-
 return {
   {
     'kevinhwang91/nvim-ufo',
@@ -53,9 +51,7 @@ return {
       enable_get_fold_virt_text = true,
       fold_virt_text_handler = fold_renderer,
       preview = { win_config = { winhighlight = 'Normal:Normal,FloatBorder:Normal' } },
-      provider_selector = function(_, filetype)
-        return ufo_ft_map[filetype] or { 'treesitter', 'indent' }
-      end,
+      provider_selector = function() return { 'treesitter', 'indent' } end,
     },
   },
 }
