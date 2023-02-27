@@ -45,10 +45,7 @@ local function config()
       ['<C-Space>'] = cmp.mapping.complete(),
       ['<CR>'] = cmp.mapping.confirm({ select = false }),
       ['jj'] = cmp.mapping.confirm({ select = true }),
-      ['<C-q>'] = cmp.mapping({
-        i = cmp.mapping.abort(),
-        c = cmp.mapping.close(),
-      }),
+      ['<C-q>'] = cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close() }),
     },
     formatting = {
       deprecated = true,
