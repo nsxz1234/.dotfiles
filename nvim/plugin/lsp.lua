@@ -52,7 +52,8 @@ local function setup_autocommands(client, bufnr)
     return vim.notify(msg, 'error', { title = 'LSP Setup' })
   end
 
-  local events = vim.F.if_nil(vim.b.lsp_events, {
+  local b = vim.b --[[@as table<string, any>]]
+  local events = vim.F.if_nil(b.lsp_events, {
     [FEATURES.CODELENS.name] = { clients = {}, group_id = nil },
     [FEATURES.FORMATTING.name] = { clients = {}, group_id = nil },
     [FEATURES.DIAGNOSTICS.name] = { clients = {}, group_id = nil },
