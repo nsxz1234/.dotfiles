@@ -70,6 +70,9 @@ export PATH=~/Android/Sdk/platform-tools:$PATH
 # cargo
 export PATH=$PATH:~/.cargo/bin
 export EDITOR='nvim'
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
 
 eval "$(zoxide init zsh)"
 
@@ -87,3 +90,6 @@ bindkey '^n' down-history
 bindkey '^e' autosuggest-accept
 
 eval "$(starship init zsh)"
+
+# bun completions
+[ -s "/home/nsxz/.bun/_bun" ] && source "/home/nsxz/.bun/_bun"
