@@ -6,7 +6,7 @@ return {
   keys = {
     { 'ff', function() require('telescope').extensions.menufacture.find_files() end },
     { 'fg', function() require('telescope').extensions.menufacture.live_grep() end },
-    { 'fo', '<cmd>Telescope oldfiles<cr>' },
+    { 'fo', function() b().oldfiles() end },
     { 'f;', function() b().commands() end },
     { 'fc', function() b().command_history() end },
     { 'fd', function() b().buffers() end },
@@ -35,6 +35,7 @@ return {
 
     require('telescope').setup({
       defaults = {
+        borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
         mappings = {
           i = {
             ['<c-c>'] = function() vim.cmd.stopinsert() end,
