@@ -6,30 +6,28 @@ local servers = {
   vimls = {},
   marksman = {},
   yamlls = {},
-  lua_ls = function()
-    return {
-      settings = {
-        Lua = {
-          hint = { enable = true, arrayIndex = 'Disable', setType = true },
-          diagnostics = {
-            globals = {
-              'vim',
-              'P',
-              'describe',
-              'it',
-              'before_each',
-              'after_each',
-              'packer_plugins',
-              'pending',
-            },
+  lua_ls = {
+    settings = {
+      Lua = {
+        hint = { enable = true, arrayIndex = 'Disable', setType = true },
+        diagnostics = {
+          globals = {
+            'vim',
+            'P',
+            'describe',
+            'it',
+            'before_each',
+            'after_each',
+            'packer_plugins',
+            'pending',
           },
-          completion = { keywordSnippet = 'Replace', callSnippet = 'Replace' },
-          workspace = { checkThirdParty = false },
-          telemetry = { enable = false },
         },
+        completion = { keywordSnippet = 'Replace', callSnippet = 'Replace' },
+        workspace = { checkThirdParty = false },
+        telemetry = { enable = false },
       },
-    }
-  end,
+    },
+  },
 }
 
 return function(name)
