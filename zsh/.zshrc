@@ -76,12 +76,16 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 eval "$(zoxide init zsh)"
 
-alias l="exa -la"
+alias ls="ls --color=auto --hyperlink=auto $@"
+alias l="exa --long --all --git --color=always --group-directories-first --icons $@"
+alias lt="exa --icons --all --color=always -T $@"
 alias e='nvim'
 alias lg='lazygit'
 alias ra='ranger'
 alias n="n -ex"
 alias t="ydcv"
+alias ez="${=EDITOR} ${ZDOTDIR:-$HOME}/.zshrc"
+alias grep='grep --color'
 
 # ^g to open lazygit (below oh-my-zsh)
 bindkey -s '^g' 'lazygit\n'
