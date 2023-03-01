@@ -30,7 +30,6 @@ _G.map = vim.keymap.set
 R('globals')
 R('ui')
 R('settings')
-R('plugins')
 
 -- Plugins
 
