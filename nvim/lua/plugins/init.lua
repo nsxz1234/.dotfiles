@@ -185,27 +185,6 @@ return {
     end,
   },
   {
-    'danymat/neogen',
-    dependencies = { 'nvim-treesitter/nvim-treesitter' },
-    opts = { snippet_engine = 'luasnip' },
-    keys = {
-      {
-        '<leader>cc',
-        function() require('neogen').generate() end,
-        desc = 'comment: generate',
-      },
-    },
-  },
-  {
-    'mizlan/iswap.nvim',
-    config = true,
-    cmd = { 'ISwap', 'ISwapWith' },
-    keys = {
-      { '<leader>iw', '<Cmd>ISwapWith<CR>', desc = 'ISwap: swap with' },
-      { '<leader>ia', '<Cmd>ISwap<CR>', desc = 'ISwap: swap any' },
-    },
-  },
-  {
     'mbbill/undotree',
     cmd = 'UndotreeToggle',
     keys = { { '<leader>u', '<Cmd>UndotreeToggle<CR>', desc = 'undotree: toggle' } },
