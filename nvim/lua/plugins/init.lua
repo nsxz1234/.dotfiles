@@ -42,6 +42,22 @@ return {
   { 'kevinhwang91/nvim-bqf', ft = 'qf' },
   'romainl/vim-cool',
   {
+    'goolord/alpha-nvim',
+    event = 'VimEnter',
+    config = function()
+      local alpha = require('alpha')
+      local dashboard = require('alpha.themes.dashboard')
+      local pokemon = require('pokemon')
+      pokemon.setup({
+        number = 'random',
+        size = 'tiny',
+      })
+      dashboard.section.header.val = pokemon.header()
+      alpha.setup(dashboard.config)
+    end,
+    dependencies = { { 'nvim-tree/nvim-web-devicons', 'ColaMint/pokemon.nvim' } },
+  },
+  {
     'lukas-reineke/virt-column.nvim',
     event = 'VimEnter',
     opts = { char = '▕' },
