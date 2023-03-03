@@ -42,6 +42,10 @@ return {
   { 'kevinhwang91/nvim-bqf', ft = 'qf' },
   'romainl/vim-cool',
   {
+    'simrat39/rust-tools.nvim',
+    dependencies = { 'nvim-lspconfig' },
+  },
+  {
     'lukas-reineke/virt-column.nvim',
     event = 'VimEnter',
     opts = { char = '▕' },
