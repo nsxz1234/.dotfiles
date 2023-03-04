@@ -32,7 +32,7 @@ end
 ---@param bufnr integer
 ---@param client table
 ---@param events table
----@return fun(feature: string, commands: fun(string): Autocommand[])
+---@return fun(feature: {provider: string, name: string}, commands: fun(string): ...)
 local function augroup_factory(bufnr, client, events)
   return function(feature, commands)
     local provider, name = feature.provider, feature.name
@@ -77,12 +77,10 @@ local function setup_autocommands(client, bufnr)
 
   augroup(FEATURES.CODELENS, function()
     return {
-      {
-        event = { 'BufEnter', 'CursorHold', 'InsertLeave' },
-        desc = 'LSP: Code Lens',
-        buffer = bufnr,
-        command = function() lsp.codelens.refresh() end,
-      },
+      event = { 'BufEnter', 'CursorHold', 'InsertLeave' },
+      desc = 'LSP: Code Lens',
+      buffer = bufnr,
+      command = function() lsp.codelens.refresh() end,
     }
   end)
 
@@ -123,32 +121,29 @@ local function on_attach(client, bufnr)
 end
 
 as.augroup('LspSetupCommands', {
-  {
-    event = 'LspAttach',
-    desc = 'setup the language server autocommands',
-    command = function(args)
-      local bufnr = args.buf
-      -- if the buffer is invalid we should not try and attach to it
-      if not api.nvim_buf_is_valid(bufnr) or not args.data then return end
-      local client = vim.lsp.get_client_by_id(args.data.client_id)
-      on_attach(client, bufnr)
-    end,
-  },
-  {
-    event = 'LspDetach',
-    desc = 'Clean up after detached LSP',
-    -- command = function(args) api.nvim_clear_autocmds({ group = get_augroup(args.buf), buffer = args.buf }) end,
-    command = function(args)
-      local client_id, b = args.data.client_id, vim.b[args.buf]
-      if not b.lsp_events or not client_id then return end
-      for _, state in pairs(b.lsp_events) do
-        if #state.clients == 1 and state.clients[1] == client_id then
-          api.nvim_clear_autocmds({ group = state.group_id, buffer = args.buf })
-        end
-        state.clients = vim.tbl_filter(function(id) return id ~= client_id end, state.clients)
+  event = 'LspAttach',
+  desc = 'setup the language server autocommands',
+  command = function(args)
+    local bufnr = args.buf
+    -- if the buffer is invalid we should not try and attach to it
+    if not api.nvim_buf_is_valid(bufnr) or not args.data then return end
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    on_attach(client, bufnr)
+  end,
+}, {
+  event = 'LspDetach',
+  desc = 'Clean up after detached LSP',
+  -- command = function(args) api.nvim_clear_autocmds({ group = get_augroup(args.buf), buffer = args.buf }) end,
+  command = function(args)
+    local client_id, b = args.data.client_id, vim.b[args.buf]
+    if not b.lsp_events or not client_id then return end
+    for _, state in pairs(b.lsp_events) do
+      if #state.clients == 1 and state.clients[1] == client_id then
+        api.nvim_clear_autocmds({ group = state.group_id, buffer = args.buf })
       end
-    end,
-  },
+      state.clients = vim.tbl_filter(function(id) return id ~= client_id end, state.clients)
+    end
+  end,
 })
 
 --

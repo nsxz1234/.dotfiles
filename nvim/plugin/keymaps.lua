@@ -17,18 +17,16 @@ local snoremap = function(...) map('s', ...) end
 
 -- Terminal
 as.augroup('AddTerminalMappings', {
-  {
-    event = { 'TermOpen' },
-    pattern = { 'term://*' },
-    command = function()
-      if vim.bo.filetype == '' or vim.bo.filetype == 'toggleterm' then
-        local opts = { silent = false, buffer = 0 }
-        tnoremap('jk', [[<C-\><C-n>]], opts)
-        tnoremap('<a-=>', '<Cmd>res +1<CR>', opts)
-        tnoremap('<a-->', '<Cmd>res -1<CR>', opts)
-      end
-    end,
-  },
+  event = { 'TermOpen' },
+  pattern = { 'term://*' },
+  command = function()
+    if vim.bo.filetype == '' or vim.bo.filetype == 'toggleterm' then
+      local opts = { silent = false, buffer = 0 }
+      tnoremap('jk', [[<C-\><C-n>]], opts)
+      tnoremap('<a-=>', '<Cmd>res +1<CR>', opts)
+      tnoremap('<a-->', '<Cmd>res -1<CR>', opts)
+    end
+  end,
 })
 
 -- motions

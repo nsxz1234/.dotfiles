@@ -55,11 +55,9 @@ return {
     },
     config = function(_, opts)
       as.augroup('CmpSourceCargo', {
-        {
-          event = 'BufRead',
-          pattern = 'Cargo.toml',
-          command = function() require('cmp').setup.buffer({ sources = { { name = 'crates' } } }) end,
-        },
+        event = 'BufRead',
+        pattern = 'Cargo.toml',
+        command = function() require('cmp').setup.buffer({ sources = { { name = 'crates' } } }) end,
       })
       require('crates').setup(opts)
     end,
