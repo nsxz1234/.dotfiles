@@ -69,7 +69,8 @@ return {
         },
         rainbow = {
           enable = true,
-          colors = { 'royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3' },
+          query = 'rainbow-parens',
+          strategy = { require('ts-rainbow.strategy.local') },
         },
         autopairs = { enable = true },
         query_linter = {
@@ -82,7 +83,7 @@ return {
     end,
     dependencies = {
       { 'nvim-treesitter/nvim-treesitter-textobjects' },
-      { 'mrjones2014/nvim-ts-rainbow' },
+      { 'HiPhish/nvim-ts-rainbow2' },
     },
   },
   'JoosepAlviste/nvim-ts-context-commentstring',
