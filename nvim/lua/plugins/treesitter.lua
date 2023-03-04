@@ -6,13 +6,15 @@ return {
     config = function()
       require('nvim-treesitter.configs').setup({
         ensure_installed = {
+          'vim',
+          'help',
+          'query',
           'lua',
           'bash',
           'dart',
           'diff',
           'regex',
           'git_rebase',
-          'gitcommit',
           'markdown',
         },
         auto_install = true,
