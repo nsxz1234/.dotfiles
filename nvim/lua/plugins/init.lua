@@ -253,14 +253,6 @@ return {
     },
   },
   {
-    'nvim-pack/nvim-spectre',
-    config = function()
-      map('n', '<leader>so', '<cmd>lua require("spectre").open()<CR>')
-      map('n', '<leader>sw', '<cmd>lua require("spectre").open_visual({select_word=true})<CR>')
-      map('n', '<leader>sp', 'viw:lua require("spectre").open_file_search()<cr>')
-    end,
-  },
-  {
     'AckslD/nvim-neoclip.lua',
     config = function()
       require('neoclip').setup({
