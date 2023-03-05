@@ -74,24 +74,22 @@ return {
   {
     'm-demare/hlargs.nvim',
     event = 'VeryLazy',
-    config = function()
-      require('hlargs').setup({
-        excluded_argnames = {
-          declarations = { 'use', '_' },
-          usages = { lua = { 'self', 'use', '_' } },
-        },
-      })
-    end,
+    opts = {
+      excluded_argnames = {
+        declarations = { 'use', '_' },
+        usages = { lua = { 'self', 'use', '_' } },
+      },
+    },
   },
   {
     'kevinhwang91/nvim-hlslens',
-    config = function() require('hlslens').setup() end,
+    config = true,
   },
   {
     'folke/todo-comments.nvim',
     event = 'VeryLazy',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
-    config = function() require('todo-comments').setup() end,
+    config = true,
   },
   { 'nacro90/numb.nvim', event = 'CmdlineEnter', config = true },
   {
@@ -151,42 +149,38 @@ return {
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
     dependencies = { 'hrsh7th/nvim-cmp' },
-    config = function()
-      require('nvim-autopairs').setup({
-        check_ts = true,
-        fast_wrap = { map = '<c-e>' },
-        ts_config = {
-          lua = { 'string' },
-          dart = { 'string' },
-        },
-      })
-    end,
+    opts = {
+      check_ts = true,
+      fast_wrap = { map = '<c-e>' },
+      ts_config = {
+        lua = { 'string' },
+        dart = { 'string' },
+      },
+    },
   },
   {
     'voldikss/vim-translator',
-    config = function()
-      vim.g.translator_default_engines = { 'haici' }
-      map({ 'n', 'x' }, '<leader>t', ':TranslateW<cr>')
-    end,
+    keys = { { '<leader>t', '<cmd>TranslateW<cr>', mode = { 'n', 'x' } } },
+    config = function() vim.g.translator_default_engines = { 'haici' } end,
   },
   {
     'Shatur/neovim-session-manager',
+    keys = {
+      { 'fs', '<cmd>SessionManager load_session<cr>' },
+      { '<leader>ss', '<cmd>SessionManager save_current_session<cr>', silent = false },
+      { '<leader>sd', '<cmd>SessionManager delete_session<cr>' },
+    },
     config = function()
       require('session_manager').setup({
         autoload_mode = require('session_manager.config').AutoloadMode.Disabled,
         autosave_ignore_not_normal = false,
       })
-      map('n', 'fs', ':SessionManager load_session<cr>')
-      map('n', '<leader>ss', ':SessionManager save_current_session<cr>', { silent = false })
-      map('n', '<leader>sd', ':SessionManager delete_session<cr>')
     end,
   },
   {
     'phaazon/hop.nvim',
-    config = function()
-      require('hop').setup()
-      map('n', 's', require('hop').hint_words)
-    end,
+    keys = { { 's', function() require('hop').hint_words() end } },
+    config = true,
   },
   {
     'mbbill/undotree',
@@ -224,24 +218,20 @@ return {
   },
   {
     'ray-x/lsp_signature.nvim',
-    config = function()
-      require('lsp_signature').setup({
-        bind = true,
-        fix_pos = false,
-        auto_close_after = 15, -- close after 15 seconds
-        hint_enable = false,
-        handler_opts = { border = as.ui.current.border },
-        toggle_key = '<C-c>',
-      })
-    end,
+    opts = {
+      bind = true,
+      fix_pos = false,
+      auto_close_after = 15, -- close after 15 seconds
+      hint_enable = false,
+      handler_opts = { border = as.ui.current.border },
+      toggle_key = '<C-c>',
+    },
   },
   {
     'j-hui/fidget.nvim',
-    config = function()
-      require('fidget').setup({
-        window = { blend = 0 },
-      })
-    end,
+    opts = {
+      window = { blend = 0 },
+    },
   },
   {
     'Wansmer/treesj',
@@ -254,16 +244,11 @@ return {
   },
   {
     'AckslD/nvim-neoclip.lua',
-    config = function()
-      require('neoclip').setup({
-        keys = {
-          telescope = {
-            i = { select = '<cr>', paste = '<m-p>', paste_behind = '<m-P>' },
-          },
-        },
-      })
-      map('n', 'fp', require('telescope').extensions.neoclip.default)
-    end,
+    event = 'VeryLazy',
+    config = true,
+    keys = {
+      { 'fp', function() require('telescope').extensions.neoclip.default() end },
+    },
   },
   {
     'ahmedkhalf/project.nvim',
@@ -276,16 +261,7 @@ return {
   },
   {
     'is0n/fm-nvim',
-    config = function()
-      require('fm-nvim').setup({
-        ui = {
-          float = {
-            border = 'rounded',
-          },
-        },
-      })
-      map('n', '<leader>e', '<cmd>Nnn<CR>')
-    end,
+    keys = { { '<leader>e', '<cmd>Nnn<cr>' } },
   },
   {
     'akinsho/pubspec-assist.nvim',
