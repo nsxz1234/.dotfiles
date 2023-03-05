@@ -7,7 +7,7 @@ local function config()
   }
   local file_name = {
     'filename',
-    path = 1, -- 0: Just the filename  1: Relative path  2: Absolute path
+    path = 0, -- 0: Just the filename  1: Relative path  2: Absolute path
     shorting_target = 0,
   }
   local diff = {
