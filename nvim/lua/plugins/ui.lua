@@ -3,6 +3,11 @@ local icons = as.ui.icons.lsp
 
 return {
   {
+    'lukas-reineke/virt-column.nvim',
+    event = 'VimEnter',
+    opts = { char = '▕' },
+  },
+  {
     'lukas-reineke/indent-blankline.nvim',
     event = { 'BufReadPre', 'BufNewFile' },
     opts = {

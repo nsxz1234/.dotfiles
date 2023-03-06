@@ -63,11 +63,6 @@ return {
     end,
   },
   {
-    'lukas-reineke/virt-column.nvim',
-    event = 'VimEnter',
-    opts = { char = '▕' },
-  },
-  {
     'cshuaimin/ssr.nvim',
     keys = { { '<leader>sr', function() require('ssr').open() end, mode = { 'n', 'x' } } },
   },
