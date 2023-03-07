@@ -128,7 +128,7 @@ return {
     config = function()
       map('i', '<Plug>(as-copilot-accept)', "copilot#Accept('<Tab>')", {
         expr = true,
-        remap = true,
+        -- remap = true,
         silent = true,
       })
       map('i', '<M-]>', '<Plug>(copilot-next)')
