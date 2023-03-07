@@ -79,6 +79,7 @@ return {
       },
       pickers = {
         buffers = {
+          initial_mode = 'normal',
           sort_mru = true,
           sort_lastused = true,
           show_all_buffers = true,
