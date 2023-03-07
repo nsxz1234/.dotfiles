@@ -72,8 +72,6 @@ nnoremap('<space><space>', [[@=(foldlevel('.')?'za':"\<Space>")<CR>]], {
 
 -- search visual selection
 vnoremap('//', [[y/<C-R>"<CR>]])
--- find visually selected text
-vnoremap('*', [[y/<C-R>"<CR>]])
 -- make . work with visually selected lines
 vnoremap('.', ':norm.<CR>')
 
