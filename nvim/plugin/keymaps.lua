@@ -65,10 +65,10 @@ nnoremap("<leader>'", [[ciw'<c-r>"'<esc>]])
 nnoremap('<leader>)', [[ciw(<c-r>")<esc>]])
 nnoremap('<leader>]', [[ciw[<c-r>"]<esc>]])
 nnoremap('<leader>}', [[ciw{<c-r>"}<esc>]])
--- Capitalize
-nnoremap('U', 'gUiw`]')
 -- Evaluates whether there is a fold on the current line if so unfold it else return a normal space
-nnoremap('<leader><space>', [[@=(foldlevel('.')?'za':"\<Space>")<CR>]])
+nnoremap('<space><space>', [[@=(foldlevel('.')?'za':"\<Space>")<CR>]], {
+  desc = 'toggle fold under cursor',
+})
 
 -- search visual selection
 vnoremap('//', [[y/<C-R>"<CR>]])
@@ -96,8 +96,8 @@ local function modify_line_end_delimiter(character)
   end
 end
 
-nnoremap('<leader>,', modify_line_end_delimiter(','))
-nnoremap('<leader>;', modify_line_end_delimiter(';'))
+nnoremap('<leader>,', modify_line_end_delimiter(','), { desc = "add ',' to end of line" })
+nnoremap('<leader>;', modify_line_end_delimiter(';'), { desc = "add ';' to end of line" })
 
 local function run()
   if vim.bo.filetype == 'markdown' then vim.cmd('MarkdownPreviewToggle') end
@@ -106,7 +106,10 @@ end
 nnoremap('<leader><cr>', run)
 
 -- buffer
-map('n', 't', '<c-^>')
+nnoremap('t', '<c-^>', { desc = 'switch to last buffer'})
+
+-- Capitalize
+nnoremap('U', 'gUiw`]', { desc = 'capitalize word'})
 
 -- tabedit
 nnoremap('<leader><tab>', 'gt')
