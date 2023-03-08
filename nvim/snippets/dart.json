@@ -398,7 +398,7 @@
     "prefix": "dis",
     "body": [
       "@override",
-      "void dispose() { ",
+      "void dispose() {",
       "  ${0:}",
       "  super.dispose();",
       "}"
