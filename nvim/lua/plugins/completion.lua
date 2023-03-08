@@ -37,9 +37,6 @@ return {
           expand = function(args) require('luasnip').lsp_expand(args.body) end,
         },
         mapping = {
-          ['<C-h>'] = cmp.mapping(
-            function(_) api.nvim_feedkeys(fn['copilot#Accept'](t('<Tab>')), 'n', true) end
-          ),
           ['<C-k>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
           ['<C-j>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
           ['<Tab>'] = cmp.mapping(tab, { 's', 'c' }),
@@ -124,13 +121,7 @@ return {
     'github/copilot.vim',
     event = 'InsertEnter',
     dependencies = { 'nvim-cmp' },
-    init = function() vim.g.copilot_no_tab_map = true end,
     config = function()
-      map('i', '<Plug>(as-copilot-accept)', "copilot#Accept('<Tab>')", {
-        expr = true,
-        -- remap = true,
-        silent = true,
-      })
       map('i', '<M-]>', '<Plug>(copilot-next)')
       map('i', '<M-[>', '<Plug>(copilot-previous)')
       map('i', '<C-\\>', '<Cmd>vertical Copilot panel<CR>')
