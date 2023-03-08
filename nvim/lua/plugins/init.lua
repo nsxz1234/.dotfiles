@@ -155,8 +155,10 @@ return {
   },
   {
     'voldikss/vim-translator',
-    keys = { { '<leader>t', '<cmd>TranslateW<cr>', mode = { 'n', 'x' } } },
-    config = function() vim.g.translator_default_engines = { 'haici' } end,
+    config = function()
+      map({ 'n', 'x' }, '<leader>t', ':TranslateW<cr>')
+      vim.g.translator_default_engines = { 'haici' }
+    end,
   },
   {
     'Shatur/neovim-session-manager',
