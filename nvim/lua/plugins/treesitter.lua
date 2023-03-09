@@ -71,9 +71,9 @@ return {
         },
         rainbow = {
           enable = true,
+          disable = false,
           query = 'rainbow-parens',
-          disable = { 'dart' },
-          strategy = { require('ts-rainbow.strategy.local') },
+          strategy = { require('ts-rainbow.strategy.global') },
         },
         autopairs = { enable = true },
         query_linter = {
