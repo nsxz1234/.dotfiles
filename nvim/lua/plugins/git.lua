@@ -82,7 +82,7 @@ return {
         map('n', '<leader>gr', gs.reset_buffer, { desc = 'gitsigns: reset entire buffer' })
         map(
           'n',
-          'gq',
+          '<leader>lg',
           function() gs.setqflist('all') end,
           { desc = 'gitsigns: list modified in quickfix' }
         )
