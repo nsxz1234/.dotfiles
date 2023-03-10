@@ -54,12 +54,12 @@ local function setup_autocommands(client, bufnr)
 
   local b = vim.b[bufnr]
   local events = b.lsp_events
-    or {
-      [FEATURES.CODELENS.name] = { clients = {}, group_id = nil },
-      [FEATURES.FORMATTING.name] = { clients = {}, group_id = nil },
-      [FEATURES.DIAGNOSTICS.name] = { clients = {}, group_id = nil },
-      [FEATURES.REFERENCES.name] = { clients = {}, group_id = nil },
-    }
+      or {
+        [FEATURES.CODELENS.name] = { clients = {}, group_id = nil },
+        [FEATURES.FORMATTING.name] = { clients = {}, group_id = nil },
+        [FEATURES.DIAGNOSTICS.name] = { clients = {}, group_id = nil },
+        [FEATURES.REFERENCES.name] = { clients = {}, group_id = nil },
+      }
 
   local augroup = augroup_factory(bufnr, client, events)
   vim.api.nvim_create_autocmd('CursorHold', {
@@ -80,7 +80,9 @@ local function setup_autocommands(client, bufnr)
       event = { 'BufEnter', 'CursorHold', 'InsertLeave' },
       desc = 'LSP: Code Lens',
       buffer = bufnr,
-      command = function() lsp.codelens.refresh() end,
+      command = function(args)
+        if is_buffer_valid(args.buf) then lsp.codelens.refresh() end
+      end,
     }
   end)
 
