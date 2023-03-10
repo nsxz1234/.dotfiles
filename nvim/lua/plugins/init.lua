@@ -67,16 +67,6 @@ return {
     keys = { { '<leader>sr', function() require('ssr').open() end, mode = { 'n', 'x' } } },
   },
   {
-    'm-demare/hlargs.nvim',
-    event = 'VeryLazy',
-    opts = {
-      excluded_argnames = {
-        declarations = { 'use', '_' },
-        usages = { lua = { 'self', 'use', '_' } },
-      },
-    },
-  },
-  {
     'kevinhwang91/nvim-hlslens',
     config = true,
   },
