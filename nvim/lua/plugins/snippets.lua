@@ -53,6 +53,7 @@ return {
       require('luasnip.loaders.from_vscode').lazy_load({ paths = './snippets' })
 
       ls.filetype_extend('dart', { 'flutter' })
+      ls.filetype_extend('NeogitCommitMessage', { 'gitcommit' })
     end,
   },
 }
