@@ -119,12 +119,11 @@ return {
   },
   {
     'github/copilot.vim',
-    event = 'InsertEnter',
+    event = 'VeryLazy',
     dependencies = { 'nvim-cmp' },
     config = function()
       map('i', '<M-]>', '<Plug>(copilot-next)')
       map('i', '<M-[>', '<Plug>(copilot-previous)')
-      map('i', '<C-\\>', '<Cmd>vertical Copilot panel<CR>')
       vim.g.copilot_filetypes = {
         ['*'] = true,
         gitcommit = false,
