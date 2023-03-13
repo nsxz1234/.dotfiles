@@ -10,10 +10,6 @@ GLFW_IM_MODULE=ibus
 #打不开虚拟机
 #QT_QPA_PLATFORM=wayland
 
-#设置默认编辑器neovim
-VISUAL=/usr/bin/nvim
-EDITOR=/usr/bin/nvim
-
 #wayland环境firefox需要配置
 MOZ_ENABLE_WAYLAND=1
 

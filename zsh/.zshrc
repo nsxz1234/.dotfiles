@@ -59,6 +59,8 @@ ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
+export EDITOR='nvim'
+export VISUAL='nvim'
 # zig
 export PATH=$PATH:~/zig
 # flutter
@@ -69,7 +71,6 @@ export PATH=~/flutter/bin:$PATH
 export PATH=~/Android/Sdk/platform-tools:$PATH
 # cargo
 export PATH=$PATH:~/.cargo/bin
-export EDITOR='nvim'
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
