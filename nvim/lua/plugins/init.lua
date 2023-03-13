@@ -42,6 +42,20 @@ return {
   { 'kevinhwang91/nvim-bqf', ft = 'qf' },
   'romainl/vim-cool',
   {
+    'willothy/flatten.nvim',
+    opts = {
+      window = { open = 'current' },
+      callbacks = {
+        pre_open = function() require('toggleterm').toggle() end,
+        post_open = function(_, winnr)
+          require('toggleterm').toggle()
+          vim.api.nvim_set_current_win(winnr)
+        end,
+        block_end = function() require('toggleterm').toggle() end,
+      },
+    },
+  },
+  {
     'simrat39/rust-tools.nvim',
     dependencies = { 'nvim-lspconfig' },
   },
