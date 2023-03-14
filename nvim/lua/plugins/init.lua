@@ -1,5 +1,3 @@
-local opt, fmt = vim.opt, string.format
-
 return {
   'nvim-lua/plenary.nvim',
   {
