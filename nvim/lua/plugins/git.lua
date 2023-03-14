@@ -84,7 +84,7 @@ return {
           'n',
           '<leader>lg',
           function() gs.setqflist('all') end,
-          { desc = 'gitsigns: list modified in quickfix' }
+          { desc = 'list modified in quickfix' }
         )
         map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
 
