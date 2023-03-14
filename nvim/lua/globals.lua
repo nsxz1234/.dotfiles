@@ -91,7 +91,7 @@ end
 
 ---Require a module using [pcall] and report any errors
 ---@param module string
----@param opts table?
+---@param opts {silent: boolean, message: string}?
 ---@return boolean, any
 function as.require(module, opts)
   opts = opts or { silent = false }
@@ -132,23 +132,6 @@ function as.ftplugin_conf(configs)
     local info = debug.getinfo(1, 'S')
     local ok, plugin = as.require(name, { message = fmt('In file: %s', info.source) })
     if ok then callback(plugin) end
-  end
-end
-
----Reload lua modules
----@param path string
----@param recursive boolean
-function as.invalidate(path, recursive)
-  if recursive then
-    for key, value in pairs(package.loaded) do
-      if key ~= '_G' and value and fn.match(key, path) ~= -1 then
-        package.loaded[key] = nil
-        require(key)
-      end
-    end
-  else
-    package.loaded[path] = nil
-    require(path)
   end
 end
 
