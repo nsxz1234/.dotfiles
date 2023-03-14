@@ -157,8 +157,6 @@ end
 ----------------------------------------------------------------------------------------------------
 -- Thin wrappers over API functions to make their usage easier/terser
 
-P = vim.pretty_print
-
 --- Validate the keys passed to as.augroup are valid
 ---@param name string
 ---@param cmd Autocommand

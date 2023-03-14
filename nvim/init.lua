@@ -24,6 +24,7 @@ local namespace = {
 _G.as = as or namespace
 
 _G.map = vim.keymap.set
+_G.P = vim.print
 
 -- Settings
 
