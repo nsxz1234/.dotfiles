@@ -18,17 +18,14 @@ return {
   },
   dependencies = {
     {
-      'natecraddock/telescope-zf-native.nvim',
-      config = function() require('telescope').load_extension('zf-native') end,
-    },
-    {
       'ilAYAli/scMRU.nvim',
       keys = {
         { 'fr', '<Cmd>Mru<CR>', desc = 'most recently used' },
         { 'fu', '<Cmd>Mfu<CR>', desc = 'most frequently used' },
       },
     },
-    'molecule-man/telescope-menufacture',
+    { 'molecule-man/telescope-menufacture' },
+    { 'natecraddock/telescope-zf-native.nvim' },
   },
   config = function()
     local actions = require('telescope.actions')
@@ -103,5 +100,6 @@ return {
 
     -- Extensions (sometimes need to be explicitly loaded after telescope is setup)
     require('telescope').load_extension('menufacture')
+    require('telescope').load_extension('zf-native')
   end,
 }
