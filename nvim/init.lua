@@ -5,14 +5,6 @@ vim.api.nvim_create_augroup('vimrc', {})
 
 vim.g.mapleader = ' ' -- Remap leader key
 vim.g.maplocalleader = ',' -- Remap local leader key
-
-local ok, reload = pcall(require, 'plenary.reload')
-RELOAD = ok and reload.reload_module or function(...) return ... end
-function R(name)
-  RELOAD(name)
-  return require(name)
-end
-
 -- Global namespace
 local namespace = {
   -- for UI elements like the winbar and statusline that need global references
@@ -28,9 +20,9 @@ _G.P = vim.print
 
 -- Settings
 
-R('globals')
-R('ui')
-R('settings')
+require('globals')
+require('ui')
+require('settings')
 
 -- Plugins
 
