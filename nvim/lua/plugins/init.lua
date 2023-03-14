@@ -43,15 +43,16 @@ return {
   'romainl/vim-cool',
   {
     'willothy/flatten.nvim',
-    opts = {
+    priority = 1001,
+    config = {
       window = { open = 'current' },
       callbacks = {
+        block_end = function() require('toggleterm').toggle() end,
         pre_open = function() require('toggleterm').toggle() end,
         post_open = function(_, winnr)
           require('toggleterm').toggle()
           vim.api.nvim_set_current_win(winnr)
         end,
-        block_end = function() require('toggleterm').toggle() end,
       },
     },
   },
