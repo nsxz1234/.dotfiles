@@ -30,15 +30,20 @@ local servers = {
   },
 }
 
-return function(name)
-  local config = servers[name]
-  if type(config) == 'function' then config = config() end
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities.textDocument.foldingRange = {
-    dynamicRegistration = false,
-    lineFoldingOnly = true,
-  }
-  capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-  config.capabilities = capabilities
-  return config
-end
+return {
+  'neovim/nvim-lspconfig',
+  config = function()
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities.textDocument.foldingRange = {
+      dynamicRegistration = false,
+      lineFoldingOnly = true,
+    }
+    capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+
+    for name, config in pairs(servers) do
+      if type(config) == 'function' then config = config() end
+      config.capabilities = capabilities
+      require('lspconfig')[name].setup(config)
+    end
+  end,
+}
