@@ -20,6 +20,7 @@ return {
               opts = { library = { plugins = { 'nvim-dap-ui' } } },
             },
           },
+          config = require('servers'),
         },
       },
       config = function() require('mason-lspconfig').setup({ automatic_installation = true }) end,
