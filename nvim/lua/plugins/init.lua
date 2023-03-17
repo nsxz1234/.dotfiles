@@ -33,6 +33,15 @@ return {
   { 'kevinhwang91/nvim-bqf', ft = 'qf' },
   'romainl/vim-cool',
   {
+    'JuanZoran/Trans.nvim',
+    branch = 'dev',
+    keys = {
+      { '<leader>r', mode = { 'n', 'x' }, '<Cmd>Translate<CR>', desc = ' Translate' },
+    },
+    dependencies = { 'kkharji/sqlite.lua' },
+    opts = {}
+  },
+  {
     'willothy/flatten.nvim',
     priority = 1001,
     opts = {
