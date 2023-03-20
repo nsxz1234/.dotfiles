@@ -16,17 +16,6 @@ return {
     { 'fn', function() require('telescope').extensions.notify.notify() end },
     { 'fk', function() b().keymaps() end },
   },
-  dependencies = {
-    {
-      'ilAYAli/scMRU.nvim',
-      keys = {
-        { 'fr', '<Cmd>Mru<CR>', desc = 'most recently used' },
-        { 'fu', '<Cmd>Mfu<CR>', desc = 'most frequently used' },
-      },
-    },
-    { 'molecule-man/telescope-menufacture' },
-    { 'natecraddock/telescope-zf-native.nvim' },
-  },
   config = function()
     local actions = require('telescope.actions')
 
@@ -102,4 +91,20 @@ return {
     require('telescope').load_extension('menufacture')
     require('telescope').load_extension('zf-native')
   end,
+  dependencies = {
+    {
+      'AckslD/nvim-neoclip.lua',
+      opts = {},
+      keys = { { 'fp', function() require('telescope').extensions.neoclip.default() end } },
+    },
+    {
+      'ilAYAli/scMRU.nvim',
+      keys = {
+        { 'fr', '<Cmd>Mru<CR>', desc = 'most recently used' },
+        { 'fu', '<Cmd>Mfu<CR>', desc = 'most frequently used' },
+      },
+    },
+    { 'molecule-man/telescope-menufacture' },
+    { 'natecraddock/telescope-zf-native.nvim' },
+  },
 }

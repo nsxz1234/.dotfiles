@@ -1,6 +1,3 @@
-local api, fn = vim.api, vim.fn
-local t = as.replace_termcodes
-
 return {
   {
     'hrsh7th/nvim-cmp',

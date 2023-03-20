@@ -27,7 +27,7 @@ return {
     },
   },
   'nvim-tree/nvim-web-devicons',
-  { 'stevearc/dressing.nvim' },
+  'stevearc/dressing.nvim',
   { 'wellle/targets.vim', event = 'VeryLazy' },
   'mtdl9/vim-log-highlighting',
   { 'kevinhwang91/nvim-bqf', ft = 'qf' },
@@ -58,6 +58,7 @@ return {
   },
   {
     'simrat39/rust-tools.nvim',
+    event = 'VeryLazy',
     dependencies = { 'nvim-lspconfig' },
   },
   {
@@ -83,13 +84,13 @@ return {
   },
   {
     'kevinhwang91/nvim-hlslens',
-    config = true,
+    opts = {},
   },
   {
     'folke/todo-comments.nvim',
     event = 'VeryLazy',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
-    config = true,
+    opts = {},
   },
   { 'nacro90/numb.nvim', event = 'CmdlineEnter', config = true },
   {
@@ -120,13 +121,11 @@ return {
   {
     'zbirenbaum/neodim',
     event = 'VeryLazy',
-    opts = {
-      hide = { underline = false },
-    },
+    opts = { hide = { underline = false } },
   },
   {
     'smjonas/inc-rename.nvim',
-    config = true,
+    opts = {},
     keys = {
       {
         '<leader>rn',
@@ -140,10 +139,9 @@ return {
   {
     'numToStr/Comment.nvim',
     event = 'VeryLazy',
-    config = true,
-    -- opts = {
-    --   vim.api.nvim_command('set commentstring=//%s'),
-    -- },
+    opts = {
+      -- vim.api.nvim_command('set commentstring=//%s'),
+    },
   },
   {
     'windwp/nvim-autopairs',
@@ -182,7 +180,7 @@ return {
   {
     'phaazon/hop.nvim',
     keys = { { 's', function() require('hop').hint_words() end } },
-    config = true,
+    opts = {},
   },
   {
     'mbbill/undotree',
@@ -231,9 +229,7 @@ return {
   },
   {
     'j-hui/fidget.nvim',
-    opts = {
-      window = { blend = 0 },
-    },
+    opts = { window = { blend = 0 } },
   },
   {
     'Wansmer/treesj',
@@ -242,14 +238,6 @@ return {
     keys = {
       { 'gs', '<Cmd>TSJSplit<CR>', desc = 'split expression to multiple lines' },
       { 'gj', '<Cmd>TSJJoin<CR>', desc = 'join expression to single line' },
-    },
-  },
-  {
-    'AckslD/nvim-neoclip.lua',
-    event = 'VeryLazy',
-    config = true,
-    keys = {
-      { 'fp', function() require('telescope').extensions.neoclip.default() end },
     },
   },
   {
@@ -269,7 +257,7 @@ return {
     'akinsho/pubspec-assist.nvim',
     ft = { 'dart' },
     event = 'BufEnter pubspec.yaml',
-    config = true,
+    opts = {},
   },
   {
     'andrewferrier/debugprint.nvim',
@@ -302,25 +290,6 @@ return {
     keys = {
       { '<leader>/', ':%s/<C-r><C-w>//c<left><left>', mode = 'n', silent = false },
       { '<leader>/', [["zy:%s/<C-r><C-o>"//c<left><left>]], mode = 'x', silent = false },
-    },
-  },
-  --
-  -- Git
-  --
-  {
-    'akinsho/git-conflict.nvim',
-    event = 'VeryLazy',
-    opts = {
-      default_mappings = true,
-      disable_diagnostics = true,
-    },
-    keys = {
-      { 'co', '<Plug>(git-conflict-ours)' },
-      { 'cb', '<Plug>(git-conflict-both)' },
-      { 'cn', '<Plug>(git-conflict-none)' },
-      { 'ct', '<Plug>(git-conflict-theirs)' },
-      { ']c', '<Plug>(git-conflict-next-conflict)' },
-      { '[c', '<Plug>(git-conflict-prev-conflict)' },
     },
   },
 }
