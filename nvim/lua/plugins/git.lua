@@ -61,7 +61,7 @@ return {
         delete = { text = '_' },
         changedelete = { text = '~' },
       },
-      -- _signs_staged_enable = true,
+      _signs_staged_enable = false,
       on_attach = function()
         local gs = package.loaded.gitsigns
 
