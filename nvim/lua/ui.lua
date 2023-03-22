@@ -32,6 +32,7 @@ as.ui = {
   icons = {
     separators = {
       left_thin_block = '▏',
+      right_thin_block = '▕',
       vert_bottom_half_block = '▄',
       vert_top_half_block = '▀',
       right_block = '🮉',
@@ -160,6 +161,15 @@ as.ui = {
       Event = '',
       Operator = '',
       TypeParameter = '',
+      Namespace = '',
+      Package = '',
+      String = '',
+      Number = '',
+      Boolean = '',
+      Array = '',
+      Object = '',
+      Key = '',
+      Null = '',
     },
   },
   palette = palette,
