@@ -117,7 +117,11 @@ return {
       { '<C-u>', function() require('readline').backward_kill_line() end, mode = '!' },
     },
   },
-  { 'kylechui/nvim-surround', opts = { keymaps = { visual = 's' } } },
+  {
+    'kylechui/nvim-surround',
+    version = '*',
+    opts = { keymaps = { visual = 's' } },
+  },
   {
     'zbirenbaum/neodim',
     event = 'VeryLazy',
