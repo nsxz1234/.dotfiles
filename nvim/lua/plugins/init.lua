@@ -39,7 +39,7 @@ return {
       { '<leader>r', mode = { 'n', 'x' }, '<Cmd>Translate<CR>', desc = ' Translate' },
     },
     dependencies = { 'kkharji/sqlite.lua' },
-    opts = {}
+    opts = {},
   },
   {
     'willothy/flatten.nvim',
@@ -202,8 +202,7 @@ return {
     'uga-rosa/ccc.nvim',
     event = 'VeryLazy',
     opts = {
-      win_opts = { border = as.ui.current.border },
-      highlighter = { auto_enable = true, excludes = { 'dart' } },
+      highlighter = { auto_enable = true, excludes = { 'dart', 'lazy' } },
     },
   },
   {
