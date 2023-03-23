@@ -21,12 +21,6 @@ local function clients_by_capability(bufnr, capability)
   )
 end
 
----@param buf integer
----@return boolean
-local function is_buffer_valid(buf)
-  return buf and api.nvim_buf_is_loaded(buf) and api.nvim_buf_is_valid(buf)
-end
-
 --- Create augroups for each LSP feature and track which capabilities each client
 --- registers in a buffer local table
 ---@param bufnr integer
