@@ -92,7 +92,7 @@ return {
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     opts = {},
   },
-  { 'nacro90/numb.nvim', event = 'CmdlineEnter', config = true },
+  { 'nacro90/numb.nvim', event = 'CmdlineEnter', opts = {} },
   {
     'lvimuser/lsp-inlayhints.nvim',
     opts = {
