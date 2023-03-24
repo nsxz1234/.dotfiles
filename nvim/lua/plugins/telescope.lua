@@ -100,7 +100,6 @@ return {
       'ilAYAli/scMRU.nvim',
       keys = {
         { 'fr', '<Cmd>Mru<CR>', desc = 'most recently used' },
-        { 'fu', '<Cmd>Mfu<CR>', desc = 'most frequently used' },
       },
     },
     { 'molecule-man/telescope-menufacture' },
