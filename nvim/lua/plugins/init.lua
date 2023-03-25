@@ -94,17 +94,6 @@ return {
   },
   { 'nacro90/numb.nvim', event = 'CmdlineEnter', opts = {} },
   {
-    'lvimuser/lsp-inlayhints.nvim',
-    opts = {
-      inlay_hints = {
-        highlight = 'Comment',
-        labels_separator = ' ⏐ ',
-        parameter_hints = { prefix = '' },
-        type_hints = { prefix = '=> ', remove_colon_start = true },
-      },
-    },
-  },
-  {
     'linty-org/readline.nvim',
     keys = {
       { '<M-f>', function() require('readline').forward_word() end, mode = '!' },
