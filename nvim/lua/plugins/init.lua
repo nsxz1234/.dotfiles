@@ -191,7 +191,7 @@ return {
     'uga-rosa/ccc.nvim',
     event = 'VeryLazy',
     opts = {
-      highlighter = { auto_enable = true, excludes = { 'dart', 'lazy' } },
+      highlighter = { auto_enable = true, excludes = { 'dart', 'lazy', 'toggleterm' } },
     },
   },
   {
