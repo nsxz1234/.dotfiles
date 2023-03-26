@@ -2,9 +2,9 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 [character] # The name of the module we are configuring is 'character'
-success_symbol = "[>](bold green)"
-error_symbol = "[x](bold red)"
-vimcmd_symbol = "[<](bold green)"
+success_symbol = '[➜](bold green) '
+error_symbol = '[➜](bold red) '
+vicmd_symbol = '[V](bold green) '
 
 [package]
 disabled = true
