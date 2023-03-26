@@ -9,7 +9,7 @@ end
 local imap = function(...) recursive_map('i', ...) end
 local noremap = function(...) map('', ...) end
 local nnoremap = function(...) map('n', ...) end
-local vnoremap = function(...) map('v', ...) end
+local vnoremap = function(...) map('x', ...) end
 local inoremap = function(...) map('i', ...) end
 local cnoremap = function(...) map('c', ...) end
 local tnoremap = function(...) map('t', ...) end
