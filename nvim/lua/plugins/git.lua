@@ -44,6 +44,11 @@ return {
       hooks = {
         diff_buf_read = function() vim.wo.wrap = false end,
       },
+      file_history_panel = {
+        win_config = {
+          height = 12,
+        },
+      },
       keymaps = {
         view = { q = '<Cmd>DiffviewClose<CR>' },
         file_panel = { q = '<Cmd>DiffviewClose<CR>' },
