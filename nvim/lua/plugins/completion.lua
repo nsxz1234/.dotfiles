@@ -27,11 +27,9 @@ return {
       end
 
       cmp.setup({
-        matching = {
-          disallow_partial_fuzzy_matching = false,
-        },
+        matching = { disallow_partial_fuzzy_matching = false },
         snippet = {
-          expand = function(args) require('luasnip').lsp_expand(args.body) end,
+          expand = function(args) luasnip.lsp_expand(args.body) end,
         },
         mapping = {
           ['<C-k>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),

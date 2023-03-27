@@ -59,7 +59,7 @@ return {
   },
   {
     'akinsho/bufferline.nvim',
-    event = 'VimEnter',
+    event = 'UIEnter',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
       local groups = require('bufferline.groups')
