@@ -35,11 +35,11 @@ noremap('<c-j>', '5j')
 noremap('<c-k>', '5k')
 noremap('<c-h>', '^')
 noremap('<c-l>', 'g_')
-snoremap('<c-l>', '<esc>A')
 snoremap('<space>', '<esc>ea')
 inoremap('<c-h>', '<Left>')
 inoremap('<c-l>', '<Right>')
 inoremap('jl', '<End>')
+snoremap('jl', '<esc>A')
 
 -- basic
 imap('jk', [[col('.') == 1 ? '<esc>' : '<esc>l']], { expr = true })
