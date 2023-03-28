@@ -14,7 +14,7 @@ return {
     dependencies = {
       {
         'rcarriga/nvim-dap-ui',
-        config = true,
+        opts = {},
       },
       { 'theHamsta/nvim-dap-virtual-text', opts = { all_frames = true } },
     },
