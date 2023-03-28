@@ -11,16 +11,6 @@ local FEATURES = {
   REFERENCES = { name = 'references', provider = 'documentHighlightProvider' },
 }
 
----@param bufnr integer
----@param capability string
----@return table[]
-local function clients_by_capability(bufnr, capability)
-  return vim.tbl_filter(
-    function(c) return c.server_capabilities[capability] end,
-    vim.lsp.get_active_clients({ buffer = bufnr })
-  )
-end
-
 --- Create augroups for each LSP feature and track which capabilities each client
 --- registers in a buffer local table
 ---@param bufnr integer
@@ -48,12 +38,12 @@ local function setup_autocommands(client, bufnr)
 
   local b = vim.b[bufnr]
   local events = b.lsp_events
-      or {
-        [FEATURES.CODELENS.name] = { clients = {}, group_id = nil },
-        [FEATURES.FORMATTING.name] = { clients = {}, group_id = nil },
-        [FEATURES.DIAGNOSTICS.name] = { clients = {}, group_id = nil },
-        [FEATURES.REFERENCES.name] = { clients = {}, group_id = nil },
-      }
+    or {
+      [FEATURES.CODELENS.name] = { clients = {}, group_id = nil },
+      [FEATURES.FORMATTING.name] = { clients = {}, group_id = nil },
+      [FEATURES.DIAGNOSTICS.name] = { clients = {}, group_id = nil },
+      [FEATURES.REFERENCES.name] = { clients = {}, group_id = nil },
+    }
 
   local augroup = augroup_factory(bufnr, client, events)
   vim.api.nvim_create_autocmd('CursorHold', {
@@ -109,8 +99,6 @@ local function setup_mappings(_, bufnr)
 end
 
 local function on_attach(client, bufnr)
-  local hints_ok, hints = pcall(require, 'lsp-inlayhints')
-  if hints_ok then hints.on_attach(client, bufnr) end
   setup_autocommands(client, bufnr)
   setup_mappings(client, bufnr)
 end
