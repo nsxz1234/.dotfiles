@@ -9,7 +9,9 @@ local servers = {
   lua_ls = {
     settings = {
       Lua = {
-        hint = { enable = true, arrayIndex = 'Disable', setType = true },
+        codeLens = { enable = true },
+        hint = { enable = true, arrayIndex = 'Disable', setType = true, paramName = 'Disable' },
+        format = { enable = false },
         diagnostics = {
           globals = {
             'vim',
