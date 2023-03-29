@@ -89,6 +89,19 @@ function as.empty(item)
   return item ~= nil
 end
 
+---Determine if a value of any type is empty
+---@param item any
+---@return boolean?
+function as.falsy(item)
+  if not item then return true end
+  local item_type = type(item)
+  if item_type == 'boolean' then return not item end
+  if item_type == 'string' then return item == '' end
+  if item_type == 'number' then return item <= 0 end
+  if item_type == 'table' then return vim.tbl_isempty(item) end
+  return item ~= nil
+end
+
 ---Require a module using [pcall] and report any errors
 ---@param module string
 ---@param opts {silent: boolean, message: string}?
@@ -217,11 +230,6 @@ function as.command(name, rhs, opts)
   opts = opts or {}
   api.nvim_create_user_command(name, rhs, opts)
 end
-
----Check if a cmd is executable
----@param e string
----@return boolean
-function as.executable(e) return fn.executable(e) > 0 end
 
 ---A terser proxy for `nvim_replace_termcodes`
 ---@param str string
