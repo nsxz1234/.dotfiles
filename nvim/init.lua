@@ -1,8 +1,5 @@
 local fn, opt = vim.fn, vim.opt
 
--- Ensure all autocommands are cleared
-vim.api.nvim_create_augroup('vimrc', {})
-
 vim.g.mapleader = ' ' -- Remap leader key
 vim.g.maplocalleader = ',' -- Remap local leader key
 -- Global namespace
