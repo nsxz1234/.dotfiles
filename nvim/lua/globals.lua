@@ -102,48 +102,33 @@ function as.falsy(item)
   return item ~= nil
 end
 
----Require a module using [pcall] and report any errors
----@param module string
----@param opts {silent: boolean, message: string}?
----@return boolean, any
-function as.require(module, opts)
-  opts = opts or { silent = false }
-  local ok, result = pcall(require, module)
-  if not ok and not opts.silent then
-    if opts.message then result = opts.message .. '\n' .. result end
-    vim.notify(result, l.ERROR, { title = fmt('Error requiring: %s', module) })
-  end
-  return ok, result
-end
-
 --- Call the given function and use `vim.notify` to notify of any errors
 --- this function is a wrapper around `xpcall` which allows having a single
 --- error handler for all errors
 ---@param msg string
 ---@param func function
----@vararg any
+---@param ... any
 ---@return boolean, any
----@overload fun(fun: function, ...): boolean, any
-function as.wrap_err(msg, func, ...)
+---@overload fun(func: function, ...): boolean, any
+function as.pcall(msg, func, ...)
   local args = { ... }
   if type(msg) == 'function' then
-    args, func, msg = { func, unpack(args) }, msg, nil
+    local arg = func --[[@as any]]
+    args, func, msg = { arg, unpack(args) }, msg, nil
   end
   return xpcall(func, function(err)
-    msg = msg and fmt('%s:\n%s', msg, err) or err
+    msg = debug.traceback(msg and fmt('%s:\n%s', msg, err) or err)
     vim.schedule(function() vim.notify(msg, l.ERROR, { title = 'ERROR' }) end)
   end, unpack(args))
 end
 
 --- A convenience wrapper that calls the ftplugin config for a plugin if it exists
 --- and warns me if the plugin is not installed
---- TODO: find out if it's possible to annotate the plugin as a module
 ---@param configs table<string, fun(module: table)>
 function as.ftplugin_conf(configs)
   if type(configs) ~= 'table' then return end
   for name, callback in pairs(configs) do
-    local info = debug.getinfo(1, 'S')
-    local ok, plugin = as.require(name, { message = fmt('In file: %s', info.source) })
+    local ok, plugin = as.pcall(require, name)
     if ok then callback(plugin) end
   end
 end
