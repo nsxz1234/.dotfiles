@@ -39,6 +39,11 @@ if not vim.loop.fs_stat(lazypath) then
 end
 opt.rtp:prepend(lazypath)
 
+-- If opening from inside neovim terminal then do not load other plugins
+if vim.env.NVIM then
+  return require('lazy').setup({ { 'willothy/flatten.nvim', config = true } })
+end
+
 require('lazy').setup('plugins', {
   defaults = {},
   change_detection = { notify = false },
