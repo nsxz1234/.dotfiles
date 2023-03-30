@@ -70,7 +70,7 @@ o.foldlevelstart = 10
 
 -- Grep
 -- Use faster grep alternatives if possible
-if as and as.falsy(vim.fn.executable('rg')) then
+if as and not as.falsy(vim.fn.executable('rg')) then
   vim.o.grepprg = [[rg --glob "!.git" --no-heading --vimgrep --follow $*]]
   opt.grepformat = opt.grepformat ^ { '%f:%l:%c:%m' }
 elseif as and not as.falsy(vim.fn.executable('ag')) then
@@ -82,11 +82,7 @@ end
 o.wildcharm = ('\t'):byte()
 o.wildmode = 'list:full' -- Shows a menu bar as opposed to an enormous list
 o.wildignorecase = true -- Ignore case when completing file names and directories
--- Binary
 opt.wildignore = {
-  '*.aux',
-  '*.out',
-  '*.toc',
   '*.o',
   '*.obj',
   '*.dll',
@@ -101,9 +97,6 @@ opt.wildignore = {
   '*.png',
   '*.avi',
   '*.wav',
-  -- Temp/System
-  '*.*~',
-  '*~ ',
   '*.swp',
   '.lock',
   '.DS_Store',
@@ -135,7 +128,6 @@ o.shiftround = true
 o.expandtab = true
 o.shiftwidth = 2
 
-o.gdefault = true
 o.pumheight = 15
 o.confirm = true
 opt.completeopt = { 'menuone', 'noselect' }
@@ -164,8 +156,7 @@ o.mousefocus = true
 opt.mousescroll = { 'ver:2', 'hor:6' }
 
 -- Spelling
-opt.spell = false
+opt.spelllang = 'en_gb'
 opt.spellsuggest:prepend({ 12 })
 opt.spelloptions:append({ 'camel', 'noplainbuffer' })
 opt.spellcapcheck = '' -- don't check for capital letters at start of sentence
-opt.fileformats = { 'unix', 'mac', 'dos' }
