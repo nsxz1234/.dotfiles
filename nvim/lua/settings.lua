@@ -156,7 +156,6 @@ o.mousefocus = true
 opt.mousescroll = { 'ver:2', 'hor:6' }
 
 -- Spelling
-opt.spelllang = 'en_gb'
 opt.spellsuggest:prepend({ 12 })
 opt.spelloptions:append({ 'camel', 'noplainbuffer' })
 opt.spellcapcheck = '' -- don't check for capital letters at start of sentence
