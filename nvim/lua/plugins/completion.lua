@@ -40,10 +40,7 @@ return {
       end
 
       cmp.setup({
-        matching = { disallow_partial_fuzzy_matching = false },
-        snippet = {
-          expand = function(args) luasnip.lsp_expand(args.body) end,
-        },
+        snippet = { expand = function(args) luasnip.lsp_expand(args.body) end },
         mapping = {
           ['<C-k>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
           ['<C-j>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
@@ -70,23 +67,24 @@ return {
             end,
           }),
         },
-        sources = cmp.config.sources({
-          { name = 'nvim_lsp' },
-          { name = 'luasnip' },
-          { name = 'path' },
+        sources = {
+          { name = 'nvim_lsp', group_index = 1 },
+          { name = 'luasnip', group_index = 1 },
+          { name = 'path', group_index = 1 },
           {
             name = 'rg',
             keyword_length = 4,
             max_item_count = 10,
             option = { additional_arguments = '--max-depth 8' },
+            group_index = 1,
           },
-        }, {
           {
             name = 'buffer',
             options = { get_bufnrs = function() return vim.api.nvim_list_bufs() end },
+            group_index = 2,
           },
-          { name = 'spell' },
-        }),
+          { name = 'spell', group_index = 2 },
+        },
       })
 
       local search_sources = {
