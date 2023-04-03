@@ -35,6 +35,11 @@ return {
   'romainl/vim-cool',
   { 'eandrju/cellular-automaton.nvim', event = 'VeryLazy' },
   {
+    'onsails/lspkind.nvim',
+    opts = { preset = 'codicons', mode = 'symbol_text' },
+    config = function(_, opts) require('lspkind').init(opts) end,
+  },
+  {
     'JuanZoran/Trans.nvim',
     branch = 'dev',
     keys = {
