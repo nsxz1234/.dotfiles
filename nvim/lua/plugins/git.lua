@@ -3,7 +3,9 @@ return {
     'TimUntersberger/neogit',
     cmd = 'Neogit',
     dependencies = { 'nvim-lua/plenary.nvim' },
-    keys = { { '<leader>gs', function() require('neogit').open() end, 'open status buffer' } },
+    keys = {
+      { '<leader>gs', function() require('neogit').open() end, desc = 'open status buffer' },
+    },
     opts = {
       disable_signs = false,
       disable_hint = true,
