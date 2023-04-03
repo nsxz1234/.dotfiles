@@ -66,7 +66,7 @@ opt.formatoptions = {
 -- o.foldenable = false
 -- o.foldcolumn = '0' -- '0' is not bad
 -- o.foldlevel = 99
-o.foldlevelstart = 10
+o.foldlevelstart = 999
 
 -- Grep
 -- Use faster grep alternatives if possible
