@@ -59,10 +59,8 @@ return {
           fields = { 'abbr', 'kind', 'menu' },
           format = lspkind.cmp_format({
             maxwidth = math.floor(vim.o.columns * 0.5),
-            before = function(entry, vim_item)
-              vim_item.dup = ({
-                luasnip = 0,
-              })[entry.source.name] or 0
+            before = function(_, vim_item)
+              vim_item.dup = {}
               return vim_item
             end,
           }),
