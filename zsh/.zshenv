@@ -16,5 +16,3 @@ fi
 
 # fzf
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
-export FZF_DEFAULT_OPTS="--history=$HOME/.fzf_history"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
