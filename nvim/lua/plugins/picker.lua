@@ -30,7 +30,7 @@ return {
             ['<c-k>'] = actions.move_selection_previous,
             ['<c-n>'] = actions.cycle_history_next,
             ['<c-p>'] = actions.cycle_history_prev,
-            ['<c-/>'] = actions.which_key,
+            ['?'] = actions.which_key,
             ['<Tab>'] = actions.toggle_selection,
           },
         },
