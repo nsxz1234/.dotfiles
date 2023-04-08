@@ -33,7 +33,6 @@ return {
   'mtdl9/vim-log-highlighting',
   { 'kevinhwang91/nvim-bqf', ft = 'qf' },
   'romainl/vim-cool',
-  { 'eandrju/cellular-automaton.nvim', event = 'VeryLazy' },
   {
     'onsails/lspkind.nvim',
     opts = { preset = 'codicons', mode = 'symbol_text' },
