@@ -1,19 +1,19 @@
-local function command(c) return ('<cmd>FzfLua %s<CR>'):format(c) end
+local fzf_lua = as.reqcall('fzf-lua')
 
-local file_picker = function(cwd) require('fzf-lua').files({ cwd = cwd }) end
+local file_picker = function(cwd) fzf_lua.files({ cwd = cwd }) end
 
 local function git_files_cwd_aware(opts)
   opts = opts or {}
-  local fzf_lua = require('fzf-lua')
+  local fzf = require('fzf-lua')
   -- git_root() will warn us if we're not inside a git repo
   -- so we don't have to add another warning here, if
   -- you want to avoid the error message change it to:
   -- local git_root = fzf_lua.path.git_root(opts, true)
-  local git_root = fzf_lua.path.git_root(opts)
-  if not git_root then return fzf_lua.files(opts) end
-  local relative = fzf_lua.path.relative(vim.loop.cwd(), git_root)
+  local git_root = fzf.path.git_root(opts)
+  if not git_root then return fzf.files(opts) end
+  local relative = fzf.path.relative(vim.loop.cwd(), git_root)
   opts.fzf_opts = { ['--query'] = git_root ~= relative and relative or nil }
-  return fzf_lua.git_files(opts)
+  return fzf.git_files(opts)
 end
 
 return {
@@ -31,16 +31,16 @@ return {
     keys = {
       { '<c-p>', git_files_cwd_aware, desc = 'find files' },
       { 'ff', file_picker, desc = 'find files' },
-      { 'fg', command('live_grep'), desc = 'live grep' },
-      { 'fo', command('oldfiles'), desc = 'Most recently used files' },
-      { 'f;', command('commands'), desc = 'commands' },
-      { 'fc', command('command_history'), desc = 'command history' },
-      { 'fh', command('git_bcommits'), desc = 'buffer commits' },
-      { 'fd', command('buffers'), desc = 'buffers' },
-      { 'f/', command('help_tags'), desc = 'help' },
-      { 'ft', command('lsp_live_workspace_symbols'), desc = 'workspace symbols' },
-      { 'fa', command('lsp_document_symbols'), desc = 'document symbols' },
-      { 'fk', command('keymaps'), desc = 'keymaps' },
+      { 'fg', fzf_lua.live_grep, desc = 'live grep' },
+      { 'fo', fzf_lua.oldfiles, desc = 'Most recently used files' },
+      { 'f;', fzf_lua.commands, desc = 'commands' },
+      { 'fc', fzf_lua.command_history, desc = 'command history' },
+      { 'fh', fzf_lua.git_bcommits, desc = 'buffer commits' },
+      { 'fd', fzf_lua.buffers, desc = 'buffers' },
+      { 'f/', fzf_lua.help_tags, desc = 'help' },
+      { 'ft', fzf_lua.lsp_live_workspace_symbols, desc = 'workspace symbols' },
+      { 'fa', fzf_lua.lsp_document_symbols, desc = 'document symbols' },
+      { 'fk', fzf_lua.keymaps, desc = 'keymaps' },
     },
     config = function()
       require('fzf-lua').setup({
@@ -56,6 +56,8 @@ return {
         keymap = {
           builtin = {
             ['?'] = 'toggle-help',
+            ['<c-f>'] = 'preview-page-down',
+            ['<c-b>'] = 'preview-page-up',
           },
         },
         oldfiles = {
