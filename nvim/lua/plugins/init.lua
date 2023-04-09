@@ -117,11 +117,6 @@ return {
     opts = { keymaps = { visual = 's' } },
   },
   {
-    'zbirenbaum/neodim',
-    event = 'VeryLazy',
-    opts = { hide = { underline = false } },
-  },
-  {
     'smjonas/inc-rename.nvim',
     opts = {},
     keys = {
