@@ -12,9 +12,9 @@ return {
         automatic_setup = true,
         automatic_installation = {},
         ensure_installed = { 'buf', 'stylua', 'prettier' },
+        handlers = {},
       })
       require('null-ls').setup()
-      require('mason-null-ls').setup_handlers()
     end,
   },
 }
