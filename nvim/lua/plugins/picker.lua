@@ -20,7 +20,14 @@ return {
   {
     'ibhagwan/fzf-lua',
     cmd = 'FzfLua',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+      {
+        'AckslD/nvim-neoclip.lua',
+        opts = {},
+        keys = { { 'fp', function() require('neoclip.fzf')() end } },
+      },
+    },
     keys = {
       { '<c-p>', git_files_cwd_aware, desc = 'find files' },
       { 'ff', file_picker, desc = 'find files' },
@@ -60,9 +67,6 @@ return {
   {
     'nvim-telescope/telescope.nvim',
     cmd = 'Telescope',
-    keys = {
-      { 'fn', function() require('telescope').extensions.notify.notify() end },
-    },
     config = function()
       local actions = require('telescope.actions')
 
@@ -105,11 +109,6 @@ return {
             horizontal = { mirror = false, prompt_position = 'top' },
           },
         },
-        extensions = {
-          ['zf-native'] = {
-            generic = { enable = true, match_filename = true },
-          },
-        },
         pickers = {
           buffers = {
             sort_mru = true,
@@ -132,25 +131,14 @@ return {
           lsp_document_symbols = { previewer = false },
         },
       })
-
-      -- Extensions (sometimes need to be explicitly loaded after telescope is setup)
-      require('telescope').load_extension('menufacture')
-      require('telescope').load_extension('zf-native')
     end,
     dependencies = {
-      {
-        'AckslD/nvim-neoclip.lua',
-        opts = {},
-        keys = { { 'fp', function() require('telescope').extensions.neoclip.default() end } },
-      },
       {
         'ilAYAli/scMRU.nvim',
         keys = {
           { 'fr', '<Cmd>Mru<CR>', desc = 'most recently used' },
         },
       },
-      { 'molecule-man/telescope-menufacture' },
-      { 'natecraddock/telescope-zf-native.nvim' },
     },
   },
 }
