@@ -63,6 +63,11 @@ return {
         oldfiles = {
           cwd_only = true,
         },
+        lsp = {
+          symbols = {
+            winopts = { preview = { hidden = 'hidden' } },
+          },
+        },
       })
     end,
   },
@@ -129,7 +134,6 @@ return {
           },
           colorscheme = { enable_preview = true },
           find_files = { hidden = true },
-          keymaps = { layout_config = { height = 18 } },
           lsp_document_symbols = { previewer = false },
         },
       })
