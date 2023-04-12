@@ -4,7 +4,7 @@ return {
     require('flutter-tools').setup({
       ui = { border = 'rounded' },
       debugger = {
-        enabled = true,
+        enabled = false,
         -- run_via_dap = true,
         exception_breakpoints = {},
       },
