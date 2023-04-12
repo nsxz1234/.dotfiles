@@ -1,6 +1,4 @@
-local fn = vim.fn
 local icons = as.ui.icons.lsp
-
 return {
   {
     'lukas-reineke/virt-column.nvim',
@@ -48,7 +46,6 @@ return {
         max_height = function() return math.floor(vim.o.lines * 0.4) end,
       })
       vim.notify = notify
-      require('telescope').load_extension('notify')
       map(
         'n',
         '<leader>n',
@@ -62,7 +59,6 @@ return {
     event = 'UIEnter',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
-      local groups = require('bufferline.groups')
       require('bufferline').setup({
         options = {
           debug = { logging = true },
@@ -90,30 +86,6 @@ return {
           },
           groups = {
             options = { toggle_hidden_on_enter = true },
-            items = {
-              groups.builtin.pinned:with({ icon = '' }),
-              groups.builtin.ungrouped,
-              {
-                name = 'Terraform',
-                matcher = function(buf) return buf.name:match('%.tf') ~= nil end,
-              },
-              {
-                name = 'tests',
-                icon = '',
-                matcher = function(buf)
-                  return buf.filename:match('_spec') or buf.filename:match('_test')
-                end,
-              },
-              {
-                name = 'docs',
-                icon = '',
-                matcher = function(buf)
-                  for _, ext in ipairs({ 'md', 'txt', 'org', 'norg', 'wiki' }) do
-                    if ext == fn.fnamemodify(buf.path, ':e') then return true end
-                  end
-                end,
-              },
-            },
           },
         },
       })
