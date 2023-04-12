@@ -19,40 +19,20 @@ return {
       local luasnip = require('luasnip')
       local lspkind = require('lspkind')
 
-      local function tab(fallback)
-        if luasnip.expand_or_locally_jumpable() then
-          luasnip.expand_or_jump()
-        elseif cmp.visible() then
-          cmp.select_next_item()
-        else
-          fallback()
-        end
-      end
-
-      local function shift_tab(fallback)
-        if luasnip.jumpable(-1) then
-          luasnip.jump(-1)
-        elseif cmp.visible() then
-          cmp.select_prev_item()
-        else
-          fallback()
-        end
-      end
-
       cmp.setup({
         snippet = { expand = function(args) luasnip.lsp_expand(args.body) end },
         mapping = {
-          ['<C-k>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
-          ['<C-j>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
-          ['<Tab>'] = cmp.mapping(tab, { 's', 'c' }),
-          ['<C-n>'] = cmp.mapping(tab, { 'i', 's' }),
-          ['<C-p>'] = cmp.mapping(shift_tab, { 'i', 's' }),
-          ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-          ['<C-f>'] = cmp.mapping.scroll_docs(4),
           ['<C-Space>'] = cmp.mapping.complete(),
-          ['<CR>'] = cmp.mapping.confirm({ select = false }),
           ['jj'] = cmp.mapping.confirm({ select = true }),
+          ['<CR>'] = cmp.mapping.confirm({ select = false }),
           ['<C-q>'] = cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close() }),
+          ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'c' }),
+          ['<C-j>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
+          ['<C-k>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
+          ['<C-n>'] = cmp.mapping(function() luasnip.expand_or_jump() end, { 'i', 's' }),
+          ['<C-p>'] = cmp.mapping(function() luasnip.jump(-1) end, { 'i', 's' }),
+          ['<C-f>'] = cmp.mapping.scroll_docs(4),
+          ['<C-b>'] = cmp.mapping.scroll_docs(-4),
         },
         formatting = {
           deprecated = true,
