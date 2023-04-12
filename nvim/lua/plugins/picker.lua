@@ -128,12 +128,6 @@ return {
               n = { ['<c-x>'] = 'delete_buffer' },
             },
           },
-          live_grep = {
-            file_ignore_patterns = { '.git/', '%.svg', '%.lock' },
-            max_results = 2000,
-          },
-          colorscheme = { enable_preview = true },
-          find_files = { hidden = true },
           lsp_document_symbols = { previewer = false },
         },
       })
