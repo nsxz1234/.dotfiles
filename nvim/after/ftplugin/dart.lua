@@ -20,3 +20,4 @@ map('n', '<leader>fr', '<Cmd>FlutterRestart<CR>', with_desc('flutter: server res
 map('n', '<leader>fc', '<Cmd>FlutterLogClear<CR>', with_desc('flutter: log clear'))
 map('n', '<leader>fp', '<Cmd>FlutterPubGet<CR>', with_desc('flutter: pub get'))
 map('n', '<leader>ft', '<Cmd>FlutterDevTools<CR>', with_desc('flutter: dev tools'))
+map('n', '<leader>rn', '<Cmd>FlutterRename<CR>', with_desc('flutter: rename'))
