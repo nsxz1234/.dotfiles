@@ -7,7 +7,7 @@ return {
       require('nvim-treesitter.configs').setup({
         ensure_installed = {
           'vim',
-          'help',
+          'vimdoc',
           'query',
           'lua',
           'luadoc',
