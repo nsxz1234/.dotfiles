@@ -36,13 +36,29 @@ return {
         },
         formatting = {
           deprecated = true,
-          fields = { 'abbr', 'kind', 'menu' },
+          fields = { 'kind', 'abbr', 'menu' },
           format = lspkind.cmp_format({
+            mode = 'symbol',
             maxwidth = math.floor(vim.o.columns * 0.5),
             before = function(_, vim_item)
               vim_item.dup = {}
               return vim_item
             end,
+            menu = {
+              nvim_lsp = 'LSP',
+              nvim_lua = 'LUA',
+              emoji = 'EMOJI',
+              path = 'PATH',
+              neorg = 'NEORG',
+              luasnip = 'SNIP',
+              dictionary = 'DIC',
+              buffer = 'BUF',
+              spell = 'SPELL',
+              orgmode = 'ORG',
+              norg = 'NORG',
+              rg = 'RG',
+              git = 'GIT',
+            },
           }),
         },
         sources = {
