@@ -25,7 +25,7 @@ return {
       {
         'AckslD/nvim-neoclip.lua',
         opts = {},
-        keys = { { 'fp', function() require('neoclip.fzf')() end } },
+        keys = { { 'fy', function() require('neoclip.fzf')() end } },
       },
     },
     keys = {
