@@ -33,7 +33,11 @@ return {
   'mtdl9/vim-log-highlighting',
   { 'kevinhwang91/nvim-bqf', ft = 'qf' },
   'romainl/vim-cool',
-  { 'onsails/lspkind.nvim', },
+  { 'onsails/lspkind.nvim' },
+  {
+    'ziglang/zig.vim',
+    config = function() vim.g.zig_fmt_autosave = 0 end,
+  },
   {
     'JuanZoran/Trans.nvim',
     branch = 'dev',
