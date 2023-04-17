@@ -242,10 +242,6 @@ return {
     },
   },
   {
-    'is0n/fm-nvim',
-    keys = { { '<leader>e', '<cmd>Nnn<cr>' } },
-  },
-  {
     'akinsho/pubspec-assist.nvim',
     ft = { 'dart' },
     event = 'BufEnter pubspec.yaml',
