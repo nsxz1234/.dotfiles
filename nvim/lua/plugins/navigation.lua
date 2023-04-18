@@ -2,22 +2,6 @@ local icons = as.ui.icons
 
 return {
   {
-    'chentoast/marks.nvim',
-    init = function() as.augroup('marks', { event = 'BufRead', command = ':delm a-zA-Z0-9' }) end,
-    event = 'VeryLazy',
-    keys = {
-      { '<leader>mb', '<Cmd>MarksListBuf<CR>', desc = 'list buffer' },
-      { '<leader>mg', '<Cmd>MarksQFListGlobal<CR>', desc = 'list global' },
-      { '<leader>m0', '<Cmd>BookmarksQFList 0<CR>', desc = 'list bookmark' },
-    },
-    opts = {
-      force_write_shada = false, -- This can cause data loss
-      excluded_filetypes = { 'NeogitStatus', 'NeogitCommitMessage', 'toggleterm' },
-      bookmark_0 = { sign = '⚑', virt_text = '' },
-      mappings = { annotate = 'm?' },
-    },
-  },
-  {
     'nvim-neo-tree/neo-tree.nvim',
     branch = 'v2.x',
     keys = {
@@ -27,7 +11,15 @@ return {
       vim.g.neo_tree_remove_legacy_commands = 1
 
       require('neo-tree').setup({
-        sources = { 'filesystem', 'buffers', 'git_status', 'diagnostics' },
+        sources = { 'filesystem', 'diagnostics', 'document_symbols' },
+        source_selector = {
+          winbar = true,
+          sources = {
+            { source = 'filesystem' },
+            { source = 'document_symbols' },
+            { source = 'diagnostics' },
+          },
+        },
         enable_git_status = true,
         git_status_async = true,
         nesting_rules = {
@@ -54,9 +46,6 @@ return {
           },
         },
         default_component_configs = {
-          indent = {
-            padding = 0,
-          },
           git_status = {
             symbols = {
               added = icons.git.add,
