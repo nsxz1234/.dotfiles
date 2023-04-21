@@ -54,12 +54,6 @@ function as.find(matcher, haystack)
   end
 end
 
-function as.installed_plugins()
-  local ok, lazy = pcall(require, 'lazy')
-  if not ok then return 0 end
-  return lazy.stats().count
-end
-
 ---Check whether or not the location or quickfix list is open
 ---@return boolean
 function as.is_vim_list_open()
