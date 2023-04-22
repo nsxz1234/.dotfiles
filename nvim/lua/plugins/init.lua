@@ -35,6 +35,14 @@ return {
   'romainl/vim-cool',
   { 'onsails/lspkind.nvim' },
   {
+    'zbirenbaum/neodim',
+    event = 'VeryLazy',
+    opts = {
+      alpha = 0.5,
+      hide = { underline = false },
+    },
+  },
+  {
     'chentoast/marks.nvim',
     init = function() as.augroup('marks', { event = 'BufRead', command = ':delm a-zA-Z0-9' }) end,
     event = 'VeryLazy',
