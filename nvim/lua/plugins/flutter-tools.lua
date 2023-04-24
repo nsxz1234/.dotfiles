@@ -14,7 +14,7 @@ return {
     decorations = {
       statusline = { device = true, app_version = true },
     },
-    -- widget_guides = { enabled = true, debug = false },
+    widget_guides = { enabled = true, debug = false },
     dev_log = { enabled = true, open_cmd = 'tabedit' },
     closing_tags = {
       prefix = '>', -- character to use for close tag e.g. > Widget
