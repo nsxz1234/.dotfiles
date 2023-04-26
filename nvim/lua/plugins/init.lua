@@ -24,7 +24,7 @@ return {
           config = require('servers'),
         },
       },
-      config = function() require('mason-lspconfig').setup({ automatic_installation = true }) end,
+      opts = { automatic_installation = true },
     },
   },
   'nvim-tree/nvim-web-devicons',
