@@ -19,6 +19,7 @@ o.timeoutlen = 500
 o.ttimeoutlen = 10
 
 -- Window
+o.splitkeep = 'screen'
 o.splitbelow = true
 o.splitright = true
 o.switchbuf = 'useopen,uselast'
