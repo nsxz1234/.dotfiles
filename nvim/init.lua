@@ -1,7 +1,7 @@
 local fn, opt = vim.fn, vim.opt
 
 vim.g.mapleader = ' ' -- Remap leader key
-vim.g.maplocalleader = ',' -- Remap local leader key
+
 -- Global namespace
 local namespace = {
   -- for UI elements like the winbar and statusline that need global references
