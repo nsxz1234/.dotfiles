@@ -21,6 +21,10 @@ return {
       local luasnip = require('luasnip')
       local lspkind = require('lspkind')
 
+      local function copilot()
+        vim.api.nvim_feedkeys(fn['copilot#Accept'](as.replace_termcodes('<Tab>')), 'n', true)
+      end
+
       cmp.setup({
         snippet = { expand = function(args) luasnip.lsp_expand(args.body) end },
         mapping = {
@@ -35,6 +39,7 @@ return {
           ['<C-p>'] = cmp.mapping(function() luasnip.jump(-1) end, { 'i', 's' }),
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
           ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+          ['<tab>j'] = cmp.mapping(copilot),
         },
         formatting = {
           deprecated = true,
@@ -105,6 +110,7 @@ return {
     'github/copilot.vim',
     event = 'VeryLazy',
     dependencies = { 'nvim-cmp' },
+    init = function() vim.g.copilot_no_tab_map = true end,
     config = function()
       local function accept_word()
         fn['copilot#Accept']('')
@@ -117,10 +123,15 @@ return {
         local output = fn['copilot#TextQueuedForInsertion']()
         return fn.split(output, [[[\n]\zs]])[1]
       end
-      map('i', '<M-]>', '<Plug>(copilot-next)')
-      map('i', '<M-[>', '<Plug>(copilot-previous)')
-      map('i', '<M-w>', accept_word, { expr = true, remap = false, desc = 'accept word' })
-      map('i', '<M-l>', accept_line, { expr = true, remap = false, desc = 'accept line' })
+      map('i', '<Plug>(as-copilot-accept)', "copilot#Accept('<Tab>')", {
+        expr = true,
+        remap = true,
+        silent = true,
+      })
+      map('i', '<tab>]', '<Plug>(copilot-next)')
+      map('i', '<tab>[', '<Plug>(copilot-previous)')
+      map('i', '<tab>w', accept_word, { expr = true, remap = false, desc = 'accept word' })
+      map('i', '<tab>l', accept_line, { expr = true, remap = false, desc = 'accept line' })
       vim.g.copilot_filetypes = {
         ['*'] = true,
         gitcommit = false,
