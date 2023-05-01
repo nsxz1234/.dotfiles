@@ -11,15 +11,6 @@ return {
       vim.g.neo_tree_remove_legacy_commands = 1
 
       require('neo-tree').setup({
-        sources = { 'filesystem', 'diagnostics', 'document_symbols' },
-        source_selector = {
-          winbar = true,
-          sources = {
-            { source = 'filesystem' },
-            { source = 'document_symbols' },
-            { source = 'diagnostics' },
-          },
-        },
         enable_git_status = true,
         git_status_async = true,
         nesting_rules = {
