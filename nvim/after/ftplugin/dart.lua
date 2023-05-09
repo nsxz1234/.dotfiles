@@ -1,5 +1,5 @@
 vim.bo.syntax = ''
-vim.bo.textwidth = 100
+vim.bo.textwidth = 125
 
 if not as then return end
 

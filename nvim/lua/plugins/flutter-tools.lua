@@ -31,7 +31,7 @@ return {
         renameFilesWithClasses = 'prompt',
         updateImportsOnRename = true,
         completeFunctionCalls = true,
-        lineLength = 100,
+        lineLength = 125,
       },
     },
   },
