@@ -15,7 +15,6 @@ return {
       signs = {
         section = { '', '' }, -- "", ""
         item = { '▸', '▾' },
-        hunk = { '樂', '' },
       },
       integrations = {
         diffview = true,
