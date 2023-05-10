@@ -45,7 +45,7 @@ return {
               renamed = icons.git.rename,
               untracked = '',
               ignored = '',
-              unstaged = '',
+              unstaged = '',
               staged = '',
               conflict = '',
             },
