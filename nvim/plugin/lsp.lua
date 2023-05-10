@@ -1,3 +1,4 @@
+local icons = as.ui.icons.lsp
 local lsp = vim.lsp
 
 if vim.env.DEVELOPING then vim.lsp.set_log_level(vim.lsp.log_levels.DEBUG) end
@@ -70,7 +71,7 @@ as.augroup('LspSetupCommands', {
 --
 -- Signs
 --
-local signs = { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }
+local signs = { Error = icons.error, Warn = icons.warn, Hint = icons.hint, Info = icons.info }
 for type, icon in pairs(signs) do
   local hl = 'DiagnosticSign' .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
