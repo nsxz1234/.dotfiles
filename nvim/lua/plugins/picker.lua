@@ -43,6 +43,8 @@ return {
       { 'fk', fzf_lua.keymaps, desc = 'keymaps' },
     },
     config = function()
+      local lsp_kind = require('lspkind')
+
       require('fzf-lua').setup({
         fzf_opts = {
           ['--history'] = vim.fn.stdpath('data') .. '/fzf-lua-history',
@@ -66,6 +68,7 @@ return {
         lsp = {
           symbols = {
             winopts = { preview = { hidden = 'hidden' } },
+            symbol_icons = lsp_kind.symbols,
           },
         },
       })
