@@ -68,7 +68,7 @@ return {
         delete = { text = '_' },
         changedelete = { text = '~' },
       },
-      _inline2 = true,
+      _inline2 = false,
       _extmark_signs = true,
       _signs_staged_enable = false,
       on_attach = function()
