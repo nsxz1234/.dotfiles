@@ -35,7 +35,6 @@ noremap('<c-j>', '5j')
 noremap('<c-k>', '5k')
 noremap('<c-h>', '^')
 noremap('<c-l>', 'g_')
-snoremap('<space>', '<esc>ea')
 inoremap('<c-h>', '<Left>')
 inoremap('<c-l>', '<Right>')
 inoremap('jl', '<End>')
@@ -43,6 +42,7 @@ snoremap('jl', '<esc>A')
 
 -- basic
 imap('jk', [[col('.') == 1 ? '<esc>' : '<esc>l']], { expr = true })
+snoremap('<space>', '<space><bs>')
 nnoremap(';', ':', { silent = false })
 nnoremap('<c-q>', '<Cmd>q<cr>')
 nnoremap('<c-s>', '<Cmd>w! ++p<cr>')
@@ -104,10 +104,10 @@ end
 nnoremap('<leader><cr>', run)
 
 -- buffer
-nnoremap('t', '<c-^>', { desc = 'switch to last buffer'})
+nnoremap('t', '<c-^>', { desc = 'switch to last buffer' })
 
 -- Capitalize
-nnoremap('U', 'gUiw`]', { desc = 'capitalize word'})
+nnoremap('U', 'gUiw`]', { desc = 'capitalize word' })
 
 -- tabedit
 nnoremap('<leader><tab>', 'gt')
