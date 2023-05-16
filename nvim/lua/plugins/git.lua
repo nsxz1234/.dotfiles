@@ -12,10 +12,7 @@ return {
       disable_commit_confirmation = true,
       disable_builtin_notifications = true,
       disable_insert_on_commit = false,
-      signs = {
-        section = { '', '' }, -- "", ""
-        item = { '▸', '▾' },
-      },
+      signs = { section = { '▸', '▾' }, item = { '▸', '▾' } },
       integrations = {
         diffview = true,
       },
