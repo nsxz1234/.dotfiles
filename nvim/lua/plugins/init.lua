@@ -35,16 +35,6 @@ return {
   'romainl/vim-cool',
   { 'onsails/lspkind.nvim' },
   {
-    'SmiteshP/nvim-navic',
-    dependencies = { 'neovim/nvim-lspconfig' },
-    opts = function()
-      require('nvim-navic').setup({
-        highlight = true,
-        lsp = { auto_attach = true },
-      })
-    end,
-  },
-  {
     'zbirenbaum/neodim',
     event = 'VeryLazy',
     opts = {

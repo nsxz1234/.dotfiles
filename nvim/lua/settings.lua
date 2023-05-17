@@ -113,7 +113,6 @@ o.cursorline = true
 o.ruler = false
 o.cmdheight = 0
 o.showbreak = [[↪ ]]
-o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
 
 -- List
 o.list = true -- invisible chars
