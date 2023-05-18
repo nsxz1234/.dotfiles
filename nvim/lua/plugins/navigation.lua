@@ -8,6 +8,8 @@ return {
       { '<tab>', '<Cmd>Neotree toggle reveal<CR>', desc = 'NeoTree' },
     },
     config = function()
+      vim.api.nvim_set_hl(0, 'NeoTreeNormal', { link = 'PanelBackground' })
+      vim.api.nvim_set_hl(0, 'NeoTreeDirectoryIcon', { link = 'Directory' })
       vim.g.neo_tree_remove_legacy_commands = 1
 
       require('neo-tree').setup({
