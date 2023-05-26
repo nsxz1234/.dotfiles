@@ -35,6 +35,14 @@ return {
   'romainl/vim-cool',
   { 'onsails/lspkind.nvim' },
   {
+    'nvim-pack/nvim-spectre',
+    config = function()
+      map('n', '<leader>so', '<cmd>lua require("spectre").open()<CR>')
+      map('n', '<leader>sw', '<cmd>lua require("spectre").open_visual({select_word=true})<CR>')
+      map('n', '<leader>sp', 'viw:lua require("spectre").open_file_search()<cr>')
+    end,
+  },
+  {
     'zbirenbaum/neodim',
     event = 'VeryLazy',
     opts = {
