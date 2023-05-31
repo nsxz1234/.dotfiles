@@ -40,6 +40,7 @@ return {
     config = function()
       local notify = require('notify')
       notify.setup({
+        background_colour = "#333333",
         timeout = 3000,
         render = 'minimal',
         max_width = function() return math.floor(vim.o.columns * 0.4) end,
