@@ -31,7 +31,11 @@ return {
   'stevearc/dressing.nvim',
   { 'wellle/targets.vim', event = 'VeryLazy' },
   'mtdl9/vim-log-highlighting',
-  { 'kevinhwang91/nvim-bqf', ft = 'qf' },
+  {
+    'kevinhwang91/nvim-bqf',
+    ft = 'qf',
+    commit = '1276701ed0216b94d7919d5c07845dcdf05fbde5',
+  },
   'romainl/vim-cool',
   { 'onsails/lspkind.nvim' },
   {
