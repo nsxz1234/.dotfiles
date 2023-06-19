@@ -40,7 +40,7 @@ return {
     config = function()
       local notify = require('notify')
       notify.setup({
-        background_colour = "#333333",
+        background_colour = '#333333',
         timeout = 3000,
         render = 'minimal',
         max_width = function() return math.floor(vim.o.columns * 0.4) end,
@@ -65,6 +65,7 @@ return {
           debug = { logging = true },
           mode = 'buffers', -- tabs
           sort_by = 'insert_after_current',
+          move_wraps_at_ends = true,
           right_mouse_command = 'vert sbuffer %d',
           show_close_icon = false,
           diagnostics = 'nvim_lsp',
