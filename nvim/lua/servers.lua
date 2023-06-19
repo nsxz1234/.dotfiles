@@ -10,7 +10,13 @@ local servers = {
     settings = {
       Lua = {
         codeLens = { enable = true },
-        hint = { enable = true, arrayIndex = 'Disable', setType = true, paramName = 'Disable' },
+        hint = {
+          enable = true,
+          arrayIndex = 'Disable',
+          setType = false,
+          paramName = 'Disable',
+          paramType = true,
+        },
         format = { enable = false },
         diagnostics = {
           globals = {
