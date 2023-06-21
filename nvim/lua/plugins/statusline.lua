@@ -24,7 +24,9 @@ return {
         },
       },
       lualine_x = {
+        'selectioncount',
         'searchcount',
+        'filesize',
         {
           'diff',
           colored = true,
