@@ -210,8 +210,8 @@ return {
       },
     },
     keys = {
-      { 's', mode = { 'n', 'x', 'o' }, function() require('flash').jump() end },
-      { 'S', mode = { 'n', 'o', 'x' }, function() require('flash').treesitter() end },
+      { 's', function() require('flash').jump() end, mode = { 'n', 'x', 'o' } },
+      { 'S', function() require('flash').treesitter() end, mode = { 'n', 'o', 'x' } },
     },
   },
   {
