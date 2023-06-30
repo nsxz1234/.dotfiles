@@ -29,17 +29,19 @@ return {
         snippet = { expand = function(args) luasnip.lsp_expand(args.body) end },
         mapping = {
           ['<C-Space>'] = cmp.mapping.complete(),
-          ['jj'] = cmp.mapping.confirm({ select = true }),
           ['<CR>'] = cmp.mapping.confirm({ select = false }),
           ['<C-q>'] = cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close() }),
-          ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'c' }),
+          ['<Tab>'] = cmp.mapping({
+            i = cmp.mapping.confirm({ select = true }),
+            c = cmp.mapping.select_next_item(),
+          }),
           ['<C-j>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
           ['<C-k>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
           ['<C-n>'] = cmp.mapping(function() luasnip.expand_or_jump() end, { 'i', 's' }),
           ['<C-p>'] = cmp.mapping(function() luasnip.jump(-1) end, { 'i', 's' }),
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
           ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-          ['<tab>j'] = cmp.mapping(copilot),
+          ['<m-a>'] = cmp.mapping(copilot),
         },
         formatting = {
           deprecated = true,
@@ -127,10 +129,10 @@ return {
         remap = true,
         silent = true,
       })
-      map('i', '<tab>]', '<Plug>(copilot-next)')
-      map('i', '<tab>[', '<Plug>(copilot-previous)')
-      map('i', '<tab>w', accept_word, { expr = true, remap = false, desc = 'accept word' })
-      map('i', '<tab>l', accept_line, { expr = true, remap = false, desc = 'accept line' })
+      map('i', '<m-]>', '<Plug>(copilot-next)')
+      map('i', '<m-[>', '<Plug>(copilot-previous)')
+      map('i', '<m-w>', accept_word, { expr = true, remap = false, desc = 'accept word' })
+      map('i', '<m-l>', accept_line, { expr = true, remap = false, desc = 'accept line' })
       vim.g.copilot_filetypes = {
         ['*'] = true,
         gitcommit = false,
