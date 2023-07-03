@@ -21,7 +21,7 @@
   "dial.nvim": { "branch": "master", "commit": "b3916370c24c498117a4c790b2752c437dab661a" },
   "diffview.nvim": { "branch": "main", "commit": "766a4f210e67e522659302dc6bd8a8d3b8c08c54" },
   "dressing.nvim": { "branch": "master", "commit": "e6eff7a5a950a853c3903d906dbcea03f778db5f" },
-  "dropbar.nvim": { "branch": "master", "commit": "55112c60dd2625bdb18d2266824e532ce989282f" },
+  "dropbar.nvim": { "branch": "master", "commit": "19011d96959cd40a7173485ee54202589760caae" },
   "everforest": { "branch": "master", "commit": "1db527e770deb8cbb3b5b60d8921f80bd2a4c12c" },
   "fidget.nvim": { "branch": "main", "commit": "0ba1e16d07627532b6cae915cc992ecac249fb97" },
   "flash.nvim": { "branch": "main", "commit": "edb82f763ac2b63006154e9da8b6629b570de551" },
