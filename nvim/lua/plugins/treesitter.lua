@@ -71,12 +71,6 @@ return {
             },
           },
         },
-        rainbow = {
-          enable = true,
-          disable = { 'zig' },
-          query = 'rainbow-parens',
-          strategy = { require('ts-rainbow.strategy.global') },
-        },
         autopairs = { enable = true },
         query_linter = {
           enable = true,
@@ -88,7 +82,6 @@ return {
     end,
     dependencies = {
       { 'nvim-treesitter/nvim-treesitter-textobjects' },
-      { 'HiPhish/nvim-ts-rainbow2' },
     },
   },
   'JoosepAlviste/nvim-ts-context-commentstring',
