@@ -50,11 +50,11 @@ return {
           ['--history'] = vim.fn.stdpath('data') .. '/fzf-lua-history',
         },
         winopts = {
+          border = as.ui.border.rectangle,
           height = 0.90,
           width = 0.90,
           preview = { layout = 'vertical', vertical = 'down:60%' },
         },
-        border = as.ui.border.rectangle,
         keymap = {
           builtin = {
             ['?'] = 'toggle-help',
