@@ -31,13 +31,18 @@ return {
   'stevearc/dressing.nvim',
   { 'wellle/targets.vim', event = 'VeryLazy' },
   'mtdl9/vim-log-highlighting',
+  'romainl/vim-cool',
+  { 'onsails/lspkind.nvim' },
   {
     'kevinhwang91/nvim-bqf',
     ft = 'qf',
-    commit = '1276701ed0216b94d7919d5c07845dcdf05fbde5',
+    opts = {
+      preview = {
+        winblend = 0,
+        border = as.ui.current.border,
+      },
+    },
   },
-  'romainl/vim-cool',
-  { 'onsails/lspkind.nvim' },
   {
     'HiPhish/rainbow-delimiters.nvim',
     event = 'VeryLazy',

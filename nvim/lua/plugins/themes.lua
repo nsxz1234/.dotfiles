@@ -7,6 +7,7 @@ return {
       -- vim.g.gruvbox_material_transparent_background = 2
       vim.cmd.colorscheme('gruvbox-material')
       vim.api.nvim_set_hl(0, 'DiagnosticUnnecessary', { link = 'Comment' })
+      vim.api.nvim_set_hl(0, 'BqfPreviewBorder', { link = 'Normal' })
     end,
   },
   {
