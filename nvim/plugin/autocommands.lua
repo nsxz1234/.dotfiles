@@ -1,8 +1,8 @@
--- last edit position
+-- last place
 vim.api.nvim_create_autocmd('BufReadPost', {
   callback = function()
-    if vim.fn.line('\'"') > 1 and vim.fn.line('\'"') <= vim.fn.line('$') then
-      vim.api.nvim_exec('normal! g\'"', false)
+    if vim.fn.line([['"]]) > 1 and vim.fn.line([['"]]) <= vim.fn.line('$') then
+      vim.cmd([[normal! g'"]])
     end
   end,
 })
