@@ -255,11 +255,7 @@ return {
       highlighter = { auto_enable = true, excludes = { 'dart', 'lazy', 'toggleterm' } },
     },
   },
-  {
-    'moll/vim-bbye',
-    cmd = 'Bwipeout',
-    keys = { { 'df', '<Cmd>Bwipeout<CR>', desc = 'bbye: quit' } },
-  },
+  { 'famiu/bufdelete.nvim', keys = { { 'df', '<Cmd>Bwipeout<CR>' } } },
   {
     'iamcco/markdown-preview.nvim',
     build = function() vim.fn['mkdp#util#install']() end,
