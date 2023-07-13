@@ -19,7 +19,7 @@ as.augroup('Utilities', {
   pattern = {
     'lua',
     'vim',
-    'dart',
+    -- 'dart',
     'python',
     'javascript',
     'typescript',
@@ -31,5 +31,5 @@ as.augroup('Utilities', {
     'zig',
   },
   -- NOTE: setting spell only works using opt_local otherwise it leaks into subsequent windows
-  command = function(args) vim.opt_local.spell = true end,
+  command = function() vim.opt_local.spell = true end,
 })
