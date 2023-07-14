@@ -95,15 +95,6 @@ return {
     config = function() vim.g.zig_fmt_autosave = 0 end,
   },
   {
-    'JuanZoran/Trans.nvim',
-    branch = 'dev',
-    keys = {
-      { '<leader>r', mode = { 'n', 'x' }, '<Cmd>Translate<CR>', desc = ' Translate' },
-    },
-    dependencies = { 'kkharji/sqlite.lua' },
-    opts = {},
-  },
-  {
     'willothy/flatten.nvim',
     priority = 1001,
     opts = {
