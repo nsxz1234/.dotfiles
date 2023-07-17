@@ -3,7 +3,7 @@ local icons = as.ui.icons
 return {
   {
     'nvim-neo-tree/neo-tree.nvim',
-    branch = 'v2.x',
+    branch = 'v3.x',
     keys = {
       { '<tab>', '<Cmd>Neotree toggle reveal<CR>', desc = 'NeoTree' },
     },
