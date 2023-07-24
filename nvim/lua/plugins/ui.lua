@@ -8,7 +8,7 @@ return {
     'Bekaboo/dropbar.nvim',
     event = 'VeryLazy',
     keys = { { '<leader>w', function() require('dropbar.api').pick() end, desc = 'winbar: pick' } },
-    config = {
+    opts = {
       icons = {
         ui = { bar = { separator = ' ' .. ui.icons.misc.arrow_right .. ' ' } },
         kinds = {
