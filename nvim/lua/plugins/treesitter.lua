@@ -1,7 +1,7 @@
 return {
   {
     'nvim-treesitter/nvim-treesitter',
-    commit = '33eb472b459f1d2bf49e16154726743ab3ca1c6d',
+    -- commit = '33eb472b459f1d2bf49e16154726743ab3ca1c6d',
     event = 'VeryLazy',
     build = ':TSUpdate',
     config = function()
