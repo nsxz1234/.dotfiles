@@ -3,13 +3,13 @@ local icons = as.ui.icons
 return {
   {
     'nvim-neo-tree/neo-tree.nvim',
+    branch = 'v3.x',
     keys = {
       { '<tab>', '<Cmd>Neotree toggle reveal<CR>', desc = 'NeoTree' },
     },
     config = function()
       vim.api.nvim_set_hl(0, 'NeoTreeNormal', { link = 'PanelBackground' })
       vim.api.nvim_set_hl(0, 'NeoTreeDirectoryIcon', { link = 'Directory' })
-      vim.g.neo_tree_remove_legacy_commands = 1
 
       require('neo-tree').setup({
         enable_git_status = true,
