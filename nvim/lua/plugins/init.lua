@@ -223,7 +223,7 @@ return {
       },
     },
     keys = {
-      { 's', function() require('flash').jump() end, mode = { 'n', 'x', 'o' } },
+      { 's', function() require('flash').jump() end, mode = { 'n', 'o' } },
       { 'S', function() require('flash').treesitter() end, mode = { 'n', 'o', 'x' } },
     },
   },
