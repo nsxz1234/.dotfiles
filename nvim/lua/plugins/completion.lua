@@ -30,7 +30,6 @@ return {
         mapping = {
           ['<C-Space>'] = cmp.mapping.complete(),
           ['<CR>'] = cmp.mapping.confirm({ select = false }),
-          ['<C-q>'] = cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close() }),
           ['<Tab>'] = cmp.mapping({
             i = cmp.mapping.confirm({ select = true }),
             c = cmp.mapping.select_next_item(),
@@ -41,6 +40,7 @@ return {
           ['<C-p>'] = cmp.mapping(function() luasnip.jump(-1) end, { 'i', 's' }),
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
           ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+          ['<C-q>'] = cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close() }),
           ['<m-a>'] = cmp.mapping(copilot),
         },
         formatting = {
