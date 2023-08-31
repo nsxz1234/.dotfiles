@@ -41,6 +41,7 @@ return {
       { 'ft', fzf_lua.lsp_live_workspace_symbols, desc = 'workspace symbols' },
       { 'fa', fzf_lua.lsp_document_symbols, desc = 'document symbols' },
       { 'fk', fzf_lua.keymaps, desc = 'keymaps' },
+      { 'fb', fzf_lua.grep_curbuf, desc = 'current buffer fuzzy find' },
     },
     config = function()
       local lsp_kind = require('lspkind')
