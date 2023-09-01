@@ -48,8 +48,8 @@ local function setup_mappings(_, bufnr)
   map('n', 'gd', vim.lsp.buf.definition, with_desc('lsp: definition'))
   map('n', 'gr', vim.lsp.buf.references, with_desc('lsp: references'))
   map('n', 'gi', vim.lsp.buf.implementation, with_desc('lsp: implementation'))
-  map('n', 'gk', vim.lsp.buf.hover, with_desc('lsp: hover'))
   map('n', 'gt', vim.lsp.buf.type_definition, with_desc('lsp: go to type definition'))
+  map('n', 'K', vim.lsp.buf.hover, with_desc('lsp: hover'))
   map('n', '<leader>cl', vim.lsp.codelens.run, with_desc('lsp: run code lens'))
 end
 
