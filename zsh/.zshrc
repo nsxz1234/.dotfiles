@@ -13,7 +13,7 @@ autoload -Uz compinit
 compinit
 
 # 一定要在compinit之后, 否则有的插件没用
-zsh_add_plugin    "zsh-users/zsh-syntax-highlighting"
+zsh_add_plugin    "zdharma-continuum/fast-syntax-highlighting"
 zsh_add_plugin    "zsh-users/zsh-autosuggestions"
 zsh_add_plugin    "zsh-users/zsh-completions"
 
