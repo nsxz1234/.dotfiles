@@ -24,33 +24,20 @@ return {
   },
   {
     'lukas-reineke/indent-blankline.nvim',
-    opts = {
-      char = '┊', -- │ ┆ ┊ 
-      show_foldtext = false,
-      show_current_context = false,
-      show_current_context_start = false,
-      show_current_context_start_on_current_line = false,
-      show_trailing_blankline_indent = false,
-      show_first_indent_level = false,
-      -- stylua: ignore
-      filetype_exclude = {
-        'dbout',
-        'neo-tree-popup',
-        'log',
-        'gitcommit',
-        'txt',
-        'help',
-        'NvimTree',
-        'git',
-        'flutterToolsOutline',
-        'undotree',
-        'markdown',
-        'norg',
-        'org',
-        'orgagenda',
-        '', -- for all buffers without a file type
-      },
-    },
+    branch = 'v3',
+    config = function()
+      require('ibl').setup({
+        indent = {
+          char = '┊', -- │ ┆ ┊ 
+        },
+        scope = {
+          enabled = true,
+          show_start = false,
+          show_end = false,
+          highlight = { 'Function', 'Label' },
+        },
+      })
+    end,
   },
   {
     'rcarriga/nvim-notify',
