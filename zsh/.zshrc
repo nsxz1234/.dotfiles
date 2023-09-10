@@ -83,7 +83,6 @@ alias lt="exa --icons --all --color=always -T $@"
 alias e='nvim'
 alias lg='lazygit'
 alias ra='ranger'
-alias n="nnn -ex"
 alias ez="${=EDITOR} ${ZDOTDIR:-$HOME}/.zshrc"
 alias grep='grep --color'
 
