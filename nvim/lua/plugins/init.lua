@@ -173,17 +173,10 @@ return {
     },
   },
   {
-    'windwp/nvim-autopairs',
-    event = 'InsertEnter',
-    dependencies = { 'hrsh7th/nvim-cmp' },
-    opts = {
-      check_ts = true,
-      fast_wrap = { map = '<c-e>' },
-      ts_config = {
-        lua = { 'string' },
-        dart = { 'string' },
-      },
-    },
+    'altermo/ultimate-autopair.nvim',
+    event = { 'InsertEnter', 'CmdlineEnter' },
+    branch = 'v0.6',
+    opts = {},
   },
   {
     'voldikss/vim-translator',
