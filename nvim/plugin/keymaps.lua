@@ -82,7 +82,7 @@ cnoremap('w!!', [[w !sudo tee % >/dev/null]])
 
 -- Conditionally modify character at end of line
 local function modify_line_end_delimiter(character)
-  local delimiters = { ',', ';' }
+  local delimiters = { ',', ';', '.' }
   return function()
     local line = api.nvim_get_current_line()
     local last_char = line:sub(-1)
@@ -98,6 +98,7 @@ end
 
 nnoremap('<leader>,', modify_line_end_delimiter(','), { desc = "add ',' to end of line" })
 nnoremap('<leader>;', modify_line_end_delimiter(';'), { desc = "add ';' to end of line" })
+nnoremap('<leader>.', modify_line_end_delimiter('.'), { desc = "add '.' to end of line" })
 
 local function run()
   if vim.bo.filetype == 'markdown' then vim.cmd('MarkdownPreviewToggle') end
