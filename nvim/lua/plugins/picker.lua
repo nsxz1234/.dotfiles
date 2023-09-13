@@ -139,8 +139,9 @@ return {
     dependencies = {
       {
         'ilAYAli/scMRU.nvim',
+        dependencies = 'kkharji/sqlite.lua',
         keys = {
-          { 'fr', '<Cmd>Mru<CR>', desc = 'most recently used' },
+          { 'fr', '<cmd>lua require("mru").display_cache({})<CR>', desc = 'most recently used' },
         },
       },
     },
