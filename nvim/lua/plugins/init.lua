@@ -251,6 +251,7 @@ return {
   },
   {
     'ray-x/lsp_signature.nvim',
+    enabled = false,
     opts = {
       bind = true,
       fix_pos = false,
