@@ -78,8 +78,8 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 eval "$(zoxide init zsh)"
 
 alias ls="ls --color=auto --hyperlink=auto $@"
-alias l="exa --long --all --git --color=always --group-directories-first --icons $@"
-alias lt="exa --icons --all --color=always -T $@"
+alias l="eza --long --all --git --color=always --group-directories-first --icons $@"
+alias lt="eza --icons --all --color=always -T $@"
 alias e='nvim'
 alias lg='lazygit'
 alias ra='ranger'
