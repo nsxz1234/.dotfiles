@@ -2,20 +2,6 @@ local fzf_lua = as.reqcall('fzf-lua')
 
 local file_picker = function(cwd) fzf_lua.files({ cwd = cwd }) end
 
-local function git_files_cwd_aware(opts)
-  opts = opts or {}
-  local fzf = require('fzf-lua')
-  -- git_root() will warn us if we're not inside a git repo
-  -- so we don't have to add another warning here, if
-  -- you want to avoid the error message change it to:
-  -- local git_root = fzf_lua.path.git_root(opts, true)
-  local git_root = fzf.path.git_root(opts)
-  if not git_root then return fzf.files(opts) end
-  local relative = fzf.path.relative(vim.loop.cwd(), git_root)
-  opts.fzf_opts = { ['--query'] = git_root ~= relative and relative or nil }
-  return fzf.git_files(opts)
-end
-
 return {
   {
     'ibhagwan/fzf-lua',
@@ -29,7 +15,6 @@ return {
       },
     },
     keys = {
-      { '<c-p>', git_files_cwd_aware, desc = 'find files' },
       { 'ff', file_picker, desc = 'find files' },
       { 'fg', fzf_lua.live_grep, desc = 'live grep' },
       { 'fo', fzf_lua.oldfiles, desc = 'Most recently used files' },
