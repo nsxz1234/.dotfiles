@@ -109,6 +109,7 @@ return {
   },
   {
     'github/copilot.vim',
+    enabled = false,
     event = 'VeryLazy',
     dependencies = { 'nvim-cmp' },
     init = function() vim.g.copilot_no_tab_map = true end,
