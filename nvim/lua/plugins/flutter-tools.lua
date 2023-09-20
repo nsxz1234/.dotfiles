@@ -28,8 +28,12 @@ return {
         virtual_text_str = '●',
       },
       settings = {
+        analysisExcludedFolders = {
+          -- vim.fn.expand('$HOME/.pub-cache'),
+          vim.fn.expand('$HOME/repos/cloud_flutter_mobile_ui/build'),
+        },
         showTodos = false,
-        renameFilesWithClasses = 'prompt',
+        renameFilesWithClasses = 'always',
         updateImportsOnRename = true,
         completeFunctionCalls = true,
         lineLength = 125,
