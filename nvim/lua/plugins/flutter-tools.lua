@@ -29,7 +29,8 @@ return {
       },
       settings = {
         analysisExcludedFolders = {
-          -- vim.fn.expand('$HOME/.pub-cache'),
+          vim.fn.expand('$HOME/flutter'),
+          vim.fn.expand('$HOME/.pub-cache'),
           vim.fn.expand('$HOME/repos/cloud_flutter_mobile_ui/build'),
         },
         showTodos = false,
