@@ -63,6 +63,7 @@ return {
         change = { text = '│' },
         delete = { text = '_' },
         changedelete = { text = '~' },
+        untracked = { text = '░' },
       },
       _inline2 = false,
       _extmark_signs = true,
