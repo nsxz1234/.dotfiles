@@ -320,8 +320,8 @@ return {
     event = 'VeryLazy',
     -- "&" Repeat last substitute with flags
     keys = {
-      { '<leader>/', ':%s/<C-r><C-w>//c<left><left>', mode = 'n', silent = false },
-      { '<leader>/', [["zy:%s/<C-r><C-o>"//c<left><left>]], mode = 'x', silent = false },
+      { '<leader>/', ':%s/<C-r><C-w>//g<left><left>', mode = 'n', silent = false },
+      { '<leader>/', [["zy:%s/<C-r><C-o>"//g<left><left>]], mode = 'x', silent = false },
     },
   },
 }
