@@ -65,8 +65,6 @@ export VISUAL='nvim'
 export PATH=$PATH:~/zig
 # flutter
 export CHROME_EXECUTABLE=/usr/bin/brave
-export PUB_HOSTED_URL=https://pub.flutter-io.cn
-export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 export PATH=~/flutter/bin:$PATH
 export PATH=~/Android/Sdk/platform-tools:$PATH
 # cargo
