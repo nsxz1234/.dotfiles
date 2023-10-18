@@ -30,8 +30,6 @@ as.augroup('AddTerminalMappings', {
 })
 
 -- motions
--- noremap('j', [[v:count ? 'j' : 'gj']], { expr = true })
--- noremap('k', [[v:count ? 'k' : 'gk']], { expr = true })
 noremap('<c-j>', '5j')
 noremap('<c-k>', '5k')
 noremap('<c-h>', '^')
