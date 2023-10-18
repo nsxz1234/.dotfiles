@@ -22,7 +22,7 @@ as.augroup('AddTerminalMappings', {
   command = function()
     if vim.bo.filetype == '' or vim.bo.filetype == 'toggleterm' then
       local opts = { silent = false, buffer = 0 }
-      tnoremap('jk', [[<C-\><C-n>]], opts)
+      tnoremap('jl', [[<C-\><C-n>]], opts)
       tnoremap('<a-=>', '<Cmd>res +1<CR>', opts)
       tnoremap('<a-->', '<Cmd>res -1<CR>', opts)
     end
@@ -41,7 +41,7 @@ inoremap('<c-l>', '<Right>')
 snoremap('<c-e>', '<esc>A')
 
 -- basic
-imap('jk', [[col('.') == 1 ? '<esc>' : '<esc>l']], { expr = true })
+imap('jl', [[col('.') == 1 ? '<esc>' : '<esc>l']], { expr = true })
 snoremap('<space>', '<space><bs>')
 nnoremap(';', ':', { silent = false })
 nnoremap('<c-q>', '<Cmd>q<cr>')

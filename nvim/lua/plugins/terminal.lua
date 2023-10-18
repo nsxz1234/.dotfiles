@@ -12,8 +12,8 @@ return {
 
     local fn = vim.fn
     local float_handler = function(term)
-      if not as.empty(fn.mapcheck('jk', 't')) then
-        vim.keymap.del('t', 'jk', { buffer = term.bufnr })
+      if not as.empty(fn.mapcheck('jl', 't')) then
+        vim.keymap.del('t', 'jl', { buffer = term.bufnr })
       end
     end
     local Terminal = require('toggleterm.terminal').Terminal
