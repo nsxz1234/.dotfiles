@@ -154,6 +154,19 @@ return {
     opts = { keymaps = { visual = 's' } },
   },
   {
+    'windwp/nvim-autopairs',
+    event = 'InsertEnter',
+    dependencies = { 'hrsh7th/nvim-cmp' },
+    opts = {
+      check_ts = true,
+      fast_wrap = { map = '<c-s>' },
+      ts_config = {
+        lua = { 'string' },
+        dart = { 'string' },
+      },
+    },
+  },
+  {
     'smjonas/inc-rename.nvim',
     opts = {},
     keys = {
@@ -171,19 +184,6 @@ return {
     event = 'VeryLazy',
     opts = {
       -- vim.api.nvim_command('set commentstring=//%s'),
-    },
-  },
-  {
-    'windwp/nvim-autopairs',
-    event = 'InsertEnter',
-    dependencies = { 'hrsh7th/nvim-cmp' },
-    opts = {
-      check_ts = true,
-      fast_wrap = { map = '<c-e>' },
-      ts_config = {
-        lua = { 'string' },
-        dart = { 'string' },
-      },
     },
   },
   {
