@@ -17,7 +17,6 @@ zsh_add_plugin    "zdharma-continuum/fast-syntax-highlighting"
 zsh_add_plugin    "zsh-users/zsh-autosuggestions"
 zsh_add_plugin    "zsh-users/zsh-completions"
 
-setopt VI
 setopt ALWAYS_TO_END
 setopt AUTO_MENU
 setopt LIST_PACKED
