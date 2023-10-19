@@ -86,11 +86,10 @@ alias ra='ranger'
 alias ez="${=EDITOR} ${ZDOTDIR:-$HOME}/.zshrc"
 alias grep='grep --color'
 
+# Emacs keybindings
+bindkey -e
 # ^g to open lazygit (below oh-my-zsh)
 bindkey -s '^g' 'lazygit\n'
-bindkey '^p' up-history
-bindkey '^n' down-history
-bindkey '^e' autosuggest-accept
 
 eval "$(starship init zsh)"
 
