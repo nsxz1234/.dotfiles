@@ -155,17 +155,17 @@
     "description": "Flutter Column widget snippet"
   },
   "SizedBox widget snippet with width and height arguments": {
-    "prefix": "fszb",
+    "prefix": "fsb",
     "body": ["SizedBox(width: ${1:0.0}, height: ${2:0.0})${0}"],
     "description": "SizedBox widget with width and height arguments"
   },
   "SizedBox widget snippet with just width argument": {
-    "prefix": "fszbw",
+    "prefix": "fsw",
     "body": ["SizedBox(", "  width: ${1:0.0},${0}", ")"],
     "description": "SizedBox widget snippet with just width argument"
   },
   "SizedBox widget snippet with just height argument": {
-    "prefix": "fszbh",
+    "prefix": "fsh",
     "body": ["SizedBox(", "  height: ${1:0.0},${0}", ")"],
     "description": "SizedBox widget snippet with just height argument"
   },
