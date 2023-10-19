@@ -24,19 +24,33 @@ return {
   },
   {
     'lukas-reineke/indent-blankline.nvim',
-    config = function()
-      require('ibl').setup({
-        indent = {
-          char = '┊', -- │ ┆ ┊ 
-        },
-        scope = {
-          enabled = true,
-          show_start = false,
-          show_end = false,
-          highlight = { 'Function', 'Label' },
-        },
-      })
-    end,
+    version = '2.20.8',
+    opts = {
+      char = '┊', -- │ ┆ ┊ 
+      show_foldtext = false,
+      show_current_context = true,
+      show_current_context_start = false,
+      show_current_context_start_on_current_line = false,
+      show_trailing_blankline_indent = false,
+      -- stylua: ignore
+      filetype_exclude = {
+        'dbout',
+        'neo-tree-popup',
+        'log',
+        'gitcommit',
+        'txt',
+        'help',
+        'NvimTree',
+        'git',
+        'flutterToolsOutline',
+        'undotree',
+        'markdown',
+        'norg',
+        'org',
+        'orgagenda',
+        '', -- for all buffers without a file type
+      },
+    },
   },
   {
     'rcarriga/nvim-notify',
