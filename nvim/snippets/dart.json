@@ -161,12 +161,12 @@
   },
   "SizedBox widget snippet with just width argument": {
     "prefix": "fsw",
-    "body": ["SizedBox(", "  width: ${1:0.0},${0}", ")"],
+    "body": ["SizedBox(width: ${1:0.0})"],
     "description": "SizedBox widget snippet with just width argument"
   },
   "SizedBox widget snippet with just height argument": {
     "prefix": "fsh",
-    "body": ["SizedBox(", "  height: ${1:0.0},${0}", ")"],
+    "body": ["SizedBox(height: ${1:0.0})"],
     "description": "SizedBox widget snippet with just height argument"
   },
   "Expand widget snippet": {
