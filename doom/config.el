@@ -42,7 +42,7 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 
-(setq doom-font (font-spec :family "Maple Mono NF" :size 19))
+(setq doom-font (font-spec :family "Source Code Pro" :size 19))
 
 (setq initial-frame-alist '((left . 0.5) (top . 0.5) (width . 120) (height . 34)))
 
