@@ -13,7 +13,7 @@ return {
 
   window_decorations = 'NONE',
 
-  font = wezterm.font('FantasqueSansMono Nerd Font'),
+  font = wezterm.font('FantasqueSansM Nerd Font'),
 
   font_size = 17.0,
 
