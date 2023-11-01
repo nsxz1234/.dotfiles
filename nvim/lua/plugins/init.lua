@@ -127,23 +127,6 @@ return {
     dependencies = { 'nvim-lspconfig' },
   },
   {
-    'saecki/crates.nvim',
-    version = '*',
-    event = 'BufRead Cargo.toml',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    opts = {
-      null_ls = { enabled = true },
-    },
-    config = function(_, opts)
-      as.augroup('CmpSourceCargo', {
-        event = 'BufRead',
-        pattern = 'Cargo.toml',
-        command = function() require('cmp').setup.buffer({ sources = { { name = 'crates' } } }) end,
-      })
-      require('crates').setup(opts)
-    end,
-  },
-  {
     'kevinhwang91/nvim-hlslens',
     opts = {},
   },
