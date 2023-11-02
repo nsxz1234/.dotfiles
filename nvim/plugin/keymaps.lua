@@ -37,7 +37,8 @@ noremap('<c-l>', 'g_')
 inoremap('<c-h>', '<Left>')
 inoremap('<c-l>', '<Right>')
 snoremap('<c-e>', '<esc>A')
-noremap('t', '%')
+nnoremap('t', '%')
+vnoremap('t', '%')
 
 -- basic
 imap('jk', [[col('.') == 1 ? '<esc>' : '<esc>l']], { expr = true })
