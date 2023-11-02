@@ -4,7 +4,7 @@ return {
     cmd = 'Neogit',
     dependencies = { 'nvim-lua/plenary.nvim' },
     keys = {
-      { '<leader>gs', function() require('neogit').open() end, desc = 'open status buffer' },
+      { '<leader>gg', function() require('neogit').open() end, desc = 'open status buffer' },
     },
     opts = {
       disable_signs = false,
@@ -71,14 +71,14 @@ return {
       on_attach = function()
         local gs = package.loaded.gitsigns
 
-        map('n', '<leader>h<space>', gs.stage_hunk, { desc = 'stage current hunk' })
+        map('n', '<leader>hs', gs.stage_hunk, { desc = 'stage current hunk' })
         map('n', '<leader>hu', gs.undo_stage_hunk, { desc = 'undo stage' })
         map('n', '<leader>hp', gs.preview_hunk_inline, { desc = 'preview current hunk' })
         map('n', '<leader>hr', gs.reset_hunk, { desc = 'reset current hunk' })
         map('n', '<leader>hb', gs.blame_line, { desc = 'blame current hunk' })
         map('n', '<leader>hd', gs.toggle_deleted, { desc = 'show deleted lines' })
         map('n', '<leader>gw', gs.toggle_word_diff, { desc = 'gitsigns: toggle word diff' })
-        map('n', '<leader>g<space>', gs.stage_buffer, { desc = 'gitsigns: stage entire buffer' })
+        map('n', '<leader>gs', gs.stage_buffer, { desc = 'gitsigns: stage entire buffer' })
         map('n', '<leader>gr', gs.reset_buffer, { desc = 'gitsigns: reset entire buffer' })
         map(
           'n',
