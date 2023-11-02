@@ -71,15 +71,15 @@ return {
       on_attach = function()
         local gs = package.loaded.gitsigns
 
-        map('n', '<leader>hs', gs.stage_hunk, { desc = 'stage current hunk' })
-        map('n', '<leader>hu', gs.undo_stage_hunk, { desc = 'undo stage' })
-        map('n', '<leader>hp', gs.preview_hunk_inline, { desc = 'preview current hunk' })
-        map('n', '<leader>hr', gs.reset_hunk, { desc = 'reset current hunk' })
-        map('n', '<leader>hb', gs.blame_line, { desc = 'blame current hunk' })
-        map('n', '<leader>hd', gs.toggle_deleted, { desc = 'show deleted lines' })
+        map('n', '<leader>gs', gs.stage_hunk, { desc = 'stage current hunk' })
+        map('n', '<leader>gu', gs.undo_stage_hunk, { desc = 'undo stage' })
+        map('n', '<leader>gr', gs.reset_hunk, { desc = 'reset current hunk' })
+        map('n', '<leader>gp', gs.preview_hunk_inline, { desc = 'preview current hunk' })
+        map('n', '<leader>gS', gs.stage_buffer, { desc = 'gitsigns: stage entire buffer' })
+        map('n', '<leader>gR', gs.reset_buffer, { desc = 'gitsigns: reset entire buffer' })
+        map('n', '<leader>gP', gs.toggle_deleted, { desc = 'show deleted lines' })
+        map('n', '<leader>gb', gs.blame_line, { desc = 'blame current hunk' })
         map('n', '<leader>gw', gs.toggle_word_diff, { desc = 'gitsigns: toggle word diff' })
-        map('n', '<leader>gs', gs.stage_buffer, { desc = 'gitsigns: stage entire buffer' })
-        map('n', '<leader>gr', gs.reset_buffer, { desc = 'gitsigns: reset entire buffer' })
         map(
           'n',
           '<leader>lg',
@@ -90,10 +90,10 @@ return {
 
         map(
           'x',
-          '<leader>h<space>',
+          '<leader>gs',
           function() gs.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end
         )
-        map('x', '<leader>hr', function() gs.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end)
+        map('x', '<leader>gr', function() gs.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end)
 
         map('n', '[h', function()
           vim.schedule(function() gs.prev_hunk() end)
