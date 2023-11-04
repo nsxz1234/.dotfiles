@@ -1,2 +1,2 @@
 - link:
-    $HOME/.xkb: xkb
+    $HOME/keymap.xkb: xkb/keymap.xkb
