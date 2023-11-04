@@ -13,8 +13,8 @@
 # Super+Shift+Return to start an instance of foot (https://codeberg.org/dnkl/foot)
 riverctl map normal Super Return spawn foot
 
-riverctl map normal Super D spawn "rofi -show drun"
-riverctl map normal Super W spawn firefox
+riverctl map normal Super D spawn "bemenu-run"
+riverctl map normal Super W spawn firefox-wayland
 riverctl map normal Super C spawn "chromium --enable-features=UseOzonePlatform --ozone-platform=wayland"
 
 # Super+Q to close the focused view
