@@ -51,6 +51,13 @@ See [meta/configs/](./meta/configs) for available configurations
 _*Note:*_ Any configuration can be run as sudo by adding `-sudo` to the end of it when invoking the install script.
 _DO NOT_ run the script as a sudoer.
 
+### For modifying keyboard layout:
+
+```
+xkbcli compile-keymap --layout layout --variant variant
+```
+Articles from blogs I read [Custom xkb layout](https://leon_plickat.srht.site/writing/custom-xkb-layout/article.html)
+
 ## Contents
 
 ### Profiles
