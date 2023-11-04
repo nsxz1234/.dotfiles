@@ -13,7 +13,7 @@
 # Super+Shift+Return to start an instance of foot (https://codeberg.org/dnkl/foot)
 riverctl map normal Super Return spawn foot
 
-riverctl map normal Super D spawn "wofi --show drun"
+riverctl map normal Super D spawn "rofi -show drun"
 riverctl map normal Super W spawn firefox
 riverctl map normal Super C spawn "chromium --enable-features=UseOzonePlatform --ozone-platform=wayland"
 
@@ -157,7 +157,7 @@ riverctl set-repeat 50 300
 
 # auto starting apps
 riverctl spawn kanshi
-riverctl spawn "wlsunset -t 4000"
+# riverctl spawn "wlsunset -t 4000"
 riverctl spawn waybar
 
 # Make certain views start floating
@@ -171,3 +171,9 @@ riverctl csd-filter-add app-id "gedit"
 # River will send the process group of the init executable SIGTERM on exit.
 riverctl default-layout rivertile
 rivertile -view-padding 6 -outer-padding 6 &
+
+# gsettings set org.gnome.desktop.interface font-name "Roboto Regular 12"
+# gsettings set org.gnome.desktop.interface cursor-theme "Adwaita"
+# gsettings set org.gnome.desktop.interface icon-theme "WhiteSur"
+# gsettings set org.gnome.desktop.interface gtk-theme "WhiteSur-Light"
+# gsettings set org.gnome.desktop.wm.preferences theme "WhiteSur-Light"
