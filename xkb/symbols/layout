@@ -1,0 +1,4 @@
+xkb_symbols "variant" {
+    key <CAPS> { [ Control_L ] };
+    key <LCTL> { [ Caps_Lock ] };
+};
