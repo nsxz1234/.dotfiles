@@ -1,11 +1,6 @@
-partial alphanumeric_keys modifier_keys
-xkb_symbols "custom" {
-
+xkb_symbols {
     include "us(basic)"
-    name[Group1]= "English (US)";
 
     key <CAPS> { [ Control_L ] };
     modifier_map Control { <CAPS> };
-
-    include "level3(ralt_switch)"
 };
