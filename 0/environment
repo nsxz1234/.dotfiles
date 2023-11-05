@@ -1,3 +1,5 @@
+XKB_DEFAULT_LAYOUT=us
+
 GTK_IM_MODULE=fcitx
 QT_IM_MODULE=fcitx
 XMODIFIERS=@im=fcitx
@@ -13,9 +15,6 @@ GLFW_IM_MODULE=ibus
 #设置默认编辑器neovim
 VISUAL=/usr/bin/nvim
 EDITOR=/usr/bin/nvim
-
-#wayland环境firefox需要配置
-MOZ_ENABLE_WAYLAND=1
 
 #wayland环境java程序需要配置
 _JAVA_AWT_WM_NONREPARENTING=1
