@@ -18,7 +18,7 @@ riverctl map normal Super S spawn "grim -g \"\$(slurp)\" - | wl-copy"
 riverctl map normal Super W spawn firefox-wayland
 riverctl map normal Super E spawn nautilus
 riverctl map normal Super T spawn telegram-desktop
-riverctl map normal Super C spawn "chromium --enable-features=UseOzonePlatform --ozone-platform=wayland"
+riverctl map normal Super C spawn chromium
 
 # Super+Q to close the focused view
 riverctl map normal Super Q close
