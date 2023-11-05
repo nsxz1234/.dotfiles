@@ -14,6 +14,7 @@
 riverctl map normal Super Return spawn foot
 
 riverctl map normal Super D spawn "bemenu-run"
+riverctl map normal Super S spawn "grim -g \"\$(slurp)\" - | wl-copy"
 riverctl map normal Super W spawn firefox-wayland
 riverctl map normal Super C spawn "chromium --enable-features=UseOzonePlatform --ozone-platform=wayland"
 
@@ -159,6 +160,8 @@ riverctl set-repeat 50 300
 riverctl spawn kanshi
 # riverctl spawn "wlsunset -t 4000"
 riverctl spawn waybar
+riverctl spawn "wbg my/my/wallpaper/coast.png"
+riverctl spawn 'fcitx5 -d'
 
 # Make certain views start floating
 riverctl float-filter-add app-id float
