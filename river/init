@@ -13,11 +13,12 @@
 # Super+Shift+Return to start an instance of foot (https://codeberg.org/dnkl/foot)
 riverctl map normal Super Return spawn foot
 
-riverctl map normal Super D spawn "bemenu-run"
+riverctl map normal Super Space spawn "fuzzel --terminal=foot"
 riverctl map normal Super S spawn "grim -g \"\$(slurp)\" - | wl-copy"
 riverctl map normal Super W spawn firefox-wayland
 riverctl map normal Super E spawn nautilus
 riverctl map normal Super T spawn telegram-desktop
+riverctl map normal Super D spawn Discord
 riverctl map normal Super C spawn chromium
 
 # Super+Q to close the focused view
@@ -105,8 +106,8 @@ all_tags=$(((1 << 32) - 1))
 riverctl map normal Super 0 set-focused-tags $all_tags
 riverctl map normal Super+Shift 0 set-view-tags $all_tags
 
-# Super+Space to toggle float
-riverctl map normal Super Space toggle-float
+# Super+Tab to toggle float
+riverctl map normal Super Tab toggle-float
 
 # Super+F to toggle fullscreen
 riverctl map normal Super F toggle-fullscreen
