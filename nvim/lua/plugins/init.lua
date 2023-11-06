@@ -28,11 +28,18 @@ return {
     },
   },
   'nvim-tree/nvim-web-devicons',
-  'stevearc/dressing.nvim',
   { 'wellle/targets.vim', event = 'VeryLazy' },
   'mtdl9/vim-log-highlighting',
   'romainl/vim-cool',
   { 'onsails/lspkind.nvim' },
+  {
+    'stevearc/dressing.nvim',
+    opts = {
+      select = {
+        backend = { 'fzf_lua', 'builtin' },
+      },
+    },
+  },
   {
     'stevearc/oil.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
