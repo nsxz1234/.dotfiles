@@ -41,7 +41,7 @@ return {
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
           ['<C-b>'] = cmp.mapping.scroll_docs(-4),
           ['<C-q>'] = cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close() }),
-          ['<m-a>'] = cmp.mapping(copilot),
+          ['<m-space>'] = cmp.mapping(copilot),
         },
         formatting = {
           deprecated = true,
