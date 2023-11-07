@@ -159,7 +159,7 @@ riverctl set-repeat 50 300
 
 # auto starting apps
 # riverctl spawn kanshi
-# riverctl spawn "wlsunset -t 4000"
+riverctl spawn "wlsunset -t 6000"
 riverctl spawn waybar
 riverctl spawn "wbg my/my/wallpaper/coast.png"
 riverctl spawn 'fcitx5 -d'
