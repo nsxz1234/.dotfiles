@@ -12,7 +12,7 @@
 
 riverctl map normal Super Space spawn "fuzzel --terminal=foot"
 riverctl map normal Super Return spawn foot
-riverctl map normal Super S spawn "grim -g \"\$(slurp)\" - | wl-copy"
+riverctl map normal Super S spawn 'grim -g "$(slurp)" - | swappy -f -'
 riverctl map normal Super W spawn firefox
 riverctl map normal Super E spawn nautilus
 riverctl map normal Super T spawn telegram-desktop
