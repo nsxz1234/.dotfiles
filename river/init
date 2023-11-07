@@ -163,6 +163,7 @@ riverctl set-repeat 50 300
 riverctl spawn waybar
 riverctl spawn "wbg my/my/wallpaper/coast.png"
 riverctl spawn 'fcitx5 -d'
+riverctl spawn '/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1'
 
 # Make certain views start floating
 riverctl float-filter-add app-id float
