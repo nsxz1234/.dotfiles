@@ -1,2 +1,4 @@
 [Default]
 save_dir=$HOME/Pictures/Screenshots
+line_size=2
+paint_mode=rectangle
