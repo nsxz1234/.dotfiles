@@ -21,9 +21,8 @@ riverctl map normal Super D spawn discord
 # Super+Q to close the focused view
 riverctl map normal Super Q close
 
-# Super+Shift+E to exit river
 # riverctl map normal Super+Shift E exit
-riverctl map normal Super Escape spawn wlogout
+riverctl map normal Super Escape spawn "wlogout -p layer-shell"
 
 # Super+J and Super+K to focus the next/previous view in the layout stack
 riverctl map normal Super J focus-view next
