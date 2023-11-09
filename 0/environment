@@ -13,9 +13,9 @@ GLFW_IM_MODULE=ibus
 #打不开虚拟机
 #QT_QPA_PLATFORM=wayland
 
-#设置默认编辑器neovim
-VISUAL=/usr/bin/nvim
+TERMINAL=/usr/bin/foot
 EDITOR=/usr/bin/nvim
+VISUAL=/usr/bin/nvim
 
 #wayland环境java程序需要配置
 _JAVA_AWT_WM_NONREPARENTING=1

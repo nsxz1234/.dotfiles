@@ -59,6 +59,7 @@ ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
+export TERMINAL='foot'
 export EDITOR='nvim'
 export VISUAL='nvim'
 # zig
