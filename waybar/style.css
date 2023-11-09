@@ -14,7 +14,7 @@ window#waybar {
 
 #tray, #cpu, #memory, #clock, #battery,#temperature, #pulseaudio, #network {
 	background-color: @bg;
-	padding: 5px 10px;
+	padding: 0px 8px;
 	margin-bottom: 5px;
 }
 
