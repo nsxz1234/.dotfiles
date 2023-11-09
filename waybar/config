@@ -1,6 +1,5 @@
 {
   "position": "bottom",
-  "modules-left": ["custom/launcher"],
   "modules-right": [
     "tray",
     "cpu",
@@ -78,11 +77,5 @@
       "default": ["", "", ""]
     },
     "on-click": "pavucontrol"
-  },
-  "custom/launcher":{
-    "format": " ",
-    "on-click": "fuzzel --terminal=foot",
-    "on-click-right": "killall fuzzel",
-    "tooltip": false
   },
 }
