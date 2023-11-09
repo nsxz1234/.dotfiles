@@ -2,13 +2,13 @@
   "position": "bottom",
   "modules-left": ["custom/launcher"],
   "modules-right": [
+    "tray",
     "cpu",
     "memory",
     "temperature",
     "pulseaudio",
     //"battery",
     "network",
-    "tray",
     "clock",
   ],
   "clock": {
@@ -28,7 +28,11 @@
     "format-full": "󱈑 {capacity}%",
     "format-icons": ["󱊡", "󱊢", "󱊣"]
   },
- "cpu": {
+  "tray": {
+    "icon-size": 20,
+    "spacing": 10
+  },
+  "cpu": {
     "format": "  {usage}%",
     "tooltip": false
   },
@@ -40,7 +44,8 @@
     "critical-threshold": 80,
     "format": "{icon} {temperatureC}°C",
     "format-icons": ["", "", ""],
-    "interval": 3
+    "interval": 3,
+    "tooltip": false
   },
   "network": {
     "format-wifi": "  {essid}",
@@ -60,10 +65,6 @@
     "tooltip-format-disconnected": "Disconnected",
     "max-length": 50,
   },
-  "tray": {
-       "icon-size": 20,
-       "spacing": 10
-  },
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-muted": "󰖁 Muted",
@@ -81,6 +82,7 @@
   "custom/launcher":{
     "format": " ",
     "on-click": "fuzzel --terminal=foot",
-    "on-click-right": "killall fuzzel"
+    "on-click-right": "killall fuzzel",
+    "tooltip": false
   },
 }
