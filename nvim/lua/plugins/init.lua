@@ -178,9 +178,7 @@ return {
   {
     'numToStr/Comment.nvim',
     event = 'VeryLazy',
-    opts = {
-      -- vim.api.nvim_command('set commentstring=//%s'),
-    },
+    opts = {},
   },
   {
     'voldikss/vim-translator',
