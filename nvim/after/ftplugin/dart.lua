@@ -17,4 +17,4 @@ map('n', '<leader>fc', '<Cmd>FlutterLogClear<CR>', with_desc('flutter: log clear
 map('n', '<leader>fg', '<Cmd>FlutterPubGet<CR>', with_desc('flutter: pub get'))
 map('n', '<leader>fu', '<Cmd>FlutterPubUpgrade<CR>', with_desc('flutter: pub upgrade'))
 map('n', '<leader>ft', '<Cmd>FlutterDevTools<CR>', with_desc('flutter: dev tools'))
-map('n', '<leader>rn', '<Cmd>FlutterRename<CR>', with_desc('flutter: rename'))
+map('n', '<leader>r', '<Cmd>FlutterRename<CR>', with_desc('flutter: rename'))
