@@ -13,10 +13,12 @@
 riverctl map normal Super Space spawn "fuzzel --terminal=foot"
 riverctl map normal Super Return spawn foot
 riverctl map normal Super S spawn 'grim -g "$(slurp)" - | swappy -f -'
+riverctl map normal Super C spawn 'wl-color-picker clipboard'
 riverctl map normal Super W spawn firefox
 riverctl map normal Super E spawn nautilus
 riverctl map normal Super T spawn telegram-desktop
 riverctl map normal Super D spawn discord
+riverctl map normal Super Backspace spawn waylock
 
 # Super+Q to close the focused view
 riverctl map normal Super Q close
