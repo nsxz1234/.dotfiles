@@ -147,7 +147,7 @@ do
     riverctl map $mode None XF86MonBrightnessDown spawn 'light -U 5'
 done
 
-riverctl xcursor-theme default 24
+riverctl xcursor-theme Adwaita 24
 
 # Set background and border color
 riverctl background-color 0x002b36
@@ -177,7 +177,6 @@ riverctl csd-filter-add app-id "gedit"
 riverctl default-layout rivertile
 rivertile -view-padding 3 -outer-padding 3 &
 
-gsettings set org.gnome.desktop.interface text-scaling-factor 1
 # gsettings set org.gnome.desktop.interface font-name "Roboto Regular 12"
 # gsettings set org.gnome.desktop.interface cursor-theme "Adwaita"
 # gsettings set org.gnome.desktop.interface icon-theme "WhiteSur"
