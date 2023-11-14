@@ -147,7 +147,7 @@ do
     riverctl map $mode None XF86MonBrightnessDown spawn 'light -U 5'
 done
 
-riverctl xcursor-theme Adwaita 24
+riverctl xcursor-theme default 24
 
 # Set background and border color
 riverctl background-color 0x002b36
