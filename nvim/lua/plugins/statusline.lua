@@ -22,7 +22,10 @@ return {
           path = 0, -- 0: Just the filename  1: Relative path  2: Absolute path
           shorting_target = 0,
         },
-        { 'diagnostics' },
+        {
+          'diagnostics',
+          symbols = { error = ' ', warn = ' ', info = ' ', hint = '󰌶 ' },
+        },
       },
       lualine_x = {
         'selectioncount',
