@@ -1,6 +1,6 @@
 {
   "position": "bottom",
-  "modules-center": ["river/window"],
+  "modules-left": ["river/window"],
   "modules-right": [
     "tray",
     "cpu",

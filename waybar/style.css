@@ -5,21 +5,27 @@
     font-size: 16px;
 }
 
-@define-color bg rgb (33, 33, 33);
-
 window#waybar {
     background: transparent;
     color: white;
 }
 
-#tray, #cpu, #memory, #clock, #battery,#temperature, #pulseaudio, #network {
+@define-color bg rgb (33, 33, 33);
+
+#window, #tray, #cpu, #memory, #clock, #battery,#temperature, #pulseaudio, #network {
 	background-color: @bg;
 	padding: 5px 8px;
 	margin-bottom: 6px;
 }
 
+#window {
+    color: #c0caf5;
+    border-radius: 30px;
+    margin-left: 6px;
+}
+
 #clock {
-    color: #f0f0f0;
+    color: #c0caf5;
     border-radius: 0px 30px 30px 0px;
     margin-right: 6px;
 }
