@@ -15,6 +15,10 @@ local cnoremap = function(...) map('c', ...) end
 local tnoremap = function(...) map('t', ...) end
 local snoremap = function(...) map('s', ...) end
 
+nnoremap('<m-k>', '<cmd>e ~/.dotfiles/nvim/plugin/keymaps.lua<cr>')
+nnoremap('<m-p>', '<cmd>e ~/.dotfiles/nvim/lua/plugins/init.lua<cr>')
+nnoremap('<m-z>', '<cmd>e ~/.dotfiles/zsh/.zshrc<cr>')
+
 -- Terminal
 as.augroup('AddTerminalMappings', {
   event = { 'TermOpen' },
@@ -116,10 +120,6 @@ nnoremap('<leader><tab>', 'gt')
 
 -- window
 nnoremap(',', '<C-w>w')
-nnoremap('<m-h>', '<C-w>h')
-nnoremap('<m-j>', '<C-w>j')
-nnoremap('<m-k>', '<C-w>k')
-nnoremap('<m-l>', '<C-w>l')
 nnoremap('<a-=>', '<C-W>+')
 nnoremap('<a-->', '<C-W>-')
 nnoremap('<a-,>', '<C-W><')
