@@ -4,12 +4,10 @@ return {
   { 'f3fora/cmp-spell', ft = { 'gitcommit', 'NeogitCommitMessage', 'markdown', 'norg', 'org' } },
   {
     'hrsh7th/nvim-cmp',
-    event = 'InsertEnter',
     dependencies = {
       { 'hrsh7th/cmp-nvim-lsp' },
       { 'hrsh7th/cmp-cmdline' },
       { 'dmitmel/cmp-cmdline-history' },
-      { 'hrsh7th/cmp-nvim-lsp-document-symbol' },
       { 'hrsh7th/cmp-path' },
       { 'hrsh7th/cmp-buffer' },
       { 'saadparwaiz1/cmp_luasnip' },
@@ -89,19 +87,16 @@ return {
         },
       })
 
-      local search_sources = {
-        sources = cmp.config.sources(
-          { { name = 'nvim_lsp_document_symbol' } },
-          { { name = 'buffer' } }
-        ),
-      }
+      cmp.setup.cmdline({ '/', '?' }, {
+        sources = {
+          { name = 'buffer' },
+        },
+      })
 
-      cmp.setup.cmdline('/', search_sources)
-      cmp.setup.cmdline('?', search_sources)
       cmp.setup.cmdline(':', {
         sources = cmp.config.sources({
-          { name = 'cmdline', keyword_pattern = [=[[^[:blank:]\!]*]=] },
           { name = 'path' },
+          { name = 'cmdline' },
           { name = 'cmdline_history', priority = 10, max_item_count = 5 },
         }),
       })
