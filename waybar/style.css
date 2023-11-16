@@ -43,15 +43,15 @@ window#waybar {
 }
 
 #cpu {
-  color: #7daea3;
+  color: #9481b5;
 }
 
 #memory {
-  color: #89b482;
+  color: #7dcfff;
 }
 
 #temperature {
-  color: #a9b665;
+  color: #9ece6a;
 }
 
 #pulseaudio {
