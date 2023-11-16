@@ -37,8 +37,8 @@ noremap('<c-l>', 'g_')
 inoremap('<c-h>', '<Left>')
 inoremap('<c-l>', '<Right>')
 snoremap('<c-e>', '<esc>A')
-nnoremap('t', '%')
-vnoremap('t', '%')
+nnoremap('r', '%')
+vnoremap('r', '%')
 
 -- basic
 imap('jk', [[col('.') == 1 ? '<esc>' : '<esc>l']], { expr = true })
@@ -106,7 +106,7 @@ end
 nnoremap('<leader><cr>', run)
 
 -- buffer
-nnoremap('r', '<cmd>e #<cr>', { desc = 'switch to last buffer' })
+nnoremap('t', '<cmd>e #<cr>', { desc = 'switch to last buffer' })
 
 -- Capitalize
 nnoremap('U', 'gUiw`]', { desc = 'capitalize word' })
