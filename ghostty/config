@@ -6,8 +6,8 @@ window-decoration = false
 keybind = ctrl+d=new_split:right
 
 
-background = 32302f
-foreground = d4be98
+background = #32302f
+foreground = #d4be98
 # black
 palette = 0=#45403d
 palette = 8=#45403d

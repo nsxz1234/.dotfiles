@@ -35,35 +35,35 @@ window#waybar {
 }
 
 #cpu {
-    color: #7dcfff;
+    color: #7daea3;
 }
 
 #memory {
-  color: #9481b5;
+  color: #89b482;
 }
 
 #temperature {
-  color: #9ece6a;
-}
-
-#battery {
-    color: #9ece6a;
-}
-
-#battery.charging {
-    color: #9ece6a;
-}
-
-#battery.warning:not(.charging) {
-    background-color: #f7768e;
-    color: @bg;
-    border-radius: 5px 5px 5px 5px;
-}
-
-#network {
-	color: #f7768e;
+  color: #a9b665;
 }
 
 #pulseaudio {
-	color: #e0af68;
+	color: #d8a657;
+}
+
+#network {
+	color: #ea6962;
+}
+
+#battery {
+    color: #a9b665;
+}
+
+#battery.charging {
+    color: #a9b665;
+}
+
+#battery.warning:not(.charging) {
+    color: @bg;
+    background-color: #ea6962;
+    border-radius: 5px 5px 5px 5px;
 }
