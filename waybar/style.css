@@ -1,41 +1,49 @@
 * {
-    border: none;
-    border-radius: 0;
-    min-height: 0;
-    font-size: 16px;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  font-size: 16px;
 }
 
 window#waybar {
-    background: transparent;
-    color: white;
+  background: transparent;
+  color: white;
 }
 
 @define-color bg rgb (33, 33, 33);
 
-#window, #tray, #cpu, #memory, #clock, #battery,#temperature, #pulseaudio, #network {
-	background-color: @bg;
-	padding: 5px 8px;
-	margin-bottom: 6px;
+#window,
+#tray,
+#cpu,
+#memory,
+#clock,
+#battery,
+#temperature,
+#pulseaudio,
+#network {
+  background-color: @bg;
+  padding: 5px 8px;
+  margin-bottom: 6px;
 }
 
 #window {
-    color: #c0caf5;
-    border-radius: 30px;
-    margin-left: 6px;
+  color: #c0caf5;
+  border-radius: 30px;
+  margin-left: 6px;
 }
 
 #clock {
-    color: #c0caf5;
-    border-radius: 0px 30px 30px 0px;
-    margin-right: 6px;
+  color: #c0caf5;
+  border-radius: 0px 30px 30px 0px;
+  margin-right: 6px;
 }
 
 #tray {
-    border-radius: 30px 0px 0px 30px;
+  border-radius: 30px 0px 0px 30px;
 }
 
 #cpu {
-    color: #7daea3;
+  color: #7daea3;
 }
 
 #memory {
@@ -47,23 +55,23 @@ window#waybar {
 }
 
 #pulseaudio {
-	color: #d8a657;
+  color: #d8a657;
 }
 
 #network {
-	color: #ea6962;
+  color: #ea6962;
 }
 
 #battery {
-    color: #a9b665;
+  color: #a9b665;
 }
 
 #battery.charging {
-    color: #a9b665;
+  color: #a9b665;
 }
 
 #battery.warning:not(.charging) {
-    color: @bg;
-    background-color: #ea6962;
-    border-radius: 5px 5px 5px 5px;
+  color: @bg;
+  background-color: #ea6962;
+  border-radius: 5px 5px 5px 5px;
 }
