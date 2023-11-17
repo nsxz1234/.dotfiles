@@ -62,7 +62,6 @@ return {
           ['<C-h>'] = false,
           ['<C-l>'] = false,
           ['<C-t>'] = false,
-          ['df'] = 'actions.close',
         },
         view_options = {
           show_hidden = true,
