@@ -49,7 +49,7 @@ return {
           },
         },
         oldfiles = {
-          cwd_only = true,
+          cwd_only = false,
         },
         lsp = {
           symbols = {
