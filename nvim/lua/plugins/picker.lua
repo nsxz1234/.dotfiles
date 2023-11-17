@@ -39,7 +39,7 @@ return {
           border = as.ui.border.rectangle,
           height = 0.90,
           width = 0.90,
-          preview = { layout = 'vertical', vertical = 'down:60%' },
+          preview = { layout = 'vertical', vertical = 'down:50%' },
         },
         keymap = {
           builtin = {
@@ -48,9 +48,7 @@ return {
             ['<c-b>'] = 'preview-page-up',
           },
         },
-        oldfiles = {
-          cwd_only = false,
-        },
+        oldfiles = { cwd_only = false },
         lsp = {
           symbols = {
             winopts = { preview = { hidden = 'hidden' } },
