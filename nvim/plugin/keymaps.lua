@@ -16,7 +16,7 @@ local tnoremap = function(...) map('t', ...) end
 local snoremap = function(...) map('s', ...) end
 
 nnoremap(
-  '<m-c>',
+  '<m-f>',
   '<cmd>so ~/.local/share/nvim/sessions/__home__nsxz__repos__cloud_flutter_mobile_ui<cr>'
 )
 nnoremap('<m-d>', '<cmd>so ~/.local/share/nvim/sessions/__home__nsxz__.dotfiles<cr>')
