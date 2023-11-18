@@ -66,6 +66,36 @@ ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
+# Emacs keybindings
+bindkey -e
+# ^g to open lazygit (below oh-my-zsh)
+bindkey -s '^g' 'lazygit\n'
+
+
+# bun completions
+[ -s "/home/nsxz/.bun/_bun" ] && source "/home/nsxz/.bun/_bun"
+
+
+# fzf
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
+export FZF_DEFAULT_OPTS="--reverse \
+--cycle"
+
+
+# foot
+function osc7-pwd() {
+    emulate -L zsh # also sets localoptions for us
+    setopt extendedglob
+    local LC_ALL=C
+    printf '\e]7;file://%s%s\e\' $HOST ${PWD//(#m)([^@-Za-z&-;_~])/%${(l:2::0:)$(([##16]#MATCH))}}
+}
+
+function chpwd-osc7-pwd() {
+    (( ZSH_SUBSHELL )) || osc7-pwd
+}
+add-zsh-hook -Uz chpwd chpwd-osc7-pwd
+
+
 # nnn
 export NNN_PLUG='f:fzopen;v:imgview'
 export NNN_BMS=".:$DOTFILES;c:$XDG_CONFIG_HOME"
@@ -103,29 +133,3 @@ n ()
         rm -f "$NNN_TMPFILE" > /dev/null
     }
 }
-
-# fzf
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
-export FZF_DEFAULT_OPTS="--reverse \
---cycle"
-
-# Emacs keybindings
-bindkey -e
-# ^g to open lazygit (below oh-my-zsh)
-bindkey -s '^g' 'lazygit\n'
-
-# bun completions
-[ -s "/home/nsxz/.bun/_bun" ] && source "/home/nsxz/.bun/_bun"
-
-# foot
-function osc7-pwd() {
-    emulate -L zsh # also sets localoptions for us
-    setopt extendedglob
-    local LC_ALL=C
-    printf '\e]7;file://%s%s\e\' $HOST ${PWD//(#m)([^@-Za-z&-;_~])/%${(l:2::0:)$(([##16]#MATCH))}}
-}
-
-function chpwd-osc7-pwd() {
-    (( ZSH_SUBSHELL )) || osc7-pwd
-}
-add-zsh-hook -Uz chpwd chpwd-osc7-pwd
