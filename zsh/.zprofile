@@ -38,4 +38,7 @@ export QT_QPA_PLATFORM=wayland
 # wayland环境java程序需要配置
 # export _JAVA_AWT_WM_NONREPARENTING=1
 
+# archlinux downgrade
+export DOWNGRADE_FROM_ALA=1
+
 export MOZ_ENABLE_WAYLAND=1
