@@ -66,6 +66,8 @@ ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
+source $ZDOTDIR/better_ctrl_z.zsh
+
 # Emacs keybindings
 bindkey -e
 # ^g to open lazygit (below oh-my-zsh)
