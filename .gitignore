@@ -1,13 +1,6 @@
-Brewfile.*.lock.json
-secrets.*
-credentials.*
-.pkrvars.hcl
-*.pkrvars.hcl
-.nvimlog
-
-lazygit/state.yml
-fcitx5/crash.log
-fcitx5/conf/cached_layouts
+config/lazygit/state.yml
+config/fcitx5/crash.log
+config/fcitx5/conf/cached_layouts
 
 __pycache__
 
