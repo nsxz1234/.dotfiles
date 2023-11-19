@@ -105,22 +105,6 @@ return {
     end,
   },
   {
-    'chentoast/marks.nvim',
-    init = function() as.augroup('marks', { event = 'BufRead', command = ':delm a-zA-Z0-9' }) end,
-    event = 'VeryLazy',
-    keys = {
-      { '<leader>mb', '<Cmd>MarksListBuf<CR>', desc = 'list buffer' },
-      { '<leader>mg', '<Cmd>MarksQFListGlobal<CR>', desc = 'list global' },
-      { '<leader>mm', '<Cmd>BookmarksQFList 0<CR>', desc = 'list bookmark' },
-    },
-    opts = {
-      force_write_shada = false, -- This can cause data loss
-      excluded_filetypes = { 'NeogitStatus', 'NeogitCommitMessage', 'toggleterm' },
-      bookmark_0 = { sign = '⚑', virt_text = '' },
-      mappings = { annotate = 'm?' },
-    },
-  },
-  {
     'ziglang/zig.vim',
     config = function() vim.g.zig_fmt_autosave = 0 end,
   },
