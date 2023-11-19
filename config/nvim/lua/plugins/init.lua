@@ -111,7 +111,7 @@ return {
     keys = {
       { '<leader>mb', '<Cmd>MarksListBuf<CR>', desc = 'list buffer' },
       { '<leader>mg', '<Cmd>MarksQFListGlobal<CR>', desc = 'list global' },
-      { '<leader>m0', '<Cmd>BookmarksQFList 0<CR>', desc = 'list bookmark' },
+      { '<leader>mm', '<Cmd>BookmarksQFList 0<CR>', desc = 'list bookmark' },
     },
     opts = {
       force_write_shada = false, -- This can cause data loss
