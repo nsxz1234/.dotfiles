@@ -20,10 +20,6 @@ export TERMINAL=foot
 export EDITOR=nvim
 export VISUAL=nvim
 
-export QT_SCALE_FACTOR=2
-
-export GDK_DPI_SCALE=2
-
 export XKB_DEFAULT_LAYOUT=us
 
 export GTK_IM_MODULE=fcitx
