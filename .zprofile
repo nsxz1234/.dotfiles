@@ -29,10 +29,10 @@ export SDL_IM_MODULE=fcitx
 export GLFW_IM_MODULE=ibus
 
 # 打不开虚拟机 一些程序鼠标很小
-export QT_QPA_PLATFORM=wayland
+# export QT_QPA_PLATFORM=wayland
 
 # wayland环境java程序需要配置
-# export _JAVA_AWT_WM_NONREPARENTING=1
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 # archlinux downgrade
 export DOWNGRADE_FROM_ALA=1
