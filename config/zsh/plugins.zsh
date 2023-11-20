@@ -1,7 +1,7 @@
 #-------------------------------------------------------------------------------
 #  PLUGIN MANAGEMENT
 #-------------------------------------------------------------------------------
-PLUGIN_DIR="$DOTFILES/zsh/plugins"
+PLUGIN_DIR="$DOTFILES/config/zsh/plugins"
 
 function zsh_add_file() {
   [ -f "$ZDOTDIR/$1" ] && source "$ZDOTDIR/$1"
