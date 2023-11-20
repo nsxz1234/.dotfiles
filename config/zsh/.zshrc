@@ -28,8 +28,6 @@ HISTFILE=$HOME/.local/share/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
 
-source $ZDOTDIR/plugins.zsh
-
 fpath=(/usr/share/zsh/site-functions $fpath)
 fpath=($HOME/.local/share/zsh/site-functions $fpath)
 # initialize completions
@@ -56,6 +54,7 @@ autoload -U colors && colors # Enable colors in prompt
 eval "$(starship init zsh)"
 
 # 一定要在compinit之后, 否则有的插件没用
+source $ZDOTDIR/plugins.zsh
 zsh_add_plugin    "zdharma-continuum/fast-syntax-highlighting"
 zsh_add_plugin    "zsh-users/zsh-autosuggestions"
 zsh_add_plugin    "zsh-users/zsh-completions"
