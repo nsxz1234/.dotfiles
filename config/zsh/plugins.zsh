@@ -15,7 +15,7 @@ function zsh_add_plugin() {
     zsh_add_file "plugins/$PLUGIN_NAME/$2.zsh"
   else
     cd $DOTFILES
-    git submodule add -f "https://github.com/$1.git" "$PLUGIN_DIR/$PLUGIN_NAME"
+    git submodule add "https://github.com/$1.git" "$PLUGIN_DIR/$PLUGIN_NAME"
     # git submodule add "git@github.com:$1.git" "$PLUGIN_DIR/$PLUGIN_NAME"
     cd -
   fi
