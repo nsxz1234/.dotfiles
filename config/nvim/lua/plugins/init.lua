@@ -149,7 +149,6 @@ return {
     dependencies = { 'hrsh7th/nvim-cmp' },
     opts = {
       check_ts = true,
-      fast_wrap = { map = '<c-s>' },
       ts_config = {
         lua = { 'string' },
         dart = { 'string' },
