@@ -16,11 +16,11 @@ export CHROME_EXECUTABLE=/usr/bin/chromium
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-export TERMINAL=foot
+export TERMINAL=ghostty
 export EDITOR=nvim
 export VISUAL=nvim
 
-export XKB_DEFAULT_LAYOUT=us
+# export XKB_DEFAULT_LAYOUT=us
 
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
@@ -32,7 +32,7 @@ export GLFW_IM_MODULE=ibus
 # export QT_QPA_PLATFORM=wayland
 
 # wayland环境java程序需要配置
-export _JAVA_AWT_WM_NONREPARENTING=1
+# export _JAVA_AWT_WM_NONREPARENTING=1
 
 # archlinux downgrade
 export DOWNGRADE_FROM_ALA=1
