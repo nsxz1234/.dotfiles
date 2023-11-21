@@ -20,13 +20,13 @@ export TERMINAL=ghostty
 export EDITOR=nvim
 export VISUAL=nvim
 
-# export XKB_DEFAULT_LAYOUT=us
-
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 export SDL_IM_MODULE=fcitx
 export GLFW_IM_MODULE=ibus
+
+# export XKB_DEFAULT_LAYOUT=us
 
 # 打不开虚拟机 一些程序鼠标很小
 # export QT_QPA_PLATFORM=wayland
