@@ -54,7 +54,7 @@ return {
       window = {
         width = 30,
         mappings = {
-          ['o'] = 'toggle_node',
+          ['l'] = 'toggle_node',
           ['<c-p>'] = { 'toggle_preview', config = { use_float = false } },
         },
       },
