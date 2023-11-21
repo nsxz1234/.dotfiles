@@ -10,4 +10,4 @@ for file in $dotfiles/config/*; do
   ln -sf $file ~/.config/
 done
 
-sudo cp -r wayland-sessions /usr/local/share/
+sudo cp wayland-sessions/river.desktop /usr/local/share/wayland-sessions/

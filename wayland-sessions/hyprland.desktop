@@ -1,5 +1,0 @@
-[Desktop Entry]
-Name=Hyprland (in login shell)
-Comment=An intelligent dynamic tiling Wayland compositor
-Exec=zsh -l -c Hyprland
-Type=Application
