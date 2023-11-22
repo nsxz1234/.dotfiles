@@ -37,10 +37,10 @@ return {
     config = function()
       map('n', '<leader>hh', '<cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>')
       map('n', '<leader>ha', '<cmd>lua require("harpoon.mark").add_file()<CR>')
-      map('n', '<m-q>', '<cmd>lua require("harpoon.ui").nav_file(1)<CR>')
-      map('n', '<m-w>', '<cmd>lua require("harpoon.ui").nav_file(2)<CR>')
-      map('n', '<m-e>', '<cmd>lua require("harpoon.ui").nav_file(3)<CR>')
-      map('n', '<m-r>', '<cmd>lua require("harpoon.ui").nav_file(4)<CR>')
+      map('n', '<m-f>', '<cmd>lua require("harpoon.ui").nav_file(1)<CR>')
+      map('n', '<m-d>', '<cmd>lua require("harpoon.ui").nav_file(2)<CR>')
+      map('n', '<m-s>', '<cmd>lua require("harpoon.ui").nav_file(3)<CR>')
+      map('n', '<m-a>', '<cmd>lua require("harpoon.ui").nav_file(4)<CR>')
     end,
   },
   {
