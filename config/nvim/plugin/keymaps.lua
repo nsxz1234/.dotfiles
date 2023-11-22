@@ -15,11 +15,11 @@ local cnoremap = function(...) map('c', ...) end
 local tnoremap = function(...) map('t', ...) end
 local snoremap = function(...) map('s', ...) end
 
+nnoremap('<m-1>', '<cmd>so ~/.local/share/nvim/sessions/__home__nsxz__.dotfiles<cr>')
 nnoremap(
   '<m-2>',
   '<cmd>so ~/.local/share/nvim/sessions/__home__nsxz__repos__cloud_flutter_mobile_ui<cr>'
 )
-nnoremap('<m-1>', '<cmd>so ~/.local/share/nvim/sessions/__home__nsxz__.dotfiles<cr>')
 nnoremap('<m-k>', '<cmd>e $DOTFILES/config/nvim/plugin/keymaps.lua<cr>')
 nnoremap('<m-p>', '<cmd>e $DOTFILES/config/nvim/lua/plugins/init.lua<cr>')
 nnoremap('<m-z>', '<cmd>e $DOTFILES/config/zsh/.zshrc<cr>')
