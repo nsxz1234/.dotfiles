@@ -4,6 +4,8 @@ adjust-cell-height = 4
 adjust-font-baseline = 2
 
 window-decoration = false
+window-width=120
+window-height=34
 
 keybind = ctrl+d=new_split:right
 
