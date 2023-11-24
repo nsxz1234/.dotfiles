@@ -10,7 +10,9 @@ export PATH=$PATH:~/zig
 export PATH=$PATH:~/.cargo/bin
 # flutter
 export PATH=~/flutter/bin:$PATH
-export PATH=~/Android/Sdk/platform-tools:$PATH
+export PATH=$PATH:~/Android/Sdk/platform-tools
+export PATH=$PATH:~/Android/Sdk/emulator/
+export ANDROID_AVD_HOME=$XDG_CONFIG_HOME/.android/avd/
 export CHROME_EXECUTABLE=/usr/bin/chromium
 # bun
 export BUN_INSTALL="$HOME/.bun"
