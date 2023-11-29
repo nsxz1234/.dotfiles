@@ -7,7 +7,10 @@ window-decoration = false
 window-width=130
 window-height=34
 
-keybind = ctrl+d=new_split:right
+keybind = alt+one=unbind
+keybind = alt+two=unbind
+keybind = alt+three=unbind
+keybind = alt+four=unbind
 
 
 background = #32302f
