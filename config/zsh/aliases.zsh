@@ -7,4 +7,5 @@ alias lg='lazygit'
 alias ra='ranger'
 alias grep='grep --color'
 alias t='tgpt'
+alias re='wf-recorder -g "$(slurp)" --file=recording.mp4'
 
