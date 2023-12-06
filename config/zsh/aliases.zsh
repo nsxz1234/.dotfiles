@@ -6,6 +6,5 @@ alias e='nvim'
 alias lg='lazygit'
 alias ra='ranger'
 alias grep='grep --color'
-alias t='tgpt'
 alias re='wf-recorder -g "$(slurp)" -f recording.mp4'
 
