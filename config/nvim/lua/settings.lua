@@ -112,7 +112,7 @@ o.signcolumn = 'yes'
 o.cursorline = true
 o.ruler = false
 o.cmdheight = 0
-o.showbreak = [[↪ ]]
+o.showbreak = '↪ '
 
 -- List
 o.list = true -- invisible chars
