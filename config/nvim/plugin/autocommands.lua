@@ -27,7 +27,7 @@ as.augroup('Utilities', {
     'org',
     'NeogitCommitMessage',
     'go',
-    'markdown',
+    -- 'markdown',
     'zig',
   },
   -- NOTE: setting spell only works using opt_local otherwise it leaks into subsequent windows
