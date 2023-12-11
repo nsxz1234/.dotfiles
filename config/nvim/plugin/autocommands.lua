@@ -17,17 +17,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 as.augroup('Utilities', {
   event = { 'FileType' },
   pattern = {
-    'lua',
-    'vim',
-    -- 'dart',
-    'python',
-    'javascript',
-    'typescript',
-    'rust',
-    'org',
+    -- 'lua',
     'NeogitCommitMessage',
-    'go',
-    -- 'markdown',
     'zig',
   },
   -- NOTE: setting spell only works using opt_local otherwise it leaks into subsequent windows
