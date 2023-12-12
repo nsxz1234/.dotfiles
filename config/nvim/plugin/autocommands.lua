@@ -19,7 +19,6 @@ as.augroup('Utilities', {
   pattern = {
     -- 'lua',
     'NeogitCommitMessage',
-    'zig',
   },
   -- NOTE: setting spell only works using opt_local otherwise it leaks into subsequent windows
   command = function() vim.opt_local.spell = true end,
