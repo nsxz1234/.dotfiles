@@ -23,19 +23,19 @@ window#waybar {
 #network {
   background-color: @bg;
   padding: 3px 8px;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 #window {
   color: #c0caf5;
   border-radius: 30px;
-  margin-left: 6px;
+  margin-left: 4px;
 }
 
 #clock {
   color: #c0caf5;
   border-radius: 0px 30px 30px 0px;
-  margin-right: 6px;
+  margin-right: 4px;
   font-weight: bold;
 }
 
