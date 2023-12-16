@@ -116,6 +116,8 @@ nnoremap('<leader><cr>', run)
 
 -- buffer
 nnoremap('t', '<cmd>e #<cr>', { desc = 'switch to last buffer' })
+nnoremap('H', '<cmd>bp <cr>')
+nnoremap('L', '<cmd>bn <cr>')
 
 -- Capitalize
 nnoremap('U', 'gUiw`]', { desc = 'capitalize word' })
