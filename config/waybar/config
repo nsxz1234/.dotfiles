@@ -44,5 +44,5 @@
     "format-disconnected": "󰤮 Disconnected",
   },
 
-  "clock": { "format": "{:  %Y-%m-%d  %H:%M} " },
+  "clock": { "format": "{:  %m-%d  %H:%M} " },
 }
