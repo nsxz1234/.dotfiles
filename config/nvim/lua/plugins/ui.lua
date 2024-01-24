@@ -1,4 +1,3 @@
-local ui = as.ui
 local icons = as.ui.icons.lsp
 
 local lspkind = require('lspkind')
@@ -10,7 +9,7 @@ return {
     keys = { { '<leader>w', function() require('dropbar.api').pick() end, desc = 'winbar: pick' } },
     opts = {
       icons = {
-        ui = { bar = { separator = ' ' .. ui.icons.misc.arrow_right .. ' ' } },
+        ui = { bar = { separator = '  ' } },
         kinds = {
           symbols = vim.tbl_map(function(value) return value .. ' ' end, lspkind.symbol_map),
         },
