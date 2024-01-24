@@ -1,4 +1,7 @@
 local o, opt = vim.o, vim.opt
+
+o.bg = 'dark'
+
 opt.shortmess = {
   t = true, -- truncate file messages at start
   A = true, -- ignore annoying swap file messages
