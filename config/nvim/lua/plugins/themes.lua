@@ -8,6 +8,9 @@ return {
       vim.cmd.colorscheme('gruvbox-material')
       vim.api.nvim_set_hl(0, 'DiagnosticUnnecessary', { link = 'Comment' })
       vim.api.nvim_set_hl(0, 'BqfPreviewBorder', { link = 'Normal' })
+      -- https://github.com/neovim/neovim/issues/26037#issuecomment-1838548013
+      -- if this is merged into master we can delete.
+      vim.api.nvim_set_hl(0, 'WinBar', { link = 'NONE' })
     end,
   },
 }
