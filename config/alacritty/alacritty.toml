@@ -1,0 +1,60 @@
+[colors.bright]
+black = "0x45403d"
+blue = "0x7daea3"
+cyan = "0x89b482"
+green = "0xa9b665"
+magenta = "0xd3869b"
+red = "0xea6962"
+white = "0xd4be98"
+yellow = "0xd8a657"
+
+[colors.normal]
+black = "0x45403d"
+blue = "0x7daea3"
+cyan = "0x89b482"
+green = "0xa9b665"
+magenta = "0xd3869b"
+red = "0xea6962"
+white = "0xd4be98"
+yellow = "0xd8a657"
+
+[colors.primary]
+background = "0x32302f"
+foreground = "0xd4be98"
+
+[font]
+size = 16.0
+
+[font.bold]
+family = "FantasqueSansM Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "FantasqueSansM Nerd Font"
+style = "Bold Italic"
+
+[font.italic]
+family = "FantasqueSansM Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "FantasqueSansM Nerd Font"
+style = "Regular"
+
+[font.offset]
+x = 0
+y = 4
+
+[[keyboard.bindings]]
+chars = "\u001B[105;5u"
+key = "I"
+mods = "Control"
+
+[window]
+decorations = "none"
+dynamic_padding = true
+opacity = 0.85
+
+[window.dimensions]
+columns = 120
+lines = 34
