@@ -273,7 +273,6 @@ return {
     name = 'project_nvim',
     opts = {
       detection_methods = { 'pattern', 'lsp' },
-      ignore_lsp = { 'null-ls' },
       patterns = { '.git', 'pubspec.yaml', 'build.zig' },
     },
   },
