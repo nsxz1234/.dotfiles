@@ -77,7 +77,7 @@ nnoremap('<leader>)', [[ciw(<c-r>")<esc>]])
 nnoremap('<leader>]', [[ciw[<c-r>"]<esc>]])
 nnoremap('<leader>}', [[ciw{<c-r>"}<esc>]])
 -- Evaluates whether there is a fold on the current line if so unfold it else return a normal space
-nnoremap('<space><space>', [[@=(foldlevel('.')?'za':"\<Space>")<CR>]], {
+nnoremap('<leader><space>', [[@=(foldlevel('.')?'za':"\<Space>")<CR>]], {
   desc = 'toggle fold under cursor',
 })
 
