@@ -2,15 +2,26 @@
   "position": "bottom",
   "modules-left": ["river/window"],
   "modules-right": [
+    "network",
     "tray",
     "cpu",
     "memory",
     "temperature",
     "pulseaudio",
     "battery",
-    "network",
     "clock",
   ],
+
+  "network": {
+    "format": "↕{bandwidthTotalBytes}",
+    "format-alt": "↕{bandwidthUpBytes} | ↕{bandwidthDownBytes}",
+    "tooltip-format": "{ifname}: {ipaddr}/{cidr}  {gwaddr}",
+    "tooltip-format-wifi": "  {essid} ({signalStrength}%)",
+    "tooltip-format-ethernet": "  {ipaddr}/{cidr}",
+    "tooltip-format-disconnected": "󰤮  Disconnected",
+    "on-click-right": "nm-connection-editor",
+    "interval": 2
+  },
 
   "tray": { "icon-size": 20, "spacing": 10 },
 
@@ -36,12 +47,6 @@
     "format-charging": "󰂄 {capacity}%",
     "format-plugged": "󰂄 {capacity}%",
     "format-icons": ["󱊡", "󱊢", "󱊣"]
-  },
-
-  "network": {
-    "format-wifi": "  {essid}",
-    "format-ethernet": " {ipaddr}",
-    "format-disconnected": "󰤮 Disconnected",
   },
 
   "clock": { "format": "{:  %m-%d  %H:%M} " },
