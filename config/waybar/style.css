@@ -1,6 +1,6 @@
-@define-color bg #c0caf5;
-@define-color text #333333;
-@define-color border #333333;
+@define-color bg rgba(255, 255, 255, 0.9);
+@define-color text #000;
+@define-color border #000;
 
 * {
   border: none;
@@ -32,10 +32,10 @@
 }
 
 #window {
-  border-radius: 30px;
   margin-left: 4px;
   border-left: 2px solid @border;
   border-right: 2px solid @border;
+  border-radius: 30px;
 }
 
 #network {
@@ -44,9 +44,9 @@
 }
 
 #clock {
+  margin-right: 4px;
   border-right: 2px solid @border;
   border-radius: 0px 30px 30px 0px;
-  margin-right: 4px;
 }
 
 #battery.warning:not(.charging) {
