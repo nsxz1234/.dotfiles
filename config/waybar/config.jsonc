@@ -13,6 +13,8 @@
     "clock",
   ],
 
+  "river/window": { "max-length": 40 },
+
   "network": {
     "format": "↕{bandwidthTotalBytes}",
     "format-alt": "↕{bandwidthUpBytes} | ↕{bandwidthDownBytes}",
