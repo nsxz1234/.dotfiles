@@ -58,7 +58,6 @@
     ],
     "on-scroll-up": "brightnessctl set 3%+",
     "on-scroll-down": "brightnessctl set 3%-",
-    "interval": 2
   },
 
   "battery": {
@@ -68,5 +67,10 @@
     "format-icons": ["󱊡", "󱊢", "󱊣"]
   },
 
-  "clock": { "format": "{:  %m-%d  %H:%M} " },
+  "clock": {
+    "format": "  {:%b %d %a %r}",
+    "format-alt": "  {:%B %d %A %r}",
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "interval": 1
+  },
 }
