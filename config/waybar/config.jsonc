@@ -23,7 +23,7 @@
     "tooltip-format-ethernet": "  {ipaddr}/{cidr}",
     "tooltip-format-disconnected": "󰤮  Disconnected",
     "on-click-right": "nm-connection-editor",
-    "interval": 2
+    "interval": 2,
   },
 
   "tray": { "icon-size": 20, "spacing": 10 },
@@ -36,28 +36,18 @@
     "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
     "format": "{icon} {temperatureC}°C",
     "format-icons": "",
-    "tooltip": false
+    "tooltip": false,
   },
 
   "pulseaudio": {
     "format": "  {volume}%",
     "format-muted": "󰖁 Muted",
-    "on-click": "pavucontrol"
+    "on-click": "pavucontrol",
   },
 
   "backlight": {
     "format": "{icon} {percent}%",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      ""
-    ],
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
     "on-scroll-up": "brightnessctl set 3%+",
     "on-scroll-down": "brightnessctl set 3%-",
   },
@@ -66,13 +56,13 @@
     "format": "{icon} {capacity}%",
     "format-charging": "󰂄 {capacity}%",
     "format-plugged": "󰂄 {capacity}%",
-    "format-icons": ["󱊡", "󱊢", "󱊣"]
+    "format-icons": ["󱊡", "󱊢", "󱊣"],
   },
 
   "clock": {
     "format": "  {:%b %d %a %r}",
     "format-alt": "  {:%B %d %A %r}",
     "tooltip-format": "<tt>{calendar}</tt>",
-    "interval": 1
+    "interval": 1,
   },
 }
