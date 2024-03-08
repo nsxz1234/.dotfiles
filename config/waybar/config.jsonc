@@ -28,15 +28,16 @@
 
   "tray": { "icon-size": 20, "spacing": 10 },
 
-  "cpu": { "format": " {usage}%", "tooltip": false },
+  "cpu": { "format": " {usage}%", "tooltip": false, "interval": 2 },
 
-  "memory": { "format": " {}%" },
+  "memory": { "format": " {}%", "interval": 2 },
 
   "temperature": {
     "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
     "format": "{icon} {temperatureC}°C",
     "format-icons": "",
     "tooltip": false,
+    "interval": 2,
   },
 
   "pulseaudio": {
