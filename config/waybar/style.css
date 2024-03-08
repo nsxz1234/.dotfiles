@@ -1,6 +1,6 @@
-@define-color bg #333333;
-@define-color text #c0caf5;
-@define-color border #c0caf5;
+@define-color bg #c0caf5;
+@define-color text #333333;
+@define-color border #333333;
 
 * {
   border: none;
