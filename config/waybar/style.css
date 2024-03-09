@@ -1,6 +1,6 @@
 @define-color bg rgba(255, 255, 255, 0.9);
-@define-color text #000;
-@define-color border #000;
+@define-color text #333333;
+@define-color border #333333;
 
 * {
   border: none;
