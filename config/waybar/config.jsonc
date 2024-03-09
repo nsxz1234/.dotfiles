@@ -1,6 +1,7 @@
 {
   "position": "bottom",
-  "modules-left": ["river/window"],
+  "modules-left": ["clock"],
+  "modules-center": ["river/window"],
   "modules-right": [
     "network",
     "tray",
@@ -10,7 +11,6 @@
     "pulseaudio",
     "backlight",
     "battery",
-    "clock",
   ],
 
   "river/window": { "max-length": 40 },
