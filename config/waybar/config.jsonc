@@ -8,10 +8,17 @@
     "cpu",
     "memory",
     "temperature",
-    "pulseaudio",
     "backlight",
     "battery",
+    "pulseaudio",
   ],
+
+  "clock": {
+    "format": "  {:%b %d %a %r}",
+    "format-alt": "  {:%B %d %A %r}",
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "interval": 1,
+  },
 
   "river/window": { "max-length": 40 },
 
@@ -40,12 +47,6 @@
     "interval": 2,
   },
 
-  "pulseaudio": {
-    "format": "  {volume}%",
-    "format-muted": "󰖁 Muted",
-    "on-click": "pavucontrol",
-  },
-
   "backlight": {
     "format": "{icon} {percent}%",
     "format-icons": ["", "", "", "", "", "", "", "", ""],
@@ -60,10 +61,9 @@
     "format-icons": ["󱊡", "󱊢", "󱊣"],
   },
 
-  "clock": {
-    "format": "  {:%b %d %a %r}",
-    "format-alt": "  {:%B %d %A %r}",
-    "tooltip-format": "<tt>{calendar}</tt>",
-    "interval": 1,
+  "pulseaudio": {
+    "format": "  {volume}%",
+    "format-muted": "󰖁 Muted",
+    "on-click": "pavucontrol",
   },
 }
