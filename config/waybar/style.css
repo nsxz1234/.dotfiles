@@ -15,17 +15,17 @@
 }
 
 .modules-left {
-  background-color: @bg;
+  background: @bg;
   margin: 0 0 4px 4px;
   border: 3px solid @border;
 }
 .modules-center {
-  background-color: @bg;
+  background: @bg;
   margin: 0 0 4px 0;
   border: 3px solid @border;
 }
 .modules-right {
-  background-color: @bg;
+  background: @bg;
   margin: 0 4px 4px 0;
   border: 3px solid @border;
 }
