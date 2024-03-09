@@ -15,12 +15,24 @@
   color: @text;
 }
 
+#workspaces button,
+#tags button {
+  padding: 0px 5px;
+  background: @bg;
+}
+
+#workspaces button.focused,
+#tags button.focused {
+  color: @bg;
+  background: @text;
+}
+
+#clock,
 #window,
 #network,
 #tray,
 #cpu,
 #memory,
-#clock,
 #battery,
 #temperature,
 #pulseaudio {

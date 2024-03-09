@@ -1,6 +1,6 @@
 {
   "position": "bottom",
-  "modules-left": ["clock"],
+  "modules-left": ["clock", "river/tags"],
   "modules-center": ["river/window"],
   "modules-right": [
     "network",
