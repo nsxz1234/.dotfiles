@@ -1,7 +1,7 @@
 {
   "position": "bottom",
-  "modules-left": ["clock", "river/tags"],
-  "modules-center": ["river/window"],
+  "modules-left": ["clock"],
+  "modules-center": ["river/tags"],
   "modules-right": [
     "network",
     "tray",
@@ -19,8 +19,6 @@
     "tooltip-format": "<tt>{calendar}</tt>",
     "interval": 1,
   },
-
-  "river/window": { "max-length": 40 },
 
   "network": {
     "format": "↕{bandwidthTotalBytes}",

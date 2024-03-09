@@ -3,8 +3,7 @@
 @define-color border #333333;
 
 * {
-  border: none;
-  border-radius: 0;
+  border-radius: 30px;
   min-height: 0;
   font-size: 16px;
   font-weight: bold;
@@ -15,12 +14,27 @@
   color: @text;
 }
 
-#workspaces button,
-#tags button {
-  padding: 0px 5px;
-  background: @bg;
+.modules-left {
+  background-color: @bg;
+  margin: 0 0 4px 4px;
+  border: 3px solid @border;
+}
+.modules-center {
+  background-color: @bg;
+  margin: 0 0 4px 0;
+  border: 3px solid @border;
+}
+.modules-right {
+  background-color: @bg;
+  margin: 0 4px 4px 0;
+  border: 3px solid @border;
 }
 
+#workspaces button,
+#tags button {
+  padding: 0px 4px;
+  margin: 2px 2px;
+}
 #workspaces button.focused,
 #tags button.focused {
   color: @bg;
@@ -28,41 +42,13 @@
 }
 
 #clock,
-#window,
 #network,
 #tray,
 #cpu,
 #memory,
-#battery,
 #temperature,
+#backlight,
+#battery,
 #pulseaudio {
-  background-color: @bg;
   padding: 3px 6px;
-  margin-bottom: 4px;
-  border-top: 3px solid @border;
-  border-bottom: 3px solid @border;
-}
-
-#clock {
-  margin-left: 4px;
-  border-left: 3px solid @border;
-  border-right: 3px solid @border;
-  border-radius: 30px;
-}
-
-#window {
-  border-left: 3px solid @border;
-  border-right: 3px solid @border;
-  border-radius: 30px;
-}
-
-#network {
-  border-left: 3px solid @border;
-  border-radius: 30px 0px 0px 30px;
-}
-
-#pulseaudio {
-  margin-right: 4px;
-  border-right: 3px solid @border;
-  border-radius: 0px 30px 30px 0px;
 }
