@@ -297,7 +297,7 @@ return {
         function() return require('debugprint').debugprint({ motion = true }) end,
         { desc = 'debugprint: operator', expr = true },
       },
-      { '<leader>dc', '<Cmd>DeleteDebugPrints<CR>', desc = 'debugprint: clear all' },
+      { '<leader>dd', '<Cmd>DeleteDebugPrints<CR>', desc = 'debugprint: clear all' },
     },
   },
   --
