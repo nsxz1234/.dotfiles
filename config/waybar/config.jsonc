@@ -14,7 +14,7 @@
   ],
 
   "clock": {
-    "format": "  {:%b %d %a %r}",
+    "format": "  {:%b %d <small>%a</small> %I:%M <small>%p</small>}",
     "format-alt": "  {:%B %d %A %r}",
     "tooltip-format": "<tt>{calendar}</tt>",
     "interval": 1,
