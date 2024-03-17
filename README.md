@@ -1,7 +1,3 @@
-```bash
-~$ git clone --recursive https://github.com/nsxz1234/dotfiles.git ~/.dotfiles
-```
-
 ### For modifying keyboard layout:
 
 ```
