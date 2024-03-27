@@ -1,6 +1,0 @@
-xkb_symbols {
-    include "us(basic)"
-
-    key <CAPS> { [ Control_L ] };
-    modifier_map Control { <CAPS> };
-};

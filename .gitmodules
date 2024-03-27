@@ -1,9 +1,9 @@
-[submodule "/home/nsxz/.dotfiles/config/zsh/plugins/fast-syntax-highlighting"]
-	path = /home/nsxz/.dotfiles/config/zsh/plugins/fast-syntax-highlighting
+[submodule "/Users/mac/.dotfiles/config/zsh/plugins/fast-syntax-highlighting"]
+	path = /Users/mac/.dotfiles/config/zsh/plugins/fast-syntax-highlighting
 	url = https://github.com/zdharma-continuum/fast-syntax-highlighting.git
-[submodule "/home/nsxz/.dotfiles/config/zsh/plugins/zsh-autosuggestions"]
-	path = /home/nsxz/.dotfiles/config/zsh/plugins/zsh-autosuggestions
+[submodule "/Users/mac/.dotfiles/config/zsh/plugins/zsh-autosuggestions"]
+	path = /Users/mac/.dotfiles/config/zsh/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
-[submodule "/home/nsxz/.dotfiles/config/zsh/plugins/zsh-completions"]
-	path = /home/nsxz/.dotfiles/config/zsh/plugins/zsh-completions
+[submodule "/Users/mac/.dotfiles/config/zsh/plugins/zsh-completions"]
+	path = /Users/mac/.dotfiles/config/zsh/plugins/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions.git

@@ -62,8 +62,8 @@ zsh_add_plugin    "zsh-users/zsh-completions"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=241"
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
+source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
+source /opt/homebrew/opt/fzf/shell/completion.zsh
 
 source $ZDOTDIR/better_ctrl_z.zsh
 
@@ -72,30 +72,10 @@ bindkey -e
 # ^g to open lazygit (below oh-my-zsh)
 bindkey -s '^g' 'lazygit\n'
 
-
-# bun completions
-[ -s "/home/nsxz/.bun/_bun" ] && source "/home/nsxz/.bun/_bun"
-
-
 # fzf
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 export FZF_DEFAULT_OPTS="--reverse \
 --cycle"
-
-
-# foot
-function osc7-pwd() {
-    emulate -L zsh # also sets localoptions for us
-    setopt extendedglob
-    local LC_ALL=C
-    printf '\e]7;file://%s%s\e\' $HOST ${PWD//(#m)([^@-Za-z&-;_~])/%${(l:2::0:)$(([##16]#MATCH))}}
-}
-
-function chpwd-osc7-pwd() {
-    (( ZSH_SUBSHELL )) || osc7-pwd
-}
-add-zsh-hook -Uz chpwd chpwd-osc7-pwd
-
 
 # nnn
 export NNN_PLUG='f:fzopen;v:imgview'
