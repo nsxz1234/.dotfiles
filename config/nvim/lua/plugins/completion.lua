@@ -26,7 +26,7 @@ return {
       cmp.setup({
         snippet = { expand = function(args) luasnip.lsp_expand(args.body) end },
         mapping = {
-          ['<C-Space>'] = cmp.mapping.complete(),
+          ['<C-m>'] = cmp.mapping.complete(),
           ['<CR>'] = cmp.mapping.confirm({ select = false }),
           ['<Tab>'] = cmp.mapping({
             i = cmp.mapping.confirm({ select = true }),
