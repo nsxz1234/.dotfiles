@@ -5,3 +5,4 @@ config/fcitx5/conf/cached_layouts
 __pycache__
 
 .zcompdump
+config/zsh/.zsh_sessions
