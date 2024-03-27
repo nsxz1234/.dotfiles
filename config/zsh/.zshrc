@@ -114,3 +114,11 @@ n ()
         rm -f "$NNN_TMPFILE" > /dev/null
     }
 }
+
+# flutter
+export PUB_HOSTED_URL="https://pub.flutter-io.cn"
+export FLUTTER_STORAGE_BASE_URL="https://storage.flutter-io.cn"
+export PATH=~/flutter/bin:$PATH
+export PATH=$PATH:~/Android/sdk/platform-tools
+export PATH=$PATH:~/Android/sdk/emulator/
+export ANDROID_AVD_HOME=$XDG_CONFIG_HOME/.android/avd/

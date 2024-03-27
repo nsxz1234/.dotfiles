@@ -13,11 +13,6 @@ export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/zig
 # cargo
 export PATH=$PATH:~/.cargo/bin
-# flutter
-export PATH=~/flutter/bin:$PATH
-export PATH=$PATH:~/Android/sdk/platform-tools
-export PATH=$PATH:~/Android/sdk/emulator/
-export ANDROID_AVD_HOME=$XDG_CONFIG_HOME/.android/avd/
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
