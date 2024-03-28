@@ -1,7 +1,7 @@
 local servers = {
   zls = {},
   ccls = {},
-  rust_analyzer = {},
+  -- rust_analyzer = {},
   jsonls = {},
   bashls = {},
   vimls = {},
