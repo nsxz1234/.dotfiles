@@ -4,7 +4,6 @@ return {
     ui = { border = 'rounded' },
     debugger = {
       enabled = false,
-      -- run_via_dap = true,
       exception_breakpoints = {},
     },
     outline = {
