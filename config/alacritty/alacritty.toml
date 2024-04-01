@@ -23,7 +23,7 @@ background = "0x32302f"
 foreground = "0xd4be98"
 
 [font]
-size = 16.0
+size = 22.0
 
 [font.bold]
 family = "FantasqueSansM Nerd Font"
@@ -51,7 +51,7 @@ key = "I"
 mods = "Control"
 
 [window]
-decorations = "none"
+# decorations = "none"
 dynamic_padding = true
 opacity = 0.85
 
