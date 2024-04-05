@@ -3,4 +3,10 @@ xkb_symbols {
 
     key <CAPS> { [ Control_L ] };
     modifier_map Control { <CAPS> };
+
+    key <LWIN> { [ Alt_L ] };
+    modifier_map Mod1 { <LWIN> };
+
+    key <LALT> { [ VoidSymbol, VoidSymbol ] };
+    modifier_map Mod4 { <LALT> };
 };
