@@ -9,7 +9,7 @@ EnumerateForwardKeys=
 EnumerateSkipFirst=False
 
 [Hotkey/TriggerKeys]
-0=Shift+space
+0=Control+space
 1=Zenkaku_Hankaku
 2=Hangul
 
