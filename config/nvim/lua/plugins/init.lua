@@ -284,20 +284,19 @@ return {
   },
   {
     'andrewferrier/debugprint.nvim',
-    opts = { create_keymaps = false },
-    keys = {
-      {
-        '<leader>dp',
-        function() return require('debugprint').debugprint({ variable = true }) end,
-        desc = 'debugprint: cursor',
-        expr = true,
+    opts = {
+      keymaps = {
+        normal = {
+          plain_below = 'gp',
+          plain_above = 'gP',
+          variable_below = 'gv',
+          variable_above = 'gV',
+        },
+        visual = {
+          variable_below = 'gv',
+          variable_above = 'gV',
+        },
       },
-      {
-        '<leader>do',
-        function() return require('debugprint').debugprint({ motion = true }) end,
-        { desc = 'debugprint: operator', expr = true },
-      },
-      { '<leader>dd', '<Cmd>DeleteDebugPrints<CR>', desc = 'debugprint: clear all' },
     },
   },
   --
