@@ -19,6 +19,11 @@ return {
       local luasnip = require('luasnip')
       local lspkind = require('lspkind')
 
+      local function ctrl_j()
+        if not cmp.visible() then return cmp.complete() end
+        cmp.select_next_item()
+      end
+
       local function copilot()
         vim.api.nvim_feedkeys(fn['copilot#Accept'](as.replace_termcodes('<Tab>')), 'n', true)
       end
@@ -26,13 +31,15 @@ return {
       cmp.setup({
         snippet = { expand = function(args) luasnip.lsp_expand(args.body) end },
         mapping = {
-          ['<C-m>'] = cmp.mapping.complete(),
           ['<CR>'] = cmp.mapping.confirm({ select = false }),
           ['<Tab>'] = cmp.mapping({
             i = cmp.mapping.confirm({ select = true }),
             c = cmp.mapping.select_next_item(),
           }),
-          ['<C-j>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
+          ['<C-j>'] = cmp.mapping({
+            i = ctrl_j,
+            c = cmp.mapping.select_next_item(),
+          }),
           ['<C-k>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
           ['<C-n>'] = cmp.mapping(function() luasnip.expand_or_jump() end, { 'i', 's' }),
           ['<C-p>'] = cmp.mapping(function() luasnip.jump(-1) end, { 'i', 's' }),
