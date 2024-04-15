@@ -287,14 +287,11 @@ return {
     opts = {
       keymaps = {
         normal = {
-          plain_below = 'gp',
-          plain_above = 'gP',
-          variable_below = 'gv',
-          variable_above = 'gV',
+          plain_below = '<leader>dp',
+          variable_below = '<leader>dv',
         },
         visual = {
-          variable_below = 'gv',
-          variable_above = 'gV',
+          variable_below = '<leader>dv',
         },
       },
     },
