@@ -37,6 +37,20 @@ return {
         },
       },
       default_component_configs = {
+        diagnostics = {
+          symbols = {
+            hint = icons.lsp.hint,
+            info = icons.lsp.info,
+            warn = icons.lsp.warn,
+            error = icons.lsp.error,
+          },
+          highlights = {
+            hint = 'DiagnosticSignHint',
+            info = 'DiagnosticSignInfo',
+            warn = 'DiagnosticSignWarn',
+            error = 'DiagnosticSignError',
+          },
+        },
         git_status = {
           symbols = {
             added = icons.git.add,
