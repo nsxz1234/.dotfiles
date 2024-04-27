@@ -4,10 +4,13 @@ return {
   config = function()
     require('toggleterm').setup({
       open_mapping = [[<c-t>]],
-      direction = 'horizontal',
+      direction = 'float',
       autochdir = true,
       persist_mode = true,
       auto_scroll = false,
+      float_opts = {
+        border = 'curved',
+      },
     })
 
     local fn = vim.fn
