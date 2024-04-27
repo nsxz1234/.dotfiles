@@ -252,9 +252,9 @@ return {
     'j-hui/fidget.nvim',
     opts = {
       notification = {
-        override_vim_notify = false,
+        override_vim_notify = true,
         window = {
-          max_height = 10,
+          max_height = 8,
         },
       },
     },
