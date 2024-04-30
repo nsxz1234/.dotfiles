@@ -146,12 +146,24 @@
   },
   "Flutter Row widget snippet": {
     "prefix": "frow",
-    "body": ["Row(", "  children: <Widget>[${0}],", ")"],
+    "body": [
+      "Row(",
+      "  children: [",
+      "    ${0}",
+      "  ],",
+      "),"
+    ],
     "description": "Flutter Row widget snippet"
   },
   "Flutter Column widget snippet": {
     "prefix": "fcol",
-    "body": ["Column(", "  children: <Widget>[${0}],", ")"],
+    "body": [
+      "Column(",
+      "  children: [",
+      "    ${0}",
+      "  ],",
+      "),"
+    ],
     "description": "Flutter Column widget snippet"
   },
   "SizedBox widget snippet with width and height arguments": {
@@ -161,12 +173,12 @@
   },
   "SizedBox widget snippet with just width argument": {
     "prefix": "fsw",
-    "body": ["SizedBox(width: ${1:0.0})"],
+    "body": ["SizedBox(width: ${1:0.0}),"],
     "description": "SizedBox widget snippet with just width argument"
   },
   "SizedBox widget snippet with just height argument": {
     "prefix": "fsh",
-    "body": ["SizedBox(height: ${1:0.0})"],
+    "body": ["SizedBox(height: ${1:0.0}),"],
     "description": "SizedBox widget snippet with just height argument"
   },
   "Expand widget snippet": {
