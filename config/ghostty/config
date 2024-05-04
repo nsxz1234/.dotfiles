@@ -7,6 +7,7 @@ window-width=130
 window-height=34
 
 keybind = ctrl+d=new_split:right
+keybind = ctrl+comma=unbind
 keybind = alt+one=unbind
 keybind = alt+two=unbind
 keybind = alt+three=unbind
