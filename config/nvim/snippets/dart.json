@@ -94,8 +94,17 @@
     "description": "EdgeInsets widget snippet with named constructor `all`"
   },
   "Text widget snippet": {
-    "prefix": "ftxt",
-    "body": ["Text('${1:text}')${0}"],
+    "prefix": "te",
+    "body": [
+      "Text(",
+      "  '${1}',",
+      "  style: TextStyle(",
+      "    fontSize: ${2:16}.sp,",
+      "    color: const Color(0xFF${3:FFFFFF}),",
+      "    fontWeight: FontWeight.w600,",
+      "  ),",
+      "),${0}"
+    ],
     "description": "Text widget snippet"
   },
   "Dart Public Instance variable snippet": {
@@ -145,7 +154,7 @@
     "description": "Flutter Center widget snippet"
   },
   "Flutter Row widget snippet": {
-    "prefix": "frow",
+    "prefix": "ro",
     "body": [
       "Row(",
       "  children: [",
@@ -156,7 +165,7 @@
     "description": "Flutter Row widget snippet"
   },
   "Flutter Column widget snippet": {
-    "prefix": "fcol",
+    "prefix": "co",
     "body": [
       "Column(",
       "  children: [",
@@ -167,17 +176,17 @@
     "description": "Flutter Column widget snippet"
   },
   "SizedBox widget snippet with width and height arguments": {
-    "prefix": "fsb",
+    "prefix": "si",
     "body": ["SizedBox(width: ${1:0.0}, height: ${2:0.0})${0}"],
     "description": "SizedBox widget with width and height arguments"
   },
   "SizedBox widget snippet with just width argument": {
-    "prefix": "fsw",
+    "prefix": "siw",
     "body": ["SizedBox(width: ${1:0.0}),"],
     "description": "SizedBox widget snippet with just width argument"
   },
   "SizedBox widget snippet with just height argument": {
-    "prefix": "fsh",
+    "prefix": "sih",
     "body": ["SizedBox(height: ${1:0.0}),"],
     "description": "SizedBox widget snippet with just height argument"
   },
