@@ -27,8 +27,8 @@ as.augroup('AddTerminalMappings', {
     if vim.bo.filetype == '' or vim.bo.filetype == 'toggleterm' then
       local opts = { silent = false, buffer = 0 }
       tnoremap('jk', [[<C-\><C-n>]], opts)
-      tnoremap('<a-=>', '<Cmd>res +1<CR>', opts)
-      tnoremap('<a-->', '<Cmd>res -1<CR>', opts)
+      tnoremap('<c-=>', '<Cmd>res +1<CR>', opts)
+      tnoremap('<c-->', '<Cmd>res -1<CR>', opts)
     end
   end,
 })
@@ -123,10 +123,10 @@ nnoremap('<leader><tab>', 'gt')
 
 -- window
 nnoremap(',', '<C-w>w')
-nnoremap('<a-=>', '<C-W>+')
-nnoremap('<a-->', '<C-W>-')
-nnoremap('<a-,>', '<C-W><')
-nnoremap('<a-.>', '<C-W>>')
+nnoremap('<c-=>', '<C-W>+')
+nnoremap('<c-->', '<C-W>-')
+nnoremap('<c-,>', '<C-W><')
+nnoremap('<c-.>', '<C-W>>')
 
 -- hlslens
 nnoremap(
