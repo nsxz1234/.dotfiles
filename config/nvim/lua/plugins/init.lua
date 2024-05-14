@@ -33,15 +33,14 @@ return {
   'romainl/vim-cool',
   { 'onsails/lspkind.nvim' },
   {
-    'ThePrimeagen/harpoon',
-    config = function()
-      map('n', '<leader>hh', '<cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>')
-      map('n', '<leader>ha', '<cmd>lua require("harpoon.mark").add_file()<CR>')
-      map('n', '<m-f>', '<cmd>lua require("harpoon.ui").nav_file(1)<CR>')
-      map('n', '<m-d>', '<cmd>lua require("harpoon.ui").nav_file(2)<CR>')
-      map('n', '<m-s>', '<cmd>lua require("harpoon.ui").nav_file(3)<CR>')
-      map('n', '<m-a>', '<cmd>lua require("harpoon.ui").nav_file(4)<CR>')
-    end,
+    'cbochs/grapple.nvim',
+    keys = {
+      { '<leader>m', '<cmd>Grapple toggle<cr>', desc = 'Grapple toggle tag' },
+      { '<leader>M', '<cmd>Grapple toggle_tags<cr>', desc = 'Grapple open tags window' },
+      { '<leader>1', '<cmd>Grapple select index=1<cr>' },
+      { '<leader>2', '<cmd>Grapple select index=2<cr>' },
+      { '<leader>3', '<cmd>Grapple select index=3<cr>' },
+    },
   },
   {
     'stevearc/dressing.nvim',
