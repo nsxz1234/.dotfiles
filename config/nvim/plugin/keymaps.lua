@@ -15,9 +15,7 @@ local cnoremap = function(...) map('c', ...) end
 local tnoremap = function(...) map('t', ...) end
 local snoremap = function(...) map('s', ...) end
 
-nnoremap('<leader>1', '<cmd>so ~/.local/share/nvim/sessions/__Users__mac__.dotfiles<cr>')
-nnoremap('<leader>2', '<cmd>e $DOTFILES/config/nvim/plugin/keymaps.lua<cr>')
-nnoremap('<leader>4', '<cmd>e ~/Downloads/<cr>')
+nnoremap('<leader>4', '<cmd>so ~/.local/share/nvim/sessions/__Users__mac__.dotfiles<cr>')
 
 -- Terminal
 as.augroup('AddTerminalMappings', {
