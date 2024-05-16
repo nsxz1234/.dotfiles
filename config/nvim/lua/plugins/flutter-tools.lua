@@ -29,7 +29,7 @@ return {
         analysisExcludedFolders = {
           vim.fn.expand('$HOME/flutter'),
           vim.fn.expand('$HOME/.pub-cache'),
-          vim.fn.expand('$HOME/workspace/app-wifi-flutter/build'),
+          vim.fn.expand('$HOME/workspace/app-music-player-flutter/build'),
         },
         showTodos = false,
         renameFilesWithClasses = 'always',
