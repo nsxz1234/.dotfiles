@@ -253,7 +253,7 @@ return {
       notification = {
         override_vim_notify = true,
         window = {
-          max_height = 8,
+          max_height = 3,
         },
       },
     },
