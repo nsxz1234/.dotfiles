@@ -101,7 +101,7 @@
       "  style: TextStyle(",
       "    fontSize: ${2:16}.sp,",
       "    color: const Color(0xFF${3:FFFFFF}),",
-      "    fontWeight: FontWeight.w600,",
+      "    fontWeight: FontWeight.w${4:6}00,",
       "  ),",
       "),"
     ],
@@ -779,5 +779,29 @@
     "prefix": "vm",
     "body": "class ${1:Name}ViewModel extends BaseViewModel {\n\t${1:Name}ViewModel(BuildContext context) : super(context: context);\n\n\tvoid ${3:someMethod}() {\n\t\t// TODO\n\t}\n}",
     "description": "ViewModel"
+  },
+  "crossAxisAlignment snippet": {
+    "prefix": "cro",
+    "body": [
+      "crossAxisAlignment: CrossAxisAlignment.start,"
+    ],
+    "description": "crossAxisAlignment snippet"
+  },
+  "color snippet": {
+    "prefix": "col",
+    "body": [
+      "color: const Color(0xFF${1}),"
+    ],
+    "description": "color snippet"
+  },
+  "decoration snippet": {
+    "prefix": "dec",
+    "body": [
+      "decoration: BoxDecoration(",
+      "  color: const Color(0xFF${1:FFFFFF}),",
+      "  borderRadius: BorderRadius.circular(${2}.r),",
+      "),"
+    ],
+    "description": "decoration snippet"
   }
 }
