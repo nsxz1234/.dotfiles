@@ -790,7 +790,7 @@
   "margin snippet": {
     "prefix": "mar",
     "body": [
-      "margin: EdgeInsets.only(left: ${1:16}.w, right: ${2:16}.w)"
+      "margin: EdgeInsets.only(left: ${1:16}.w, right: ${2:16}.w),"
     ],
     "description": "margin snippet"
   },
