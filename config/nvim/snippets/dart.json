@@ -787,6 +787,13 @@
     ],
     "description": "crossAxisAlignment snippet"
   },
+  "margin snippet": {
+    "prefix": "mar",
+    "body": [
+      "margin: EdgeInsets.only(left: ${1:16}.w, right: ${2:16}.w)"
+    ],
+    "description": "margin snippet"
+  },
   "color snippet": {
     "prefix": "col",
     "body": [
