@@ -787,12 +787,33 @@
     ],
     "description": "crossAxisAlignment snippet"
   },
-  "margin snippet": {
-    "prefix": "mar",
+  "margin width snippet": {
+    "prefix": "maw",
     "body": [
       "margin: EdgeInsets.only(left: ${1:16}.w, right: ${2:16}.w),"
     ],
-    "description": "margin snippet"
+    "description": "margin width snippet"
+  },
+  "margin height snippet": {
+    "prefix": "mah",
+    "body": [
+      "margin: EdgeInsets.only(top: ${1:16}.h, bottom: ${2:16}.h),"
+    ],
+    "description": "margin height snippet"
+  },
+  "padding width snippet": {
+    "prefix": "paw",
+    "body": [
+      "padding: EdgeInsets.only(left: ${1:16}.w, right: ${2:16}.w),"
+    ],
+    "description": "padding width snippet"
+  },
+  "padding height snippet": {
+    "prefix": "pah",
+    "body": [
+      "padding: EdgeInsets.only(top: ${1:16}.h, bottom: ${2:16}.h),"
+    ],
+    "description": "padding height snippet"
   },
   "color snippet": {
     "prefix": "col",
