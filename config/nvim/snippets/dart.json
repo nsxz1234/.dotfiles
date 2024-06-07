@@ -787,6 +787,13 @@
     ],
     "description": "crossAxisAlignment snippet"
   },
+  "mainAxisAlignment snippet": {
+    "prefix": "mai",
+    "body": [
+      "mainAxisAlignment: MainAxisAlignment.center,"
+    ],
+    "description": "mainAxisAlignment snippet"
+  },
   "margin width snippet": {
     "prefix": "maw",
     "body": [
