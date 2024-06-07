@@ -44,7 +44,7 @@ vnoremap('r', '%')
 
 -- basic
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
-imap('jk', [[col('.') == 1 ? '<esc>' : '<esc>l']], { expr = true })
+vim.keymap.set({ 'i', 's' }, 'jk', [[col('.') == 1 ? '<esc>' : '<esc>l']], { expr = true })
 snoremap('<space>', '<space><bs>')
 nnoremap(';', ':', { silent = false })
 nnoremap('<c-q>', '<Cmd>q<cr>')
