@@ -236,18 +236,6 @@ return {
     end,
   },
   {
-    'ray-x/lsp_signature.nvim',
-    enabled = false,
-    opts = {
-      bind = true,
-      fix_pos = false,
-      auto_close_after = 15, -- close after 15 seconds
-      hint_enable = false,
-      handler_opts = { border = as.ui.current.border },
-      toggle_key = '<C-c>',
-    },
-  },
-  {
     'j-hui/fidget.nvim',
     opts = {
       notification = {
