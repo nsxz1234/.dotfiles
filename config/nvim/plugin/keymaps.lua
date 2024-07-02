@@ -61,6 +61,7 @@ nnoremap('V', 'v$')
 vnoremap('Y', '"+y')
 vnoremap('X', '"+x')
 vnoremap('C', '"+c')
+vnoremap(';', 'r')
 inoremap('<c-;>', '<Right>;<Left><Left>')
 inoremap('<c-,>', '<Right>,<Left><Left>')
 nnoremap([[<leader>"]], [[ciw"<c-r>""<esc>]])
@@ -125,15 +126,3 @@ nnoremap('<c-=>', '<C-W>+')
 nnoremap('<c-->', '<C-W>-')
 nnoremap('<c-,>', '<C-W><')
 nnoremap('<c-.>', '<C-W>>')
-
--- hlslens
-nnoremap(
-  'n',
-  [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]]
-)
-nnoremap(
-  'N',
-  [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]]
-)
-nnoremap('*', [[*<Cmd>lua require('hlslens').start()<CR>]])
-nnoremap('#', [[#<Cmd>lua require('hlslens').start()<CR>]])
