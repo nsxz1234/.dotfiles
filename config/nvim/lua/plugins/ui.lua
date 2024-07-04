@@ -23,7 +23,7 @@ return {
     'lukas-reineke/indent-blankline.nvim',
     version = '2.20.8',
     opts = {
-      char = '▏', -- │ ┆ ┊ 
+      char = '│', -- │ ┆ ┊ 
       show_foldtext = false,
       show_current_context = false,
       show_current_context_start = false,
