@@ -65,7 +65,6 @@ return {
         changedelete = { text = '~' },
         untracked = { text = '░' },
       },
-      _inline2 = false,
       on_attach = function()
         local gs = package.loaded.gitsigns
 
