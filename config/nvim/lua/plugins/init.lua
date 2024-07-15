@@ -16,9 +16,9 @@ return {
           'neovim/nvim-lspconfig',
           dependencies = {
             {
-              'folke/neodev.nvim',
-              ft = 'lua',
-              opts = { library = { plugins = { 'nvim-dap-ui' } } },
+              'folke/lazydev.nvim',
+              ft = 'lua', -- only load on lua files
+              opts = {},
             },
           },
           config = require('servers'),
