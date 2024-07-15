@@ -76,6 +76,7 @@ return {
           }),
         },
         sources = {
+          { name = 'lazydev', group_index = 0 },
           { name = 'nvim_lsp', group_index = 1 },
           { name = 'luasnip', group_index = 1 },
           { name = 'path', group_index = 1 },
