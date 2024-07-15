@@ -49,6 +49,9 @@ return {
           },
         },
         oldfiles = { cwd_only = false },
+        grep = {
+          rg_opts = '--column --hidden --line-number --no-heading --color=always --smart-case --max-columns=4096 -e',
+        },
         lsp = {
           symbols = {
             winopts = { preview = { hidden = 'hidden' } },
