@@ -1,4 +1,6 @@
 export GPG_TTY=$(tty)
+export http_proxy=socks5://127.0.0.1:20170
+export https_proxy=socks5://127.0.0.1:20170
 
 # setopt ALWAYS_TO_END
 # setopt AUTO_MENU
