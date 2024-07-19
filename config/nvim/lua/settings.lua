@@ -140,8 +140,11 @@ o.hlsearch = true
 o.autowriteall = true
 o.laststatus = 3 -- 全局状态栏
 o.termguicolors = true
-o.guifont = 'FantasqueSansM Nerd Font:h16'
 o.emoji = false
+
+-- GUI settings
+o.guifont = 'FantasqueSansM Nerd Font:h16'
+o.linespace = 4
 -----------------------------------------------------------------------------//
 -- Jumplist
 -----------------------------------------------------------------------------//
