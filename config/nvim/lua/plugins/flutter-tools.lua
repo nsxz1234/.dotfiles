@@ -1,6 +1,5 @@
 return {
   'akinsho/flutter-tools.nvim',
-  commit = '3e3577300e2f83d22c7f98813444dd77531ff667',
   opts = {
     ui = { border = 'rounded' },
     debugger = {
