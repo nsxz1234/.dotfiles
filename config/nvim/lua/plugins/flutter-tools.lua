@@ -41,6 +41,5 @@ return {
   },
   dependencies = {
     'nvim-lua/plenary.nvim',
-    'RobertBrunhage/flutter-riverpod-snippets',
   },
 }
