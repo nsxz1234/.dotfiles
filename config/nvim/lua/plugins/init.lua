@@ -79,6 +79,22 @@ return {
     },
   },
   {
+    'HiPhish/rainbow-delimiters.nvim',
+    event = 'VeryLazy',
+    config = function()
+      local rainbow_delimiters = require('rainbow-delimiters')
+      vim.g.rainbow_delimiters = {
+        strategy = {
+          [''] = rainbow_delimiters.strategy['global'],
+          zig = rainbow_delimiters.strategy['noop'],
+        },
+        query = {
+          [''] = 'rainbow-delimiters',
+        },
+      }
+    end,
+  },
+  {
     'nvim-pack/nvim-spectre',
     config = function()
       map('n', '<leader>so', '<cmd>lua require("spectre").open()<CR>')
