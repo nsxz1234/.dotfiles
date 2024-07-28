@@ -36,7 +36,6 @@ return {
         renameFilesWithClasses = 'always',
         updateImportsOnRename = true,
         completeFunctionCalls = true,
-        lineLength = 120,
       },
     },
   },

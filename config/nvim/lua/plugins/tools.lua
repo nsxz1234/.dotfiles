@@ -8,6 +8,11 @@ return {
         markdown = { 'prettier' },
         dart = { 'dart_format' },
       },
+      formatters = {
+        dart_format = {
+          append_args = { '-l', '120' },
+        },
+      },
     },
   },
   {
