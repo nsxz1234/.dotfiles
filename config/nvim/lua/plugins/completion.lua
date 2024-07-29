@@ -81,15 +81,15 @@ return {
           { name = 'luasnip', group_index = 1 },
           { name = 'path', group_index = 1 },
           {
+            name = 'buffer',
+            options = { get_bufnrs = function() return vim.api.nvim_list_bufs() end },
+            group_index = 1,
+          },
+          {
             name = 'rg',
             keyword_length = 4,
             option = { additional_arguments = '--max-depth 8' },
             group_index = 1,
-          },
-          {
-            name = 'buffer',
-            options = { get_bufnrs = function() return vim.api.nvim_list_bufs() end },
-            group_index = 2,
           },
           { name = 'spell', group_index = 2 },
         },
