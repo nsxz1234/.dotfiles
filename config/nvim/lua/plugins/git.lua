@@ -76,6 +76,7 @@ return {
         map('n', '<leader>gR', gs.reset_buffer, { desc = 'gitsigns: reset entire buffer' })
         map('n', '<leader>gP', gs.toggle_deleted, { desc = 'show deleted lines' })
         map('n', '<leader>gb', gs.blame_line, { desc = 'blame current hunk' })
+        map('n', '<leader>gB', gs.blame, { desc = 'blame' })
         map('n', '<leader>gw', gs.toggle_word_diff, { desc = 'gitsigns: toggle word diff' })
         map(
           'n',
@@ -85,11 +86,7 @@ return {
         )
         map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
 
-        map(
-          'x',
-          '<leader>gs',
-          function() gs.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end
-        )
+        map('x', '<leader>gs', function() gs.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end)
         map('x', '<leader>gr', function() gs.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end)
 
         map('n', '[h', function()
