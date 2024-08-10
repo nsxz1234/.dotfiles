@@ -10,7 +10,13 @@ return {
       'nvim-tree/nvim-web-devicons',
       {
         'AckslD/nvim-neoclip.lua',
-        opts = {},
+        opts = {
+          keys = {
+            fzf = {
+              paste_behind = 'default',
+            },
+          },
+        },
         keys = { { 'fy', function() require('neoclip.fzf')() end } },
       },
     },
