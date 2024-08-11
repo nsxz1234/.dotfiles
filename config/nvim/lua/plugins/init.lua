@@ -69,6 +69,10 @@ return {
     end,
   },
   {
+    'stevearc/quicker.nvim',
+    opts = {},
+  },
+  {
     'kevinhwang91/nvim-bqf',
     ft = 'qf',
     opts = {
