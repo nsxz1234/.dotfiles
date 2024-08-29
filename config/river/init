@@ -142,15 +142,15 @@ do
     riverctl map $mode None XF86AudioPrev  spawn 'playerctl previous'
     riverctl map $mode None XF86AudioNext  spawn 'playerctl next'
 
-    # Control screen backlight brightness with light (https://github.com/haikarainen/light)
-    riverctl map $mode None XF86MonBrightnessUp   spawn 'light -A 5'
-    riverctl map $mode None XF86MonBrightnessDown spawn 'light -U 5'
+    # Control screen backlight brightness with brightnessctl
+    riverctl map $mode None XF86MonBrightnessUp   spawn 'brightnessctl set 10%+'
+    riverctl map $mode None XF86MonBrightnessDown spawn 'brightnessctl set 10%-'
 done
 
 riverctl xcursor-theme Adwaita 24
 
 # Set background and border color
-riverctl background-color 0x002b36
+riverctl background-color 0x000000
 riverctl border-color-focused 0x93a1a1
 riverctl border-color-unfocused 0x586e75
 
@@ -161,7 +161,7 @@ riverctl set-repeat 50 300
 riverctl spawn kanshi
 # riverctl spawn "wlsunset -t 4000"
 riverctl spawn waybar
-riverctl spawn "wbg my/my/wallpaper/coast.png"
+riverctl spawn "wbg me/me/wallpaper/coast.png"
 riverctl spawn 'fcitx5 -d'
 riverctl spawn '/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1'
 riverctl spawn 'foot --server'
@@ -178,8 +178,19 @@ riverctl csd-filter-add app-id "gedit"
 riverctl default-layout rivertile
 rivertile -view-padding 2 -outer-padding 2 &
 
-# gsettings set org.gnome.desktop.interface font-name "Roboto Regular 12"
+gsettings set org.gnome.desktop.interface font-name "Roboto Regular 12"
 # gsettings set org.gnome.desktop.interface cursor-theme "Adwaita"
 # gsettings set org.gnome.desktop.interface icon-theme "WhiteSur"
 # gsettings set org.gnome.desktop.interface gtk-theme "WhiteSur-Light"
 # gsettings set org.gnome.desktop.wm.preferences theme "WhiteSur-Light"
+
+# riverctl list-inputs
+TOUCHPAD=pointer-2362-597-PNP0C50:00_093A:0255_Touchpad
+riverctl input $TOUCHPAD events enabled
+riverctl input $TOUCHPAD click-method clickfinger
+riverctl input $TOUCHPAD disable-while-typing enabled
+riverctl input $TOUCHPAD natural-scroll enabled
+riverctl input $TOUCHPAD tap enabled
+riverctl input $TOUCHPAD scroll-method two-finger
+riverctl input $TOUCHPAD drag enabled
+riverctl input $TOUCHPAD drag-lock enabled
