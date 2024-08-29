@@ -4,19 +4,6 @@ export DOTFILES=$HOME/.dotfiles
 
 export MANPATH="$HOME/.local/share/man:/usr/share/man:"
 export PATH=$PATH:~/.local/bin
-# zig
-export PATH=$PATH:~/zig
-# cargo
-export PATH=$PATH:~/.cargo/bin
-# flutter
-export PATH=~/flutter/bin:$PATH
-export PATH=$PATH:~/Android/Sdk/platform-tools
-export PATH=$PATH:~/Android/Sdk/emulator/
-export ANDROID_AVD_HOME=$XDG_CONFIG_HOME/.android/avd/
-export CHROME_EXECUTABLE=/usr/bin/chromium
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
 
 export TERMINAL=ghostty
 export EDITOR=nvim

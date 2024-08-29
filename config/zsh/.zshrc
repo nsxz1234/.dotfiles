@@ -134,3 +134,24 @@ n ()
         rm -f "$NNN_TMPFILE" > /dev/null
     }
 }
+
+
+# flutter
+export PATH=~/flutter/bin:$PATH
+export PATH=$PATH:~/Android/Sdk/platform-tools
+export PATH=$PATH:~/Android/Sdk/emulator/
+export ANDROID_AVD_HOME=$XDG_CONFIG_HOME/.android/avd/
+export CHROME_EXECUTABLE=/usr/bin/chromium
+
+
+# zig
+export PATH=$PATH:~/zig
+
+
+# cargo
+export PATH=$PATH:~/.cargo/bin
+
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
