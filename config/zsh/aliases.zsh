@@ -7,5 +7,5 @@ alias lg='lazygit'
 alias y='yazi'
 alias grep='grep --color'
 alias re='wf-recorder -g "$(slurp)" -f recording.mp4'
-alias t='ydcv-rs'
+alias t='ydcv'
 
