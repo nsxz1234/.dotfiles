@@ -15,6 +15,7 @@ riverctl map normal Super Return spawn ghostty
 riverctl map normal Super S spawn 'grim -g "$(slurp)" - | swappy -f -'
 riverctl map normal Super C spawn 'hyprpicker -a'
 riverctl map normal Super W spawn firefox
+riverctl map normal Super N spawn neovide
 riverctl map normal Super E spawn nautilus
 riverctl map normal Super T spawn telegram-desktop
 riverctl map normal Super D spawn discord
