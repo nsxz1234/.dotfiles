@@ -3,5 +3,5 @@ profile {
 }
 
 profile {
-	output eDP-1 enable mode 1920x1080 scale 1.2
+	output eDP-1 enable mode 2880x1800 scale 2
 }
