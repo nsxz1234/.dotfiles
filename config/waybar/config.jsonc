@@ -47,8 +47,8 @@
   "backlight": {
     "format": "{icon} {percent}%",
     "format-icons": ["", "", "", "", "", "", "", "", ""],
-    "on-scroll-up": "brightnessctl set 3%+",
-    "on-scroll-down": "brightnessctl set 3%-",
+    "on-scroll-up": "brightnessctl set 2%+",
+    "on-scroll-down": "brightnessctl set 2%-",
   },
 
   "battery": {
@@ -61,6 +61,9 @@
   "pulseaudio": {
     "format": "  {volume}%",
     "format-muted": "󰖁 Muted",
-    "on-click": "pavucontrol",
+    "on-click": "pamixer --toggle-mute",
+    "on-click-right": "pavucontrol",
+    "on-scroll-up": "pamixer -i 5",
+    "on-scroll-down": "pamixer -d 5",
   },
 }
