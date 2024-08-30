@@ -143,7 +143,7 @@ o.termguicolors = true
 o.emoji = false
 
 -- GUI settings
-o.guifont = 'FantasqueSansM Nerd Font:h16'
+o.guifont = 'FantasqueSansM Nerd Font:h18'
 o.linespace = 4
 -----------------------------------------------------------------------------//
 -- Jumplist
