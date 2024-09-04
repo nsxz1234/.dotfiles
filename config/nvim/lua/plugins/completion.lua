@@ -1,5 +1,3 @@
-local fn = vim.fn
-
 return {
   { 'f3fora/cmp-spell', ft = { 'gitcommit', 'NeogitCommitMessage', 'markdown', 'norg', 'org' } },
   {
@@ -24,10 +22,6 @@ return {
         cmp.select_next_item()
       end
 
-      local function copilot()
-        vim.api.nvim_feedkeys(fn['copilot#Accept'](as.replace_termcodes('<Tab>')), 'n', true)
-      end
-
       cmp.setup({
         snippet = { expand = function(args) luasnip.lsp_expand(args.body) end },
         mapping = {
@@ -46,7 +40,6 @@ return {
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
           ['<C-b>'] = cmp.mapping.scroll_docs(-4),
           ['<C-q>'] = cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close() }),
-          ['<m-space>'] = cmp.mapping(copilot),
         },
         formatting = {
           deprecated = true,
@@ -108,43 +101,6 @@ return {
           { name = 'cmdline_history', priority = 10, max_item_count = 5 },
         }),
       })
-    end,
-  },
-  {
-    'github/copilot.vim',
-    enabled = false,
-    event = 'VeryLazy',
-    dependencies = { 'nvim-cmp' },
-    init = function() vim.g.copilot_no_tab_map = true end,
-    config = function()
-      local function accept_word()
-        fn['copilot#Accept']('')
-        local output = fn['copilot#TextQueuedForInsertion']()
-        return fn.split(output, [[[ .]\zs]])[1]
-      end
-
-      local function accept_line()
-        fn['copilot#Accept']('')
-        local output = fn['copilot#TextQueuedForInsertion']()
-        return fn.split(output, [[[\n]\zs]])[1]
-      end
-      map('i', '<Plug>(as-copilot-accept)', "copilot#Accept('<Tab>')", {
-        expr = true,
-        remap = true,
-        silent = true,
-      })
-      map('i', '<m-]>', '<Plug>(copilot-next)')
-      map('i', '<m-[>', '<Plug>(copilot-previous)')
-      map('i', '<m-w>', accept_word, { expr = true, remap = false, desc = 'accept word' })
-      map('i', '<m-l>', accept_line, { expr = true, remap = false, desc = 'accept line' })
-      vim.g.copilot_filetypes = {
-        ['*'] = true,
-        gitcommit = false,
-        NeogitCommitMessage = false,
-        DressingInput = false,
-        ['neo-tree-popup'] = false,
-        ['dap-repl'] = false,
-      }
     end,
   },
 }
