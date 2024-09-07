@@ -109,9 +109,8 @@ return {
     config = function()
       local neocodeium = require('neocodeium')
       neocodeium.setup()
-      vim.keymap.set('i', '<c-i>', neocodeium.accept)
-      vim.keymap.set('i', '<c-.>', neocodeium.accept_word)
-      vim.keymap.set('i', '<c-/>', neocodeium.accept_line)
+      vim.keymap.set('i', '<c-e>', neocodeium.accept)
+      vim.keymap.set('i', '<c-i>', neocodeium.accept_line)
       vim.keymap.set('i', '<c-]>', function() neocodeium.cycle_or_complete() end)
       vim.keymap.set('n', '<s-space>', '<cmd>NeoCodeium toggle<cr>')
     end,
