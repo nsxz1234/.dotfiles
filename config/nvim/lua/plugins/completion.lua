@@ -108,11 +108,14 @@ return {
     event = 'VeryLazy',
     config = function()
       local neocodeium = require('neocodeium')
-      neocodeium.setup()
+      neocodeium.setup({
+        enabled = false,
+      })
       vim.keymap.set('i', '<c-i>', neocodeium.accept)
       vim.keymap.set('i', '<c-e>', neocodeium.accept_line)
       vim.keymap.set('i', '<c-]>', function() neocodeium.cycle_or_complete() end)
-      vim.keymap.set('n', '<s-space>', '<cmd>NeoCodeium toggle<cr>')
+      vim.keymap.set('n', '<leader>ne', '<cmd>NeoCodeium enable<cr>')
+      vim.keymap.set('n', '<leader>nd', '<cmd>NeoCodeium disable<cr>')
     end,
   },
 }
