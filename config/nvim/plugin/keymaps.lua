@@ -15,8 +15,6 @@ local cnoremap = function(...) map('c', ...) end
 local tnoremap = function(...) map('t', ...) end
 local snoremap = function(...) map('s', ...) end
 
-nnoremap('<leader>4', '<cmd>so ~/.local/share/nvim/sessions/__Users__mac__.dotfiles<cr>')
-
 -- Terminal
 as.augroup('AddTerminalMappings', {
   event = { 'TermOpen' },
