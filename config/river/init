@@ -180,7 +180,7 @@ riverctl default-layout rivertile
 rivertile -view-padding 2 -outer-padding 2 &
 
 gsettings set org.gnome.desktop.interface font-name "Roboto Regular 12"
-# gsettings set org.gnome.desktop.interface cursor-theme "Adwaita"
+gsettings set org.gnome.desktop.interface cursor-theme "Adwaita"
 # gsettings set org.gnome.desktop.interface icon-theme "WhiteSur"
 # gsettings set org.gnome.desktop.interface gtk-theme "WhiteSur-Light"
 # gsettings set org.gnome.desktop.wm.preferences theme "WhiteSur-Light"
