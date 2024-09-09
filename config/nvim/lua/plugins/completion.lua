@@ -114,8 +114,7 @@ return {
       vim.keymap.set('i', '<c-i>', neocodeium.accept)
       vim.keymap.set('i', '<c-e>', neocodeium.accept_line)
       vim.keymap.set('i', '<c-]>', function() neocodeium.cycle_or_complete() end)
-      vim.keymap.set('n', '<leader>ne', '<cmd>NeoCodeium enable<cr>')
-      vim.keymap.set('n', '<leader>nd', '<cmd>NeoCodeium disable<cr>')
+      vim.keymap.set('n', '<s-space>', '<cmd>NeoCodeium toggle<cr>')
     end,
   },
 }
