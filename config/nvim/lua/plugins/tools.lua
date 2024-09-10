@@ -3,6 +3,7 @@ return {
     'stevearc/conform.nvim',
     opts = {
       formatters_by_ft = {
+        c = { 'clang-format' },
         zig = { 'zigfmt' },
         lua = { 'stylua' },
         markdown = { 'prettier' },
@@ -11,6 +12,11 @@ return {
       formatters = {
         dart_format = {
           append_args = { '-l', '120' },
+        },
+        ['clang-format'] = {
+          append_args = {
+            '-style={IndentWidth: 4, ColumnLimit: 100}',
+          },
         },
       },
     },
