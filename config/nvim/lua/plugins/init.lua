@@ -89,7 +89,6 @@ return {
       vim.g.rainbow_delimiters = {
         strategy = {
           [''] = rainbow_delimiters.strategy['global'],
-          zig = rainbow_delimiters.strategy['noop'],
         },
         query = {
           [''] = 'rainbow-delimiters',
