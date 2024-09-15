@@ -10,14 +10,14 @@
     "temperature",
     "backlight",
     "battery",
-    "pulseaudio",
+    "pulseaudio"
   ],
 
   "clock": {
-    "format": "  {:%b %d <small>%a</small> %I:%M <small>%p</small>}",
-    "format-alt": "  {:%B %d %A %r}",
+    "format": "  {:%I:%M <small>%p</small> <small>%a</small> %b %d}",
+    "format-alt": "  {:%r %A %B %d}",
     "tooltip-format": "<tt>{calendar}</tt>",
-    "interval": 1,
+    "interval": 1
   },
 
   "network": {
@@ -27,7 +27,7 @@
     "tooltip-format": "{ifname}: {ipaddr}/{cidr}  {gwaddr}",
     "tooltip-format-wifi": "{essid} ({signalStrength}%)",
     "on-click-right": "nm-connection-editor",
-    "interval": 2,
+    "interval": 2
   },
 
   "tray": { "icon-size": 20, "spacing": 10 },
@@ -41,21 +41,21 @@
     "format": "{icon} {temperatureC}°C",
     "format-icons": "",
     "tooltip": false,
-    "interval": 2,
+    "interval": 2
   },
 
   "backlight": {
     "format": "{icon} {percent}%",
     "format-icons": ["", "", "", "", "", "", "", "", ""],
     "on-scroll-up": "brightnessctl set 5%+",
-    "on-scroll-down": "brightnessctl set 5%-",
+    "on-scroll-down": "brightnessctl set 5%-"
   },
 
   "battery": {
     "format": "{icon} {capacity}%",
     "format-charging": "󰂄 {capacity}%",
     "format-plugged": "󰂄 {capacity}%",
-    "format-icons": ["󱊡", "󱊢", "󱊣"],
+    "format-icons": ["󱊡", "󱊢", "󱊣"]
   },
 
   "pulseaudio": {
@@ -64,6 +64,6 @@
     "on-click": "pamixer --toggle-mute",
     "on-click-right": "pavucontrol",
     "on-scroll-up": "pamixer -i 5",
-    "on-scroll-down": "pamixer -d 5",
-  },
+    "on-scroll-down": "pamixer -d 5"
+  }
 }
