@@ -3,9 +3,23 @@ return {
   {
     {
       'williamboman/mason.nvim',
-      cmd = 'Mason',
       build = ':MasonUpdate',
       opts = { ui = { height = 0.8 } },
+      dependencies = {
+        'WhoIsSethDaniel/mason-tool-installer.nvim',
+      },
+      config = function()
+        require('mason').setup()
+        require('mason-tool-installer').setup({
+          ensure_installed = {
+            'stylua',
+            'lua-language-server',
+            'bash-language-server',
+            'clangd',
+            'clang-format',
+          },
+        })
+      end,
     },
     {
       'williamboman/mason-lspconfig.nvim',
