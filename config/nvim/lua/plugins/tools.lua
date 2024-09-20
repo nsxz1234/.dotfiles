@@ -8,6 +8,8 @@ return {
         lua = { 'stylua' },
         markdown = { 'prettier' },
         dart = { 'dart_format' },
+        json = { 'prettier' },
+        jsonc = { 'prettier' },
       },
       formatters = {
         dart_format = {

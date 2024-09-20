@@ -17,6 +17,7 @@ return {
             'bash-language-server',
             'clangd',
             'clang-format',
+            'prettier',
           },
         })
       end,
