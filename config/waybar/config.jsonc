@@ -20,6 +20,10 @@
     "interval": 1
   },
 
+  "river/tags": {
+    "num-tags": 5
+  },
+
   "network": {
     "format": "{bandwidthTotalBytes}",
     "format-alt": "{bandwidthUpBytes} | {bandwidthDownBytes}",
