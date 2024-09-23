@@ -43,7 +43,6 @@ return {
     },
   },
   'nvim-tree/nvim-web-devicons',
-  { 'wellle/targets.vim', event = 'VeryLazy' },
   'mtdl9/vim-log-highlighting',
   'romainl/vim-cool',
   { 'onsails/lspkind.nvim' },
