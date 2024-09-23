@@ -27,7 +27,7 @@ return {
       { 'fg', fzf_lua.live_grep, desc = 'live grep' },
       { 'fc', fzf_lua.commands, desc = 'commands' },
       { 'fh', fzf_lua.git_bcommits, desc = 'buffer commits' },
-      { 'f/', fzf_lua.help_tags, desc = 'help' },
+      { 'f?', fzf_lua.help_tags, desc = 'help' },
       { 'ft', fzf_lua.lsp_live_workspace_symbols, desc = 'workspace symbols' },
       { 'fa', fzf_lua.lsp_document_symbols, desc = 'document symbols' },
       { 'fb', fzf_lua.grep_curbuf, desc = 'current buffer fuzzy find' },
