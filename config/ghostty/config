@@ -14,8 +14,6 @@ keybind = alt+three=unbind
 keybind = alt+four=unbind
 
 
-background-opacity = 0.88
-background-blur-radius = 20
 background = #32302f
 foreground = #d4be98
 # black
