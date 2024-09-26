@@ -7,7 +7,7 @@ local recursive_map = function(mode, lhs, rhs, opts)
 end
 
 local imap = function(...) recursive_map('i', ...) end
-local noremap = function(...) map('', ...) end
+local noremap = function(...) map({ 'n', 'x', 'o' }, ...) end
 local nnoremap = function(...) map('n', ...) end
 local vnoremap = function(...) map('x', ...) end
 local inoremap = function(...) map('i', ...) end
@@ -37,8 +37,7 @@ noremap('<c-l>', 'g_')
 inoremap('<c-h>', '<Left>')
 inoremap('<c-l>', '<Right>')
 snoremap('<c-e>', '<esc>A')
-nnoremap('r', '%')
-vnoremap('r', '%')
+noremap('r', '%')
 
 -- basic
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
