@@ -18,6 +18,7 @@ return {
             'clangd',
             'clang-format',
             'prettier',
+            'marksman',
           },
         })
       end,
@@ -253,6 +254,9 @@ return {
       highlighter = { auto_enable = true, excludes = { 'dart', 'lazy', 'toggleterm' } },
     },
   },
+  -- 如果打不开
+  -- cd ~/.local/share/nvim/lazy/markdown-preview.nvim
+  -- npm install
   {
     'iamcco/markdown-preview.nvim',
     build = function() vim.fn['mkdp#util#install']() end,
