@@ -1,7 +1,9 @@
 return {
   { 'f3fora/cmp-spell', ft = { 'gitcommit', 'NeogitCommitMessage', 'markdown', 'norg', 'org' } },
   {
-    'hrsh7th/nvim-cmp',
+    -- https://github.com/hrsh7th/nvim-cmp/pull/1980
+    'yioneko/nvim-cmp',
+    branch = 'perf-up',
     dependencies = {
       { 'hrsh7th/cmp-nvim-lsp' },
       { 'hrsh7th/cmp-cmdline' },
