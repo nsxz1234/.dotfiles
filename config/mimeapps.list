@@ -1,0 +1,16 @@
+[Default Applications]
+x-scheme-handler/tonsite=org.telegram.desktop.desktop
+x-scheme-handler/http=firefox.desktop
+text/html=firefox.desktop
+application/xhtml+xml=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+image/jpeg=imv.desktop
+image/png=imv.desktop
+
+[Added Associations]
+x-scheme-handler/tonsite=org.telegram.desktop.desktop;
+x-scheme-handler/http=firefox.desktop;
+text/html=firefox.desktop;
+application/xhtml+xml=firefox.desktop;
+x-scheme-handler/https=firefox.desktop;
+image/png=imv.desktop;
