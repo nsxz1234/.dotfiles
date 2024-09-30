@@ -15,6 +15,7 @@ return {
             'stylua',
             'lua-language-server',
             'bash-language-server',
+            'yaml-language-server',
             'clangd',
             'clang-format',
             'prettier',
