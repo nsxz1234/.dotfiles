@@ -181,9 +181,9 @@ rivertile -view-padding 2 -outer-padding 2 &
 
 gsettings set org.gnome.desktop.interface font-name "Roboto Regular 12"
 gsettings set org.gnome.desktop.interface cursor-theme "Adwaita"
-# gsettings set org.gnome.desktop.interface icon-theme "WhiteSur"
-# gsettings set org.gnome.desktop.interface gtk-theme "WhiteSur-Light"
-# gsettings set org.gnome.desktop.wm.preferences theme "WhiteSur-Light"
+gsettings set org.gnome.desktop.interface icon-theme "Adwaita"
+gsettings set org.gnome.desktop.interface gtk-theme "Adwaita"
+gsettings set org.gnome.desktop.wm.preferences theme "Adwaita"
 
 # riverctl list-inputs
 TOUCHPAD=pointer-2362-597-PNP0C50:00_093A:0255_Touchpad
