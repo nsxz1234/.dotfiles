@@ -101,20 +101,4 @@ return {
       end,
     },
   },
-  {
-    'akinsho/git-conflict.nvim',
-    event = 'VeryLazy',
-    opts = {
-      default_mappings = true,
-      disable_diagnostics = true,
-    },
-    keys = {
-      { '<leader>co', '<Plug>(git-conflict-ours)' },
-      { '<leader>cb', '<Plug>(git-conflict-both)' },
-      { '<leader>cn', '<Plug>(git-conflict-none)' },
-      { '<leader>ct', '<Plug>(git-conflict-theirs)' },
-      { ']c', '<Plug>(git-conflict-next-conflict)' },
-      { '[c', '<Plug>(git-conflict-prev-conflict)' },
-    },
-  },
 }
