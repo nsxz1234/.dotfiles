@@ -139,11 +139,6 @@ return {
     },
   },
   {
-    'simrat39/rust-tools.nvim',
-    event = 'VeryLazy',
-    dependencies = { 'nvim-lspconfig' },
-  },
-  {
     'kevinhwang91/nvim-hlslens',
     opts = {},
     keys = {
