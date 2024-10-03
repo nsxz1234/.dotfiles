@@ -11,4 +11,4 @@ for file in $dotfiles/config/*; do
 done
 
 sudo mkdir -p /usr/share/wayland-sessions/
-sudo cp wayland-sessions/river.desktop /usr/share/wayland-sessions/
+sudo cp wayland-sessions/river-zsh.desktop /usr/share/wayland-sessions/

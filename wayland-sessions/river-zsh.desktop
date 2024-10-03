@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=river (in login shell)
+Name=river-zsh
 Comment=An intelligent dynamic tiling Wayland compositor
 Exec=zsh -l -c river
 Type=Application
