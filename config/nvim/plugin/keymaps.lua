@@ -45,6 +45,7 @@ vim.keymap.set({ 'i', 's' }, 'jk', [[col('.') == 1 ? '<esc>' : '<esc>l']], { exp
 snoremap('<space>', '<space><bs>')
 nnoremap(';', ':', { silent = false })
 nnoremap('<c-q>', '<Cmd>q<cr>')
+nnoremap('<c-s>', '<Cmd>w!<cr>')
 nnoremap('<c-i>', '<c-i>')
 nnoremap('dw', 'diw')
 nnoremap('cw', 'ciw')
