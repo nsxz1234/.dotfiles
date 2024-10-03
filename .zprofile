@@ -34,3 +34,6 @@ export PATH=$PATH:~/Android/Sdk/platform-tools
 export PATH=$PATH:~/Android/Sdk/emulator/
 export ANDROID_AVD_HOME=$XDG_CONFIG_HOME/.android/avd/
 export CHROME_EXECUTABLE=/usr/bin/chromium
+
+# 解决gtk4 4.16黑边问题
+export GSK_RENDERER=ngl
