@@ -73,6 +73,7 @@ return {
       map('n', '-', '<cmd>Oil<CR>')
       require('oil').setup({
         keymaps = {
+          ['<C-s>'] = false,
           ['<C-h>'] = false,
           ['<C-l>'] = false,
           ['<C-t>'] = false,
