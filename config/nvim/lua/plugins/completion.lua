@@ -82,7 +82,7 @@ return {
           },
           {
             name = 'rg',
-            keyword_length = 4,
+            keyword_length = 5,
             option = { additional_arguments = '--max-depth 8' },
             group_index = 1,
           },
