@@ -270,18 +270,6 @@ return {
       highlighter = { auto_enable = true, excludes = { 'dart', 'lazy', 'toggleterm' } },
     },
   },
-  -- 如果打不开
-  -- cd ~/.local/share/nvim/lazy/markdown-preview.nvim
-  -- npm install
-  {
-    'iamcco/markdown-preview.nvim',
-    build = function() vim.fn['mkdp#util#install']() end,
-    ft = { 'markdown' },
-    config = function()
-      vim.g.mkdp_auto_start = 0
-      vim.g.mkdp_auto_close = 1
-    end,
-  },
   {
     'j-hui/fidget.nvim',
     opts = {
