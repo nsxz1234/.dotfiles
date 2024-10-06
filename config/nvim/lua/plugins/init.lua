@@ -49,6 +49,24 @@ return {
   'romainl/vim-cool',
   { 'onsails/lspkind.nvim' },
   {
+    'MeanderingProgrammer/render-markdown.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' },
+    opts = {},
+  },
+  {
+    'toppair/peek.nvim',
+    event = 'VeryLazy',
+    build = 'deno task --quiet build:fast',
+    config = function()
+      require('peek').setup({
+        app = { 'firefox', '--new-window' },
+        theme = 'light',
+      })
+      vim.api.nvim_create_user_command('PeekOpen', require('peek').open, {})
+      vim.api.nvim_create_user_command('PeekClose', require('peek').close, {})
+    end,
+  },
+  {
     'cbochs/grapple.nvim',
     keys = {
       { '<leader>m', '<cmd>Grapple toggle<cr>', desc = 'Grapple toggle tag' },
