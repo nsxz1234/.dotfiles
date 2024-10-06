@@ -101,9 +101,14 @@ nnoremap('<leader>;', modify_line_end_delimiter(';'), { desc = "add ';' to end o
 nnoremap('<leader>.', modify_line_end_delimiter('.'), { desc = "add '.' to end of line" })
 
 local function run()
-  if vim.bo.filetype == 'markdown' then vim.cmd('PeekOpen') end
+  if vim.bo.filetype == 'markdown' then
+    if require('peek').is_open() then
+      vim.cmd('PeekClose')
+    else
+      vim.cmd('PeekOpen')
+    end
+  end
 end
-
 nnoremap('<leader><cr>', run)
 
 -- buffer
