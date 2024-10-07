@@ -12,14 +12,15 @@ return {
         require('mason').setup()
         require('mason-tool-installer').setup({
           ensure_installed = {
-            'stylua',
-            'lua-language-server',
             'bash-language-server',
-            'yaml-language-server',
-            'clangd',
             'clang-format',
-            'prettier',
+            'clangd',
+            'json-lsp',
+            'lua-language-server',
             'marksman',
+            'prettier',
+            'stylua',
+            'yaml-language-server',
           },
         })
       end,
