@@ -47,8 +47,15 @@ eval "$(zoxide init zsh)"
 # load aliases
 source $ZDOTDIR/aliases.zsh
 
-# get colorful man pages (mandoc可用，man-db不行)
-source $ZDOTDIR/man.zsh
+# colorful less
+export LESS_TERMCAP_md=$'\e[01;34m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[01;44;90m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[01;32m'
+# man 手册支持彩色
+export GROFF_NO_SGR=1
 
 autoload -U colors && colors # Enable colors in prompt
 eval "$(starship init zsh)"
