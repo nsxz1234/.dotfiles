@@ -8,11 +8,6 @@ window-height=34
 
 keybind = ctrl+d=new_split:right
 keybind = ctrl+comma=unbind
-keybind = alt+one=unbind
-keybind = alt+two=unbind
-keybind = alt+three=unbind
-keybind = alt+four=unbind
-
 
 background = #32302f
 foreground = #d4be98
