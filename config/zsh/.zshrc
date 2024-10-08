@@ -47,7 +47,7 @@ eval "$(zoxide init zsh)"
 # load aliases
 source $ZDOTDIR/aliases.zsh
 
-# get colorful man pages with less
+# get colorful man pages (mandoc可用，man-db不行)
 source $ZDOTDIR/man.zsh
 
 autoload -U colors && colors # Enable colors in prompt
