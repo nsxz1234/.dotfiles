@@ -27,7 +27,7 @@
   "network": {
     "format": "{bandwidthTotalBytes}",
     "format-alt": "{bandwidthUpBytes} | {bandwidthDownBytes}",
-    "format-disconnected": "󰤮  Disconnected",
+    "format-disconnected": "󰤮 ",
     "tooltip-format": "{ifname}: {ipaddr}/{cidr}  {gwaddr}",
     "tooltip-format-wifi": "{essid} ({signalStrength}%)",
     "on-click-right": "nm-connection-editor",
