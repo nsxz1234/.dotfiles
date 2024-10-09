@@ -165,7 +165,6 @@ riverctl spawn waybar
 riverctl spawn "swaybg --image $DOTFILES/wallpapers/valley.jpg"
 riverctl spawn 'fcitx5 -d'
 riverctl spawn '/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1'
-riverctl spawn 'foot --server'
 
 # Make certain views start floating
 riverctl float-filter-add app-id float
