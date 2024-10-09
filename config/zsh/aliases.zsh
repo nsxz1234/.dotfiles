@@ -15,10 +15,10 @@ alias ipv6="ip addr show | grep 'inet6 ' | cut -d ' ' -f6 | sed -n '2p'"
 
 . /etc/os-release
 case $ID in
-        arch)
-                alias t='ydcv'
-                ;;
         void)
                 alias t='ydcv-rs'
+                ;;
+        *)
+                alias t='ydcv'
                 ;;
 esac

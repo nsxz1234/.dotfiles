@@ -166,11 +166,11 @@ riverctl spawn 'fcitx5 -d'
 
 # . /etc/os-release
 # case $ID in
-#     arch)
-#         riverctl spawn '/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1'
-#         ;;
 #     void)
 #         riverctl spawn '/usr/libexec/polkit-gnome-authentication-agent-1'
+#         ;;
+#     *)
+#         riverctl spawn '/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1'
 #         ;;
 # esac
 
