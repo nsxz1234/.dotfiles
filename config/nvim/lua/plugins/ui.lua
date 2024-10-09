@@ -7,7 +7,7 @@ return {
     keys = { { '<leader>w', function() require('dropbar.api').pick() end, desc = 'winbar: pick' } },
     opts = {
       general = {
-        -- show breadcrumb
+        -- show breadcrumb in oil.nvim
         enable = true,
       },
       icons = {
