@@ -18,7 +18,6 @@ riverctl map normal Super W spawn firefox
 riverctl map normal Super N spawn neovide
 riverctl map normal Super E spawn nautilus
 riverctl map normal Super T spawn telegram-desktop
-riverctl map normal Super D spawn discord
 riverctl map normal Super Backspace spawn waylock
 
 # Super+Q to close the focused view
@@ -164,7 +163,16 @@ riverctl spawn kanshi
 riverctl spawn waybar
 riverctl spawn "swaybg --image $DOTFILES/wallpapers/valley.jpg"
 riverctl spawn 'fcitx5 -d'
-riverctl spawn '/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1'
+
+# . /etc/os-release
+# case $ID in
+#     arch)
+#         riverctl spawn '/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1'
+#         ;;
+#     void)
+#         riverctl spawn '/usr/libexec/polkit-gnome-authentication-agent-1'
+#         ;;
+# esac
 
 # Make certain views start floating
 riverctl float-filter-add app-id float
