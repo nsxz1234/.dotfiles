@@ -1,5 +1,50 @@
 return {
   {
+    {
+      'williamboman/mason.nvim',
+      build = ':MasonUpdate',
+      opts = { ui = { height = 0.8 } },
+      dependencies = {
+        'WhoIsSethDaniel/mason-tool-installer.nvim',
+      },
+      config = function()
+        require('mason').setup()
+        require('mason-tool-installer').setup({
+          ensure_installed = {
+            'bash-language-server',
+            'clang-format',
+            'clangd',
+            'json-lsp',
+            'lua-language-server',
+            'marksman',
+            'prettier',
+            'stylua',
+            'yaml-language-server',
+          },
+        })
+      end,
+    },
+    {
+      'williamboman/mason-lspconfig.nvim',
+      event = { 'BufReadPre', 'BufNewFile' },
+      dependencies = {
+        'mason.nvim',
+        {
+          'neovim/nvim-lspconfig',
+          dependencies = {
+            {
+              'folke/lazydev.nvim',
+              ft = 'lua', -- only load on lua files
+              opts = {},
+            },
+          },
+          config = require('servers'),
+        },
+      },
+      opts = { automatic_installation = true },
+    },
+  },
+  {
     'stevearc/conform.nvim',
     opts = {
       formatters_by_ft = {

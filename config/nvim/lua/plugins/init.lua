@@ -1,54 +1,30 @@
 return {
   'nvim-lua/plenary.nvim',
-  {
-    {
-      'williamboman/mason.nvim',
-      build = ':MasonUpdate',
-      opts = { ui = { height = 0.8 } },
-      dependencies = {
-        'WhoIsSethDaniel/mason-tool-installer.nvim',
-      },
-      config = function()
-        require('mason').setup()
-        require('mason-tool-installer').setup({
-          ensure_installed = {
-            'bash-language-server',
-            'clang-format',
-            'clangd',
-            'json-lsp',
-            'lua-language-server',
-            'marksman',
-            'prettier',
-            'stylua',
-            'yaml-language-server',
-          },
-        })
-      end,
-    },
-    {
-      'williamboman/mason-lspconfig.nvim',
-      event = { 'BufReadPre', 'BufNewFile' },
-      dependencies = {
-        'mason.nvim',
-        {
-          'neovim/nvim-lspconfig',
-          dependencies = {
-            {
-              'folke/lazydev.nvim',
-              ft = 'lua', -- only load on lua files
-              opts = {},
-            },
-          },
-          config = require('servers'),
-        },
-      },
-      opts = { automatic_installation = true },
-    },
-  },
   'nvim-tree/nvim-web-devicons',
   'mtdl9/vim-log-highlighting',
   'romainl/vim-cool',
-  { 'onsails/lspkind.nvim' },
+  'onsails/lspkind.nvim',
+  {
+    'lukas-reineke/virt-column.nvim',
+    event = 'VimEnter',
+    opts = { char = '▕' },
+  },
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    config = function()
+      require('ibl').setup({
+        indent = {
+          char = '┊', -- ┊ ▏
+        },
+        scope = {
+          enabled = true,
+          show_start = false,
+          show_end = false,
+          highlight = { 'Function', 'Label' },
+        },
+      })
+    end,
+  },
   {
     'MeanderingProgrammer/render-markdown.nvim',
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' },
