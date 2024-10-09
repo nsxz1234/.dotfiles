@@ -6,6 +6,10 @@ return {
     event = 'VeryLazy',
     keys = { { '<leader>w', function() require('dropbar.api').pick() end, desc = 'winbar: pick' } },
     opts = {
+      general = {
+        -- show breadcrumb
+        enable = true,
+      },
       icons = {
         ui = { bar = { separator = '  ' } },
         kinds = {
