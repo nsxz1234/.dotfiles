@@ -1,20 +1,23 @@
 return {
   'Bekaboo/dropbar.nvim',
   event = 'VeryLazy',
-  keys = { { '<leader>w', function() require('dropbar.api').pick() end, desc = 'winbar: pick' } },
-  opts = {
-    general = {
-      -- show breadcrumb in oil.nvim
-      enable = true,
-    },
-    icons = {
-      ui = { bar = { separator = '  ' } },
-      kinds = {
-        symbols = vim.tbl_map(
-          function(value) return value .. ' ' end,
-          require('lspkind').symbol_map
-        ),
+  keys = { { '<leader>w', function() require('dropbar.api').pick() end } },
+  config = function()
+    local enable = require('dropbar.configs').opts.general.enable
+    require('dropbar').setup({
+      general = {
+        -- show breadcrumb in oil.nvim
+        enable = function(buf, win) return enable(buf, win) or vim.bo[buf].ft == 'oil' end,
       },
-    },
-  },
+      icons = {
+        ui = { bar = { separator = '  ' } },
+        kinds = {
+          symbols = vim.tbl_map(
+            function(value) return value .. ' ' end,
+            require('lspkind').symbol_map
+          ),
+        },
+      },
+    })
+  end,
 }
