@@ -52,7 +52,8 @@
     "format": "{icon} {percent}%",
     "format-icons": ["", "", "", "", "", "", "", "", ""],
     "on-scroll-up": "brightnessctl set 5%+",
-    "on-scroll-down": "brightnessctl set 5%-"
+    "on-scroll-down": "brightnessctl set 5%-",
+    "tooltip": false
   },
 
   "battery": {
@@ -69,6 +70,7 @@
     "on-click": "pamixer --toggle-mute",
     "on-click-right": "pavucontrol",
     "on-scroll-up": "pamixer -i 5",
-    "on-scroll-down": "pamixer -d 5"
+    "on-scroll-down": "pamixer -d 5",
+    "tooltip": false
   }
 }
