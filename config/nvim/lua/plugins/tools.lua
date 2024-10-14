@@ -17,6 +17,7 @@ return {
             'json-lsp',
             'lua-language-server',
             'marksman',
+            'markdownlint',
             'prettier',
             'stylua',
             'yaml-language-server',
