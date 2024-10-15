@@ -22,7 +22,6 @@ return {
   keys = {
     { 'ff', file_picker, desc = 'find files' },
     { 'fo', fzf_lua.oldfiles, desc = 'Most recently used files' },
-    { 'fd', fzf_lua.buffers, desc = 'buffers' },
     { 'fg', fzf_lua.live_grep, desc = 'live grep' },
     { 'fc', fzf_lua.commands, desc = 'commands' },
     { 'fh', fzf_lua.git_bcommits, desc = 'buffer commits' },
@@ -53,7 +52,10 @@ return {
           ['<c-b>'] = 'preview-page-up',
         },
       },
-      oldfiles = { cwd_only = false },
+      oldfiles = {
+        cwd_only = false,
+        include_current_session = true,
+      },
       grep = {
         rg_opts = '--column --hidden --line-number --no-heading --color=always --smart-case --max-columns=4096 -e',
       },
