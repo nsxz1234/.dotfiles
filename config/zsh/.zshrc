@@ -8,21 +8,27 @@ setopt AUTO_CD
 # setopt CORRECT                  # command auto-correction
 # setopt COMPLETE_ALIASES
 # setopt APPEND_HISTORY
-# setopt EXTENDED_HISTORY
 # setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_IGNORE_ALL_DUPS  # when adding a new entry to history remove any currently present duplicate
-# setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE  # don't record lines starting with a space in the history
-# setopt HIST_REDUCE_BLANKS
-# setopt HIST_SAVE_NO_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt HIST_SAVE_NO_DUPS
 # setopt HIST_VERIFY
-# setopt AUTOPARAMSLASH            # tab completing directory appends a slash
-# setopt SHARE_HISTORY             # Share your history across all your terminal windows
 # setopt EXTENDED_HISTORY          # Write the history file in the ':start:elapsed;command' format.
 setopt INC_APPEND_HISTORY        # essentially syncs history between shells
 setopt AUTO_PUSHD                # Push the current directory visited on the stack.
-# setopt PUSHD_IGNORE_DUPS         # Do not store duplicates in the stack.
-# setopt PUSHD_SILENT              # Do not print the directory stack after pushd or popd.
+setopt PUSHD_IGNORE_DUPS         # Do not store duplicates in the stack.
+setopt PUSHD_SILENT              # Do not print the directory stack after pushd or popd.
+setopt AUTO_CONTINUE
+setopt EXTENDED_GLOB
+# 补全列表不同列可以使用不同的列宽
+setopt LISTPACKED
+# 为方便复制，右边的提示符只在最新的提示符上显示
+setopt TRANSIENT_RPROMPT
+# setopt 的输出显示选项的开关状态
+setopt KSH_OPTION_PRINT
+setopt NO_BG_NICE
 
 HISTFILE=$HOME/.local/share/.zsh_history
 HISTSIZE=100000
@@ -76,7 +82,6 @@ source $ZDOTDIR/better_ctrl_z.zsh
 
 # Emacs keybindings
 bindkey -e
-# ^g to open lazygit (below oh-my-zsh)
 bindkey -s '^g' 'lazygit\n'
 
 
