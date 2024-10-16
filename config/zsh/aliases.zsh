@@ -1,4 +1,3 @@
-alias ..='cd ..'
 alias ssh="env TERM=xterm-256color ssh"
 alias ls="ls --color=auto --hyperlink=auto $@"
 alias l="eza --long --all --git --color=always --group-directories-first --icons $@"

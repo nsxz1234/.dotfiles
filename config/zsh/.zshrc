@@ -3,7 +3,7 @@ export GPG_TTY=$(tty)
 # setopt ALWAYS_TO_END
 # setopt AUTO_MENU
 # setopt LIST_PACKED
-# setopt AUTO_CD
+setopt AUTO_CD
 # setopt RM_STAR_WAIT
 # setopt CORRECT                  # command auto-correction
 # setopt COMPLETE_ALIASES
