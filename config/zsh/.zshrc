@@ -20,7 +20,7 @@ setopt HIST_IGNORE_SPACE  # don't record lines starting with a space in the hist
 # setopt SHARE_HISTORY             # Share your history across all your terminal windows
 # setopt EXTENDED_HISTORY          # Write the history file in the ':start:elapsed;command' format.
 setopt INC_APPEND_HISTORY        # essentially syncs history between shells
-# setopt AUTO_PUSHD                # Push the current directory visited on the stack.
+setopt AUTO_PUSHD                # Push the current directory visited on the stack.
 # setopt PUSHD_IGNORE_DUPS         # Do not store duplicates in the stack.
 # setopt PUSHD_SILENT              # Do not print the directory stack after pushd or popd.
 
