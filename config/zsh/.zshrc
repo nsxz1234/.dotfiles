@@ -1,21 +1,13 @@
 export GPG_TTY=$(tty)
 
-# setopt ALWAYS_TO_END
-# setopt AUTO_MENU
-# setopt LIST_PACKED
 setopt AUTO_CD
-# setopt RM_STAR_WAIT
-# setopt CORRECT                  # command auto-correction
-# setopt COMPLETE_ALIASES
-# setopt APPEND_HISTORY
-# setopt HIST_EXPIRE_DUPS_FIRST
+setopt COMPLETE_ALIASES
+setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_IGNORE_ALL_DUPS  # when adding a new entry to history remove any currently present duplicate
 setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE  # don't record lines starting with a space in the history
 setopt HIST_REDUCE_BLANKS
 setopt HIST_SAVE_NO_DUPS
-# setopt HIST_VERIFY
-# setopt EXTENDED_HISTORY          # Write the history file in the ':start:elapsed;command' format.
 setopt INC_APPEND_HISTORY        # essentially syncs history between shells
 setopt AUTO_PUSHD                # Push the current directory visited on the stack.
 setopt PUSHD_IGNORE_DUPS         # Do not store duplicates in the stack.
