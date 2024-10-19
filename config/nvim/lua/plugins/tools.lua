@@ -13,7 +13,6 @@ return {
           ensure_installed = {
             'bash-language-server',
             'clang-format',
-            'clangd',
             'json-lsp',
             'lua-language-server',
             'marksman',
