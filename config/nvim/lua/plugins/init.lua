@@ -201,20 +201,6 @@ return {
     end,
   },
   {
-    'Shatur/neovim-session-manager',
-    keys = {
-      { 'fs', '<cmd>SessionManager load_session<cr>' },
-      { '<leader>ss', '<cmd>SessionManager save_current_session<cr>', silent = false },
-      { '<leader>sd', '<cmd>SessionManager delete_session<cr>' },
-    },
-    config = function()
-      require('session_manager').setup({
-        autoload_mode = require('session_manager.config').AutoloadMode.Disabled,
-        autosave_ignore_not_normal = false,
-      })
-    end,
-  },
-  {
     'folke/flash.nvim',
     event = 'VeryLazy',
     opts = {
