@@ -1,8 +1,7 @@
 return {
   { 'f3fora/cmp-spell', ft = { 'gitcommit', 'NeogitCommitMessage', 'markdown', 'norg', 'org' } },
   {
-    -- https://github.com/hrsh7th/nvim-cmp/pull/1980
-    'iguanacucumber/magazine.nvim',
+    'hrsh7th/nvim-cmp',
     dependencies = {
       { 'hrsh7th/cmp-nvim-lsp' },
       { 'hrsh7th/cmp-cmdline' },
