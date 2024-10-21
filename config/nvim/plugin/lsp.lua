@@ -39,8 +39,18 @@ end
 local function setup_mappings(_, bufnr)
   local function with_desc(desc) return { buffer = bufnr, desc = desc } end
 
-  map('n', '[e', vim.diagnostic.goto_prev, with_desc('lsp: go to prev diagnostic'))
-  map('n', ']e', vim.diagnostic.goto_next, with_desc('lsp: go to next diagnostic'))
+  map(
+    'n',
+    '[e',
+    function() vim.diagnostic.jump({ count = -1 }) end,
+    with_desc('lsp: go to prev diagnostic')
+  )
+  map(
+    'n',
+    ']e',
+    function() vim.diagnostic.jump({ count = 1 }) end,
+    with_desc('lsp: go to next diagnostic')
+  )
   map('n', 'ge', vim.diagnostic.open_float, with_desc('lsp: open diagnostic'))
   map('n', '<leader>le', vim.diagnostic.setqflist, with_desc('lsp: diagnostic list'))
   map({ 'n', 'x' }, '<c-f>', require('conform').format, with_desc('lsp: format buffer'))
