@@ -3,9 +3,9 @@ return {
   event = 'VeryLazy',
   keys = { { '<leader>w', function() require('dropbar.api').pick() end } },
   config = function()
-    local enable = require('dropbar.configs').opts.general.enable
+    local enable = require('dropbar.configs').opts.bar.enable
     require('dropbar').setup({
-      general = {
+      bar = {
         -- show breadcrumb in oil.nvim
         enable = function(buf, win) return enable(buf, win) or vim.bo[buf].ft == 'oil' end,
       },
