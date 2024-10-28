@@ -7,6 +7,7 @@ local servers = {
   vimls = {},
   marksman = {},
   yamlls = {},
+  tinymist = {},
   lua_ls = {
     settings = {
       Lua = {

@@ -20,6 +20,7 @@ return {
             'prettier',
             'stylua',
             'yaml-language-server',
+            'tinymist',
           },
         })
       end,
@@ -55,6 +56,7 @@ return {
         dart = { 'dart_format' },
         json = { 'prettier' },
         jsonc = { 'prettier' },
+        typst = { 'typstyle' },
       },
       formatters = {
         dart_format = {
