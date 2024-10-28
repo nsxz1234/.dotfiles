@@ -21,6 +21,7 @@ return {
             'stylua',
             'yaml-language-server',
             'tinymist',
+            'taplo',
           },
         })
       end,
@@ -57,6 +58,7 @@ return {
         json = { 'prettier' },
         jsonc = { 'prettier' },
         typst = { 'typstyle' },
+        toml = { 'taplo' },
       },
       formatters = {
         dart_format = {

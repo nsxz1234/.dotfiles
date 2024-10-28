@@ -8,6 +8,7 @@ local servers = {
   marksman = {},
   yamlls = {},
   tinymist = {},
+  taplo = {},
   lua_ls = {
     settings = {
       Lua = {
