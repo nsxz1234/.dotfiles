@@ -9,8 +9,8 @@ alias grep='grep --color'
 alias re='wf-recorder -g "$(slurp)" -f recording.mp4'
 alias err='journalctl -b -p err'
 alias cal='cal -3'
-alias ipv4="ip addr show | grep 'inet ' | grep -v '127.0.0.1' | cut -d' ' -f6 | cut -d/ -f1"
-alias ipv6="ip addr show | grep 'inet6 ' | cut -d ' ' -f6 | sed -n '2p'"
+alias ip4="ip addr show | grep 'inet ' | grep -v '127.0.0.1' | cut -d' ' -f6 | cut -d/ -f1"
+alias ip6="ip addr show | grep 'inet6 ' | cut -d ' ' -f6 | sed -n '2p'"
 alias p='popd'
 
 . /etc/os-release
