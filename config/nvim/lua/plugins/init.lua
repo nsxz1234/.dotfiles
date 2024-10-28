@@ -44,6 +44,14 @@ return {
     end,
   },
   {
+    'chomosuke/typst-preview.nvim',
+    version = '1.*',
+    build = function() require('typst-preview').update() end,
+    opts = {
+      open_cmd = 'firefox -new-window %s --class typst-preview',
+    },
+  },
+  {
     'cbochs/grapple.nvim',
     keys = {
       { '<leader>m', '<cmd>Grapple toggle<cr>', desc = 'Grapple toggle tag' },

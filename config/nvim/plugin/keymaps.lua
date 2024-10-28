@@ -108,6 +108,7 @@ local function run()
       vim.cmd('PeekOpen')
     end
   end
+  if vim.bo.filetype == 'typst' then vim.cmd('TypstPreview') end
 end
 nnoremap('<leader><cr>', run)
 
