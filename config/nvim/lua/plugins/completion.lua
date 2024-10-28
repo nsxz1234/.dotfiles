@@ -9,7 +9,6 @@ return {
       { 'hrsh7th/cmp-path' },
       { 'hrsh7th/cmp-buffer' },
       { 'saadparwaiz1/cmp_luasnip' },
-      { 'lukas-reineke/cmp-rg' },
       { 'petertriho/cmp-git', opts = { filetypes = { 'gitcommit', 'NeogitCommitMessage' } } },
     },
     config = function()
@@ -76,12 +75,6 @@ return {
           {
             name = 'buffer',
             options = { get_bufnrs = function() return vim.api.nvim_list_bufs() end },
-            group_index = 1,
-          },
-          {
-            name = 'rg',
-            keyword_length = 5,
-            option = { additional_arguments = '--max-depth 8' },
             group_index = 1,
           },
           { name = 'spell', group_index = 2 },
