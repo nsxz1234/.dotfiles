@@ -12,6 +12,7 @@ alias cal='cal -3'
 alias ip4="ip addr show | grep 'inet ' | grep -v '127.0.0.1' | cut -d' ' -f6 | cut -d/ -f1"
 alias ip6="ip addr show | grep 'inet6 ' | cut -d ' ' -f6 | sed -n '2p'"
 alias p='popd'
+alias du='dust'
 
 . /etc/os-release
 case $ID in
